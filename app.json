@@ -1,0 +1,24 @@
+{
+  "id": "name.aivus.homey.gree-hvac",
+  "version": "0.1.0",
+  "compatibility": ">=1.5.0",
+  "sdk": 2,
+  "name": {
+    "en": "Gree, Cooper&Hunter HVAC Control"
+  },
+  "description": {
+    "en": "Control your Gree, Cooper&Hunter HVAC devices"
+  },
+  "category": [
+    "climate"
+  ],
+  "permissions": [],
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Illia Antypenko",
+    "email": "ilya@antipenko.pp.ua"
+  }
+}
