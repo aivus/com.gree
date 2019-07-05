@@ -1,24 +1,75 @@
 {
-  "id": "name.aivus.homey.gree-hvac",
-  "version": "0.1.0",
-  "compatibility": ">=1.5.0",
-  "sdk": 2,
-  "name": {
-    "en": "Gree, Cooper&Hunter HVAC Control"
-  },
-  "description": {
-    "en": "Control your Gree, Cooper&Hunter HVAC devices"
-  },
-  "category": [
-    "climate"
-  ],
-  "permissions": [],
-  "images": {
-    "large": "/assets/images/large.png",
-    "small": "/assets/images/small.png"
-  },
-  "author": {
-    "name": "Illia Antypenko",
-    "email": "ilya@antipenko.pp.ua"
-  }
+    "id": "name.aivus.homey.gree-hvac",
+    "version": "0.1.0",
+    "compatibility": ">=1.5.0",
+    "sdk": 2,
+    "name": {
+        "en": "Gree, Cooper&Hunter HVAC Control"
+    },
+    "description": {
+        "en": "Control your Gree, Cooper&Hunter HVAC devices"
+    },
+    "category": [
+        "climate"
+    ],
+    "permissions": [],
+    "images": {
+        "large": "/assets/images/large.png",
+        "small": "/assets/images/small.png"
+    },
+    "author": {
+        "name": "Illia Antypenko",
+        "email": "ilya@antipenko.pp.ua"
+    },
+    "drivers": [
+        {
+            "id": "gree_cooper_hunter_hvac",
+            "name": {
+                "en": "Gree, Cooper&Hunter HVAC"
+            },
+            "class": "thermostat",
+            "capabilities": [
+                "onoff",
+                "target_temperature"
+            ],
+            "capabilitiesOptions": {
+                "target_temperature": {
+                    "min": 16,
+                    "max": 30,
+                    "step": 1
+                }
+            },
+            "mobile": {
+                "components": [
+                    {
+                        "id": "icon",
+                        "capabilities": []
+                    },
+                    {
+                        "id": "thermostat",
+                        "capabilities": [
+                            "target_temperature"
+                        ]
+                    }
+                ]
+            },
+            "pair": [
+                {
+                    "id": "list_devices",
+                    "template": "list_devices",
+                    "navigation": {
+                        "next": "add_my_devices"
+                    }
+                },
+                {
+                    "id": "add_my_devices",
+                    "template": "add_devices"
+                }
+            ],
+            "images": {
+                "large": "/drivers/gree_cooper_hunter_hvac/assets/images/large.png",
+                "small": "/drivers/gree_cooper_hunter_hvac/assets/images/small.png"
+            }
+        }
+    ]
 }

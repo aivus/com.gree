@@ -1,0 +1,22 @@
+{
+  "name": "name.aivus.homey.gree-hvac",
+  "version": "1.0.0",
+  "description": "Control your Gree, Cooper&Hunter HVAC devices",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aivus/name.aivus.homey.gree-hvac.git"
+  },
+  "author": "Illia Antypenko",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/aivus/name.aivus.homey.gree-hvac/issues"
+  },
+  "homepage": "https://github.com/aivus/name.aivus.homey.gree-hvac#readme",
+  "dependencies": {
+    "gree-hvac-client": "git+https://github.com/inwaar/gree-hvac-client.git"
+  }
+}
