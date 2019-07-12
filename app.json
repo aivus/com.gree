@@ -39,14 +39,6 @@
             },
             "values": [
                 {
-                    "id": "off",
-                    "title": {
-                        "en": "Off",
-                        "nl": "Uit",
-                        "de": "Aus"
-                    }
-                },
-                {
                     "id": "auto",
                     "title": {
                         "en": "Automatic",
@@ -105,14 +97,6 @@
                                 "type": "dropdown",
                                 "values": [
                                     {
-                                        "id": "off",
-                                        "title": {
-                                            "en": "Off",
-                                            "nl": "Uit",
-                                            "de": "Aus"
-                                        }
-                                    },
-                                    {
                                         "id": "auto",
                                         "title": {
                                             "en": "Automatic",
@@ -170,14 +154,6 @@
                                 "name": "hvac_mode",
                                 "type": "dropdown",
                                 "values": [
-                                    {
-                                        "id": "off",
-                                        "title": {
-                                            "en": "Off",
-                                            "nl": "Uit",
-                                            "de": "Aus"
-                                        }
-                                    },
                                     {
                                         "id": "auto",
                                         "title": {
@@ -261,11 +237,19 @@
                                         }
                                     },
                                     {
-                                        "id": "off",
+                                        "id": "dry",
                                         "title": {
-                                            "en": "Off",
-                                            "nl": "Uit",
-                                            "de": "Aus"
+                                            "en": "Dry",
+                                            "nl": "Droog",
+                                            "de": "Trocken"
+                                        }
+                                    },
+                                    {
+                                        "id": "fan_only",
+                                        "title": {
+                                            "en": "Fan Only",
+                                            "nl": "Alleen fans",
+                                            "de": "Nur Fan"
                                         }
                                     }
                                 ]
