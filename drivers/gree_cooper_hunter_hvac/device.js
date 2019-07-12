@@ -26,7 +26,9 @@ class MyDevice extends Homey.Device {
                 this.client.setProperty(HVAC.PROPERTY.temperature, value)
             });
 
-
+            this.registerCapabilityListener('hvac_mode', async (value) => {
+                this.client.setProperty(HVAC.PROPERTY.mode, HVAC.VALUE[value])
+            });
 
             this.client.on('connect', (client) => {
                 console.log('connected to', client.getDeviceId());
@@ -39,9 +41,15 @@ class MyDevice extends Homey.Device {
                     const value = updatedProperties[HVAC.PROPERTY.power] === 'on';
                     this.setCapabilityValue('onoff', value).catch(console.log);
                 }
+
                 if (updatedProperties.hasOwnProperty(HVAC.PROPERTY.temperature)) {
                     const value = updatedProperties[HVAC.PROPERTY.temperature];
                     this.setCapabilityValue('target_temperature', value).catch(console.log);
+                }
+
+                if (updatedProperties.hasOwnProperty(HVAC.PROPERTY.mode)) {
+                    const value = updatedProperties[HVAC.PROPERTY.mode];
+                    this.setCapabilityValue('hvac_mode', value).catch(console.log);
                 }
             });
         });
