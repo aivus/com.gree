@@ -26,9 +26,11 @@ class MyDevice extends Homey.Device {
                 this.client.setProperty(HVAC.PROPERTY.temperature, value)
             });
 
-            // this.client.on('connect', (client) => {
-            //     console.log('connected to', client.getDeviceId());
-            // });
+
+
+            this.client.on('connect', (client) => {
+                console.log('connected to', client.getDeviceId());
+            });
 
             this.client.on('update', (updatedProperties, properties) => {
                 console.log(updatedProperties, properties);
