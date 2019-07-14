@@ -2,6 +2,11 @@
 
 This app adds support of Gree, Cooper&Hunter and other compatible HVACs to Homey.
 
+## Links
+[Gree app in Homey Apps](https://apps.athom.com/app/com.gree)
+
+[Gree app GitHub repository](https://github.com/aivus/com.gree)
+
 ## Configuring HVAC WiFi
 
 HVAC must be connected to the same WiFi network where is Homey.
@@ -19,4 +24,8 @@ echo -n "{\"psw\": \"YOUR_WIFI_PASSWORD\",\"ssid\": \"YOUR_WIFI_SSID\",\"t\": \"
 * Cooper&Hunter Alpha CH-S18FTXE (Wi-Fi)
 
 ## Changelog
-_TBD_
+v0.1.0
+* First version of app.
+* Allows to turn on and off
+* Change HVAC modes
+* Control temperature

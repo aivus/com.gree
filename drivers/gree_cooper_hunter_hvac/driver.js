@@ -14,6 +14,15 @@ class MyDriver extends Homey.Driver {
 
         const devices = this._finder.hvacs.map(this._hvacToDevice);
 
+        // // Test device for debugging without connected HVAC
+        // devices.push({
+        //     name: 'test',
+        //     data: {
+        //         id: 'test',
+        //         mac: 'test',
+        //     }
+        // });
+
         callback(null, devices);
     }
 
