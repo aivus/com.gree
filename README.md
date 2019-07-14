@@ -1,6 +1,14 @@
 # Gree, Cooper&Hunter HVAC Control
 
-This app adds support of Gree, Cooper&Hunter and other compatible HVACs to Homey.
+This app adds support of Gree compatible HVACs to Homey.
+
+![Gree HVAC](assets/images/small.png)
+
+## Supported devices
+* Gree Wi-Fi HVACs
+* Cooper&Hunter Wi-Fi HVACs
+
+*If you found that your HVAC works and brand is not mentioned above please create an issue to add this brand as compatible*
 
 ## Links
 [Gree app in Homey Apps](https://apps.athom.com/app/com.gree)
