@@ -1,1 +1,5 @@
-{}
+{
+    "error": {
+        "offline": "Your HVAC went offline. Trying to reconnect..."
+    }
+}
