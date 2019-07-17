@@ -4,17 +4,17 @@ const Homey = require('homey');
 const finder = require('./network/finder');
 const HVAC = require('gree-hvac-client');
 
-// Interval between trying to found our device
+// Interval between trying to found our device (ms)
 const RECONNECT_TIME_INTERVAL = 10000;
 
-// Interval between polling status from device
+// Interval between polling status from device (ms)
 const POLLING_INTERVAL = 3000;
 
 class MyDevice extends Homey.Device {
     onInit() {
         this.log('Gree, Cooper&Hunter device has been inited');
-        this._markOffline();
 
+        this._markOffline();
         this._findDevices();
         this._reconnectInterval = setInterval( () => {
             this._findDevices();
@@ -109,7 +109,7 @@ class MyDevice extends Homey.Device {
 
     _markOffline() {
         this.setUnavailable(Homey.__('error.offline'));
-        this.log('[connect] offline');
+        this.log('[connect] mark device offline');
     }
 }
 
