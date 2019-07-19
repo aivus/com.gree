@@ -3,7 +3,7 @@
 const Homey = require('homey');
 const finder = require('./network/finder');
 
-class MyDriver extends Homey.Driver {
+class GreeHVACDriver extends Homey.Driver {
 
     onInit() {
         this.log('MyDriver has been inited');
@@ -42,4 +42,4 @@ class MyDriver extends Homey.Driver {
     }
 }
 
-module.exports = MyDriver;
+module.exports = GreeHVACDriver;
