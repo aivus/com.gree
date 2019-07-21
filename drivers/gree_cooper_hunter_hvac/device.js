@@ -58,6 +58,8 @@ class GreeHVACDevice extends Homey.Device {
             this.client.on('error', this._onError.bind(this));
             this.client.on('connect', this._onConnect.bind(this));
             this.client.on('update', this._onUpdate.bind(this));
+            this.client.on('no_response', this._onNoResponse.bind(this));
+            this.client.on('disconnect', this._onDisconnect.bind(this));
 
             this._registerCapabilities();
         });
@@ -97,8 +99,10 @@ class GreeHVACDevice extends Homey.Device {
 
         // this.log(updatedProperties, properties);
 
+        this.setAvailable();
+
         if (updatedProperties.hasOwnProperty(HVAC.PROPERTY.power)) {
-            const value = updatedProperties[HVAC.PROPERTY.power] === 'on';
+            const value = updatedProperties[HVAC.PROPERTY.power] === HVAC.VALUE.power.on;
             this.setCapabilityValue('onoff', value).catch(this.log);
             this.log('[update properties]', '[onoff]', value);
         }
@@ -121,9 +125,19 @@ class GreeHVACDevice extends Homey.Device {
         this._markOffline();
     }
 
+    _onNoResponse(client) {
+        this.log('[no response]', 'Don\'t get response during polling updates');
+        this._markOffline();
+    }
+
+    _onDisconnect() {
+        this.log('[disconnect]', 'Disconnected from HVAC');
+        this._markOffline();
+    }
+
     _markOffline() {
         this.setUnavailable(Homey.__('error.offline'));
-        this.log('[connect] mark device offline');
+        this.log('[offline] mark device offline');
     }
 
     _registerCapabilities() {
