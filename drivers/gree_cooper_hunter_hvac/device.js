@@ -10,6 +10,9 @@ const RECONNECT_TIME_INTERVAL = 10000;
 // Interval between polling status from HVAC (ms)
 const POLLING_INTERVAL = 3000;
 
+// Timeout for response from the HVAC during polling process (ms)
+const POLLING_TIMEOUT = 1500;
+
 // Debugging mode (for development)
 const DEBUG = false;
 
@@ -52,7 +55,8 @@ class GreeHVACDevice extends Homey.Device {
             this.client = new HVAC.Client({
                 debug: DEBUG,
                 host: hvac.remoteInfo.address,
-                pollingInterval: POLLING_INTERVAL
+                pollingInterval: POLLING_INTERVAL,
+                pollingTimeout: POLLING_TIMEOUT
             });
 
             this.client.on('error', this._onError.bind(this));

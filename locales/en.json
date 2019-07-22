@@ -1,4 +1,10 @@
 {
+    "pair": {
+        "intro": {
+            "p1": "Before continue you need to connect HVAC to your current WiFi network.",
+            "p2": "It can be done using regular manufacturer application like <i>EWPE Smart</i> or using CLI instruction from app README (advanced users)"
+        }
+    },
     "error": {
         "offline": "Your HVAC went offline. Trying to reconnect..."
     }
