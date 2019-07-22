@@ -1,4 +1,4 @@
-# Gree, Cooper&Hunter HVAC Control
+# Gree, Cooper&Hunter HVAC
 
 This app adds support of Gree compatible HVACs to Homey.
 

@@ -4,7 +4,7 @@
     "compatibility": ">=1.5.0",
     "sdk": 2,
     "name": {
-        "en": "Gree, Cooper&Hunter HVAC Control"
+        "en": "Gree, Cooper&Hunter HVAC"
     },
     "description": {
         "en": "Control your Gree, Cooper&Hunter HVAC devices"
@@ -13,7 +13,14 @@
         "climate"
     ],
     "tags": {
-        "en": ["cooper&hunter", "gree", "cooper and hunter", "daitsu", "hvac", "air conditioner"]
+        "en": [
+            "cooper&hunter",
+            "gree",
+            "cooper and hunter",
+            "daitsu",
+            "hvac",
+            "air conditioner"
+        ]
     },
     "permissions": [],
     "images": {
@@ -294,6 +301,12 @@
                 ]
             },
             "pair": [
+                {
+                    "id": "switch_wifi_info",
+                    "navigation": {
+                        "next": "list_devices"
+                    }
+                },
                 {
                     "id": "list_devices",
                     "template": "list_devices",

@@ -2,12 +2,12 @@
 
 const Homey = require('homey');
 
-class MyApp extends Homey.App {
+class GreeHVAC extends Homey.App {
 
     onInit() {
-        this.log('Gree HVAC control app is up and running...');
+        this.log('Gree HVAC app is up and running...');
     }
 
 }
 
-module.exports = MyApp;
+module.exports = GreeHVAC;
