@@ -20,6 +20,9 @@ class GreeHVACDevice extends Homey.Device {
     onInit() {
         this.log('Gree device has been inited');
 
+        this._flowTriggerHvacFanSpeedChanged = new Homey.FlowCardTriggerDevice('fan_speed_changed').register();
+        this._flowTriggerHvacModeChanged = new Homey.FlowCardTriggerDevice('hvac_mode_changed').register();
+
         this._markOffline();
         this._findDevices();
         this._reconnectInterval = setInterval(() => {
@@ -108,26 +111,28 @@ class GreeHVACDevice extends Homey.Device {
 
         if (updatedProperties.hasOwnProperty(HVAC.PROPERTY.power)) {
             const value = updatedProperties[HVAC.PROPERTY.power] === HVAC.VALUE.power.on;
-            this.setCapabilityValue('onoff', value).catch(this.log);
+            this.setCapabilityValue('onoff', value).catch(this.error);
             this.log('[update properties]', '[onoff]', value);
         }
 
         if (updatedProperties.hasOwnProperty(HVAC.PROPERTY.temperature)) {
             const value = updatedProperties[HVAC.PROPERTY.temperature];
-            this.setCapabilityValue('target_temperature', value).catch(this.log);
+            this.setCapabilityValue('target_temperature', value).catch(this.error);
             this.log('[update properties]', '[target_temperature]', value);
         }
 
         if (updatedProperties.hasOwnProperty(HVAC.PROPERTY.mode)) {
             const value = updatedProperties[HVAC.PROPERTY.mode];
-            this.setCapabilityValue('hvac_mode', value).catch(this.log);
+            this.setCapabilityValue('hvac_mode', value).catch(this.error);
             this.log('[update properties]', '[hvac_mode]', value);
+            this._flowTriggerHvacModeChanged.trigger(this).catch(this.error);
         }
 
         if (updatedProperties.hasOwnProperty(HVAC.PROPERTY.fanSpeed)) {
             const value = updatedProperties[HVAC.PROPERTY.fanSpeed];
-            this.setCapabilityValue('fan_speed', value).catch(this.log);
+            this.setCapabilityValue('fan_speed', value).catch(this.error);
             this.log('[update properties]', '[fan_speed]', value);
+            this._flowTriggerHvacFanSpeedChanged.trigger(this).catch(this.error);
         }
     }
 

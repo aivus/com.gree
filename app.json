@@ -31,6 +31,36 @@
         "name": "Illia Antypenko",
         "email": "ilya@antipenko.pp.ua"
     },
+    "flow": {
+        "triggers" : [
+            {
+                "id": "fan_speed_changed",
+                "title": {
+                    "en": "Fan speed changed"
+                },
+                "args": [
+                    {
+                        "name": "device",
+                        "type": "device",
+                        "filter": "driver_id=gree_cooper_hunter_hvac"
+                    }
+                ]
+            },
+            {
+                "id": "hvac_mode_changed",
+                "title": {
+                    "en": "HVAC mode changed"
+                },
+                "args": [
+                    {
+                        "name": "device",
+                        "type": "device",
+                        "filter": "driver_id=gree_cooper_hunter_hvac"
+                    }
+                ]
+            }
+        ]
+    },
     "capabilities": {
         "hvac_mode": {
             "type": "enum",
