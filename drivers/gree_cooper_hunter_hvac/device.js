@@ -28,6 +28,8 @@ class GreeHVACDevice extends Homey.Device {
     }
 
     onDeleted() {
+        this.log('[on deleted]', 'Gree device has been deleted. Disconnecting client.');
+
         if (this.client) {
             this.client.disconnect();
             this.client.removeAllListeners();
@@ -39,11 +41,11 @@ class GreeHVACDevice extends Homey.Device {
             delete this._reconnectInterval;
         }
 
-        this.log('Gree device has been deleted.');
+        this.log('[on deleted]', 'Cleanup after removing done');
     }
 
     _findDevices() {
-        this.log('Trying to find devices');
+        this.log('[find devices]', 'Trying to find devices');
         const deviceData = this.getData();
 
         finder.hvacs.forEach((hvac) => {
@@ -63,7 +65,6 @@ class GreeHVACDevice extends Homey.Device {
             this.client.on('connect', this._onConnect.bind(this));
             this.client.on('update', this._onUpdate.bind(this));
             this.client.on('no_response', this._onNoResponse.bind(this));
-            this.client.on('disconnect', this._onDisconnect.bind(this));
 
             this._registerCapabilities();
         });
@@ -122,6 +123,12 @@ class GreeHVACDevice extends Homey.Device {
             this.setCapabilityValue('hvac_mode', value).catch(this.log);
             this.log('[update properties]', '[hvac_mode]', value);
         }
+
+        if (updatedProperties.hasOwnProperty(HVAC.PROPERTY.fanSpeed)) {
+            const value = updatedProperties[HVAC.PROPERTY.fanSpeed];
+            this.setCapabilityValue('fan_speed', value).catch(this.log);
+            this.log('[update properties]', '[fan_speed]', value);
+        }
     }
 
     _onError(message, error) {
@@ -130,18 +137,13 @@ class GreeHVACDevice extends Homey.Device {
     }
 
     _onNoResponse(client) {
+        this._markOffline();
         this.log('[no response]', 'Don\'t get response during polling updates');
-        this._markOffline();
-    }
-
-    _onDisconnect() {
-        this.log('[disconnect]', 'Disconnected from HVAC');
-        this._markOffline();
     }
 
     _markOffline() {
-        this.setUnavailable(Homey.__('error.offline'));
         this.log('[offline] mark device offline');
+        this.setUnavailable(Homey.__('error.offline'));
     }
 
     _registerCapabilities() {
@@ -160,6 +162,12 @@ class GreeHVACDevice extends Homey.Device {
             const rawValue = HVAC.VALUE.mode[value];
             this.log('[mode change]', 'Value: ' + value, 'Raw value: ' + rawValue);
             this.client.setProperty(HVAC.PROPERTY.mode, rawValue)
+        });
+
+        this.registerCapabilityListener('fan_speed', async (value) => {
+            const rawValue = HVAC.VALUE.fanSpeed[value];
+            this.log('[fan speed change]', 'Value: ' + value, 'Raw value: ' + rawValue);
+            this.client.setProperty(HVAC.PROPERTY.fanSpeed, rawValue)
         });
     }
 }

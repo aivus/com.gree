@@ -6,7 +6,7 @@ const finder = require('./network/finder');
 class GreeHVACDriver extends Homey.Driver {
 
     onInit() {
-        this.log('MyDriver has been inited');
+        this.log('GreeHVACDriver has been inited');
         this._finder = finder;
     }
 
