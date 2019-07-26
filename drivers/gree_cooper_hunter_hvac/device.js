@@ -99,24 +99,30 @@ class GreeHVACDevice extends Homey.Device {
         this.registerCapabilityListener('onoff', (value) => {
             const rawValue = value ? HVAC.VALUE.power.on : HVAC.VALUE.power.off;
             this.log('[power mode change]', 'Value: ' + value, 'Raw value: ' + rawValue);
-            this.client.setProperty(HVAC.PROPERTY.power, rawValue)
+            this.client.setProperty(HVAC.PROPERTY.power, rawValue);
+
+            return Promise.resolve();
         });
 
         this.registerCapabilityListener('target_temperature', (value) => {
             this.log('[temperature change]', 'Value: ' + value);
-            this.client.setProperty(HVAC.PROPERTY.temperature, value)
+            this.client.setProperty(HVAC.PROPERTY.temperature, value);
+
+            return Promise.resolve();
         });
 
         this.registerCapabilityListener('hvac_mode', (value) => {
             const rawValue = HVAC.VALUE.mode[value];
             this.log('[mode change]', 'Value: ' + value, 'Raw value: ' + rawValue);
-            this.client.setProperty(HVAC.PROPERTY.mode, rawValue)
+            this.client.setProperty(HVAC.PROPERTY.mode, rawValue);
+            return this._flowTriggerHvacModeChanged.trigger(this).catch(this.error);
         });
 
         this.registerCapabilityListener('fan_speed', (value) => {
             const rawValue = HVAC.VALUE.fanSpeed[value];
             this.log('[fan speed change]', 'Value: ' + value, 'Raw value: ' + rawValue);
-            this.client.setProperty(HVAC.PROPERTY.fanSpeed, rawValue)
+            this.client.setProperty(HVAC.PROPERTY.fanSpeed, rawValue);
+            return this._flowTriggerHvacFanSpeedChanged.trigger(this).catch(this.error);
         });
     }
 
