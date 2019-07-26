@@ -32,7 +32,7 @@
         "email": "ilya@antipenko.pp.ua"
     },
     "flow": {
-        "triggers" : [
+        "triggers": [
             {
                 "id": "fan_speed_changed",
                 "title": {
@@ -56,6 +56,70 @@
                         "name": "device",
                         "type": "device",
                         "filter": "driver_id=gree_cooper_hunter_hvac"
+                    }
+                ]
+            }
+        ],
+        "conditions": [
+            {
+                "id": "hvac_mode_is",
+                "title": {
+                    "en": "Current HVAC mode !{{is|isn't}} ..."
+                },
+                "titleFormatted": {
+                    "en": "Current HVAC mode !{{is|isn't}} [[mode]]"
+                },
+                "args": [
+                    {
+                        "name": "device",
+                        "type": "device",
+                        "filter": "driver_id=gree_cooper_hunter_hvac"
+                    },
+                    {
+                        "name": "mode",
+                        "type": "dropdown",
+                        "values": [
+                            {
+                                "id": "auto",
+                                "label": {
+                                    "en": "Auto",
+                                    "nl": "Automatisch",
+                                    "de": "Automatisch"
+                                }
+                            },
+                            {
+                                "id": "cool",
+                                "label": {
+                                    "en": "Cool",
+                                    "nl": "Koelen",
+                                    "de": "Kühlen"
+                                }
+                            },
+                            {
+                                "id": "heat",
+                                "label": {
+                                    "en": "Heat",
+                                    "nl": "Verhitten",
+                                    "de": "Heizen"
+                                }
+                            },
+                            {
+                                "id": "dry",
+                                "label": {
+                                    "en": "Dry",
+                                    "nl": "Droog",
+                                    "de": "Trocken"
+                                }
+                            },
+                            {
+                                "id": "fan_only",
+                                "label": {
+                                    "en": "Fan Only",
+                                    "nl": "Alleen fans",
+                                    "de": "Nur Fan"
+                                }
+                            }
+                        ]
                     }
                 ]
             }
