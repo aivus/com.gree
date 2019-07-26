@@ -64,12 +64,40 @@ class GreeHVACDevice extends Homey.Device {
                 pollingTimeout: POLLING_TIMEOUT
             });
 
-            this.client.on('error', this._onError.bind(this));
-            this.client.on('connect', this._onConnect.bind(this));
-            this.client.on('update', this._onUpdate.bind(this));
-            this.client.on('no_response', this._onNoResponse.bind(this));
-
+            this._registerClientListeners();
             this._registerCapabilities();
+        });
+    }
+
+    _registerClientListeners() {
+        this.client.on('error', this._onError.bind(this));
+        this.client.on('connect', this._onConnect.bind(this));
+        this.client.on('update', this._onUpdate.bind(this));
+        this.client.on('no_response', this._onNoResponse.bind(this));
+    }
+
+    _registerCapabilities() {
+        this.registerCapabilityListener('onoff', async (value) => {
+            const rawValue = value ? HVAC.VALUE.power.on : HVAC.VALUE.power.off;
+            this.log('[power mode change]', 'Value: ' + value, 'Raw value: ' + rawValue);
+            this.client.setProperty(HVAC.PROPERTY.power, rawValue)
+        });
+
+        this.registerCapabilityListener('target_temperature', async (value) => {
+            this.log('[temperature change]', 'Value: ' + value);
+            this.client.setProperty(HVAC.PROPERTY.temperature, value)
+        });
+
+        this.registerCapabilityListener('hvac_mode', async (value) => {
+            const rawValue = HVAC.VALUE.mode[value];
+            this.log('[mode change]', 'Value: ' + value, 'Raw value: ' + rawValue);
+            this.client.setProperty(HVAC.PROPERTY.mode, rawValue)
+        });
+
+        this.registerCapabilityListener('fan_speed', async (value) => {
+            const rawValue = HVAC.VALUE.fanSpeed[value];
+            this.log('[fan speed change]', 'Value: ' + value, 'Raw value: ' + rawValue);
+            this.client.setProperty(HVAC.PROPERTY.fanSpeed, rawValue)
         });
     }
 
@@ -149,31 +177,6 @@ class GreeHVACDevice extends Homey.Device {
     _markOffline() {
         this.log('[offline] mark device offline');
         this.setUnavailable(Homey.__('error.offline'));
-    }
-
-    _registerCapabilities() {
-        this.registerCapabilityListener('onoff', async (value) => {
-            const rawValue = value ? HVAC.VALUE.power.on : HVAC.VALUE.power.off;
-            this.log('[power mode change]', 'Value: ' + value, 'Raw value: ' + rawValue);
-            this.client.setProperty(HVAC.PROPERTY.power, rawValue)
-        });
-
-        this.registerCapabilityListener('target_temperature', async (value) => {
-            this.log('[temperature change]', 'Value: ' + value);
-            this.client.setProperty(HVAC.PROPERTY.temperature, value)
-        });
-
-        this.registerCapabilityListener('hvac_mode', async (value) => {
-            const rawValue = HVAC.VALUE.mode[value];
-            this.log('[mode change]', 'Value: ' + value, 'Raw value: ' + rawValue);
-            this.client.setProperty(HVAC.PROPERTY.mode, rawValue)
-        });
-
-        this.registerCapabilityListener('fan_speed', async (value) => {
-            const rawValue = HVAC.VALUE.fanSpeed[value];
-            this.log('[fan speed change]', 'Value: ' + value, 'Raw value: ' + rawValue);
-            this.client.setProperty(HVAC.PROPERTY.fanSpeed, rawValue)
-        });
     }
 }
 
