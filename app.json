@@ -122,6 +122,76 @@
                         ]
                     }
                 ]
+            },
+            {
+                "id": "fan_speed_is",
+                "title": {
+                    "en": "Current fan speed !{{is|isn't}} ..."
+                },
+                "titleFormatted": {
+                    "en": "Current fan speed !{{is|isn't}} [[speed]]"
+                },
+                "args": [
+                    {
+                        "name": "device",
+                        "type": "device",
+                        "filter": "driver_id=gree_cooper_hunter_hvac"
+                    },
+                    {
+                        "name": "speed",
+                        "type": "dropdown",
+                        "values": [
+                            {
+                                "id": "auto",
+                                "label": {
+                                    "en": "Auto",
+                                    "nl": "Automatisch",
+                                    "de": "Automatisch"
+                                }
+                            },
+                            {
+                                "id": "low",
+                                "label": {
+                                    "en": "Low",
+                                    "nl": "Laag",
+                                    "de": "Niedrig"
+                                }
+                            },
+                            {
+                                "id": "mediumLow",
+                                "label": {
+                                    "en": "Medium Low",
+                                    "nl": "Gemiddeld Laag",
+                                    "de": "Mittel Niedrig"
+                                }
+                            },
+                            {
+                                "id": "medium",
+                                "label": {
+                                    "en": "Medium",
+                                    "nl": "Gemiddeld",
+                                    "de": "Mittel"
+                                }
+                            },
+                            {
+                                "id": "mediumHigh",
+                                "label": {
+                                    "en": "Medium High",
+                                    "nl": "Gemiddeld hoog",
+                                    "de": "Mittel hoch"
+                                }
+                            },
+                            {
+                                "id": "high",
+                                "label": {
+                                    "en": "High",
+                                    "nl": "Hoog",
+                                    "de": "Hoch"
+                                }
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },

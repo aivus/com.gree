@@ -13,6 +13,12 @@ class GreeHVAC extends Homey.App {
             .registerRunListener((args, state) => {
                 return args.mode === args.device.getCapabilityValue('hvac_mode');
             });
+
+        this._conditionFanSpeedIs = new Homey.FlowCardCondition('fan_speed_is')
+            .register()
+            .registerRunListener((args, state) => {
+                return args.speed === args.device.getCapabilityValue('fan_speed');
+            });
     }
 }
 
