@@ -96,24 +96,24 @@ class GreeHVACDevice extends Homey.Device {
      * @private
      */
     _registerCapabilities() {
-        this.registerCapabilityListener('onoff', async (value) => {
+        this.registerCapabilityListener('onoff', (value) => {
             const rawValue = value ? HVAC.VALUE.power.on : HVAC.VALUE.power.off;
             this.log('[power mode change]', 'Value: ' + value, 'Raw value: ' + rawValue);
             this.client.setProperty(HVAC.PROPERTY.power, rawValue)
         });
 
-        this.registerCapabilityListener('target_temperature', async (value) => {
+        this.registerCapabilityListener('target_temperature', (value) => {
             this.log('[temperature change]', 'Value: ' + value);
             this.client.setProperty(HVAC.PROPERTY.temperature, value)
         });
 
-        this.registerCapabilityListener('hvac_mode', async (value) => {
+        this.registerCapabilityListener('hvac_mode', (value) => {
             const rawValue = HVAC.VALUE.mode[value];
             this.log('[mode change]', 'Value: ' + value, 'Raw value: ' + rawValue);
             this.client.setProperty(HVAC.PROPERTY.mode, rawValue)
         });
 
-        this.registerCapabilityListener('fan_speed', async (value) => {
+        this.registerCapabilityListener('fan_speed', (value) => {
             const rawValue = HVAC.VALUE.fanSpeed[value];
             this.log('[fan speed change]', 'Value: ' + value, 'Raw value: ' + rawValue);
             this.client.setProperty(HVAC.PROPERTY.fanSpeed, rawValue)
@@ -165,28 +165,34 @@ class GreeHVACDevice extends Homey.Device {
 
         if (this._checkOnOffPowerPropertyChanged(updatedProperties)) {
             const value = updatedProperties[HVAC.PROPERTY.power] === HVAC.VALUE.power.on;
-            this.setCapabilityValue('onoff', value).catch(this.error);
-            this.log('[update properties]', '[onoff]', value);
+            this.setCapabilityValue('onoff', value).then(() => {
+                this.log('[update properties]', '[onoff]', value);
+                return Promise.resolve();
+            }).catch(this.error);
         }
 
         if (this._checkPropertyChanged(updatedProperties, HVAC.PROPERTY.temperature, 'target_temperature')) {
             const value = updatedProperties[HVAC.PROPERTY.temperature];
-            this.setCapabilityValue('target_temperature', value).catch(this.error);
-            this.log('[update properties]', '[target_temperature]', value);
+            this.setCapabilityValue('target_temperature', value).then(() => {
+                this.log('[update properties]', '[target_temperature]', value);
+                return Promise.resolve();
+            }).catch(this.error);
         }
 
         if (this._checkPropertyChanged(updatedProperties, HVAC.PROPERTY.mode, 'hvac_mode')) {
             const value = updatedProperties[HVAC.PROPERTY.mode];
-            this.setCapabilityValue('hvac_mode', value).catch(this.error);
-            this.log('[update properties]', '[hvac_mode]', value);
-            this._flowTriggerHvacModeChanged.trigger(this).catch(this.error);
+            this.setCapabilityValue('hvac_mode', value).then(() => {
+                this.log('[update properties]', '[hvac_mode]', value);
+                return this._flowTriggerHvacModeChanged.trigger(this).catch(this.error);
+            }).catch(this.error);
         }
 
         if (this._checkPropertyChanged(updatedProperties, HVAC.PROPERTY.fanSpeed, 'fan_speed')) {
             const value = updatedProperties[HVAC.PROPERTY.fanSpeed];
-            this.setCapabilityValue('fan_speed', value).catch(this.error);
-            this.log('[update properties]', '[fan_speed]', value);
-            this._flowTriggerHvacFanSpeedChanged.trigger(this).catch(this.error);
+            this.setCapabilityValue('fan_speed', value).then(() => {
+                this.log('[update properties]', '[fan_speed]', value);
+                return this._flowTriggerHvacFanSpeedChanged.trigger(this).catch(this.error);
+            }).catch(this.error);
         }
     }
 
