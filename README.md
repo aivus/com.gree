@@ -32,6 +32,11 @@ echo -n "{\"psw\": \"YOUR_WIFI_PASSWORD\",\"ssid\": \"YOUR_WIFI_SSID\",\"t\": \"
 ## This app is tested using next devices:
 * Cooper&Hunter Alpha CH-S18FTXE (Wi-Fi)
 
+## Translation
+Help wanted to verify and update any incorrect translation.
+
+Feel free to create issues/pull requests. 
+
 ## Changelog
 v0.1.0
 * First version of app.
