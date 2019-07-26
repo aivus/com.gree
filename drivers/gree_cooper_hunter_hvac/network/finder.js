@@ -39,13 +39,14 @@ class Finder {
     }
 
     _onMessage(message, remote_info) {
-
-        if (message.toString() === SCAN_MESSAGE.toString()) {
-            return;
-        }
-
         try {
             const parsedMessage = JSON.parse(message);
+
+            // Skip scan messages
+            if (parsedMessage.t === 'scan') {
+                return;
+            }
+
             const decryptedMessage = this._encryptionService.decrypt(parsedMessage);
 
             this._hvacs[decryptedMessage.name] = {message: decryptedMessage, remoteInfo: remote_info};

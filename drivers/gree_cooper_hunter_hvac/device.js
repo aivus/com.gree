@@ -121,7 +121,7 @@ class GreeHVACDevice extends Homey.Device {
     }
 
     /**
-     * App is sucessfully connected to the HVAC
+     * App is sucessfuly connected to the HVAC
      * Mark device as available in Homey
      *
      * @param {HVAC.Client} client
