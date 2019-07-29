@@ -44,6 +44,19 @@
                         "type": "device",
                         "filter": "driver_id=gree_cooper_hunter_hvac"
                     }
+                ],
+                "tokens": [
+                    {
+                        "name": "fan_speed",
+                        "type": "string",
+                        "title": {
+                            "en": "Fan speed",
+                            "nl": "Ventilator snelheid",
+                            "de": "Lüftergeschwindigkeit"
+
+                        },
+                        "example": "low"
+                    }
                 ]
             },
             {
@@ -56,6 +69,18 @@
                         "name": "device",
                         "type": "device",
                         "filter": "driver_id=gree_cooper_hunter_hvac"
+                    }
+                ],
+                "tokens": [
+                    {
+                        "name": "hvac_mode",
+                        "type": "string",
+                        "title": {
+                            "en": "HVAC mode",
+                            "nl": "HVAC modus",
+                            "de": "HVAC-Modus"
+                        },
+                        "example": "cool"
                     }
                 ]
             }

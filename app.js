@@ -12,7 +12,7 @@ class GreeHVAC extends Homey.App {
             .register()
             .registerRunListener((args, state) => {
                 const hvacMode = args.device.getCapabilityValue('hvac_mode');
-                args.device.log('[current hvac mode]', hvacMode);
+                args.device.log('[condition]', '[current hvac mode]', hvacMode);
                 return args.mode === hvacMode;
             });
 
@@ -20,7 +20,7 @@ class GreeHVAC extends Homey.App {
             .register()
             .registerRunListener((args, state) => {
                 const fanSpeed = args.device.getCapabilityValue('fan_speed');
-                args.device.log('[current fan speed]', fanSpeed);
+                args.device.log('[condition]', '[current fan speed]', fanSpeed);
                 return args.speed === fanSpeed;
             });
 
