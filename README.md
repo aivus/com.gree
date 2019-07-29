@@ -38,7 +38,7 @@ Help wanted to verify and update any incorrect translation.
 Feel free to create issues/pull requests. 
 
 ## Changelog
-v0.1.0
+v0.1.0 (30.07.2019)
 * First version of app.
 * Allows to turn on and off
 * Change HVAC modes
