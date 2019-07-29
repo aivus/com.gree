@@ -2,7 +2,7 @@
 
 This app adds support of Gree compatible HVACs to Homey.
 
-![Gree HVAC](assets/images/small.png)
+![Gree HVAC](https://raw.githubusercontent.com/aivus/com.gree/master/assets/images/small.png)
 
 ## Supported devices
 * Gree Wi-Fi HVACs
