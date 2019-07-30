@@ -27,7 +27,7 @@ It can be done using standard application, for example [EWPE Smart](https://play
 
 ```shell
 echo -n "{\"psw\": \"YOUR_WIFI_PASSWORD\",\"ssid\": \"YOUR_WIFI_SSID\",\"t\": \"wlan\"}" | nc -cu 192.168.1.1 7000
-````
+```
 
 ## This app is tested using next devices:
 * Cooper&Hunter Alpha CH-S18FTXE (Wi-Fi)
