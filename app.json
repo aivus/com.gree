@@ -4,7 +4,7 @@
     "compatibility": ">=1.5.0",
     "sdk": 2,
     "name": {
-        "en": "Gree, Cooper&Hunter HVAC"
+        "en": "Gree"
     },
     "description": {
         "en": "Control your Gree, Cooper&Hunter HVAC devices"
