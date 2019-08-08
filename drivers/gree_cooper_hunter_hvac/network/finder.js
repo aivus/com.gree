@@ -17,7 +17,6 @@ class Finder {
         this._listen();
         console.debug('[finder]', 'start listening');
         this.server.on('listening', () => {
-
             this._broadcast();
             this.broadcastInterval = setInterval(this._broadcast.bind(this), THIRTY_SECONDS);
         });
@@ -78,7 +77,7 @@ class Finder {
     }
 
     _restart(reason) {
-        console.error('error occurs, restart server', reason);
+        console.error('error occurs, restart server');
         if (reason) console.error(reason);
         clearInterval(this.broadcastInterval);
         this.server.close();
