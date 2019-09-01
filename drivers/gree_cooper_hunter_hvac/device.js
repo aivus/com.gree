@@ -11,7 +11,7 @@ const RECONNECT_TIME_INTERVAL = 10000;
 const POLLING_INTERVAL = 3000;
 
 // Timeout for response from the HVAC during polling process (ms)
-const POLLING_TIMEOUT = 1500;
+const POLLING_TIMEOUT = 2000;
 
 // Debugging mode (for development)
 const DEBUG = false;
@@ -57,14 +57,17 @@ class GreeHVACDevice extends Homey.Device {
      * @private
      */
     _findDevices() {
-        this.log('[find devices]', 'Trying to find devices');
         const deviceData = this.getData();
+        this.log('[find devices]', 'Trying to find device with mac: ', deviceData.mac);
 
         finder.hvacs.forEach((hvac) => {
             if (hvac.message.mac !== deviceData.mac) {
                 // Skip other HVACs from the finder until find current
+                this.log('Skipping HVAC with mac', hvac.message.mac);
                 return;
             }
+
+            this.log('Trying to connect to device with mac: ', hvac.message.mac);
 
             this.client = new HVAC.Client({
                 debug: DEBUG,
@@ -137,6 +140,7 @@ class GreeHVACDevice extends Homey.Device {
         this.log('[connect]', 'connected to', client.getDeviceId());
         clearInterval(this._reconnectInterval);
         delete this._reconnectInterval;
+        this.log('[connect]', 'mark device available');
         this.setAvailable();
     }
 
@@ -167,6 +171,7 @@ class GreeHVACDevice extends Homey.Device {
 
         // this.log(updatedProperties, properties);
 
+        this.log('[update]', 'mark device available');
         this.setAvailable();
 
         if (this._checkOnOffPowerPropertyChanged(updatedProperties)) {
