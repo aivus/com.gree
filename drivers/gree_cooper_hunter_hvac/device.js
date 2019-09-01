@@ -57,15 +57,17 @@ class GreeHVACDevice extends Homey.Device {
      * @private
      */
     _findDevices() {
-        this.log('[find devices]', 'Trying to find devices');
         const deviceData = this.getData();
+        this.log('[find devices]', 'Trying to find device with mac: ', deviceData.mac);
 
         finder.hvacs.forEach((hvac) => {
-            this.log(hvac.message);
             if (hvac.message.mac !== deviceData.mac) {
                 // Skip other HVACs from the finder until find current
+                this.log('Skipping HVAC with mac', hvac.message.mac);
                 return;
             }
+
+            this.log('Trying to connect to device with mac: ', hvac.message.mac);
 
             this.client = new HVAC.Client({
                 debug: DEBUG,

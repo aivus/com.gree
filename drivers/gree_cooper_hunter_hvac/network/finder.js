@@ -54,7 +54,7 @@ class Finder {
 
             this._hvacs[decryptedMessage.name] = {message: decryptedMessage, remoteInfo: remote_info};
 
-            console.debug('[finder]', 'HVAC found. Info: ', remote_info);
+            console.debug('[finder]', 'HVAC found. Remove info: ', remote_info, 'Message: ', decryptedMessage);
 
             // { t: 'dev',
             //     cid: 'f4911e46fbd5',
