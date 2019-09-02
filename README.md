@@ -26,6 +26,9 @@ Help wanted to verify and update any incorrect translation.
 Feel free to create issues/pull requests. 
 
 ## Changelog
+v0.1.3 (02.09.2019)
+* Fix connection bug when few HVACs are in use.
+
 v0.1.0 (30.07.2019)
 * First version of app.
 * Allows to turn on and off
