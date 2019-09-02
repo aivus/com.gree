@@ -15,7 +15,7 @@ class Finder {
 
     start() {
         this._listen();
-
+        console.debug('[finder]', 'start listening');
         this.server.on('listening', () => {
             this._broadcast();
             this.broadcastInterval = setInterval(this._broadcast.bind(this), THIRTY_SECONDS);
@@ -34,22 +34,27 @@ class Finder {
     }
 
     _broadcast() {
+        console.debug('[finder]', 'send broadcast message');
         this.server.setBroadcast(true);
         this.server.send(SCAN_MESSAGE, 0, SCAN_MESSAGE.length, 7000, '255.255.255.255');
     }
 
     _onMessage(message, remote_info) {
+        console.debug('[finder]', 'message received');
         try {
             const parsedMessage = JSON.parse(message);
 
             // Skip scan messages
             if (parsedMessage.t === 'scan') {
+                console.debug('[finder]', 'scan message. Skipping...');
                 return;
             }
 
             const decryptedMessage = this._encryptionService.decrypt(parsedMessage);
 
             this._hvacs[decryptedMessage.name] = {message: decryptedMessage, remoteInfo: remote_info};
+
+            console.debug('[finder]', 'HVAC found. Remove info: ', remote_info, 'Message: ', decryptedMessage);
 
             // { t: 'dev',
             //     cid: 'f4911e46fbd5',
@@ -72,6 +77,7 @@ class Finder {
     }
 
     _restart(reason) {
+        console.error('error occurs, restart server');
         if (reason) console.error(reason);
         clearInterval(this.broadcastInterval);
         this.server.close();
