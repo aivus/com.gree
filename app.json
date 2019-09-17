@@ -84,6 +84,31 @@
                         "example": "cool"
                     }
                 ]
+            },
+            {
+                "id": "turbo_mode_changed",
+                "title": {
+                    "en": "Turbo mode changed"
+                },
+                "args": [
+                    {
+                        "name": "device",
+                        "type": "device",
+                        "filter": "driver_id=gree_cooper_hunter_hvac"
+                    }
+                ],
+                "tokens": [
+                    {
+                        "name": "turbo_mode",
+                        "type": "boolean",
+                        "title": {
+                            "en": "Turbo mode",
+                            "nl": "Turbo-modus",
+                            "de": "Turbo Modus"
+                        },
+                        "example": "true"
+                    }
+                ]
             }
         ],
         "conditions": [
@@ -477,6 +502,22 @@
             "getable": true,
             "setable": true,
             "uiComponent": "picker"
+        },
+        "turbo_mode": {
+            "type": "boolean",
+            "title": {
+                "en": "Turbo mode",
+                "nl": "Turbo-modus",
+                "de": "Turbo Modus"
+            },
+            "desc": {
+                "en": "Turbo mode of the HVAC's fan",
+                "nl": "Turbomodus van de ventilator van de HVAC",
+                "de": "Turbomodus des Lüfters der Klimaanlage"
+            },
+            "getable": true,
+            "setable": true,
+            "uiComponent": "toggle"
         }
     },
     "drivers": [
@@ -490,7 +531,8 @@
                 "onoff",
                 "target_temperature",
                 "hvac_mode",
-                "fan_speed"
+                "fan_speed",
+                "turbo_mode"
             ],
             "capabilitiesOptions": {
                 "target_temperature": {
