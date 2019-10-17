@@ -26,6 +26,12 @@ Help wanted to verify and update any incorrect translation.
 Feel free to create issues/pull requests. 
 
 ## Changelog
+v0.1.4 (alpha) (18.10.2019)
+* Fix connection issue in case of changing IP address by the HVAC
+* Use MAC instead of HVAC name for storing ACs info
+* Use fork for gree-hvac-client to catch and ignore invalid JSON
+* Use fork for gree-hvac-client to prevent "Error [ERR_SOCKET_DGRAM_NOT_RUNNING]: Not running" error
+
 v0.1.3 (02.09.2019)
 * Fix connection bug when few HVACs are in use.
 
