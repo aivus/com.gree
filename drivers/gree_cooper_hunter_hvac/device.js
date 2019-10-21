@@ -25,9 +25,6 @@ class GreeHVACDevice extends Homey.Device {
 
         this._markOffline();
         this._findDevices();
-        // this._reconnectInterval = setInterval(() => {
-        //     this._findDevices();
-        // }, RECONNECT_TIME_INTERVAL);
     }
 
     /**
@@ -36,11 +33,7 @@ class GreeHVACDevice extends Homey.Device {
     onDeleted() {
         this.log('[on deleted]', 'Gree device has been deleted. Disconnecting client.');
 
-        if (this.client) {
-            this.client.disconnect();
-            this.client.removeAllListeners();
-            delete this.client;
-        }
+        this._tryToDisconnect();
 
         if (this._reconnectInterval) {
             clearInterval(this._reconnectInterval);
@@ -71,11 +64,7 @@ class GreeHVACDevice extends Homey.Device {
 
             // Disconnect in case of client exists
             // TODO: Move to separate function, reuse
-            if (this.client) {
-                this.client.disconnect();
-                this.client.removeAllListeners();
-                delete this.client;
-            }
+            this._tryToDisconnect();
 
             this.client = new HVAC.Client({
                 debug: DEBUG,
@@ -308,6 +297,19 @@ class GreeHVACDevice extends Homey.Device {
         const changedFromFalseToTrue = !capabilityValue && propertyValue === trueValue;
 
         return changedFromFalseToTrue || changedFromTrueToFalse;
+    }
+
+    /**
+     * Try to disconnect client, remove all existing listeners and delete client property from the object
+     *
+     * @private
+     */
+    _tryToDisconnect() {
+        if (this.client) {
+            this.client.disconnect();
+            this.client.removeAllListeners();
+            delete this.client;
+        }
     }
 }
 
