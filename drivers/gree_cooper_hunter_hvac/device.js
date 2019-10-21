@@ -22,6 +22,7 @@ class GreeHVACDevice extends Homey.Device {
 
         this._flowTriggerHvacFanSpeedChanged = new Homey.FlowCardTriggerDevice('fan_speed_changed').register();
         this._flowTriggerHvacModeChanged = new Homey.FlowCardTriggerDevice('hvac_mode_changed').register();
+        this._flowTriggerHvacLightsChanged = new Homey.FlowCardTriggerDevice('lights_changed').register();
 
         this._markOffline();
         this._findDevices();
@@ -127,6 +128,13 @@ class GreeHVACDevice extends Homey.Device {
             this.client.setProperty(HVAC.PROPERTY.fanSpeed, rawValue);
             return Promise.resolve();
         });
+
+        this.registerCapabilityListener('lights', (value) => {
+            const rawValue = value ? HVAC.VALUE.lights.on : HVAC.VALUE.lights.off;
+            this.log('[lights change]', 'Value: ' + value, 'Raw value: ' + rawValue);
+            this.client.setProperty(HVAC.PROPERTY.lights, rawValue);
+            return Promise.resolve();
+        });
     }
 
     /**
@@ -202,6 +210,14 @@ class GreeHVACDevice extends Homey.Device {
             const value = updatedProperties[HVAC.PROPERTY.fanSpeed];
             this.setCapabilityValue('fan_speed', value).then(() => {
                 this.log('[update properties]', '[fan_speed]', value);
+                return Promise.resolve();
+            }).catch(this.error);
+        }
+
+        if (this._checkOnOffPowerPropertyChanged(updatedProperties)) {
+            const value = updatedProperties[HVAC.PROPERTY.power] === HVAC.VALUE.power.on;
+            this.setCapabilityValue('onoff', value).then(() => {
+                this.log('[update properties]', '[onoff]', value);
                 return Promise.resolve();
             }).catch(this.error);
         }
