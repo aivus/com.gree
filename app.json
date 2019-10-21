@@ -1,6 +1,6 @@
 {
     "id": "com.gree",
-    "version": "0.1.3",
+    "version": "0.1.5",
     "compatibility": ">=1.5.0",
     "sdk": 2,
     "name": {
@@ -82,6 +82,31 @@
                             "de": "HVAC-Modus"
                         },
                         "example": "cool"
+                    }
+                ]
+            },
+            {
+                "id": "turbo_mode_changed",
+                "title": {
+                    "en": "Turbo mode changed"
+                },
+                "args": [
+                    {
+                        "name": "device",
+                        "type": "device",
+                        "filter": "driver_id=gree_cooper_hunter_hvac"
+                    }
+                ],
+                "tokens": [
+                    {
+                        "name": "turbo_mode",
+                        "type": "boolean",
+                        "title": {
+                            "en": "Turbo mode",
+                            "nl": "Turbo-modus",
+                            "de": "Turbo Modus"
+                        },
+                        "example": "true"
                     }
                 ]
             },
@@ -503,6 +528,22 @@
             "setable": true,
             "uiComponent": "picker"
         },
+        "turbo_mode": {
+            "type": "boolean",
+            "title": {
+                "en": "Turbo mode",
+                "nl": "Turbo-modus",
+                "de": "Turbo Modus"
+            },
+            "desc": {
+                "en": "Turbo mode of the HVAC's fan",
+                "nl": "Turbomodus van de ventilator van de HVAC",
+                "de": "Turbomodus des Lüfters der Klimaanlage"
+            },
+            "getable": true,
+            "setable": true,
+            "uiComponent": "toggle"
+        },
         "lights": {
             "type": "boolean",
             "title": {
@@ -532,6 +573,7 @@
                 "target_temperature",
                 "hvac_mode",
                 "fan_speed",
+                "turbo_mode",
                 "lights"
             ],
             "capabilitiesOptions": {

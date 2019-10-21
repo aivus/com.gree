@@ -22,13 +22,11 @@ class GreeHVACDevice extends Homey.Device {
 
         this._flowTriggerHvacFanSpeedChanged = new Homey.FlowCardTriggerDevice('fan_speed_changed').register();
         this._flowTriggerHvacModeChanged = new Homey.FlowCardTriggerDevice('hvac_mode_changed').register();
+        this._flowTriggerTurboModeChanged = new Homey.FlowCardTriggerDevice('turbo_mode_changed').register();
         this._flowTriggerHvacLightsChanged = new Homey.FlowCardTriggerDevice('lights_changed').register();
 
         this._markOffline();
         this._findDevices();
-        this._reconnectInterval = setInterval(() => {
-            this._findDevices();
-        }, RECONNECT_TIME_INTERVAL);
     }
 
     /**
@@ -37,11 +35,7 @@ class GreeHVACDevice extends Homey.Device {
     onDeleted() {
         this.log('[on deleted]', 'Gree device has been deleted. Disconnecting client.');
 
-        if (this.client) {
-            this.client.disconnect();
-            this.client.removeAllListeners();
-            delete this.client;
-        }
+        this._tryToDisconnect();
 
         if (this._reconnectInterval) {
             clearInterval(this._reconnectInterval);
@@ -59,16 +53,19 @@ class GreeHVACDevice extends Homey.Device {
      */
     _findDevices() {
         const deviceData = this.getData();
-        this.log('[find devices]', 'Trying to find device with mac: ', deviceData.mac);
+        this.log('[find devices]', 'Finding device with mac:', deviceData.mac);
 
         finder.hvacs.forEach((hvac) => {
             if (hvac.message.mac !== deviceData.mac) {
                 // Skip other HVACs from the finder until find current
-                this.log('Skipping HVAC with mac', hvac.message.mac);
+                this.log('[find devices]', 'Skipping HVAC with mac:', hvac.message.mac);
                 return;
             }
 
-            this.log('Trying to connect to device with mac: ', hvac.message.mac);
+            this.log('[find devices]', 'Connecting to device with mac:', hvac.message.mac);
+
+            // Disconnect in case of client exists
+            this._tryToDisconnect();
 
             this.client = new HVAC.Client({
                 debug: DEBUG,
@@ -89,6 +86,7 @@ class GreeHVACDevice extends Homey.Device {
      */
     _registerClientListeners() {
         this.client.on('error', this._onError.bind(this));
+        this.client.on('disconnect', this._onDisconnect.bind(this));
         this.client.on('connect', this._onConnect.bind(this));
         this.client.on('update', this._onUpdate.bind(this));
         this.client.on('no_response', this._onNoResponse.bind(this));
@@ -126,6 +124,13 @@ class GreeHVACDevice extends Homey.Device {
             const rawValue = HVAC.VALUE.fanSpeed[value];
             this.log('[fan speed change]', 'Value: ' + value, 'Raw value: ' + rawValue);
             this.client.setProperty(HVAC.PROPERTY.fanSpeed, rawValue);
+            return Promise.resolve();
+        });
+
+        this.registerCapabilityListener('turbo_mode', (value) => {
+            const rawValue = value ? HVAC.VALUE.turbo.on : HVAC.VALUE.turbo.off;
+            this.log('[turbo mode change]', 'Value: ' + value, 'Raw value: ' + rawValue);
+            this.client.setProperty(HVAC.PROPERTY.turbo, rawValue);
             return Promise.resolve();
         });
 
@@ -182,7 +187,7 @@ class GreeHVACDevice extends Homey.Device {
         this.log('[update]', 'mark device available');
         this.setAvailable();
 
-        if (this._checkOnOffPowerPropertyChanged(updatedProperties)) {
+        if (this._checkBoolPropertyChanged(updatedProperties, HVAC.PROPERTY.power, 'onoff')) {
             const value = updatedProperties[HVAC.PROPERTY.power] === HVAC.VALUE.power.on;
             this.setCapabilityValue('onoff', value).then(() => {
                 this.log('[update properties]', '[onoff]', value);
@@ -214,10 +219,10 @@ class GreeHVACDevice extends Homey.Device {
             }).catch(this.error);
         }
 
-        if (this._checkOnOffPowerPropertyChanged(updatedProperties)) {
-            const value = updatedProperties[HVAC.PROPERTY.power] === HVAC.VALUE.power.on;
-            this.setCapabilityValue('onoff', value).then(() => {
-                this.log('[update properties]', '[onoff]', value);
+        if (this._checkBoolPropertyChanged(updatedProperties, HVAC.PROPERTY.turbo, 'turbo_mode')) {
+            const value = updatedProperties[HVAC.PROPERTY.turbo] === HVAC.VALUE.turbo.on;
+            this.setCapabilityValue('turbo_mode', value).then(() => {
+                this.log('[update properties]', '[turbo_mode]', value);
                 return Promise.resolve();
             }).catch(this.error);
         }
@@ -225,6 +230,11 @@ class GreeHVACDevice extends Homey.Device {
 
     _onError(message, error) {
         this.log('[ERROR]', 'Message:', message, 'Error', error);
+        this._markOffline();
+    }
+
+    _onDisconnect() {
+        this.log('[disconnect]', 'Disconnecting from device');
         this._markOffline();
     }
 
@@ -248,6 +258,12 @@ class GreeHVACDevice extends Homey.Device {
     _markOffline() {
         this.log('[offline] mark device offline');
         this.setUnavailable(Homey.__('error.offline'));
+
+        if (!this._reconnectInterval) {
+            this._reconnectInterval = setInterval(() => {
+                this._findDevices();
+            }, RECONNECT_TIME_INTERVAL);
+        }
     }
 
     /**
@@ -272,38 +288,52 @@ class GreeHVACDevice extends Homey.Device {
     }
 
     /**
-     * Special checks for power on/off check logic
+     * Special checks for boolean logic
      *
      * @param {Array} updatedProperties
+     * @param {string} propertyName
+     * @param {string} capabilityName
      * @returns {boolean}
      * @private
      */
-    _checkOnOffPowerPropertyChanged(updatedProperties) {
-        if (!updatedProperties.hasOwnProperty(HVAC.PROPERTY.power)) {
+    _checkBoolPropertyChanged(updatedProperties, propertyName, capabilityName) {
+        if (!updatedProperties.hasOwnProperty(propertyName)) {
             return false;
         }
 
-        const propertyValue = updatedProperties[HVAC.PROPERTY.power];
+        const propertyValue = updatedProperties[propertyName];
+        const capabilityValue = this.getCapabilityValue(capabilityName);
 
-        return this._checkBoolPropertyChanged(propertyValue, 'onoff', HVAC.VALUE.power.on);
+        return this._compareBoolProperties(propertyValue, capabilityValue, HVAC.VALUE.power.on);
     }
 
     /**
-     * Check bool properties
+     * Compare boolean properties
      *
      * @param {string} propertyValue
-     * @param {string} capabilityName
+     * @param {string} capabilityValue
      * @param {string} trueValue
      * @returns {boolean}
      * @private
      */
-    _checkBoolPropertyChanged(propertyValue, capabilityName, trueValue) {
-        const capabilityValue = this.getCapabilityValue(capabilityName);
-
+    _compareBoolProperties(propertyValue, capabilityValue, trueValue) {
         const changedFromTrueToFalse = capabilityValue && propertyValue !== trueValue;
         const changedFromFalseToTrue = !capabilityValue && propertyValue === trueValue;
 
         return changedFromFalseToTrue || changedFromTrueToFalse;
+    }
+
+    /**
+     * Try to disconnect client, remove all existing listeners and delete client property from the object
+     *
+     * @private
+     */
+    _tryToDisconnect() {
+        if (this.client) {
+            this.client.disconnect();
+            this.client.removeAllListeners();
+            delete this.client;
+        }
     }
 }
 

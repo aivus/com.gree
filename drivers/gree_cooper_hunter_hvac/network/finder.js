@@ -52,9 +52,9 @@ class Finder {
 
             const decryptedMessage = this._encryptionService.decrypt(parsedMessage);
 
-            this._hvacs[decryptedMessage.name] = {message: decryptedMessage, remoteInfo: remote_info};
+            this._hvacs[decryptedMessage.mac] = {message: decryptedMessage, remoteInfo: remote_info};
 
-            console.debug('[finder]', 'HVAC found. Remove info: ', remote_info, 'Message: ', decryptedMessage);
+            console.debug('[finder]', 'HVAC found. Remote info: ', remote_info, 'Message: ', decryptedMessage);
 
             // { t: 'dev',
             //     cid: 'f4911e46fbd5',
