@@ -227,7 +227,7 @@ class GreeHVACDevice extends Homey.Device {
             }).catch(this.error);
         }
 
-        if (this._checkBoolPropertyChanged(updatedProperties, HVAC.PROPERTY.turbo, 'lights')) {
+        if (this._checkBoolPropertyChanged(updatedProperties, HVAC.PROPERTY.lights, 'lights')) {
             const value = updatedProperties[HVAC.PROPERTY.lights] === HVAC.VALUE.lights.on;
             this.setCapabilityValue('lights', value).then(() => {
                 this.log('[update properties]', '[lights]', value);
