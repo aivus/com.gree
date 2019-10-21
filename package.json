@@ -1,5 +1,4 @@
 {
-  "name": "com.gree",
   "private": true,
   "description": "Control your Gree, Cooper&Hunter HVAC devices",
   "main": "app.js",
@@ -17,6 +16,6 @@
   },
   "homepage": "https://github.com/aivus/com.gree#readme",
   "dependencies": {
-    "gree-hvac-client": "git+https://github.com/aivus/gree-hvac-client.git#catch_broken_json"
+    "gree-hvac-client": "git+https://github.com/aivus/gree-hvac-client.git#com-gree-homey-app"
   }
 }

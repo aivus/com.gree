@@ -25,9 +25,6 @@ class GreeHVACDevice extends Homey.Device {
 
         this._markOffline();
         this._findDevices();
-        this._reconnectInterval = setInterval(() => {
-            this._findDevices();
-        }, RECONNECT_TIME_INTERVAL);
     }
 
     /**
@@ -36,11 +33,7 @@ class GreeHVACDevice extends Homey.Device {
     onDeleted() {
         this.log('[on deleted]', 'Gree device has been deleted. Disconnecting client.');
 
-        if (this.client) {
-            this.client.disconnect();
-            this.client.removeAllListeners();
-            delete this.client;
-        }
+        this._tryToDisconnect();
 
         if (this._reconnectInterval) {
             clearInterval(this._reconnectInterval);
@@ -69,6 +62,9 @@ class GreeHVACDevice extends Homey.Device {
 
             this.log('Trying to connect to device with mac: ', hvac.message.mac);
 
+            // Disconnect in case of client exists
+            this._tryToDisconnect();
+
             this.client = new HVAC.Client({
                 debug: DEBUG,
                 host: hvac.remoteInfo.address,
@@ -88,6 +84,7 @@ class GreeHVACDevice extends Homey.Device {
      */
     _registerClientListeners() {
         this.client.on('error', this._onError.bind(this));
+        this.client.on('disconnect', this._onDisconnect.bind(this));
         this.client.on('connect', this._onConnect.bind(this));
         this.client.on('update', this._onUpdate.bind(this));
         this.client.on('no_response', this._onNoResponse.bind(this));
@@ -212,6 +209,11 @@ class GreeHVACDevice extends Homey.Device {
         this._markOffline();
     }
 
+    _onDisconnect() {
+        this.log('[disconnect]', 'Disconnecting from device');
+        this._markOffline();
+    }
+
     /**
      * No response received during polling process from HVAC within timeout period.
      * Seems HVAC is offline and doesn't answer on requests. Mark it as offline in Homey
@@ -232,6 +234,12 @@ class GreeHVACDevice extends Homey.Device {
     _markOffline() {
         this.log('[offline] mark device offline');
         this.setUnavailable(Homey.__('error.offline'));
+
+        if (!this._reconnectInterval) {
+            this._reconnectInterval = setInterval(() => {
+                this._findDevices();
+            }, RECONNECT_TIME_INTERVAL);
+        }
     }
 
     /**
@@ -288,6 +296,19 @@ class GreeHVACDevice extends Homey.Device {
         const changedFromFalseToTrue = !capabilityValue && propertyValue === trueValue;
 
         return changedFromFalseToTrue || changedFromTrueToFalse;
+    }
+
+    /**
+     * Try to disconnect client, remove all existing listeners and delete client property from the object
+     *
+     * @private
+     */
+    _tryToDisconnect() {
+        if (this.client) {
+            this.client.disconnect();
+            this.client.removeAllListeners();
+            delete this.client;
+        }
     }
 }
 
