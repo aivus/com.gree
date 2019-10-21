@@ -63,7 +63,6 @@ class GreeHVACDevice extends Homey.Device {
             this.log('Trying to connect to device with mac: ', hvac.message.mac);
 
             // Disconnect in case of client exists
-            // TODO: Move to separate function, reuse
             this._tryToDisconnect();
 
             this.client = new HVAC.Client({
