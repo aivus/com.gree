@@ -223,7 +223,7 @@ class GreeHVACDevice extends Homey.Device {
             const value = updatedProperties[HVAC.PROPERTY.turbo] === HVAC.VALUE.turbo.on;
             this.setCapabilityValue('turbo_mode', value).then(() => {
                 this.log('[update properties]', '[turbo_mode]', value);
-                return Promise.resolve();
+                return this._flowTriggerTurboModeChanged.trigger(this, { turbo_mode: value });
             }).catch(this.error);
         }
 
@@ -231,7 +231,7 @@ class GreeHVACDevice extends Homey.Device {
             const value = updatedProperties[HVAC.PROPERTY.lights] === HVAC.VALUE.lights.on;
             this.setCapabilityValue('lights', value).then(() => {
                 this.log('[update properties]', '[lights]', value);
-                return Promise.resolve();
+                return this._flowTriggerHvacLightsChanged.trigger(this, { lights: value });
             }).catch(this.error);
         }
     }
@@ -312,7 +312,7 @@ class GreeHVACDevice extends Homey.Device {
         const propertyValue = updatedProperties[propertyName];
         const capabilityValue = this.getCapabilityValue(capabilityName);
 
-        return this._compareBoolProperties(propertyValue, capabilityValue, HVAC.VALUE.power.on);
+        return this._compareBoolProperties(propertyValue, capabilityValue, HVAC.VALUE[propertyName].on);
     }
 
     /**
