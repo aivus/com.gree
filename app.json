@@ -109,6 +109,31 @@
                         "example": "true"
                     }
                 ]
+            },
+            {
+                "id": "lights_changed",
+                "title": {
+                    "en": "Lights changed"
+                },
+                "args": [
+                    {
+                        "name": "device",
+                        "type": "device",
+                        "filter": "driver_id=gree_cooper_hunter_hvac"
+                    }
+                ],
+                "tokens": [
+                    {
+                        "name": "lights",
+                        "type": "boolean",
+                        "title": {
+                            "en": "Lights mode",
+                            "nl": "Lichten modus",
+                            "de": "Lichtmodus"
+                        },
+                        "example": "true"
+                    }
+                ]
             }
         ],
         "conditions": [
@@ -243,6 +268,82 @@
                         ]
                     }
                 ]
+            },
+            {
+                "id": "turbo_mode_is",
+                "title": {
+                    "en": "Current turbo mode !{{is|isn't}} ..."
+                },
+                "titleFormatted": {
+                    "en": "Current turbo mode !{{is|isn't}} [[mode]]"
+                },
+                "args": [
+                    {
+                        "name": "device",
+                        "type": "device",
+                        "filter": "driver_id=gree_cooper_hunter_hvac"
+                    },
+                    {
+                        "name": "mode",
+                        "type": "dropdown",
+                        "values": [
+                            {
+                                "id": "on",
+                                "label": {
+                                    "en": "On",
+                                    "nl": "Aan",
+                                    "de": "Einschalten"
+                                }
+                            },
+                            {
+                                "id": "off",
+                                "label": {
+                                    "en": "Off",
+                                    "nl": "Uit",
+                                    "de": "Ausschalten"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "lights_is",
+                "title": {
+                    "en": "Current lights !{{is|isn't}} ..."
+                },
+                "titleFormatted": {
+                    "en": "Current lights !{{is|isn't}} [[mode]]"
+                },
+                "args": [
+                    {
+                        "name": "device",
+                        "type": "device",
+                        "filter": "driver_id=gree_cooper_hunter_hvac"
+                    },
+                    {
+                        "name": "mode",
+                        "type": "dropdown",
+                        "values": [
+                            {
+                                "id": "on",
+                                "label": {
+                                    "en": "On",
+                                    "nl": "Aan",
+                                    "de": "Einschalten"
+                                }
+                            },
+                            {
+                                "id": "off",
+                                "label": {
+                                    "en": "Off",
+                                    "nl": "Uit",
+                                    "de": "Ausschalten"
+                                }
+                            }
+                        ]
+                    }
+                ]
             }
         ],
         "actions": [
@@ -370,6 +471,80 @@
                                     "en": "High",
                                     "nl": "Hoog",
                                     "de": "Hoch"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "set_turbo_mode",
+                "title": {
+                    "en": "Set turbo mode",
+                    "nl": "Stel de turbomodus in",
+                    "de": "Stellen Sie den Turbo-Modus ein"
+                },
+                "args": [
+                    {
+                        "name": "device",
+                        "type": "device",
+                        "filter": "driver_id=gree_cooper_hunter_hvac"
+                    },
+                    {
+                        "name": "mode",
+                        "type": "dropdown",
+                        "values": [
+                            {
+                                "id": "on",
+                                "label": {
+                                    "en": "On",
+                                    "nl": "Aan",
+                                    "de": "Einschalten"
+                                }
+                            },
+                            {
+                                "id": "off",
+                                "label": {
+                                    "en": "Off",
+                                    "nl": "Uit",
+                                    "de": "Ausschalten"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "set_lights",
+                "title": {
+                    "en": "Set lights",
+                    "nl": "Lichten instellen",
+                    "de": "Lichter einstellen"
+                },
+                "args": [
+                    {
+                        "name": "device",
+                        "type": "device",
+                        "filter": "driver_id=gree_cooper_hunter_hvac"
+                    },
+                    {
+                        "name": "mode",
+                        "type": "dropdown",
+                        "values": [
+                            {
+                                "id": "on",
+                                "label": {
+                                    "en": "On",
+                                    "nl": "Aan",
+                                    "de": "Einschalten"
+                                }
+                            },
+                            {
+                                "id": "off",
+                                "label": {
+                                    "en": "Off",
+                                    "nl": "Uit",
+                                    "de": "Ausschalten"
                                 }
                             }
                         ]
@@ -518,6 +693,22 @@
             "getable": true,
             "setable": true,
             "uiComponent": "toggle"
+        },
+        "lights": {
+            "type": "boolean",
+            "title": {
+                "en": "Lights mode",
+                "nl": "Lichten modus",
+                "de": "Lichtmodus"
+            },
+            "desc": {
+                "en": "Lights mode on the HVAC panel",
+                "nl": "Lichten modus op het airconditioner paneel",
+                "de": "Lichtmodus auf dem Klimaanlage-Panel"
+            },
+            "getable": true,
+            "setable": true,
+            "uiComponent": "toggle"
         }
     },
     "drivers": [
@@ -532,7 +723,8 @@
                 "target_temperature",
                 "hvac_mode",
                 "fan_speed",
-                "turbo_mode"
+                "turbo_mode",
+                "lights"
             ],
             "capabilitiesOptions": {
                 "target_temperature": {

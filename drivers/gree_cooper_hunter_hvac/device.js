@@ -23,6 +23,7 @@ class GreeHVACDevice extends Homey.Device {
         this._flowTriggerHvacFanSpeedChanged = new Homey.FlowCardTriggerDevice('fan_speed_changed').register();
         this._flowTriggerHvacModeChanged = new Homey.FlowCardTriggerDevice('hvac_mode_changed').register();
         this._flowTriggerTurboModeChanged = new Homey.FlowCardTriggerDevice('turbo_mode_changed').register();
+        this._flowTriggerHvacLightsChanged = new Homey.FlowCardTriggerDevice('lights_changed').register();
 
         this._markOffline();
         this._findDevices();
@@ -132,6 +133,13 @@ class GreeHVACDevice extends Homey.Device {
             this.client.setProperty(HVAC.PROPERTY.turbo, rawValue);
             return Promise.resolve();
         });
+
+        this.registerCapabilityListener('lights', (value) => {
+            const rawValue = value ? HVAC.VALUE.lights.on : HVAC.VALUE.lights.off;
+            this.log('[lights change]', 'Value: ' + value, 'Raw value: ' + rawValue);
+            this.client.setProperty(HVAC.PROPERTY.lights, rawValue);
+            return Promise.resolve();
+        });
     }
 
     /**
@@ -215,7 +223,15 @@ class GreeHVACDevice extends Homey.Device {
             const value = updatedProperties[HVAC.PROPERTY.turbo] === HVAC.VALUE.turbo.on;
             this.setCapabilityValue('turbo_mode', value).then(() => {
                 this.log('[update properties]', '[turbo_mode]', value);
-                return Promise.resolve();
+                return this._flowTriggerTurboModeChanged.trigger(this, { turbo_mode: value });
+            }).catch(this.error);
+        }
+
+        if (this._checkBoolPropertyChanged(updatedProperties, HVAC.PROPERTY.lights, 'lights')) {
+            const value = updatedProperties[HVAC.PROPERTY.lights] === HVAC.VALUE.lights.on;
+            this.setCapabilityValue('lights', value).then(() => {
+                this.log('[update properties]', '[lights]', value);
+                return this._flowTriggerHvacLightsChanged.trigger(this, { lights: value });
             }).catch(this.error);
         }
     }
@@ -296,7 +312,7 @@ class GreeHVACDevice extends Homey.Device {
         const propertyValue = updatedProperties[propertyName];
         const capabilityValue = this.getCapabilityValue(capabilityName);
 
-        return this._compareBoolProperties(propertyValue, capabilityValue, HVAC.VALUE.power.on);
+        return this._compareBoolProperties(propertyValue, capabilityValue, HVAC.VALUE[propertyName].on);
     }
 
     /**

@@ -24,6 +24,22 @@ class GreeHVAC extends Homey.App {
                 return args.speed === fanSpeed;
             });
 
+        this._conditionTurboModeIs = new Homey.FlowCardCondition('turbo_mode_is')
+            .register()
+            .registerRunListener((args, state) => {
+                const turboMode = args.device.getCapabilityValue('turbo_mode');
+                args.device.log('[condition]', '[current turbo mode]', turboMode);
+                return onoffToBoolean(args.mode) === turboMode;
+            });
+
+        this._conditionLightsIs = new Homey.FlowCardCondition('lights_is')
+            .register()
+            .registerRunListener((args, state) => {
+                const lightsMode = args.device.getCapabilityValue('lights');
+                args.device.log('[condition]', '[current lights]', lightsMode);
+                return onoffToBoolean(args.mode) === lightsMode;
+            });
+
         // Register actions for flows
         this._actionChangeHVACMode = new Homey.FlowCardAction('set_hvac_mode')
             .register()
@@ -40,7 +56,27 @@ class GreeHVAC extends Homey.App {
                     return args.device.triggerCapabilityListener('fan_speed', args.speed, {});
                 });
             });
+
+        this._actionChangeTurboMode = new Homey.FlowCardAction('set_turbo_mode')
+            .register()
+            .registerRunListener((args, state) => {
+                return args.device.setCapabilityValue('turbo_mode', onoffToBoolean(args.mode)).then(() => {
+                    return args.device.triggerCapabilityListener('turbo_mode', onoffToBoolean(args.mode), {});
+                });
+            });
+
+        this._actionChangeLights = new Homey.FlowCardAction('set_lights')
+            .register()
+            .registerRunListener((args, state) => {
+                return args.device.setCapabilityValue('lights', onoffToBoolean(args.mode)).then(() => {
+                    return args.device.triggerCapabilityListener('lights', onoffToBoolean(args.mode), {});
+                });
+            });
     }
+}
+
+function onoffToBoolean(value) {
+    return value === 'on';
 }
 
 module.exports = GreeHVAC;
