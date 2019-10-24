@@ -1,12 +1,11 @@
-'use strict';
-
 const dgram = require('dgram');
-const {EncryptionService} = require('gree-hvac-client/lib/encryption-service');
+const { EncryptionService } = require('gree-hvac-client/lib/encryption-service');
 
 const SCAN_MESSAGE = Buffer.from('{"t": "scan"}');
 const THIRTY_SECONDS = 30 * 1000;
 
 class Finder {
+
     constructor() {
         this._encryptionService = new EncryptionService();
         this._hvacs = {};
@@ -39,7 +38,7 @@ class Finder {
         this.server.send(SCAN_MESSAGE, 0, SCAN_MESSAGE.length, 7000, '255.255.255.255');
     }
 
-    _onMessage(message, remote_info) {
+    _onMessage(message, remoteInfo) {
         console.debug('[finder]', 'message received');
         try {
             const parsedMessage = JSON.parse(message);
@@ -52,9 +51,9 @@ class Finder {
 
             const decryptedMessage = this._encryptionService.decrypt(parsedMessage);
 
-            this._hvacs[decryptedMessage.mac] = {message: decryptedMessage, remoteInfo: remote_info};
+            this._hvacs[decryptedMessage.mac] = { message: decryptedMessage, remoteInfo };
 
-            console.debug('[finder]', 'HVAC found. Remote info: ', remote_info, 'Message: ', decryptedMessage);
+            console.debug('[finder]', 'HVAC found. Remote info: ', remoteInfo, 'Message: ', decryptedMessage);
 
             // { t: 'dev',
             //     cid: 'f4911e46fbd5',
@@ -69,11 +68,9 @@ class Finder {
             //     vender: '1',
             //     ver: 'V1.1.13',
             //     lock: 0 }
-
         } catch (e) {
             console.error(e);
         }
-
     }
 
     _restart(reason) {
@@ -88,6 +85,7 @@ class Finder {
     get hvacs() {
         return Object.values(this._hvacs);
     }
+
 }
 
 module.exports = new Finder();

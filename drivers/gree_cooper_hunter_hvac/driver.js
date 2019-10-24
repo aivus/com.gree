@@ -1,5 +1,3 @@
-'use strict';
-
 const Homey = require('homey');
 const finder = require('./network/finder');
 
@@ -11,7 +9,6 @@ class GreeHVACDriver extends Homey.Driver {
     }
 
     onPairListDevices(data, callback) {
-
         const devices = this._finder.hvacs.map(this._hvacToDevice);
 
         // // Test device for debugging without connected HVAC
@@ -27,19 +24,19 @@ class GreeHVACDriver extends Homey.Driver {
     }
 
     _hvacToDevice(hvac) {
-        const message = hvac.message;
-        const remoteInfo = hvac.remoteInfo;
+        const { message, remoteInfo } = hvac;
 
-        const name = message.name + " (" + remoteInfo.address + ")";
+        const name = `${message.name} (${remoteInfo.address})`;
 
         return {
-            name: name,
+            name,
             data: {
                 id: message.cid,
-                mac: message.mac,
+                mac: message.mac
             }
-        }
+        };
     }
+
 }
 
 module.exports = GreeHVACDriver;

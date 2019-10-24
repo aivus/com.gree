@@ -1,8 +1,6 @@
-'use strict';
-
 const Homey = require('homey');
-const finder = require('./network/finder');
 const HVAC = require('gree-hvac-client');
+const finder = require('./network/finder');
 
 // Interval between trying to found HVAC in network (ms)
 const RECONNECT_TIME_INTERVAL = 10000;
@@ -17,6 +15,7 @@ const POLLING_TIMEOUT = 2000;
 const DEBUG = false;
 
 class GreeHVACDevice extends Homey.Device {
+
     onInit() {
         this.log('Gree device has been inited');
 
@@ -165,7 +164,6 @@ class GreeHVACDevice extends Homey.Device {
      * @private
      */
     _onUpdate(updatedProperties, properties) {
-
         // { power: 'on',
         //     mode: 'cool',
         //     temperatureUnit: 'celsius',
@@ -343,6 +341,7 @@ class GreeHVACDevice extends Homey.Device {
             delete this.client;
         }
     }
+
 }
 
 module.exports = GreeHVACDevice;

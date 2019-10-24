@@ -3,7 +3,8 @@
   "description": "Control your Gree, Cooper&Hunter HVAC devices",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run eslint",
+    "eslint": "cd devDependencies && eslint -c .eslintrc.js --ignore-path .eslintignore .."
   },
   "repository": {
     "type": "git",
