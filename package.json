@@ -4,6 +4,7 @@
   "main": "app.js",
   "scripts": {
     "test": "npm run eslint",
+    "install-dev": "npm i --prefix devDependencies",
     "eslint": "cd devDependencies && ./node_modules/.bin/eslint -c .eslintrc.js --ignore-path .eslintignore .."
   },
   "repository": {
