@@ -4,7 +4,7 @@
   "main": "app.js",
   "scripts": {
     "test": "npm run eslint",
-    "eslint": "cd devDependencies && eslint -c .eslintrc.js --ignore-path .eslintignore .."
+    "eslint": "cd devDependencies && ./node_modules/.bin/eslint -c .eslintrc.js --ignore-path .eslintignore .."
   },
   "repository": {
     "type": "git",

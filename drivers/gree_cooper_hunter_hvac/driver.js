@@ -9,7 +9,7 @@ class GreeHVACDriver extends Homey.Driver {
     }
 
     onPairListDevices(data, callback) {
-        const devices = this._finder.hvacs.map(this._hvacToDevice);
+        const devices = this._finder.hvacs.map(GreeHVACDriver.hvacToDevice);
 
         // // Test device for debugging without connected HVAC
         // devices.push({
@@ -23,7 +23,7 @@ class GreeHVACDriver extends Homey.Driver {
         callback(null, devices);
     }
 
-    _hvacToDevice(hvac) {
+    static hvacToDevice(hvac) {
         const { message, remoteInfo } = hvac;
 
         const name = `${message.name} (${remoteInfo.address})`;

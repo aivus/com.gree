@@ -99,14 +99,14 @@ class GreeHVACDevice extends Homey.Device {
     _registerCapabilities() {
         this.registerCapabilityListener('onoff', (value) => {
             const rawValue = value ? HVAC.VALUE.power.on : HVAC.VALUE.power.off;
-            this.log('[power mode change]', 'Value: ' + value, 'Raw value: ' + rawValue);
+            this.log('[power mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             this.client.setProperty(HVAC.PROPERTY.power, rawValue);
 
             return Promise.resolve();
         });
 
         this.registerCapabilityListener('target_temperature', (value) => {
-            this.log('[temperature change]', 'Value: ' + value);
+            this.log('[temperature change]', `Value: ${value}`);
             this.client.setProperty(HVAC.PROPERTY.temperature, value);
 
             return Promise.resolve();
@@ -114,28 +114,28 @@ class GreeHVACDevice extends Homey.Device {
 
         this.registerCapabilityListener('hvac_mode', (value) => {
             const rawValue = HVAC.VALUE.mode[value];
-            this.log('[mode change]', 'Value: ' + value, 'Raw value: ' + rawValue);
+            this.log('[mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             this.client.setProperty(HVAC.PROPERTY.mode, rawValue);
             return Promise.resolve();
         });
 
         this.registerCapabilityListener('fan_speed', (value) => {
             const rawValue = HVAC.VALUE.fanSpeed[value];
-            this.log('[fan speed change]', 'Value: ' + value, 'Raw value: ' + rawValue);
+            this.log('[fan speed change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             this.client.setProperty(HVAC.PROPERTY.fanSpeed, rawValue);
             return Promise.resolve();
         });
 
         this.registerCapabilityListener('turbo_mode', (value) => {
             const rawValue = value ? HVAC.VALUE.turbo.on : HVAC.VALUE.turbo.off;
-            this.log('[turbo mode change]', 'Value: ' + value, 'Raw value: ' + rawValue);
+            this.log('[turbo mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             this.client.setProperty(HVAC.PROPERTY.turbo, rawValue);
             return Promise.resolve();
         });
 
         this.registerCapabilityListener('lights', (value) => {
             const rawValue = value ? HVAC.VALUE.lights.on : HVAC.VALUE.lights.off;
-            this.log('[lights change]', 'Value: ' + value, 'Raw value: ' + rawValue);
+            this.log('[lights change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             this.client.setProperty(HVAC.PROPERTY.lights, rawValue);
             return Promise.resolve();
         });
@@ -282,7 +282,7 @@ class GreeHVACDevice extends Homey.Device {
      * @private
      */
     _checkPropertyChanged(updatedProperties, propertyName, capabilityName) {
-        if (!updatedProperties.hasOwnProperty(propertyName)) {
+        if (!Object.prototype.hasOwnProperty.call(updatedProperties, propertyName)) {
             return false;
         }
 
@@ -303,30 +303,14 @@ class GreeHVACDevice extends Homey.Device {
      * @private
      */
     _checkBoolPropertyChanged(updatedProperties, propertyName, capabilityName) {
-        if (!updatedProperties.hasOwnProperty(propertyName)) {
+        if (!Object.prototype.hasOwnProperty.call(updatedProperties, propertyName)) {
             return false;
         }
 
         const propertyValue = updatedProperties[propertyName];
         const capabilityValue = this.getCapabilityValue(capabilityName);
 
-        return this._compareBoolProperties(propertyValue, capabilityValue, HVAC.VALUE[propertyName].on);
-    }
-
-    /**
-     * Compare boolean properties
-     *
-     * @param {string} propertyValue
-     * @param {string} capabilityValue
-     * @param {string} trueValue
-     * @returns {boolean}
-     * @private
-     */
-    _compareBoolProperties(propertyValue, capabilityValue, trueValue) {
-        const changedFromTrueToFalse = capabilityValue && propertyValue !== trueValue;
-        const changedFromFalseToTrue = !capabilityValue && propertyValue === trueValue;
-
-        return changedFromFalseToTrue || changedFromTrueToFalse;
+        return compareBoolProperties(propertyValue, capabilityValue, HVAC.VALUE[propertyName].on);
     }
 
     /**
@@ -342,6 +326,21 @@ class GreeHVACDevice extends Homey.Device {
         }
     }
 
+}
+
+/**
+ * Compare boolean properties
+ *
+ * @param {string} propertyValue
+ * @param {string} capabilityValue
+ * @param {string} trueValue
+ * @returns {boolean}
+ */
+function compareBoolProperties(propertyValue, capabilityValue, trueValue) {
+    const changedFromTrueToFalse = capabilityValue && propertyValue !== trueValue;
+    const changedFromFalseToTrue = !capabilityValue && propertyValue === trueValue;
+
+    return changedFromFalseToTrue || changedFromTrueToFalse;
 }
 
 module.exports = GreeHVACDevice;
