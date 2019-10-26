@@ -1,7 +1,5 @@
 const Homey = require('homey');
 
-const a = "2";
-
 class GreeHVAC extends Homey.App {
 
     onInit() {
