@@ -1,5 +1,3 @@
-'use strict';
-
 const Homey = require('homey');
 
 class GreeHVAC extends Homey.App {
@@ -73,6 +71,7 @@ class GreeHVAC extends Homey.App {
                 });
             });
     }
+
 }
 
 function onoffToBoolean(value) {
