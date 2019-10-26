@@ -14,6 +14,7 @@ module.exports = {
         'padded-blocks': ['error', { 'classes': 'always', 'blocks': 'never' }],
         'no-use-before-define': ['error', { 'functions': false, 'classes': true, 'variables': true }],
         'no-unused-vars': ['error', { vars: 'all', args: 'none', ignoreRestSiblings: true }],
-        'arrow-body-style': ['warn']
+        'arrow-body-style': ['off'],
+        'no-console': ['off']
     }
 };
