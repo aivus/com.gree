@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/aivus/com.gree#readme",
   "dependencies": {
-    "gree-hvac-client": "git+https://github.com/aivus/gree-hvac-client.git#com-gree-homey-app"
+    "gree-hvac-client": "git+https://github.com/inwaar/gree-hvac-client.git#v1.2.5"
   }
 }
