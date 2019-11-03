@@ -73,8 +73,10 @@ class GreeHVACDevice extends Homey.Device {
                 pollingTimeout: POLLING_TIMEOUT
             });
 
-            this._registerClientListeners();
-            this._registerCapabilities();
+            this._addMissedCapabilities().then(() => {
+                this._registerClientListeners();
+                this._registerCapabilities();
+            });
         });
     }
 
@@ -221,7 +223,7 @@ class GreeHVACDevice extends Homey.Device {
             const value = updatedProperties[HVAC.PROPERTY.turbo] === HVAC.VALUE.turbo.on;
             this.setCapabilityValue('turbo_mode', value).then(() => {
                 this.log('[update properties]', '[turbo_mode]', value);
-                return this._flowTriggerTurboModeChanged.trigger(this, { turbo_mode: value });
+                return this._flowTriggerTurboModeChanged.trigger(this, {turbo_mode: value});
             }).catch(this.error);
         }
 
@@ -229,7 +231,7 @@ class GreeHVACDevice extends Homey.Device {
             const value = updatedProperties[HVAC.PROPERTY.lights] === HVAC.VALUE.lights.on;
             this.setCapabilityValue('lights', value).then(() => {
                 this.log('[update properties]', '[lights]', value);
-                return this._flowTriggerHvacLightsChanged.trigger(this, { lights: value });
+                return this._flowTriggerHvacLightsChanged.trigger(this, {lights: value});
             }).catch(this.error);
         }
     }
@@ -326,6 +328,28 @@ class GreeHVACDevice extends Homey.Device {
         }
     }
 
+    async _addMissedCapabilities() {
+        // Skip adding if it's Homey's version < 3.0.0.
+        if (typeof this.addCapability !== 'function') {
+            return;
+        }
+
+        if (!this.hasCapability('hvac_mode')) {
+            await this.addCapability('hvac_mode');
+        }
+
+        if (!this.hasCapability('fan_speed')) {
+            await this.addCapability('fan_speed');
+        }
+
+        if (!this.hasCapability('turbo_mode')) {
+            await this.addCapability('turbo_mode');
+        }
+
+        if (!this.hasCapability('lights')) {
+            await this.addCapability('lights');
+        }
+    }
 }
 
 /**
