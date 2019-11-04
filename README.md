@@ -27,11 +27,12 @@ Feel free to create issues/pull requests.
 
 ## Changelog
 v0.2.1(stable) (3.11.2019)
+
 v0.2.0(alpha) (26.10.2019)
 * Fix connection issue in case of changing IP address by the HVAC
 * Use MAC instead of HVAC name for storing ACs info
 * Use fork for gree-hvac-client to catch and ignore invalid JSON
-* Use fork for gree-hvac-client to prevent "Error [ERR_SOCKET_DGRAM_NOT_RUNNING]: Not running" error
+* Use fork for gree-hvac-client to prevent `Error [ERR_SOCKET_DGRAM_NOT_RUNNING]: Not running` error
 * Allow to activate "turbo mode"
 * Allow to turn on and off lights of HVAC
 
