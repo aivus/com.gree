@@ -2,6 +2,7 @@
     "extends": "athom",
     "rules": {
       "no-use-before-define": ["error", { "functions": false }],
-      "no-console": "off"
+      "no-console": "off",
+      "node/no-unpublished-require": ["error", { "allowModules": ["homey"]}]
     }
 }

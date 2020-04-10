@@ -31,8 +31,8 @@ class GreeHVACDevice extends Homey.Device {
   }
 
   /**
-     * Device was removed from Homey. Cleanup, remove all listeners, disconnect from the HVAC
-     */
+   * Device was removed from Homey. Cleanup, remove all listeners, disconnect from the HVAC
+   */
   onDeleted() {
     this.log('[on deleted]', 'Gree device has been deleted. Disconnecting client.');
 
@@ -47,12 +47,12 @@ class GreeHVACDevice extends Homey.Device {
   }
 
   /**
-     * Check all available HVACs from the Finder module
-     * and try to find one which will work with this Device instance
-     * based on MAC address
-     *
-     * @private
-     */
+   * Check all available HVACs from the Finder module
+   * and try to find one which will work with this Device instance
+   * based on MAC address
+   *
+   * @private
+   */
   _findDevices() {
     const deviceData = this.getData();
     this.log('[find devices]', 'Finding device with mac:', deviceData.mac);
@@ -82,10 +82,10 @@ class GreeHVACDevice extends Homey.Device {
   }
 
   /**
-     * Register all applicable event listeners to the HVAC Client instance
-     *
-     * @private
-     */
+   * Register all applicable event listeners to the HVAC Client instance
+   *
+   * @private
+   */
   _registerClientListeners() {
     this.client.on('error', this._onError.bind(this));
     this.client.on('disconnect', this._onDisconnect.bind(this));
@@ -95,10 +95,10 @@ class GreeHVACDevice extends Homey.Device {
   }
 
   /**
-     * Register all applicable capabilities
-     *
-     * @private
-     */
+   * Register all applicable capabilities
+   *
+   * @private
+   */
   _registerCapabilities() {
     this.registerCapabilityListener('onoff', value => {
       const rawValue = value ? HVAC.VALUE.power.on : HVAC.VALUE.power.off;
@@ -145,12 +145,12 @@ class GreeHVACDevice extends Homey.Device {
   }
 
   /**
-     * App is sucessfuly connected to the HVAC
-     * Mark device as available in Homey
-     *
-     * @param {HVAC.Client} client
-     * @private
-     */
+   * App is sucessfuly connected to the HVAC
+   * Mark device as available in Homey
+   *
+   * @param {HVAC.Client} client
+   * @private
+   */
   _onConnect(client) {
     this.log('[connect]', 'connected to', client.getDeviceId());
     clearInterval(this._reconnectInterval);
@@ -160,12 +160,12 @@ class GreeHVACDevice extends Homey.Device {
   }
 
   /**
-     * Responsible for updating Homey device data based on information from HVAC
-     *
-     * @param {Array} updatedProperties Only changed properties
-     * @param {Array} properties All properties
-     * @private
-     */
+   * Responsible for updating Homey device data based on information from HVAC
+   *
+   * @param {Array} updatedProperties Only changed properties
+   * @param {Array} properties All properties
+   * @private
+   */
   _onUpdate(updatedProperties, properties) {
     // { power: 'on',
     //     mode: 'cool',
@@ -248,22 +248,22 @@ class GreeHVACDevice extends Homey.Device {
   }
 
   /**
-     * No response received during polling process from HVAC within timeout period.
-     * Seems HVAC is offline and doesn't answer on requests. Mark it as offline in Homey
-     *
-     * @param {HVAC.Client} client
-     * @private
-     */
+   * No response received during polling process from HVAC within timeout period.
+   * Seems HVAC is offline and doesn't answer on requests. Mark it as offline in Homey
+   *
+   * @param {HVAC.Client} client
+   * @private
+   */
   _onNoResponse(client) {
     this._markOffline();
     this.log('[no response]', 'Don\'t get response during polling updates');
   }
 
   /**
-     * Mark the device as offline in Homey
-     *
-     * @private
-     */
+   * Mark the device as offline in Homey
+   *
+   * @private
+   */
   _markOffline() {
     this.log('[offline] mark device offline');
     this.setUnavailable(Homey.__('error.offline'));
@@ -276,14 +276,14 @@ class GreeHVACDevice extends Homey.Device {
   }
 
   /**
-     * Check that properties from the HVAC and from the Homey capability changed
-     *
-     * @param {Array} updatedProperties
-     * @param {string} propertyName
-     * @param {string} capabilityName
-     * @returns {boolean}
-     * @private
-     */
+   * Check that properties from the HVAC and from the Homey capability changed
+   *
+   * @param {Array} updatedProperties
+   * @param {string} propertyName
+   * @param {string} capabilityName
+   * @returns {boolean}
+   * @private
+   */
   _checkPropertyChanged(updatedProperties, propertyName, capabilityName) {
     if (!Object.prototype.hasOwnProperty.call(updatedProperties, propertyName)) {
       return false;
@@ -297,14 +297,14 @@ class GreeHVACDevice extends Homey.Device {
   }
 
   /**
-     * Special checks for boolean logic
-     *
-     * @param {Array} updatedProperties
-     * @param {string} propertyName
-     * @param {string} capabilityName
-     * @returns {boolean}
-     * @private
-     */
+   * Special checks for boolean logic
+   *
+   * @param {Array} updatedProperties
+   * @param {string} propertyName
+   * @param {string} capabilityName
+   * @returns {boolean}
+   * @private
+   */
   _checkBoolPropertyChanged(updatedProperties, propertyName, capabilityName) {
     if (!Object.prototype.hasOwnProperty.call(updatedProperties, propertyName)) {
       return false;
@@ -317,12 +317,12 @@ class GreeHVACDevice extends Homey.Device {
   }
 
   /**
-     * Try to disconnect client,
-     * remove all existing listeners
-     * and delete client property from the object
-     *
-     * @private
-     */
+   * Try to disconnect client,
+   * remove all existing listeners
+   * and delete client property from the object
+   *
+   * @private
+   */
   _tryToDisconnect() {
     if (this.client) {
       this.client.disconnect();
