@@ -4,7 +4,7 @@
   "main": "app.js",
   "scripts": {
     "test": "npm run eslint",
-    "eslint": "./node_modules/.bin/eslint -c .eslintrc.json ."
+    "eslint": "eslint ."
   },
   "repository": {
     "type": "git",
