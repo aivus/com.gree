@@ -1,41 +1,44 @@
+'use strict';
+
 const Homey = require('homey');
 const finder = require('./network/finder');
 
 class GreeHVACDriver extends Homey.Driver {
 
-    onInit() {
-        this.log('GreeHVACDriver has been inited');
-        this._finder = finder;
-    }
+  onInit() {
+    this.log('GreeHVACDriver has been initialized');
+    this._finder = finder;
+  }
 
-    onPairListDevices(data, callback) {
-        const devices = this._finder.hvacs.map(GreeHVACDriver.hvacToDevice);
+  onPairListDevices(data, callback) {
+    const devices = this._finder.hvacs.map(GreeHVACDriver.hvacToDevice);
 
-        // // Test device for debugging without connected HVAC
-        // devices.push({
-        //     name: 'test',
-        //     data: {
-        //         id: 'test',
-        //         mac: 'test',
-        //     }
-        // });
+    // // Test device for debugging without connected HVAC
+    // devices.push({
+    //     name: 'test',
+    //     data: {
+    //         id: 'test',
+    //         mac: 'test',
+    //     }
+    // });
 
-        callback(null, devices);
-    }
+    callback(null, devices);
+  }
 
-    static hvacToDevice(hvac) {
-        const { message, remoteInfo } = hvac;
+  static hvacToDevice(hvac) {
+    const { message, remoteInfo } = hvac;
 
-        const name = `${message.name} (${remoteInfo.address})`;
+    const name = `${message.name} (${remoteInfo.address})`;
 
-        return {
-            name,
-            data: {
-                id: message.cid,
-                mac: message.mac
-            }
-        };
-    }
+    return {
+      name,
+      data: {
+        id: message.cid,
+        mac: message.mac,
+        // test: 'test',
+      },
+    };
+  }
 
 }
 
