@@ -339,19 +339,15 @@ class GreeHVACDevice extends Homey.Device {
             return;
         }
 
-        if (!this.hasCapability('hvac_mode')) {
-            await this.addCapability('hvac_mode');
-        }
-
-        if (!this.hasCapability('fan_speed')) {
-            await this.addCapability('fan_speed');
-        }
-
+        // Added in v0.2.1
         if (!this.hasCapability('turbo_mode')) {
+            this.log('[migration]', 'Adding "turbo_mode" capability');
             await this.addCapability('turbo_mode');
         }
 
+        // Added in v0.2.1
         if (!this.hasCapability('lights')) {
+            this.log('[migration]', 'Adding "lights" capability');
             await this.addCapability('lights');
         }
     }
