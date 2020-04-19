@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/aivus/com.gree#readme",
   "dependencies": {
-    "gree-hvac-client": "git+https://github.com/inwaar/gree-hvac-client.git#v1.2.5"
+    "gree-hvac-client": "^1.2.7"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
