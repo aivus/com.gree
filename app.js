@@ -1,3 +1,5 @@
+'use strict';
+
 const Homey = require('homey');
 
 class GreeHVAC extends Homey.App {

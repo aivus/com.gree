@@ -1,3 +1,5 @@
+'use strict';
+
 const Homey = require('homey');
 const HVAC = require('gree-hvac-client');
 const finder = require('./network/finder');
@@ -45,7 +47,8 @@ class GreeHVACDevice extends Homey.Device {
     }
 
     /**
-     * Check all available HVACs from the Finder module and try to find one which will work with this Device instance
+     * Check all available HVACs from the Finder module
+     * and try to find one which will work with this Device instance
      * based on MAC address
      *
      * @private
@@ -54,7 +57,7 @@ class GreeHVACDevice extends Homey.Device {
         const deviceData = this.getData();
         this.log('[find devices]', 'Finding device with mac:', deviceData.mac);
 
-        finder.hvacs.forEach((hvac) => {
+        finder.hvacs.forEach(hvac => {
             if (hvac.message.mac !== deviceData.mac) {
                 // Skip other HVACs from the finder until find current
                 this.log('[find devices]', 'Skipping HVAC with mac:', hvac.message.mac);
@@ -70,7 +73,7 @@ class GreeHVACDevice extends Homey.Device {
                 debug: DEBUG,
                 host: hvac.remoteInfo.address,
                 pollingInterval: POLLING_INTERVAL,
-                pollingTimeout: POLLING_TIMEOUT
+                pollingTimeout: POLLING_TIMEOUT,
             });
 
             this._registerClientListeners();
@@ -97,7 +100,7 @@ class GreeHVACDevice extends Homey.Device {
      * @private
      */
     _registerCapabilities() {
-        this.registerCapabilityListener('onoff', (value) => {
+        this.registerCapabilityListener('onoff', value => {
             const rawValue = value ? HVAC.VALUE.power.on : HVAC.VALUE.power.off;
             this.log('[power mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             this.client.setProperty(HVAC.PROPERTY.power, rawValue);
@@ -105,35 +108,35 @@ class GreeHVACDevice extends Homey.Device {
             return Promise.resolve();
         });
 
-        this.registerCapabilityListener('target_temperature', (value) => {
+        this.registerCapabilityListener('target_temperature', value => {
             this.log('[temperature change]', `Value: ${value}`);
             this.client.setProperty(HVAC.PROPERTY.temperature, value);
 
             return Promise.resolve();
         });
 
-        this.registerCapabilityListener('hvac_mode', (value) => {
+        this.registerCapabilityListener('hvac_mode', value => {
             const rawValue = HVAC.VALUE.mode[value];
             this.log('[mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             this.client.setProperty(HVAC.PROPERTY.mode, rawValue);
             return Promise.resolve();
         });
 
-        this.registerCapabilityListener('fan_speed', (value) => {
+        this.registerCapabilityListener('fan_speed', value => {
             const rawValue = HVAC.VALUE.fanSpeed[value];
             this.log('[fan speed change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             this.client.setProperty(HVAC.PROPERTY.fanSpeed, rawValue);
             return Promise.resolve();
         });
 
-        this.registerCapabilityListener('turbo_mode', (value) => {
+        this.registerCapabilityListener('turbo_mode', value => {
             const rawValue = value ? HVAC.VALUE.turbo.on : HVAC.VALUE.turbo.off;
             this.log('[turbo mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             this.client.setProperty(HVAC.PROPERTY.turbo, rawValue);
             return Promise.resolve();
         });
 
-        this.registerCapabilityListener('lights', (value) => {
+        this.registerCapabilityListener('lights', value => {
             const rawValue = value ? HVAC.VALUE.lights.on : HVAC.VALUE.lights.off;
             this.log('[lights change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             this.client.setProperty(HVAC.PROPERTY.lights, rawValue);
@@ -314,7 +317,9 @@ class GreeHVACDevice extends Homey.Device {
     }
 
     /**
-     * Try to disconnect client, remove all existing listeners and delete client property from the object
+     * Try to disconnect client,
+     * remove all existing listeners
+     * and delete client property from the object
      *
      * @private
      */

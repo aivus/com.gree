@@ -1,3 +1,5 @@
+'use strict';
+
 const Homey = require('homey');
 const finder = require('./network/finder');
 
@@ -32,8 +34,9 @@ class GreeHVACDriver extends Homey.Driver {
             name,
             data: {
                 id: message.cid,
-                mac: message.mac
-            }
+                mac: message.mac,
+                // test: 'test',
+            },
         };
     }
 
