@@ -1,3 +1,5 @@
+'use strict';
+
 const dgram = require('dgram');
 const { EncryptionService } = require('gree-hvac-client/lib/encryption-service');
 
@@ -24,7 +26,7 @@ class Finder {
     _listen() {
         this.server = dgram.createSocket({
             type: 'udp4',
-            reuseAddr: true
+            reuseAddr: true,
         });
 
         this.server.on('error', this._restart.bind(this));
