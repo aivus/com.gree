@@ -76,8 +76,10 @@ class GreeHVACDevice extends Homey.Device {
                 pollingTimeout: POLLING_TIMEOUT,
             });
 
-            this._registerClientListeners();
-            this._registerCapabilities();
+            this._addMissedCapabilities().then(() => {
+                this._registerClientListeners();
+                this._registerCapabilities();
+            });
         });
     }
 
@@ -328,6 +330,25 @@ class GreeHVACDevice extends Homey.Device {
             this.client.disconnect();
             this.client.removeAllListeners();
             delete this.client;
+        }
+    }
+
+    async _addMissedCapabilities() {
+        // Skip adding if it's Homey's version < 3.0.0.
+        if (typeof this.addCapability !== 'function') {
+            return;
+        }
+
+        // Added in v0.2.1
+        if (!this.hasCapability('turbo_mode')) {
+            this.log('[migration]', 'Adding "turbo_mode" capability');
+            await this.addCapability('turbo_mode');
+        }
+
+        // Added in v0.2.1
+        if (!this.hasCapability('lights')) {
+            this.log('[migration]', 'Adding "lights" capability');
+            await this.addCapability('lights');
         }
     }
 
