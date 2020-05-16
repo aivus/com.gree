@@ -25,6 +25,7 @@ class GreeHVACDevice extends Homey.Device {
         this._flowTriggerHvacModeChanged = new Homey.FlowCardTriggerDevice('hvac_mode_changed').register();
         this._flowTriggerTurboModeChanged = new Homey.FlowCardTriggerDevice('turbo_mode_changed').register();
         this._flowTriggerHvacLightsChanged = new Homey.FlowCardTriggerDevice('lights_changed').register();
+        this._flowTriggerXFanModeChanged = new Homey.FlowCardTriggerDevice('xfan_mode_changed').register();
 
         this._markOffline();
         this._findDevices();
@@ -144,6 +145,13 @@ class GreeHVACDevice extends Homey.Device {
             this.client.setProperty(HVAC.PROPERTY.lights, rawValue);
             return Promise.resolve();
         });
+
+        this.registerCapabilityListener('xfan_mode', value => {
+            const rawValue = value ? HVAC.VALUE.blow.on : HVAC.VALUE.blow.off;
+            this.log('[xfan mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
+            this.client.setProperty(HVAC.PROPERTY.blow, rawValue);
+            return Promise.resolve();
+        });
     }
 
     /**
@@ -235,6 +243,14 @@ class GreeHVACDevice extends Homey.Device {
             this.setCapabilityValue('lights', value).then(() => {
                 this.log('[update properties]', '[lights]', value);
                 return this._flowTriggerHvacLightsChanged.trigger(this, { lights: value });
+            }).catch(this.error);
+        }
+
+        if (this._checkBoolPropertyChanged(updatedProperties, HVAC.PROPERTY.blow, 'xfan_mode')) {
+            const value = updatedProperties[HVAC.PROPERTY.blow] === HVAC.VALUE.blow.on;
+            this.setCapabilityValue('xfan_mode', value).then(() => {
+                this.log('[update properties]', '[xfan_mode]', value);
+                return this._flowTriggerXFanModeChanged.trigger(this, { xfan_mode: value });
             }).catch(this.error);
         }
     }
@@ -349,6 +365,12 @@ class GreeHVACDevice extends Homey.Device {
         if (!this.hasCapability('lights')) {
             this.log('[migration]', 'Adding "lights" capability');
             await this.addCapability('lights');
+        }
+
+        // Added in v?
+        if (!this.hasCapability('xfan_mode')) {
+            this.log('[migration]', 'Adding "xfan_mode" capability');
+            await this.addCapability('xfan_mode');
         }
     }
 

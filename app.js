@@ -40,6 +40,14 @@ class GreeHVAC extends Homey.App {
                 return onoffToBoolean(args.mode) === lightsMode;
             });
 
+        this._conditionXFanModeIs = new Homey.FlowCardCondition('xfan_mode_is')
+            .register()
+            .registerRunListener((args, state) => {
+                const xfanMode = args.device.getCapabilityValue('xfan_mode');
+                args.device.log('[condition]', '[current xfan mode]', xfanMode);
+                return onoffToBoolean(args.mode) === xfanMode;
+            });
+
         // Register actions for flows
         this._actionChangeHVACMode = new Homey.FlowCardAction('set_hvac_mode')
             .register()
@@ -70,6 +78,14 @@ class GreeHVAC extends Homey.App {
             .registerRunListener((args, state) => {
                 return args.device.setCapabilityValue('lights', onoffToBoolean(args.mode)).then(() => {
                     return args.device.triggerCapabilityListener('lights', onoffToBoolean(args.mode), {});
+                });
+            });
+
+        this._actionChangeXFanMode = new Homey.FlowCardAction('set_xfan_mode')
+            .register()
+            .registerRunListener((args, state) => {
+                return args.device.setCapabilityValue('xfan_mode', onoffToBoolean(args.mode)).then(() => {
+                    return args.device.triggerCapabilityListener('xfan_mode', onoffToBoolean(args.mode), {});
                 });
             });
     }
