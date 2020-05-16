@@ -159,6 +159,31 @@
                         "example": "false"
                     }
                 ]
+            },
+            {
+                "id": "swing_vertical_preset_changed",
+                "title": {
+                    "en": "Vertical swing preset changed"
+                },
+                "args": [
+                    {
+                        "name": "device",
+                        "type": "device",
+                        "filter": "driver_id=gree_cooper_hunter_hvac"
+                    }
+                ],
+                "tokens": [
+                    {
+                        "name": "swing_vertical_preset",
+                        "type": "string",
+                        "title": {
+                            "en": "Swing vertical preset",
+                            "nl": "Swing verticale preset",
+                            "de": "Vertikales Preset schwenken"
+                        },
+                        "example": "full"
+                    }
+                ]
             }
         ],
         "conditions": [
@@ -407,6 +432,108 @@
                         ]
                     }
                 ]
+            },
+            {
+                "id": "swing_vertical_preset_is",
+                "title": {
+                    "en": "Current vertical swing preset !{{is|isn't}} ..."
+                },
+                "titleFormatted": {
+                    "en": "Current vertical swing preset !{{is|isn't}} [[swing_vertical]]"
+                },
+                "args": [
+                    {
+                        "name": "device",
+                        "type": "device",
+                        "filter": "driver_id=gree_cooper_hunter_hvac"
+                    },
+                    {
+                        "name": "swing_vertical",
+                        "type": "dropdown",
+                        "values": [
+                            {
+                                "id": "default",
+                                "title": {
+                                    "en": "Default",
+                                    "nl": "Standaard",
+                                    "de": "Standard"
+                                }
+                            },
+                            {
+                                "id": "full",
+                                "title": {
+                                    "en": "Full",
+                                    "nl": "Volledig",
+                                    "de": "Voll"
+                                }
+                            },
+                            {
+                                "id": "fixedTop",
+                                "title": {
+                                    "en": "Fixed top",
+                                    "nl": "Fixed boven",
+                                    "de": "Feste Oberseite"
+                                }
+                            },
+                            {
+                                "id": "fixedMidTop",
+                                "title": {
+                                    "en": "Fixed top middle",
+                                    "nl": "Fixed midden boven",
+                                    "de": "Feste obere Mitte"
+                                }
+                            },
+                            {
+                                "id": "fixedMid",
+                                "title": {
+                                    "en": "Fixed middle",
+                                    "nl": "Fixed midden",
+                                    "de": "Feste Mitte"
+                                }
+                            },
+                            {
+                                "id": "fixedMidBottom",
+                                "title": {
+                                    "en": "Fixed middle bottom",
+                                    "nl": "Fixed midden onder",
+                                    "de": "Mittlerer Boden fest"
+                                }
+                            },
+                            {
+                                "id": "fixedBottom",
+                                "title": {
+                                    "en": "Fixed bottom",
+                                    "nl": "Fixed onder",
+                                    "de": "Feste Unterseite"
+                                }
+                            },
+                            {
+                                "id": "swingBottom",
+                                "title": {
+                                    "en": "Swing bottom",
+                                    "nl": "Swing onder",
+                                    "de": "Swing Unterseite"
+                                }
+                            },
+                            {
+                                "id": "swingMid",
+                                "title": {
+                                    "en": "Swing middle",
+                                    "nl": "Swing midden",
+                                    "de": "Mitte schwingen"
+                                }
+                            },
+                            {
+                                "id": "swingTop",
+                                "title": {
+                                    "en": "Swing top",
+                                    "nl": "Swing boven",
+                                    "de": "Swing Oberseite"
+                                }
+                            }
+                        ]
+                    }
+                ]
             }
         ],
         "actions": [
@@ -650,6 +777,108 @@
                         ]
                     }
                 ]
+            },
+            {
+                "id": "set_swing_vertical_preset",
+                "title": {
+                    "en": "Set vertical swing",
+                    "nl": "Verticale swing instellen",
+                    "de": "Vertikale Schaukel einstellen"
+
+                },
+                "args": [
+                    {
+                        "name": "device",
+                        "type": "device",
+                        "filter": "driver_id=gree_cooper_hunter_hvac"
+                    },
+                    {
+                        "name": "swing_vertical",
+                        "type": "dropdown",
+                        "values": [
+                            {
+                                "id": "default",
+                                "title": {
+                                    "en": "Default",
+                                    "nl": "Standaard",
+                                    "de": "Standard"
+                                }
+                            },
+                            {
+                                "id": "full",
+                                "title": {
+                                    "en": "Full",
+                                    "nl": "Volledig",
+                                    "de": "Voll"
+                                }
+                            },
+                            {
+                                "id": "fixedTop",
+                                "title": {
+                                    "en": "Fixed top",
+                                    "nl": "Fixed boven",
+                                    "de": "Feste Oberseite"
+                                }
+                            },
+                            {
+                                "id": "fixedMidTop",
+                                "title": {
+                                    "en": "Fixed top middle",
+                                    "nl": "Fixed midden boven",
+                                    "de": "Feste obere Mitte"
+                                }
+                            },
+                            {
+                                "id": "fixedMid",
+                                "title": {
+                                    "en": "Fixed middle",
+                                    "nl": "Fixed midden",
+                                    "de": "Feste Mitte"
+                                }
+                            },
+                            {
+                                "id": "fixedMidBottom",
+                                "title": {
+                                    "en": "Fixed middle bottom",
+                                    "nl": "Fixed midden onder",
+                                    "de": "Mittlerer Boden fest"
+                                }
+                            },
+                            {
+                                "id": "fixedBottom",
+                                "title": {
+                                    "en": "Fixed bottom",
+                                    "nl": "Fixed onder",
+                                    "de": "Feste Unterseite"
+                                }
+                            },
+                            {
+                                "id": "swingBottom",
+                                "title": {
+                                    "en": "Swing bottom",
+                                    "nl": "Swing onder",
+                                    "de": "Swing Unterseite"
+                                }
+                            },
+                            {
+                                "id": "swingMid",
+                                "title": {
+                                    "en": "Swing middle",
+                                    "nl": "Swing midden",
+                                    "de": "Mitte schwingen"
+                                }
+                            },
+                            {
+                                "id": "swingTop",
+                                "title": {
+                                    "en": "Swing top",
+                                    "nl": "Swing boven",
+                                    "de": "Swing Oberseite"
+                                }
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },
@@ -825,6 +1054,104 @@
             "getable": true,
             "setable": true,
             "uiComponent": "toggle"
+        },
+        "swing_vertical_preset": {
+            "type": "enum",
+            "title": {
+                "en": "Swing vertical preset",
+                "nl": "Swing verticale preset",
+                "de": "Vertikales Preset schwenken"
+            },
+            "desc": {
+                "en": "Position of the fan swing",
+                "nl": "Positie van de fan swing",
+                "de": "Position der fan swing"
+            },
+            "values": [
+                {
+                    "id": "default",
+                    "title": {
+                        "en": "Default",
+                        "nl": "Standaard",
+                        "de": "Standard"
+                    }
+                },
+                {
+                    "id": "full",
+                    "title": {
+                        "en": "Full",
+                        "nl": "Volledig",
+                        "de": "Voll"
+                    }
+                },
+                {
+                    "id": "fixedTop",
+                    "title": {
+                        "en": "Fixed top",
+                        "nl": "Fixed boven",
+                        "de": "Feste Oberseite"
+                    }
+                },
+                {
+                    "id": "fixedMidTop",
+                    "title": {
+                        "en": "Fixed top middle",
+                        "nl": "Fixed midden boven",
+                        "de": "Feste obere Mitte"
+                    }
+                },
+                {
+                    "id": "fixedMid",
+                    "title": {
+                        "en": "Fixed middle",
+                        "nl": "Fixed midden",
+                        "de": "Feste Mitte"
+                    }
+                },
+                {
+                    "id": "fixedMidBottom",
+                    "title": {
+                        "en": "Fixed middle bottom",
+                        "nl": "Fixed midden onder",
+                        "de": "Mittlerer Boden fest"
+                    }
+                },
+                {
+                    "id": "fixedBottom",
+                    "title": {
+                        "en": "Fixed bottom",
+                        "nl": "Fixed onder",
+                        "de": "Feste Unterseite"
+                    }
+                },
+                {
+                    "id": "swingBottom",
+                    "title": {
+                        "en": "Swing bottom",
+                        "nl": "Swing onder",
+                        "de": "Swing Unterseite"
+                    }
+                },
+                {
+                    "id": "swingMid",
+                    "title": {
+                        "en": "Swing middle",
+                        "nl": "Swing midden",
+                        "de": "Mitte schwingen"
+                    }
+                },
+                {
+                    "id": "swingTop",
+                    "title": {
+                        "en": "Swing top",
+                        "nl": "Swing boven",
+                        "de": "Swing Oberseite"
+                    }
+                }
+            ],
+            "getable": true,
+            "setable": true,
+            "uiComponent": "picker"
         }
     },
     "drivers": [

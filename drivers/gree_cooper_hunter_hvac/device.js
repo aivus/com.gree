@@ -26,6 +26,7 @@ class GreeHVACDevice extends Homey.Device {
         this._flowTriggerTurboModeChanged = new Homey.FlowCardTriggerDevice('turbo_mode_changed').register();
         this._flowTriggerHvacLightsChanged = new Homey.FlowCardTriggerDevice('lights_changed').register();
         this._flowTriggerXFanModeChanged = new Homey.FlowCardTriggerDevice('xfan_mode_changed').register();
+        this._flowTriggerSwingVerticalPresetChanged = new Homey.FlowCardTriggerDevice('swing_vertical_preset_changed').register();
 
         this._markOffline();
         this._findDevices();
@@ -152,6 +153,13 @@ class GreeHVACDevice extends Homey.Device {
             this.client.setProperty(HVAC.PROPERTY.blow, rawValue);
             return Promise.resolve();
         });
+
+        this.registerCapabilityListener('swing_vertical_preset', value => {
+            const rawValue = HVAC.VALUE.swingVert[value];
+            this.log('[swing vertical preset change]', `Value: ${value}`, `Raw value: ${rawValue}`);
+            this.client.setProperty(HVAC.PROPERTY.swingVert, rawValue);
+            return Promise.resolve();
+        });
     }
 
     /**
@@ -251,6 +259,14 @@ class GreeHVACDevice extends Homey.Device {
             this.setCapabilityValue('xfan_mode', value).then(() => {
                 this.log('[update properties]', '[xfan_mode]', value);
                 return this._flowTriggerXFanModeChanged.trigger(this, { xfan_mode: value });
+            }).catch(this.error);
+        }
+
+        if (this._checkPropertyChanged(updatedProperties, HVAC.PROPERTY.swingVert, 'swing_vertical_preset')) {
+            const value = updatedProperties[HVAC.PROPERTY.swingVert];
+            this.setCapabilityValue('swing_vertical_preset', value).then(() => {
+                this.log('[update properties]', '[swing_vertical_preset]', value);
+                return Promise.resolve();
             }).catch(this.error);
         }
     }
@@ -371,6 +387,11 @@ class GreeHVACDevice extends Homey.Device {
         if (!this.hasCapability('xfan_mode')) {
             this.log('[migration]', 'Adding "xfan_mode" capability');
             await this.addCapability('xfan_mode');
+        }
+
+        if (!this.hasCapability('swing_vertical_preset')) {
+            this.log('[migration]', 'Adding "swing_vertical_preset" capability');
+            await this.addCapability('swing_vertical_preset');
         }
     }
 

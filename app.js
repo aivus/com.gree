@@ -48,6 +48,14 @@ class GreeHVAC extends Homey.App {
                 return onoffToBoolean(args.mode) === xfanMode;
             });
 
+        this._conditionSwingVerticalPresetIs = new Homey.FlowCardCondition('swing_vertical_preset_is')
+            .register()
+            .registerRunListener((args, state) => {
+                const swingVerticalPreset = args.device.getCapabilityValue('swing_vertical_preset');
+                args.device.log('[condition]', '[current swing vertical preset]', swingVerticalPreset);
+                return args.swing_vertical === swingVerticalPreset;
+            });
+
         // Register actions for flows
         this._actionChangeHVACMode = new Homey.FlowCardAction('set_hvac_mode')
             .register()
@@ -86,6 +94,14 @@ class GreeHVAC extends Homey.App {
             .registerRunListener((args, state) => {
                 return args.device.setCapabilityValue('xfan_mode', onoffToBoolean(args.mode)).then(() => {
                     return args.device.triggerCapabilityListener('xfan_mode', onoffToBoolean(args.mode), {});
+                });
+            });
+
+        this._actionChangeSwingVertical = new Homey.FlowCardAction('set_swing_vertical_preset')
+            .register()
+            .registerRunListener((args, state) => {
+                return args.device.setCapabilityValue('swing_vertical_preset', args.swing_vertical).then(() => {
+                    return args.device.triggerCapabilityListener('swing_vertical_preset', args.swing_vertical, {});
                 });
             });
     }
