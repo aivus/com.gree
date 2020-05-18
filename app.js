@@ -11,7 +11,7 @@ class GreeHVAC extends Homey.App {
         this._conditionHVACModeIs = new Homey.FlowCardCondition('hvac_mode_is')
             .register()
             .registerRunListener((args, state) => {
-                const hvacMode = args.device.getCapabilityValue('hvac_mode');
+                const hvacMode = args.device.getCapabilityValue('thermostat_mode');
                 args.device.log('[condition]', '[current hvac mode]', hvacMode);
                 return args.mode === hvacMode;
             });
@@ -60,8 +60,8 @@ class GreeHVAC extends Homey.App {
         this._actionChangeHVACMode = new Homey.FlowCardAction('set_hvac_mode')
             .register()
             .registerRunListener((args, state) => {
-                return args.device.setCapabilityValue('hvac_mode', args.mode).then(() => {
-                    return args.device.triggerCapabilityListener('hvac_mode', args.mode, {});
+                return args.device.setCapabilityValue('thermostat_mode', args.mode).then(() => {
+                    return args.device.triggerCapabilityListener('thermostat_mode', args.mode, {});
                 });
             });
 

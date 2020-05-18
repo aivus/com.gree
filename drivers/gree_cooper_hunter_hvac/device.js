@@ -21,12 +21,10 @@ class GreeHVACDevice extends Homey.Device {
     onInit() {
         this.log('Gree device has been inited');
 
-        this._flowTriggerHvacFanSpeedChanged = new Homey.FlowCardTriggerDevice('fan_speed_changed').register();
         this._flowTriggerHvacModeChanged = new Homey.FlowCardTriggerDevice('hvac_mode_changed').register();
         this._flowTriggerTurboModeChanged = new Homey.FlowCardTriggerDevice('turbo_mode_changed').register();
         this._flowTriggerHvacLightsChanged = new Homey.FlowCardTriggerDevice('lights_changed').register();
         this._flowTriggerXFanModeChanged = new Homey.FlowCardTriggerDevice('xfan_mode_changed').register();
-        this._flowTriggerSwingVerticalPresetChanged = new Homey.FlowCardTriggerDevice('swing_vertical_preset_changed').register();
 
         this._markOffline();
         this._findDevices();
@@ -119,9 +117,10 @@ class GreeHVACDevice extends Homey.Device {
             return Promise.resolve();
         });
 
-        this.registerCapabilityListener('hvac_mode', value => {
+        this.registerCapabilityListener('thermostat_mode', value => {
             const rawValue = HVAC.VALUE.mode[value];
             this.log('[mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
+            this._flowTriggerHvacModeChanged.trigger(this, { hvac_mode: value });
             this.client.setProperty(HVAC.PROPERTY.mode, rawValue);
             return Promise.resolve();
         });
@@ -222,11 +221,11 @@ class GreeHVACDevice extends Homey.Device {
             }).catch(this.error);
         }
 
-        if (this._checkPropertyChanged(updatedProperties, HVAC.PROPERTY.mode, 'hvac_mode')) {
+        if (this._checkPropertyChanged(updatedProperties, HVAC.PROPERTY.mode, 'thermostat_mode')) {
             const value = updatedProperties[HVAC.PROPERTY.mode];
-            this.setCapabilityValue('hvac_mode', value).then(() => {
+            this.setCapabilityValue('thermostat_mode', value).then(() => {
                 this.log('[update properties]', '[hvac_mode]', value);
-                return Promise.resolve();
+                return this._flowTriggerHvacModeChanged.trigger(this, { hvac_mode: value });
             }).catch(this.error);
         }
 
@@ -392,6 +391,12 @@ class GreeHVACDevice extends Homey.Device {
         if (!this.hasCapability('swing_vertical_preset')) {
             this.log('[migration]', 'Adding "swing_vertical_preset" capability');
             await this.addCapability('swing_vertical_preset');
+        }
+
+        if (!this.hasCapability('thermostat_mode')) {
+            this.log('[migration]', 'Converting "hvac_mode" to "thermostat_mode"');
+            await this.removeCapability('hvac_mode');
+            await this.addCapability('thermostat_mode');
         }
     }
 
