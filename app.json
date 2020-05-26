@@ -103,7 +103,7 @@
                         "type": "boolean",
                         "title": {
                             "en": "Turbo mode",
-                            "nl": "Turbo-modus",
+                            "nl": "Turbo modus",
                             "de": "Turbo Modus"
                         },
                         "example": "true"
@@ -178,7 +178,7 @@
                         "type": "string",
                         "title": {
                             "en": "Vertical swing",
-                            "nl": "Verticale schommel",
+                            "nl": "Verticale swing",
                             "de": "Vertikale Schaukel"
                         },
                         "example": "full"
@@ -225,7 +225,7 @@
                                 "id": "heat",
                                 "label": {
                                     "en": "Heat",
-                                    "nl": "Verhitten",
+                                    "nl": "Verwarmen",
                                     "de": "Heizen"
                                 }
                             },
@@ -233,7 +233,7 @@
                                 "id": "dry",
                                 "label": {
                                     "en": "Dry",
-                                    "nl": "Droog",
+                                    "nl": "Ontvochtigen",
                                     "de": "Trocken"
                                 }
                             },
@@ -455,7 +455,7 @@
                                 "id": "default",
                                 "title": {
                                     "en": "Disabled",
-                                    "nl": "Gehandicapt",
+                                    "nl": "Uitgeschakeld",
                                     "de": "Behindert"
                                 }
                             },
@@ -463,7 +463,7 @@
                                 "id": "full",
                                 "title": {
                                     "en": "Full range",
-                                    "nl": "Volledig assortiment",
+                                    "nl": "Volledig bereik",
                                     "de": "Vollständige Palette"
                                 }
                             },
@@ -574,7 +574,7 @@
                                 "id": "heat",
                                 "label": {
                                     "en": "Heat",
-                                    "nl": "Verhitten",
+                                    "nl": "Verwarmen",
                                     "de": "Heizen"
                                 }
                             },
@@ -582,7 +582,7 @@
                                 "id": "dry",
                                 "label": {
                                     "en": "Dry",
-                                    "nl": "Droog",
+                                    "nl": "Ontvochtigen",
                                     "de": "Trocken"
                                 }
                             },
@@ -800,7 +800,7 @@
                                 "id": "default",
                                 "title": {
                                     "en": "Disabled",
-                                    "nl": "Gehandicapt",
+                                    "nl": "Uitgeschakeld",
                                     "de": "Behindert"
                                 }
                             },
@@ -808,7 +808,7 @@
                                 "id": "full",
                                 "title": {
                                     "en": "Full range",
-                                    "nl": "Volledig assortiment",
+                                    "nl": "Volledig bereik",
                                     "de": "Vollständige Palette"
                                 }
                             },
@@ -916,7 +916,7 @@
                     "id": "heat",
                     "title": {
                         "en": "Heat",
-                        "nl": "Verhitten",
+                        "nl": "Verwarmen",
                         "de": "Heizen"
                     }
                 },
@@ -924,7 +924,7 @@
                     "id": "dry",
                     "title": {
                         "en": "Dry",
-                        "nl": "Droog",
+                        "nl": "Ontvochtigen",
                         "de": "Trocken"
                     }
                 },
@@ -1059,7 +1059,7 @@
             "type": "enum",
             "title": {
                 "en": "Vertical swing",
-                "nl": "Verticale schommel",
+                "nl": "Verticale swing",
                 "de": "Vertikale Schaukel"
             },
             "desc": {
@@ -1072,7 +1072,7 @@
                     "id": "default",
                     "title": {
                         "en": "Disabled",
-                        "nl": "Gehandicapt",
+                        "nl": "Uitgeschakeld",
                         "de": "Behindert"
                     }
                 },
@@ -1080,7 +1080,7 @@
                     "id": "full",
                     "title": {
                         "en": "Full range",
-                        "nl": "Volledig assortiment",
+                        "nl": "Volledig bereik",
                         "de": "Vollständige Palette"
                     }
                 },
