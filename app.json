@@ -103,7 +103,7 @@
                         "type": "boolean",
                         "title": {
                             "en": "Turbo mode",
-                            "nl": "Turbo-modus",
+                            "nl": "Turbo modus",
                             "de": "Turbo Modus"
                         },
                         "example": "true"
@@ -132,6 +132,56 @@
                             "de": "Lichtmodus"
                         },
                         "example": "true"
+                    }
+                ]
+            },
+            {
+                "id": "xfan_mode_changed",
+                "title": {
+                    "en": "X-Fan mode changed"
+                },
+                "args": [
+                    {
+                        "name": "device",
+                        "type": "device",
+                        "filter": "driver_id=gree_cooper_hunter_hvac"
+                    }
+                ],
+                "tokens": [
+                    {
+                        "name": "xfan_mode",
+                        "type": "boolean",
+                        "title": {
+                            "en": "X-Fan mode",
+                            "nl": "X-Fan modus",
+                            "de": "X-Fan Modus"
+                        },
+                        "example": "false"
+                    }
+                ]
+            },
+            {
+                "id": "vertical_swing_changed",
+                "title": {
+                    "en": "Vertical swing changed"
+                },
+                "args": [
+                    {
+                        "name": "device",
+                        "type": "device",
+                        "filter": "driver_id=gree_cooper_hunter_hvac"
+                    }
+                ],
+                "tokens": [
+                    {
+                        "name": "vertical_swing",
+                        "type": "string",
+                        "title": {
+                            "en": "Vertical swing",
+                            "nl": "Verticale swing",
+                            "de": "Vertikale Schaukel"
+                        },
+                        "example": "full"
                     }
                 ]
             }
@@ -175,7 +225,7 @@
                                 "id": "heat",
                                 "label": {
                                     "en": "Heat",
-                                    "nl": "Verhitten",
+                                    "nl": "Verwarmen",
                                     "de": "Heizen"
                                 }
                             },
@@ -183,7 +233,7 @@
                                 "id": "dry",
                                 "label": {
                                     "en": "Dry",
-                                    "nl": "Droog",
+                                    "nl": "Ontvochtigen",
                                     "de": "Trocken"
                                 }
                             },
@@ -344,6 +394,146 @@
                         ]
                     }
                 ]
+            },
+            {
+                "id": "xfan_mode_is",
+                "title": {
+                    "en": "Current X-Fan mode !{{is|isn't}} ..."
+                },
+                "titleFormatted": {
+                    "en": "Current X-Fan mode !{{is|isn't}} [[mode]]"
+                },
+                "args": [
+                    {
+                        "name": "device",
+                        "type": "device",
+                        "filter": "driver_id=gree_cooper_hunter_hvac"
+                    },
+                    {
+                        "name": "mode",
+                        "type": "dropdown",
+                        "values": [
+                            {
+                                "id": "on",
+                                "label": {
+                                    "en": "On",
+                                    "nl": "Aan",
+                                    "de": "Einschalten"
+                                }
+                            },
+                            {
+                                "id": "off",
+                                "label": {
+                                    "en": "Off",
+                                    "nl": "Uit",
+                                    "de": "Ausschalten"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "vertical_swing_is",
+                "title": {
+                    "en": "Current vertical swing !{{is|isn't}} ..."
+                },
+                "titleFormatted": {
+                    "en": "Current vertical swing !{{is|isn't}} [[vertical_swing]]"
+                },
+                "args": [
+                    {
+                        "name": "device",
+                        "type": "device",
+                        "filter": "driver_id=gree_cooper_hunter_hvac"
+                    },
+                    {
+                        "name": "vertical_swing",
+                        "type": "dropdown",
+                        "values": [
+                            {
+                                "id": "default",
+                                "title": {
+                                    "en": "Disabled",
+                                    "nl": "Uitgeschakeld",
+                                    "de": "Behindert"
+                                }
+                            },
+                            {
+                                "id": "full",
+                                "title": {
+                                    "en": "Full range",
+                                    "nl": "Volledig bereik",
+                                    "de": "Vollständige Palette"
+                                }
+                            },
+                            {
+                                "id": "fixedTop",
+                                "title": {
+                                    "en": "Fixed top",
+                                    "nl": "Fixed boven",
+                                    "de": "Feste Oberseite"
+                                }
+                            },
+                            {
+                                "id": "fixedMidTop",
+                                "title": {
+                                    "en": "Fixed top middle",
+                                    "nl": "Fixed midden boven",
+                                    "de": "Feste obere Mitte"
+                                }
+                            },
+                            {
+                                "id": "fixedMid",
+                                "title": {
+                                    "en": "Fixed middle",
+                                    "nl": "Fixed midden",
+                                    "de": "Feste Mitte"
+                                }
+                            },
+                            {
+                                "id": "fixedMidBottom",
+                                "title": {
+                                    "en": "Fixed middle bottom",
+                                    "nl": "Fixed midden onder",
+                                    "de": "Mittlerer Boden fest"
+                                }
+                            },
+                            {
+                                "id": "fixedBottom",
+                                "title": {
+                                    "en": "Fixed bottom",
+                                    "nl": "Fixed onder",
+                                    "de": "Feste Unterseite"
+                                }
+                            },
+                            {
+                                "id": "swingBottom",
+                                "title": {
+                                    "en": "Swing bottom",
+                                    "nl": "Swing onder",
+                                    "de": "Swing Unterseite"
+                                }
+                            },
+                            {
+                                "id": "swingMid",
+                                "title": {
+                                    "en": "Swing middle",
+                                    "nl": "Swing midden",
+                                    "de": "Mitte schwingen"
+                                }
+                            },
+                            {
+                                "id": "swingTop",
+                                "title": {
+                                    "en": "Swing top",
+                                    "nl": "Swing boven",
+                                    "de": "Swing Oberseite"
+                                }
+                            }
+                        ]
+                    }
+                ]
             }
         ],
         "actions": [
@@ -384,7 +574,7 @@
                                 "id": "heat",
                                 "label": {
                                     "en": "Heat",
-                                    "nl": "Verhitten",
+                                    "nl": "Verwarmen",
                                     "de": "Heizen"
                                 }
                             },
@@ -392,7 +582,7 @@
                                 "id": "dry",
                                 "label": {
                                     "en": "Dry",
-                                    "nl": "Droog",
+                                    "nl": "Ontvochtigen",
                                     "de": "Trocken"
                                 }
                             },
@@ -550,6 +740,145 @@
                         ]
                     }
                 ]
+            },
+            {
+                "id": "set_xfan_mode",
+                "title": {
+                    "en": "Set X-Fan mode",
+                    "nl": "Stel de X-Fan modus in",
+                    "de": "Stellen Sie den X-Fan modus ein"
+                },
+                "args": [
+                    {
+                        "name": "device",
+                        "type": "device",
+                        "filter": "driver_id=gree_cooper_hunter_hvac"
+                    },
+                    {
+                        "name": "mode",
+                        "type": "dropdown",
+                        "values": [
+                            {
+                                "id": "on",
+                                "label": {
+                                    "en": "On",
+                                    "nl": "Aan",
+                                    "de": "Einschalten"
+                                }
+                            },
+                            {
+                                "id": "off",
+                                "label": {
+                                    "en": "Off",
+                                    "nl": "Uit",
+                                    "de": "Ausschalten"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "set_vertical_swing",
+                "title": {
+                    "en": "Set vertical swing",
+                    "nl": "Verticale swing instellen",
+                    "de": "Vertikale Schaukel einstellen"
+
+                },
+                "args": [
+                    {
+                        "name": "device",
+                        "type": "device",
+                        "filter": "driver_id=gree_cooper_hunter_hvac"
+                    },
+                    {
+                        "name": "vertical_swing",
+                        "type": "dropdown",
+                        "values": [
+                            {
+                                "id": "default",
+                                "title": {
+                                    "en": "Disabled",
+                                    "nl": "Uitgeschakeld",
+                                    "de": "Behindert"
+                                }
+                            },
+                            {
+                                "id": "full",
+                                "title": {
+                                    "en": "Full range",
+                                    "nl": "Volledig bereik",
+                                    "de": "Vollständige Palette"
+                                }
+                            },
+                            {
+                                "id": "fixedTop",
+                                "title": {
+                                    "en": "Fixed top",
+                                    "nl": "Fixed boven",
+                                    "de": "Feste Oberseite"
+                                }
+                            },
+                            {
+                                "id": "fixedMidTop",
+                                "title": {
+                                    "en": "Fixed top middle",
+                                    "nl": "Fixed midden boven",
+                                    "de": "Feste obere Mitte"
+                                }
+                            },
+                            {
+                                "id": "fixedMid",
+                                "title": {
+                                    "en": "Fixed middle",
+                                    "nl": "Fixed midden",
+                                    "de": "Feste Mitte"
+                                }
+                            },
+                            {
+                                "id": "fixedMidBottom",
+                                "title": {
+                                    "en": "Fixed middle bottom",
+                                    "nl": "Fixed midden onder",
+                                    "de": "Mittlerer Boden fest"
+                                }
+                            },
+                            {
+                                "id": "fixedBottom",
+                                "title": {
+                                    "en": "Fixed bottom",
+                                    "nl": "Fixed onder",
+                                    "de": "Feste Unterseite"
+                                }
+                            },
+                            {
+                                "id": "swingBottom",
+                                "title": {
+                                    "en": "Swing bottom",
+                                    "nl": "Swing onder",
+                                    "de": "Swing Unterseite"
+                                }
+                            },
+                            {
+                                "id": "swingMid",
+                                "title": {
+                                    "en": "Swing middle",
+                                    "nl": "Swing midden",
+                                    "de": "Mitte schwingen"
+                                }
+                            },
+                            {
+                                "id": "swingTop",
+                                "title": {
+                                    "en": "Swing top",
+                                    "nl": "Swing boven",
+                                    "de": "Swing Oberseite"
+                                }
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },
@@ -587,7 +916,7 @@
                     "id": "heat",
                     "title": {
                         "en": "Heat",
-                        "nl": "Verhitten",
+                        "nl": "Verwarmen",
                         "de": "Heizen"
                     }
                 },
@@ -595,7 +924,7 @@
                     "id": "dry",
                     "title": {
                         "en": "Dry",
-                        "nl": "Droog",
+                        "nl": "Ontvochtigen",
                         "de": "Trocken"
                     }
                 },
@@ -682,7 +1011,7 @@
             "type": "boolean",
             "title": {
                 "en": "Turbo mode",
-                "nl": "Turbo-modus",
+                "nl": "Turbo modus",
                 "de": "Turbo Modus"
             },
             "desc": {
@@ -709,6 +1038,120 @@
             "getable": true,
             "setable": true,
             "uiComponent": "toggle"
+        },
+        "xfan_mode": {
+            "type": "boolean",
+            "title": {
+                "en": "X-Fan mode",
+                "nl": "X-Fan modus",
+                "de": "X-Fan Modus"
+            },
+            "desc": {
+                "en": "X-Fan mode of the HVAC's fan",
+                "nl": "X-Fan modus van de ventilator van de HVAC",
+                "de": "X-Fan modus des Lüfters der Klimaanlage"
+            },
+            "getable": true,
+            "setable": true,
+            "uiComponent": "toggle"
+        },
+        "vertical_swing": {
+            "type": "enum",
+            "title": {
+                "en": "Vertical swing",
+                "nl": "Verticale swing",
+                "de": "Vertikale Schaukel"
+            },
+            "desc": {
+                "en": "Position of the fan swing",
+                "nl": "Positie van de fan swing",
+                "de": "Position der fan swing"
+            },
+            "values": [
+                {
+                    "id": "default",
+                    "title": {
+                        "en": "Disabled",
+                        "nl": "Uitgeschakeld",
+                        "de": "Behindert"
+                    }
+                },
+                {
+                    "id": "full",
+                    "title": {
+                        "en": "Full range",
+                        "nl": "Volledig bereik",
+                        "de": "Vollständige Palette"
+                    }
+                },
+                {
+                    "id": "fixedTop",
+                    "title": {
+                        "en": "Fixed top",
+                        "nl": "Fixed boven",
+                        "de": "Feste Oberseite"
+                    }
+                },
+                {
+                    "id": "fixedMidTop",
+                    "title": {
+                        "en": "Fixed top middle",
+                        "nl": "Fixed midden boven",
+                        "de": "Feste obere Mitte"
+                    }
+                },
+                {
+                    "id": "fixedMid",
+                    "title": {
+                        "en": "Fixed middle",
+                        "nl": "Fixed midden",
+                        "de": "Feste Mitte"
+                    }
+                },
+                {
+                    "id": "fixedMidBottom",
+                    "title": {
+                        "en": "Fixed middle bottom",
+                        "nl": "Fixed midden onder",
+                        "de": "Mittlerer Boden fest"
+                    }
+                },
+                {
+                    "id": "fixedBottom",
+                    "title": {
+                        "en": "Fixed bottom",
+                        "nl": "Fixed onder",
+                        "de": "Feste Unterseite"
+                    }
+                },
+                {
+                    "id": "swingBottom",
+                    "title": {
+                        "en": "Swing bottom",
+                        "nl": "Swing onder",
+                        "de": "Swing Unterseite"
+                    }
+                },
+                {
+                    "id": "swingMid",
+                    "title": {
+                        "en": "Swing middle",
+                        "nl": "Swing midden",
+                        "de": "Mitte schwingen"
+                    }
+                },
+                {
+                    "id": "swingTop",
+                    "title": {
+                        "en": "Swing top",
+                        "nl": "Swing boven",
+                        "de": "Swing Oberseite"
+                    }
+                }
+            ],
+            "getable": true,
+            "setable": true,
+            "uiComponent": "picker"
         }
     },
     "drivers": [
@@ -724,7 +1167,9 @@
                 "hvac_mode",
                 "fan_speed",
                 "turbo_mode",
-                "lights"
+                "lights",
+                "xfan_mode",
+                "vertical_swing"
             ],
             "capabilitiesOptions": {
                 "target_temperature": {

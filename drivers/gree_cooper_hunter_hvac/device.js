@@ -25,6 +25,8 @@ class GreeHVACDevice extends Homey.Device {
         this._flowTriggerHvacModeChanged = new Homey.FlowCardTriggerDevice('hvac_mode_changed').register();
         this._flowTriggerTurboModeChanged = new Homey.FlowCardTriggerDevice('turbo_mode_changed').register();
         this._flowTriggerHvacLightsChanged = new Homey.FlowCardTriggerDevice('lights_changed').register();
+        this._flowTriggerXFanModeChanged = new Homey.FlowCardTriggerDevice('xfan_mode_changed').register();
+        this._flowTriggerVerticalSwingChanged = new Homey.FlowCardTriggerDevice('vertical_swing_changed').register();
 
         this._markOffline();
         this._findDevices();
@@ -142,6 +144,22 @@ class GreeHVACDevice extends Homey.Device {
             const rawValue = value ? HVAC.VALUE.lights.on : HVAC.VALUE.lights.off;
             this.log('[lights change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             this.client.setProperty(HVAC.PROPERTY.lights, rawValue);
+            this._flowTriggerHvacLightsChanged.trigger(this, { lights: value });
+            return Promise.resolve();
+        });
+
+        this.registerCapabilityListener('xfan_mode', value => {
+            const rawValue = value ? HVAC.VALUE.blow.on : HVAC.VALUE.blow.off;
+            this.log('[xfan mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
+            this.client.setProperty(HVAC.PROPERTY.blow, rawValue);
+            this._flowTriggerXFanModeChanged.trigger(this, { xfan_mode: value });
+            return Promise.resolve();
+        });
+
+        this.registerCapabilityListener('vertical_swing', value => {
+            const rawValue = HVAC.VALUE.swingVert[value];
+            this.log('[vertical swing change]', `Value: ${value}`, `Raw value: ${rawValue}`);
+            this.client.setProperty(HVAC.PROPERTY.swingVert, rawValue);
             return Promise.resolve();
         });
     }
@@ -235,6 +253,22 @@ class GreeHVACDevice extends Homey.Device {
             this.setCapabilityValue('lights', value).then(() => {
                 this.log('[update properties]', '[lights]', value);
                 return this._flowTriggerHvacLightsChanged.trigger(this, { lights: value });
+            }).catch(this.error);
+        }
+
+        if (this._checkBoolPropertyChanged(updatedProperties, HVAC.PROPERTY.blow, 'xfan_mode')) {
+            const value = updatedProperties[HVAC.PROPERTY.blow] === HVAC.VALUE.blow.on;
+            this.setCapabilityValue('xfan_mode', value).then(() => {
+                this.log('[update properties]', '[xfan_mode]', value);
+                return this._flowTriggerXFanModeChanged.trigger(this, { xfan_mode: value });
+            }).catch(this.error);
+        }
+
+        if (this._checkPropertyChanged(updatedProperties, HVAC.PROPERTY.swingVert, 'vertical_swing')) {
+            const value = updatedProperties[HVAC.PROPERTY.swingVert];
+            this.setCapabilityValue('vertical_swing', value).then(() => {
+                this.log('[update properties]', '[vertical_swing]', value);
+                return Promise.resolve();
             }).catch(this.error);
         }
     }
@@ -349,6 +383,18 @@ class GreeHVACDevice extends Homey.Device {
         if (!this.hasCapability('lights')) {
             this.log('[migration]', 'Adding "lights" capability');
             await this.addCapability('lights');
+        }
+
+        // Added in v0.2.4
+        if (!this.hasCapability('xfan_mode')) {
+            this.log('[migration]', 'Adding "xfan_mode" capability');
+            await this.addCapability('xfan_mode');
+        }
+
+        // Added in v0.2.4
+        if (!this.hasCapability('vertical_swing')) {
+            this.log('[migration]', 'Adding "vertical_swing" capability');
+            await this.addCapability('vertical_swing');
         }
     }
 
