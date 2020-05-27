@@ -1,17 +1,20 @@
 {
-    "0.1.0": {
-        "en": "First version of app\r\nAllow to turn on and off\r\nAllow to change HVAC mode\r\nAllow to control temperature"
-    },
-    "0.1.3": {
-        "en": "Fix connection bug when few HVACs are in use"
-    },
-    "0.2.1": {
-        "en": "Fix connection issue in case of changing IP address by the HVAC\r\nUse MAC instead of HVAC name for storing ACs info\r\nUse fork for gree-hvac-client to catch and ignore invalid JSON\r\nUse fork for gree-hvac-client to prevent `Error [ERR_SOCKET_DGRAM_NOT_RUNNING]: Not running` error\r\nAllow to activate \"turbo mode\"\r\nAllow to turn on and off lights of HVAC"
-    },
-    "0.2.2": {
-        "en": "Update application to comply with latest Homey changes"
-    },
-    "0.2.3": {
-        "en": "Add new capabilities to existing devices instead of re-pairing"
-    }
+  "0.1.0": {
+    "en": "First version of app\r\nAllow to turn on and off\r\nAllow to change HVAC mode\r\nAllow to control temperature"
+  },
+  "0.1.3": {
+    "en": "Fix connection bug when few HVACs are in use"
+  },
+  "0.2.1": {
+    "en": "Fix connection issue in case of changing IP address by the HVAC\r\nUse MAC instead of HVAC name for storing ACs info\r\nUse fork for gree-hvac-client to catch and ignore invalid JSON\r\nUse fork for gree-hvac-client to prevent `Error [ERR_SOCKET_DGRAM_NOT_RUNNING]: Not running` error\r\nAllow to activate \"turbo mode\"\r\nAllow to turn on and off lights of HVAC"
+  },
+  "0.2.2": {
+    "en": "Update application to comply with latest Homey changes"
+  },
+  "0.2.3": {
+    "en": "Add new capabilities to existing devices instead of re-pairing"
+  },
+  "0.3.0": {
+    "en": "Add support of X-Fan and Vertical swing features (thanks to denniedegroot)"
+  }
 }

@@ -1,1220 +1,1219 @@
 {
-    "id": "com.gree",
-    "version": "0.2.3",
-    "compatibility": ">=1.5.0",
-    "sdk": 2,
-    "name": {
-        "en": "Gree"
-    },
-    "description": {
-        "en": "Control your Gree, Cooper&Hunter HVAC devices"
-    },
-    "category": [
-        "climate"
-    ],
-    "tags": {
-        "en": [
-            "cooper&hunter",
-            "gree",
-            "cooper and hunter",
-            "daitsu",
-            "tosot",
-            "hvac",
-            "air conditioner"
-        ]
-    },
-    "permissions": [],
-    "images": {
-        "large": "/assets/images/large.png",
-        "small": "/assets/images/small.png"
-    },
-    "author": {
-        "name": "Illia Antypenko",
-        "email": "ilya@antipenko.pp.ua"
-    },
-    "source": "https://github.com/aivus/com.gree",
-    "flow": {
-        "triggers": [
-            {
-                "id": "fan_speed_changed",
-                "title": {
-                    "en": "Fan speed changed"
-                },
-                "args": [
-                    {
-                        "name": "device",
-                        "type": "device",
-                        "filter": "driver_id=gree_cooper_hunter_hvac"
-                    }
-                ],
-                "tokens": [
-                    {
-                        "name": "fan_speed",
-                        "type": "string",
-                        "title": {
-                            "en": "Fan speed",
-                            "nl": "Ventilator snelheid",
-                            "de": "Lüftergeschwindigkeit"
-                        },
-                        "example": "low"
-                    }
-                ]
-            },
-            {
-                "id": "hvac_mode_changed",
-                "title": {
-                    "en": "HVAC mode changed"
-                },
-                "args": [
-                    {
-                        "name": "device",
-                        "type": "device",
-                        "filter": "driver_id=gree_cooper_hunter_hvac"
-                    }
-                ],
-                "tokens": [
-                    {
-                        "name": "hvac_mode",
-                        "type": "string",
-                        "title": {
-                            "en": "HVAC mode",
-                            "nl": "HVAC modus",
-                            "de": "HVAC-Modus"
-                        },
-                        "example": "cool"
-                    }
-                ]
-            },
-            {
-                "id": "turbo_mode_changed",
-                "title": {
-                    "en": "Turbo mode changed"
-                },
-                "args": [
-                    {
-                        "name": "device",
-                        "type": "device",
-                        "filter": "driver_id=gree_cooper_hunter_hvac"
-                    }
-                ],
-                "tokens": [
-                    {
-                        "name": "turbo_mode",
-                        "type": "boolean",
-                        "title": {
-                            "en": "Turbo mode",
-                            "nl": "Turbo modus",
-                            "de": "Turbo Modus"
-                        },
-                        "example": "true"
-                    }
-                ]
-            },
-            {
-                "id": "lights_changed",
-                "title": {
-                    "en": "Lights changed"
-                },
-                "args": [
-                    {
-                        "name": "device",
-                        "type": "device",
-                        "filter": "driver_id=gree_cooper_hunter_hvac"
-                    }
-                ],
-                "tokens": [
-                    {
-                        "name": "lights",
-                        "type": "boolean",
-                        "title": {
-                            "en": "Lights mode",
-                            "nl": "Lichten modus",
-                            "de": "Lichtmodus"
-                        },
-                        "example": "true"
-                    }
-                ]
-            },
-            {
-                "id": "xfan_mode_changed",
-                "title": {
-                    "en": "X-Fan mode changed"
-                },
-                "args": [
-                    {
-                        "name": "device",
-                        "type": "device",
-                        "filter": "driver_id=gree_cooper_hunter_hvac"
-                    }
-                ],
-                "tokens": [
-                    {
-                        "name": "xfan_mode",
-                        "type": "boolean",
-                        "title": {
-                            "en": "X-Fan mode",
-                            "nl": "X-Fan modus",
-                            "de": "X-Fan Modus"
-                        },
-                        "example": "false"
-                    }
-                ]
-            },
-            {
-                "id": "vertical_swing_changed",
-                "title": {
-                    "en": "Vertical swing changed"
-                },
-                "args": [
-                    {
-                        "name": "device",
-                        "type": "device",
-                        "filter": "driver_id=gree_cooper_hunter_hvac"
-                    }
-                ],
-                "tokens": [
-                    {
-                        "name": "vertical_swing",
-                        "type": "string",
-                        "title": {
-                            "en": "Vertical swing",
-                            "nl": "Verticale swing",
-                            "de": "Vertikale Schaukel"
-                        },
-                        "example": "full"
-                    }
-                ]
-            }
-        ],
-        "conditions": [
-            {
-                "id": "hvac_mode_is",
-                "title": {
-                    "en": "Current HVAC mode !{{is|isn't}} ..."
-                },
-                "titleFormatted": {
-                    "en": "Current HVAC mode !{{is|isn't}} [[mode]]"
-                },
-                "args": [
-                    {
-                        "name": "device",
-                        "type": "device",
-                        "filter": "driver_id=gree_cooper_hunter_hvac"
-                    },
-                    {
-                        "name": "mode",
-                        "type": "dropdown",
-                        "values": [
-                            {
-                                "id": "auto",
-                                "label": {
-                                    "en": "Auto",
-                                    "nl": "Automatisch",
-                                    "de": "Automatisch"
-                                }
-                            },
-                            {
-                                "id": "cool",
-                                "label": {
-                                    "en": "Cool",
-                                    "nl": "Koelen",
-                                    "de": "Kühlen"
-                                }
-                            },
-                            {
-                                "id": "heat",
-                                "label": {
-                                    "en": "Heat",
-                                    "nl": "Verwarmen",
-                                    "de": "Heizen"
-                                }
-                            },
-                            {
-                                "id": "dry",
-                                "label": {
-                                    "en": "Dry",
-                                    "nl": "Ontvochtigen",
-                                    "de": "Trocken"
-                                }
-                            },
-                            {
-                                "id": "fan_only",
-                                "label": {
-                                    "en": "Fan Only",
-                                    "nl": "Alleen fans",
-                                    "de": "Nur Fan"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "fan_speed_is",
-                "title": {
-                    "en": "Current fan speed !{{is|isn't}} ..."
-                },
-                "titleFormatted": {
-                    "en": "Current fan speed !{{is|isn't}} [[speed]]"
-                },
-                "args": [
-                    {
-                        "name": "device",
-                        "type": "device",
-                        "filter": "driver_id=gree_cooper_hunter_hvac"
-                    },
-                    {
-                        "name": "speed",
-                        "type": "dropdown",
-                        "values": [
-                            {
-                                "id": "auto",
-                                "label": {
-                                    "en": "Auto",
-                                    "nl": "Automatisch",
-                                    "de": "Automatisch"
-                                }
-                            },
-                            {
-                                "id": "low",
-                                "label": {
-                                    "en": "Low",
-                                    "nl": "Laag",
-                                    "de": "Niedrig"
-                                }
-                            },
-                            {
-                                "id": "mediumLow",
-                                "label": {
-                                    "en": "Medium Low",
-                                    "nl": "Gemiddeld Laag",
-                                    "de": "Mittel Niedrig"
-                                }
-                            },
-                            {
-                                "id": "medium",
-                                "label": {
-                                    "en": "Medium",
-                                    "nl": "Gemiddeld",
-                                    "de": "Mittel"
-                                }
-                            },
-                            {
-                                "id": "mediumHigh",
-                                "label": {
-                                    "en": "Medium High",
-                                    "nl": "Gemiddeld hoog",
-                                    "de": "Mittel hoch"
-                                }
-                            },
-                            {
-                                "id": "high",
-                                "label": {
-                                    "en": "High",
-                                    "nl": "Hoog",
-                                    "de": "Hoch"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "turbo_mode_is",
-                "title": {
-                    "en": "Current turbo mode !{{is|isn't}} ..."
-                },
-                "titleFormatted": {
-                    "en": "Current turbo mode !{{is|isn't}} [[mode]]"
-                },
-                "args": [
-                    {
-                        "name": "device",
-                        "type": "device",
-                        "filter": "driver_id=gree_cooper_hunter_hvac"
-                    },
-                    {
-                        "name": "mode",
-                        "type": "dropdown",
-                        "values": [
-                            {
-                                "id": "on",
-                                "label": {
-                                    "en": "On",
-                                    "nl": "Aan",
-                                    "de": "Einschalten"
-                                }
-                            },
-                            {
-                                "id": "off",
-                                "label": {
-                                    "en": "Off",
-                                    "nl": "Uit",
-                                    "de": "Ausschalten"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "lights_is",
-                "title": {
-                    "en": "Current lights !{{is|isn't}} ..."
-                },
-                "titleFormatted": {
-                    "en": "Current lights !{{is|isn't}} [[mode]]"
-                },
-                "args": [
-                    {
-                        "name": "device",
-                        "type": "device",
-                        "filter": "driver_id=gree_cooper_hunter_hvac"
-                    },
-                    {
-                        "name": "mode",
-                        "type": "dropdown",
-                        "values": [
-                            {
-                                "id": "on",
-                                "label": {
-                                    "en": "On",
-                                    "nl": "Aan",
-                                    "de": "Einschalten"
-                                }
-                            },
-                            {
-                                "id": "off",
-                                "label": {
-                                    "en": "Off",
-                                    "nl": "Uit",
-                                    "de": "Ausschalten"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "xfan_mode_is",
-                "title": {
-                    "en": "Current X-Fan mode !{{is|isn't}} ..."
-                },
-                "titleFormatted": {
-                    "en": "Current X-Fan mode !{{is|isn't}} [[mode]]"
-                },
-                "args": [
-                    {
-                        "name": "device",
-                        "type": "device",
-                        "filter": "driver_id=gree_cooper_hunter_hvac"
-                    },
-                    {
-                        "name": "mode",
-                        "type": "dropdown",
-                        "values": [
-                            {
-                                "id": "on",
-                                "label": {
-                                    "en": "On",
-                                    "nl": "Aan",
-                                    "de": "Einschalten"
-                                }
-                            },
-                            {
-                                "id": "off",
-                                "label": {
-                                    "en": "Off",
-                                    "nl": "Uit",
-                                    "de": "Ausschalten"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "vertical_swing_is",
-                "title": {
-                    "en": "Current vertical swing !{{is|isn't}} ..."
-                },
-                "titleFormatted": {
-                    "en": "Current vertical swing !{{is|isn't}} [[vertical_swing]]"
-                },
-                "args": [
-                    {
-                        "name": "device",
-                        "type": "device",
-                        "filter": "driver_id=gree_cooper_hunter_hvac"
-                    },
-                    {
-                        "name": "vertical_swing",
-                        "type": "dropdown",
-                        "values": [
-                            {
-                                "id": "default",
-                                "title": {
-                                    "en": "Disabled",
-                                    "nl": "Uitgeschakeld",
-                                    "de": "Behindert"
-                                }
-                            },
-                            {
-                                "id": "full",
-                                "title": {
-                                    "en": "Full range",
-                                    "nl": "Volledig bereik",
-                                    "de": "Vollständige Palette"
-                                }
-                            },
-                            {
-                                "id": "fixedTop",
-                                "title": {
-                                    "en": "Fixed top",
-                                    "nl": "Fixed boven",
-                                    "de": "Feste Oberseite"
-                                }
-                            },
-                            {
-                                "id": "fixedMidTop",
-                                "title": {
-                                    "en": "Fixed top middle",
-                                    "nl": "Fixed midden boven",
-                                    "de": "Feste obere Mitte"
-                                }
-                            },
-                            {
-                                "id": "fixedMid",
-                                "title": {
-                                    "en": "Fixed middle",
-                                    "nl": "Fixed midden",
-                                    "de": "Feste Mitte"
-                                }
-                            },
-                            {
-                                "id": "fixedMidBottom",
-                                "title": {
-                                    "en": "Fixed middle bottom",
-                                    "nl": "Fixed midden onder",
-                                    "de": "Mittlerer Boden fest"
-                                }
-                            },
-                            {
-                                "id": "fixedBottom",
-                                "title": {
-                                    "en": "Fixed bottom",
-                                    "nl": "Fixed onder",
-                                    "de": "Feste Unterseite"
-                                }
-                            },
-                            {
-                                "id": "swingBottom",
-                                "title": {
-                                    "en": "Swing bottom",
-                                    "nl": "Swing onder",
-                                    "de": "Swing Unterseite"
-                                }
-                            },
-                            {
-                                "id": "swingMid",
-                                "title": {
-                                    "en": "Swing middle",
-                                    "nl": "Swing midden",
-                                    "de": "Mitte schwingen"
-                                }
-                            },
-                            {
-                                "id": "swingTop",
-                                "title": {
-                                    "en": "Swing top",
-                                    "nl": "Swing boven",
-                                    "de": "Swing Oberseite"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            }
-        ],
-        "actions": [
-            {
-                "id": "set_hvac_mode",
-                "title": {
-                    "en": "Set HVAC mode",
-                    "nl": "Stel de HVAC-modus in",
-                    "de": "Stellen Sie der HVAC modus ein"
-                },
-                "args": [
-                    {
-                        "name": "device",
-                        "type": "device",
-                        "filter": "driver_id=gree_cooper_hunter_hvac"
-                    },
-                    {
-                        "name": "mode",
-                        "type": "dropdown",
-                        "values": [
-                            {
-                                "id": "auto",
-                                "label": {
-                                    "en": "Auto",
-                                    "nl": "Automatisch",
-                                    "de": "Automatisch"
-                                }
-                            },
-                            {
-                                "id": "cool",
-                                "label": {
-                                    "en": "Cool",
-                                    "nl": "Koelen",
-                                    "de": "Kühlen"
-                                }
-                            },
-                            {
-                                "id": "heat",
-                                "label": {
-                                    "en": "Heat",
-                                    "nl": "Verwarmen",
-                                    "de": "Heizen"
-                                }
-                            },
-                            {
-                                "id": "dry",
-                                "label": {
-                                    "en": "Dry",
-                                    "nl": "Ontvochtigen",
-                                    "de": "Trocken"
-                                }
-                            },
-                            {
-                                "id": "fan_only",
-                                "label": {
-                                    "en": "Fan Only",
-                                    "nl": "Alleen fans",
-                                    "de": "Nur Fan"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "set_fan_speed",
-                "title": {
-                    "en": "Set fan speed",
-                    "nl": "Ventilatorsnelheid instellen",
-                    "de": "Gebläsedrehzahl einstellen"
-                },
-                "args": [
-                    {
-                        "name": "device",
-                        "type": "device",
-                        "filter": "driver_id=gree_cooper_hunter_hvac"
-                    },
-                    {
-                        "name": "speed",
-                        "type": "dropdown",
-                        "values": [
-                            {
-                                "id": "auto",
-                                "label": {
-                                    "en": "Auto",
-                                    "nl": "Automatisch",
-                                    "de": "Automatisch"
-                                }
-                            },
-                            {
-                                "id": "low",
-                                "label": {
-                                    "en": "Low",
-                                    "nl": "Laag",
-                                    "de": "Niedrig"
-                                }
-                            },
-                            {
-                                "id": "mediumLow",
-                                "label": {
-                                    "en": "Medium Low",
-                                    "nl": "Gemiddeld Laag",
-                                    "de": "Mittel Niedrig"
-                                }
-                            },
-                            {
-                                "id": "medium",
-                                "label": {
-                                    "en": "Medium",
-                                    "nl": "Gemiddeld",
-                                    "de": "Mittel"
-                                }
-                            },
-                            {
-                                "id": "mediumHigh",
-                                "label": {
-                                    "en": "Medium High",
-                                    "nl": "Gemiddeld hoog",
-                                    "de": "Mittel hoch"
-                                }
-                            },
-                            {
-                                "id": "high",
-                                "label": {
-                                    "en": "High",
-                                    "nl": "Hoog",
-                                    "de": "Hoch"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "set_turbo_mode",
-                "title": {
-                    "en": "Set turbo mode",
-                    "nl": "Stel de turbomodus in",
-                    "de": "Stellen Sie den Turbo-Modus ein"
-                },
-                "args": [
-                    {
-                        "name": "device",
-                        "type": "device",
-                        "filter": "driver_id=gree_cooper_hunter_hvac"
-                    },
-                    {
-                        "name": "mode",
-                        "type": "dropdown",
-                        "values": [
-                            {
-                                "id": "on",
-                                "label": {
-                                    "en": "On",
-                                    "nl": "Aan",
-                                    "de": "Einschalten"
-                                }
-                            },
-                            {
-                                "id": "off",
-                                "label": {
-                                    "en": "Off",
-                                    "nl": "Uit",
-                                    "de": "Ausschalten"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "set_lights",
-                "title": {
-                    "en": "Set lights",
-                    "nl": "Lichten instellen",
-                    "de": "Lichter einstellen"
-                },
-                "args": [
-                    {
-                        "name": "device",
-                        "type": "device",
-                        "filter": "driver_id=gree_cooper_hunter_hvac"
-                    },
-                    {
-                        "name": "mode",
-                        "type": "dropdown",
-                        "values": [
-                            {
-                                "id": "on",
-                                "label": {
-                                    "en": "On",
-                                    "nl": "Aan",
-                                    "de": "Einschalten"
-                                }
-                            },
-                            {
-                                "id": "off",
-                                "label": {
-                                    "en": "Off",
-                                    "nl": "Uit",
-                                    "de": "Ausschalten"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "set_xfan_mode",
-                "title": {
-                    "en": "Set X-Fan mode",
-                    "nl": "Stel de X-Fan modus in",
-                    "de": "Stellen Sie den X-Fan modus ein"
-                },
-                "args": [
-                    {
-                        "name": "device",
-                        "type": "device",
-                        "filter": "driver_id=gree_cooper_hunter_hvac"
-                    },
-                    {
-                        "name": "mode",
-                        "type": "dropdown",
-                        "values": [
-                            {
-                                "id": "on",
-                                "label": {
-                                    "en": "On",
-                                    "nl": "Aan",
-                                    "de": "Einschalten"
-                                }
-                            },
-                            {
-                                "id": "off",
-                                "label": {
-                                    "en": "Off",
-                                    "nl": "Uit",
-                                    "de": "Ausschalten"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "set_vertical_swing",
-                "title": {
-                    "en": "Set vertical swing",
-                    "nl": "Verticale swing instellen",
-                    "de": "Vertikale Schaukel einstellen"
-
-                },
-                "args": [
-                    {
-                        "name": "device",
-                        "type": "device",
-                        "filter": "driver_id=gree_cooper_hunter_hvac"
-                    },
-                    {
-                        "name": "vertical_swing",
-                        "type": "dropdown",
-                        "values": [
-                            {
-                                "id": "default",
-                                "title": {
-                                    "en": "Disabled",
-                                    "nl": "Uitgeschakeld",
-                                    "de": "Behindert"
-                                }
-                            },
-                            {
-                                "id": "full",
-                                "title": {
-                                    "en": "Full range",
-                                    "nl": "Volledig bereik",
-                                    "de": "Vollständige Palette"
-                                }
-                            },
-                            {
-                                "id": "fixedTop",
-                                "title": {
-                                    "en": "Fixed top",
-                                    "nl": "Fixed boven",
-                                    "de": "Feste Oberseite"
-                                }
-                            },
-                            {
-                                "id": "fixedMidTop",
-                                "title": {
-                                    "en": "Fixed top middle",
-                                    "nl": "Fixed midden boven",
-                                    "de": "Feste obere Mitte"
-                                }
-                            },
-                            {
-                                "id": "fixedMid",
-                                "title": {
-                                    "en": "Fixed middle",
-                                    "nl": "Fixed midden",
-                                    "de": "Feste Mitte"
-                                }
-                            },
-                            {
-                                "id": "fixedMidBottom",
-                                "title": {
-                                    "en": "Fixed middle bottom",
-                                    "nl": "Fixed midden onder",
-                                    "de": "Mittlerer Boden fest"
-                                }
-                            },
-                            {
-                                "id": "fixedBottom",
-                                "title": {
-                                    "en": "Fixed bottom",
-                                    "nl": "Fixed onder",
-                                    "de": "Feste Unterseite"
-                                }
-                            },
-                            {
-                                "id": "swingBottom",
-                                "title": {
-                                    "en": "Swing bottom",
-                                    "nl": "Swing onder",
-                                    "de": "Swing Unterseite"
-                                }
-                            },
-                            {
-                                "id": "swingMid",
-                                "title": {
-                                    "en": "Swing middle",
-                                    "nl": "Swing midden",
-                                    "de": "Mitte schwingen"
-                                }
-                            },
-                            {
-                                "id": "swingTop",
-                                "title": {
-                                    "en": "Swing top",
-                                    "nl": "Swing boven",
-                                    "de": "Swing Oberseite"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    },
-    "capabilities": {
-        "hvac_mode": {
-            "type": "enum",
-            "title": {
-                "en": "HVAC mode",
-                "nl": "HVAC modus",
-                "de": "HVAC-Modus"
-            },
-            "desc": {
-                "en": "Mode of the HVAC",
-                "nl": "Modus van de HVAC",
-                "de": "Modus der HVAC"
-            },
-            "values": [
-                {
-                    "id": "auto",
-                    "title": {
-                        "en": "Auto",
-                        "nl": "Automatisch",
-                        "de": "Automatisch"
-                    }
-                },
-                {
-                    "id": "cool",
-                    "title": {
-                        "en": "Cool",
-                        "nl": "Koelen",
-                        "de": "Kühlen"
-                    }
-                },
-                {
-                    "id": "heat",
-                    "title": {
-                        "en": "Heat",
-                        "nl": "Verwarmen",
-                        "de": "Heizen"
-                    }
-                },
-                {
-                    "id": "dry",
-                    "title": {
-                        "en": "Dry",
-                        "nl": "Ontvochtigen",
-                        "de": "Trocken"
-                    }
-                },
-                {
-                    "id": "fan_only",
-                    "title": {
-                        "en": "Fan Only",
-                        "nl": "Alleen fans",
-                        "de": "Nur Fan"
-                    }
-                }
-            ],
-            "getable": true,
-            "setable": true,
-            "uiComponent": "picker"
-        },
-        "fan_speed": {
-            "type": "enum",
-            "title": {
-                "en": "Fan speed",
-                "nl": "Ventilator snelheid",
-                "de": "Lüftergeschwindigkeit"
-            },
-            "desc": {
-                "en": "Speed of the HVAC's fan",
-                "nl": "Snelheid van de HVAC-ventilator",
-                "de": "Drehzahl der HVAC"
-            },
-            "values": [
-                {
-                    "id": "auto",
-                    "title": {
-                        "en": "Auto",
-                        "nl": "Automatisch",
-                        "de": "Automatisch"
-                    }
-                },
-                {
-                    "id": "low",
-                    "title": {
-                        "en": "Low",
-                        "nl": "Laag",
-                        "de": "Niedrig"
-                    }
-                },
-                {
-                    "id": "mediumLow",
-                    "title": {
-                        "en": "Medium Low",
-                        "nl": "Gemiddeld Laag",
-                        "de": "Mittel Niedrig"
-                    }
-                },
-                {
-                    "id": "medium",
-                    "title": {
-                        "en": "Medium",
-                        "nl": "Gemiddeld",
-                        "de": "Mittel"
-                    }
-                },
-                {
-                    "id": "mediumHigh",
-                    "title": {
-                        "en": "Medium High",
-                        "nl": "Gemiddeld hoog",
-                        "de": "Mittel hoch"
-                    }
-                },
-                {
-                    "id": "high",
-                    "title": {
-                        "en": "High",
-                        "nl": "Hoog",
-                        "de": "Hoch"
-                    }
-                }
-            ],
-            "getable": true,
-            "setable": true,
-            "uiComponent": "picker"
-        },
-        "turbo_mode": {
-            "type": "boolean",
-            "title": {
-                "en": "Turbo mode",
-                "nl": "Turbo modus",
-                "de": "Turbo Modus"
-            },
-            "desc": {
-                "en": "Turbo mode of the HVAC's fan",
-                "nl": "Turbomodus van de ventilator van de HVAC",
-                "de": "Turbomodus des Lüfters der Klimaanlage"
-            },
-            "getable": true,
-            "setable": true,
-            "uiComponent": "toggle"
-        },
-        "lights": {
-            "type": "boolean",
-            "title": {
-                "en": "Lights mode",
-                "nl": "Lichten modus",
-                "de": "Lichtmodus"
-            },
-            "desc": {
-                "en": "Lights mode on the HVAC panel",
-                "nl": "Lichten modus op het airconditioner paneel",
-                "de": "Lichtmodus auf dem Klimaanlage-Panel"
-            },
-            "getable": true,
-            "setable": true,
-            "uiComponent": "toggle"
-        },
-        "xfan_mode": {
-            "type": "boolean",
-            "title": {
-                "en": "X-Fan mode",
-                "nl": "X-Fan modus",
-                "de": "X-Fan Modus"
-            },
-            "desc": {
-                "en": "X-Fan mode of the HVAC's fan",
-                "nl": "X-Fan modus van de ventilator van de HVAC",
-                "de": "X-Fan modus des Lüfters der Klimaanlage"
-            },
-            "getable": true,
-            "setable": true,
-            "uiComponent": "toggle"
-        },
-        "vertical_swing": {
-            "type": "enum",
-            "title": {
-                "en": "Vertical swing",
-                "nl": "Verticale swing",
-                "de": "Vertikale Schaukel"
-            },
-            "desc": {
-                "en": "Position of the fan swing",
-                "nl": "Positie van de fan swing",
-                "de": "Position der fan swing"
-            },
-            "values": [
-                {
-                    "id": "default",
-                    "title": {
-                        "en": "Disabled",
-                        "nl": "Uitgeschakeld",
-                        "de": "Behindert"
-                    }
-                },
-                {
-                    "id": "full",
-                    "title": {
-                        "en": "Full range",
-                        "nl": "Volledig bereik",
-                        "de": "Vollständige Palette"
-                    }
-                },
-                {
-                    "id": "fixedTop",
-                    "title": {
-                        "en": "Fixed top",
-                        "nl": "Fixed boven",
-                        "de": "Feste Oberseite"
-                    }
-                },
-                {
-                    "id": "fixedMidTop",
-                    "title": {
-                        "en": "Fixed top middle",
-                        "nl": "Fixed midden boven",
-                        "de": "Feste obere Mitte"
-                    }
-                },
-                {
-                    "id": "fixedMid",
-                    "title": {
-                        "en": "Fixed middle",
-                        "nl": "Fixed midden",
-                        "de": "Feste Mitte"
-                    }
-                },
-                {
-                    "id": "fixedMidBottom",
-                    "title": {
-                        "en": "Fixed middle bottom",
-                        "nl": "Fixed midden onder",
-                        "de": "Mittlerer Boden fest"
-                    }
-                },
-                {
-                    "id": "fixedBottom",
-                    "title": {
-                        "en": "Fixed bottom",
-                        "nl": "Fixed onder",
-                        "de": "Feste Unterseite"
-                    }
-                },
-                {
-                    "id": "swingBottom",
-                    "title": {
-                        "en": "Swing bottom",
-                        "nl": "Swing onder",
-                        "de": "Swing Unterseite"
-                    }
-                },
-                {
-                    "id": "swingMid",
-                    "title": {
-                        "en": "Swing middle",
-                        "nl": "Swing midden",
-                        "de": "Mitte schwingen"
-                    }
-                },
-                {
-                    "id": "swingTop",
-                    "title": {
-                        "en": "Swing top",
-                        "nl": "Swing boven",
-                        "de": "Swing Oberseite"
-                    }
-                }
-            ],
-            "getable": true,
-            "setable": true,
-            "uiComponent": "picker"
-        }
-    },
-    "drivers": [
-        {
-            "id": "gree_cooper_hunter_hvac",
-            "name": {
-                "en": "Gree, Cooper&Hunter HVAC"
-            },
-            "class": "thermostat",
-            "capabilities": [
-                "onoff",
-                "target_temperature",
-                "hvac_mode",
-                "fan_speed",
-                "turbo_mode",
-                "lights",
-                "xfan_mode",
-                "vertical_swing"
-            ],
-            "capabilitiesOptions": {
-                "target_temperature": {
-                    "min": 16,
-                    "max": 30,
-                    "step": 1
-                }
-            },
-            "mobile": {
-                "components": [
-                    {
-                        "id": "icon",
-                        "capabilities": []
-                    },
-                    {
-                        "id": "thermostat",
-                        "capabilities": [
-                            "target_temperature"
-                        ]
-                    }
-                ]
-            },
-            "pair": [
-                {
-                    "id": "switch_wifi_info",
-                    "navigation": {
-                        "next": "list_devices"
-                    }
-                },
-                {
-                    "id": "list_devices",
-                    "template": "list_devices",
-                    "navigation": {
-                        "next": "add_my_devices"
-                    }
-                },
-                {
-                    "id": "add_my_devices",
-                    "template": "add_devices"
-                }
-            ],
-            "images": {
-                "large": "/drivers/gree_cooper_hunter_hvac/assets/images/large.png",
-                "small": "/drivers/gree_cooper_hunter_hvac/assets/images/small.png"
-            }
-        }
+  "id": "com.gree",
+  "version": "0.3.0",
+  "compatibility": ">=1.5.0",
+  "sdk": 2,
+  "name": {
+    "en": "Gree"
+  },
+  "description": {
+    "en": "Control your Gree, Cooper&Hunter HVAC devices"
+  },
+  "category": [
+    "climate"
+  ],
+  "tags": {
+    "en": [
+      "cooper&hunter",
+      "gree",
+      "cooper and hunter",
+      "daitsu",
+      "tosot",
+      "hvac",
+      "air conditioner"
     ]
+  },
+  "permissions": [],
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Illia Antypenko",
+    "email": "ilya@antipenko.pp.ua"
+  },
+  "source": "https://github.com/aivus/com.gree",
+  "flow": {
+    "triggers": [
+      {
+        "id": "fan_speed_changed",
+        "title": {
+          "en": "Fan speed changed"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "fan_speed",
+            "type": "string",
+            "title": {
+              "en": "Fan speed",
+              "nl": "Ventilator snelheid",
+              "de": "Lüftergeschwindigkeit"
+            },
+            "example": "low"
+          }
+        ]
+      },
+      {
+        "id": "hvac_mode_changed",
+        "title": {
+          "en": "HVAC mode changed"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "hvac_mode",
+            "type": "string",
+            "title": {
+              "en": "HVAC mode",
+              "nl": "HVAC modus",
+              "de": "HVAC-Modus"
+            },
+            "example": "cool"
+          }
+        ]
+      },
+      {
+        "id": "turbo_mode_changed",
+        "title": {
+          "en": "Turbo mode changed"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "turbo_mode",
+            "type": "boolean",
+            "title": {
+              "en": "Turbo mode",
+              "nl": "Turbo modus",
+              "de": "Turbo Modus"
+            },
+            "example": "true"
+          }
+        ]
+      },
+      {
+        "id": "lights_changed",
+        "title": {
+          "en": "Lights changed"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "lights",
+            "type": "boolean",
+            "title": {
+              "en": "Lights mode",
+              "nl": "Lichten modus",
+              "de": "Lichtmodus"
+            },
+            "example": "true"
+          }
+        ]
+      },
+      {
+        "id": "xfan_mode_changed",
+        "title": {
+          "en": "X-Fan mode changed"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "xfan_mode",
+            "type": "boolean",
+            "title": {
+              "en": "X-Fan mode",
+              "nl": "X-Fan modus",
+              "de": "X-Fan Modus"
+            },
+            "example": "false"
+          }
+        ]
+      },
+      {
+        "id": "vertical_swing_changed",
+        "title": {
+          "en": "Vertical swing changed"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "vertical_swing",
+            "type": "string",
+            "title": {
+              "en": "Vertical swing",
+              "nl": "Verticale swing",
+              "de": "Vertikale Schaukel"
+            },
+            "example": "full"
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "hvac_mode_is",
+        "title": {
+          "en": "Current HVAC mode !{{is|isn't}} ..."
+        },
+        "titleFormatted": {
+          "en": "Current HVAC mode !{{is|isn't}} [[mode]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "label": {
+                  "en": "Auto",
+                  "nl": "Automatisch",
+                  "de": "Automatisch"
+                }
+              },
+              {
+                "id": "cool",
+                "label": {
+                  "en": "Cool",
+                  "nl": "Koelen",
+                  "de": "Kühlen"
+                }
+              },
+              {
+                "id": "heat",
+                "label": {
+                  "en": "Heat",
+                  "nl": "Verwarmen",
+                  "de": "Heizen"
+                }
+              },
+              {
+                "id": "dry",
+                "label": {
+                  "en": "Dry",
+                  "nl": "Ontvochtigen",
+                  "de": "Trocken"
+                }
+              },
+              {
+                "id": "fan_only",
+                "label": {
+                  "en": "Fan Only",
+                  "nl": "Alleen fans",
+                  "de": "Nur Fan"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fan_speed_is",
+        "title": {
+          "en": "Current fan speed !{{is|isn't}} ..."
+        },
+        "titleFormatted": {
+          "en": "Current fan speed !{{is|isn't}} [[speed]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          },
+          {
+            "name": "speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "label": {
+                  "en": "Auto",
+                  "nl": "Automatisch",
+                  "de": "Automatisch"
+                }
+              },
+              {
+                "id": "low",
+                "label": {
+                  "en": "Low",
+                  "nl": "Laag",
+                  "de": "Niedrig"
+                }
+              },
+              {
+                "id": "mediumLow",
+                "label": {
+                  "en": "Medium Low",
+                  "nl": "Gemiddeld Laag",
+                  "de": "Mittel Niedrig"
+                }
+              },
+              {
+                "id": "medium",
+                "label": {
+                  "en": "Medium",
+                  "nl": "Gemiddeld",
+                  "de": "Mittel"
+                }
+              },
+              {
+                "id": "mediumHigh",
+                "label": {
+                  "en": "Medium High",
+                  "nl": "Gemiddeld hoog",
+                  "de": "Mittel hoch"
+                }
+              },
+              {
+                "id": "high",
+                "label": {
+                  "en": "High",
+                  "nl": "Hoog",
+                  "de": "Hoch"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "turbo_mode_is",
+        "title": {
+          "en": "Current turbo mode !{{is|isn't}} ..."
+        },
+        "titleFormatted": {
+          "en": "Current turbo mode !{{is|isn't}} [[mode]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan",
+                  "de": "Einschalten"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Ausschalten"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "lights_is",
+        "title": {
+          "en": "Current lights !{{is|isn't}} ..."
+        },
+        "titleFormatted": {
+          "en": "Current lights !{{is|isn't}} [[mode]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan",
+                  "de": "Einschalten"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Ausschalten"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "xfan_mode_is",
+        "title": {
+          "en": "Current X-Fan mode !{{is|isn't}} ..."
+        },
+        "titleFormatted": {
+          "en": "Current X-Fan mode !{{is|isn't}} [[mode]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan",
+                  "de": "Einschalten"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Ausschalten"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "vertical_swing_is",
+        "title": {
+          "en": "Current vertical swing !{{is|isn't}} ..."
+        },
+        "titleFormatted": {
+          "en": "Current vertical swing !{{is|isn't}} [[vertical_swing]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          },
+          {
+            "name": "vertical_swing",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "default",
+                "title": {
+                  "en": "Disabled",
+                  "nl": "Uitgeschakeld",
+                  "de": "Behindert"
+                }
+              },
+              {
+                "id": "full",
+                "title": {
+                  "en": "Full range",
+                  "nl": "Volledig bereik",
+                  "de": "Vollständige Palette"
+                }
+              },
+              {
+                "id": "fixedTop",
+                "title": {
+                  "en": "Fixed top",
+                  "nl": "Fixed boven",
+                  "de": "Feste Oberseite"
+                }
+              },
+              {
+                "id": "fixedMidTop",
+                "title": {
+                  "en": "Fixed top middle",
+                  "nl": "Fixed midden boven",
+                  "de": "Feste obere Mitte"
+                }
+              },
+              {
+                "id": "fixedMid",
+                "title": {
+                  "en": "Fixed middle",
+                  "nl": "Fixed midden",
+                  "de": "Feste Mitte"
+                }
+              },
+              {
+                "id": "fixedMidBottom",
+                "title": {
+                  "en": "Fixed middle bottom",
+                  "nl": "Fixed midden onder",
+                  "de": "Mittlerer Boden fest"
+                }
+              },
+              {
+                "id": "fixedBottom",
+                "title": {
+                  "en": "Fixed bottom",
+                  "nl": "Fixed onder",
+                  "de": "Feste Unterseite"
+                }
+              },
+              {
+                "id": "swingBottom",
+                "title": {
+                  "en": "Swing bottom",
+                  "nl": "Swing onder",
+                  "de": "Swing Unterseite"
+                }
+              },
+              {
+                "id": "swingMid",
+                "title": {
+                  "en": "Swing middle",
+                  "nl": "Swing midden",
+                  "de": "Mitte schwingen"
+                }
+              },
+              {
+                "id": "swingTop",
+                "title": {
+                  "en": "Swing top",
+                  "nl": "Swing boven",
+                  "de": "Swing Oberseite"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "set_hvac_mode",
+        "title": {
+          "en": "Set HVAC mode",
+          "nl": "Stel de HVAC-modus in",
+          "de": "Stellen Sie der HVAC modus ein"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "label": {
+                  "en": "Auto",
+                  "nl": "Automatisch",
+                  "de": "Automatisch"
+                }
+              },
+              {
+                "id": "cool",
+                "label": {
+                  "en": "Cool",
+                  "nl": "Koelen",
+                  "de": "Kühlen"
+                }
+              },
+              {
+                "id": "heat",
+                "label": {
+                  "en": "Heat",
+                  "nl": "Verwarmen",
+                  "de": "Heizen"
+                }
+              },
+              {
+                "id": "dry",
+                "label": {
+                  "en": "Dry",
+                  "nl": "Ontvochtigen",
+                  "de": "Trocken"
+                }
+              },
+              {
+                "id": "fan_only",
+                "label": {
+                  "en": "Fan Only",
+                  "nl": "Alleen fans",
+                  "de": "Nur Fan"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_fan_speed",
+        "title": {
+          "en": "Set fan speed",
+          "nl": "Ventilatorsnelheid instellen",
+          "de": "Gebläsedrehzahl einstellen"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          },
+          {
+            "name": "speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "label": {
+                  "en": "Auto",
+                  "nl": "Automatisch",
+                  "de": "Automatisch"
+                }
+              },
+              {
+                "id": "low",
+                "label": {
+                  "en": "Low",
+                  "nl": "Laag",
+                  "de": "Niedrig"
+                }
+              },
+              {
+                "id": "mediumLow",
+                "label": {
+                  "en": "Medium Low",
+                  "nl": "Gemiddeld Laag",
+                  "de": "Mittel Niedrig"
+                }
+              },
+              {
+                "id": "medium",
+                "label": {
+                  "en": "Medium",
+                  "nl": "Gemiddeld",
+                  "de": "Mittel"
+                }
+              },
+              {
+                "id": "mediumHigh",
+                "label": {
+                  "en": "Medium High",
+                  "nl": "Gemiddeld hoog",
+                  "de": "Mittel hoch"
+                }
+              },
+              {
+                "id": "high",
+                "label": {
+                  "en": "High",
+                  "nl": "Hoog",
+                  "de": "Hoch"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_turbo_mode",
+        "title": {
+          "en": "Set turbo mode",
+          "nl": "Stel de turbomodus in",
+          "de": "Stellen Sie den Turbo-Modus ein"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan",
+                  "de": "Einschalten"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Ausschalten"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_lights",
+        "title": {
+          "en": "Set lights",
+          "nl": "Lichten instellen",
+          "de": "Lichter einstellen"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan",
+                  "de": "Einschalten"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Ausschalten"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_xfan_mode",
+        "title": {
+          "en": "Set X-Fan mode",
+          "nl": "Stel de X-Fan modus in",
+          "de": "Stellen Sie den X-Fan modus ein"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan",
+                  "de": "Einschalten"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Ausschalten"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_vertical_swing",
+        "title": {
+          "en": "Set vertical swing",
+          "nl": "Verticale swing instellen",
+          "de": "Vertikale Schaukel einstellen"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          },
+          {
+            "name": "vertical_swing",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "default",
+                "title": {
+                  "en": "Disabled",
+                  "nl": "Uitgeschakeld",
+                  "de": "Behindert"
+                }
+              },
+              {
+                "id": "full",
+                "title": {
+                  "en": "Full range",
+                  "nl": "Volledig bereik",
+                  "de": "Vollständige Palette"
+                }
+              },
+              {
+                "id": "fixedTop",
+                "title": {
+                  "en": "Fixed top",
+                  "nl": "Fixed boven",
+                  "de": "Feste Oberseite"
+                }
+              },
+              {
+                "id": "fixedMidTop",
+                "title": {
+                  "en": "Fixed top middle",
+                  "nl": "Fixed midden boven",
+                  "de": "Feste obere Mitte"
+                }
+              },
+              {
+                "id": "fixedMid",
+                "title": {
+                  "en": "Fixed middle",
+                  "nl": "Fixed midden",
+                  "de": "Feste Mitte"
+                }
+              },
+              {
+                "id": "fixedMidBottom",
+                "title": {
+                  "en": "Fixed middle bottom",
+                  "nl": "Fixed midden onder",
+                  "de": "Mittlerer Boden fest"
+                }
+              },
+              {
+                "id": "fixedBottom",
+                "title": {
+                  "en": "Fixed bottom",
+                  "nl": "Fixed onder",
+                  "de": "Feste Unterseite"
+                }
+              },
+              {
+                "id": "swingBottom",
+                "title": {
+                  "en": "Swing bottom",
+                  "nl": "Swing onder",
+                  "de": "Swing Unterseite"
+                }
+              },
+              {
+                "id": "swingMid",
+                "title": {
+                  "en": "Swing middle",
+                  "nl": "Swing midden",
+                  "de": "Mitte schwingen"
+                }
+              },
+              {
+                "id": "swingTop",
+                "title": {
+                  "en": "Swing top",
+                  "nl": "Swing boven",
+                  "de": "Swing Oberseite"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "capabilities": {
+    "hvac_mode": {
+      "type": "enum",
+      "title": {
+        "en": "HVAC mode",
+        "nl": "HVAC modus",
+        "de": "HVAC-Modus"
+      },
+      "desc": {
+        "en": "Mode of the HVAC",
+        "nl": "Modus van de HVAC",
+        "de": "Modus der HVAC"
+      },
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto",
+            "nl": "Automatisch",
+            "de": "Automatisch"
+          }
+        },
+        {
+          "id": "cool",
+          "title": {
+            "en": "Cool",
+            "nl": "Koelen",
+            "de": "Kühlen"
+          }
+        },
+        {
+          "id": "heat",
+          "title": {
+            "en": "Heat",
+            "nl": "Verwarmen",
+            "de": "Heizen"
+          }
+        },
+        {
+          "id": "dry",
+          "title": {
+            "en": "Dry",
+            "nl": "Ontvochtigen",
+            "de": "Trocken"
+          }
+        },
+        {
+          "id": "fan_only",
+          "title": {
+            "en": "Fan Only",
+            "nl": "Alleen fans",
+            "de": "Nur Fan"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker"
+    },
+    "fan_speed": {
+      "type": "enum",
+      "title": {
+        "en": "Fan speed",
+        "nl": "Ventilator snelheid",
+        "de": "Lüftergeschwindigkeit"
+      },
+      "desc": {
+        "en": "Speed of the HVAC's fan",
+        "nl": "Snelheid van de HVAC-ventilator",
+        "de": "Drehzahl der HVAC"
+      },
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto",
+            "nl": "Automatisch",
+            "de": "Automatisch"
+          }
+        },
+        {
+          "id": "low",
+          "title": {
+            "en": "Low",
+            "nl": "Laag",
+            "de": "Niedrig"
+          }
+        },
+        {
+          "id": "mediumLow",
+          "title": {
+            "en": "Medium Low",
+            "nl": "Gemiddeld Laag",
+            "de": "Mittel Niedrig"
+          }
+        },
+        {
+          "id": "medium",
+          "title": {
+            "en": "Medium",
+            "nl": "Gemiddeld",
+            "de": "Mittel"
+          }
+        },
+        {
+          "id": "mediumHigh",
+          "title": {
+            "en": "Medium High",
+            "nl": "Gemiddeld hoog",
+            "de": "Mittel hoch"
+          }
+        },
+        {
+          "id": "high",
+          "title": {
+            "en": "High",
+            "nl": "Hoog",
+            "de": "Hoch"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker"
+    },
+    "turbo_mode": {
+      "type": "boolean",
+      "title": {
+        "en": "Turbo mode",
+        "nl": "Turbo modus",
+        "de": "Turbo Modus"
+      },
+      "desc": {
+        "en": "Turbo mode of the HVAC's fan",
+        "nl": "Turbomodus van de ventilator van de HVAC",
+        "de": "Turbomodus des Lüfters der Klimaanlage"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "toggle"
+    },
+    "lights": {
+      "type": "boolean",
+      "title": {
+        "en": "Lights mode",
+        "nl": "Lichten modus",
+        "de": "Lichtmodus"
+      },
+      "desc": {
+        "en": "Lights mode on the HVAC panel",
+        "nl": "Lichten modus op het airconditioner paneel",
+        "de": "Lichtmodus auf dem Klimaanlage-Panel"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "toggle"
+    },
+    "xfan_mode": {
+      "type": "boolean",
+      "title": {
+        "en": "X-Fan mode",
+        "nl": "X-Fan modus",
+        "de": "X-Fan Modus"
+      },
+      "desc": {
+        "en": "X-Fan mode of the HVAC's fan",
+        "nl": "X-Fan modus van de ventilator van de HVAC",
+        "de": "X-Fan modus des Lüfters der Klimaanlage"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "toggle"
+    },
+    "vertical_swing": {
+      "type": "enum",
+      "title": {
+        "en": "Vertical swing",
+        "nl": "Verticale swing",
+        "de": "Vertikale Schaukel"
+      },
+      "desc": {
+        "en": "Position of the fan swing",
+        "nl": "Positie van de fan swing",
+        "de": "Position der fan swing"
+      },
+      "values": [
+        {
+          "id": "default",
+          "title": {
+            "en": "Disabled",
+            "nl": "Uitgeschakeld",
+            "de": "Behindert"
+          }
+        },
+        {
+          "id": "full",
+          "title": {
+            "en": "Full range",
+            "nl": "Volledig bereik",
+            "de": "Vollständige Palette"
+          }
+        },
+        {
+          "id": "fixedTop",
+          "title": {
+            "en": "Fixed top",
+            "nl": "Fixed boven",
+            "de": "Feste Oberseite"
+          }
+        },
+        {
+          "id": "fixedMidTop",
+          "title": {
+            "en": "Fixed top middle",
+            "nl": "Fixed midden boven",
+            "de": "Feste obere Mitte"
+          }
+        },
+        {
+          "id": "fixedMid",
+          "title": {
+            "en": "Fixed middle",
+            "nl": "Fixed midden",
+            "de": "Feste Mitte"
+          }
+        },
+        {
+          "id": "fixedMidBottom",
+          "title": {
+            "en": "Fixed middle bottom",
+            "nl": "Fixed midden onder",
+            "de": "Mittlerer Boden fest"
+          }
+        },
+        {
+          "id": "fixedBottom",
+          "title": {
+            "en": "Fixed bottom",
+            "nl": "Fixed onder",
+            "de": "Feste Unterseite"
+          }
+        },
+        {
+          "id": "swingBottom",
+          "title": {
+            "en": "Swing bottom",
+            "nl": "Swing onder",
+            "de": "Swing Unterseite"
+          }
+        },
+        {
+          "id": "swingMid",
+          "title": {
+            "en": "Swing middle",
+            "nl": "Swing midden",
+            "de": "Mitte schwingen"
+          }
+        },
+        {
+          "id": "swingTop",
+          "title": {
+            "en": "Swing top",
+            "nl": "Swing boven",
+            "de": "Swing Oberseite"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker"
+    }
+  },
+  "drivers": [
+    {
+      "id": "gree_cooper_hunter_hvac",
+      "name": {
+        "en": "Gree, Cooper&Hunter HVAC"
+      },
+      "class": "thermostat",
+      "capabilities": [
+        "onoff",
+        "target_temperature",
+        "hvac_mode",
+        "fan_speed",
+        "turbo_mode",
+        "lights",
+        "xfan_mode",
+        "vertical_swing"
+      ],
+      "capabilitiesOptions": {
+        "target_temperature": {
+          "min": 16,
+          "max": 30,
+          "step": 1
+        }
+      },
+      "mobile": {
+        "components": [
+          {
+            "id": "icon",
+            "capabilities": []
+          },
+          {
+            "id": "thermostat",
+            "capabilities": [
+              "target_temperature"
+            ]
+          }
+        ]
+      },
+      "pair": [
+        {
+          "id": "switch_wifi_info",
+          "navigation": {
+            "next": "list_devices"
+          }
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_my_devices"
+          }
+        },
+        {
+          "id": "add_my_devices",
+          "template": "add_devices"
+        }
+      ],
+      "images": {
+        "large": "/drivers/gree_cooper_hunter_hvac/assets/images/large.png",
+        "small": "/drivers/gree_cooper_hunter_hvac/assets/images/small.png"
+      }
+    }
+  ]
 }
