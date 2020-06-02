@@ -15,6 +15,7 @@ If you want to thank the author of this app you can use [Patreon](https://patreo
 * Cooper&Hunter Wi-Fi HVACs
 * Daitsu Wi-Fi HVACs
 * Tosot Wi-Fi HVACs
+* Wilfa Wi-Fi HVACs
 
 *This app is tested using Cooper&Hunter Alpha CH-S18FTXE*
 
