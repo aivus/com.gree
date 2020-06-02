@@ -5,6 +5,7 @@ Supported devices:
 * Cooper&Hunter Wi-Fi HVACs
 * Daitsu Wi-Fi HVACs
 * Tosot Wi-Fi HVACs
+* Wilfa Wi-Fi HVACs
 
 If you found that your HVAC works and brand is not mentioned above please create an issue to add this brand as compatible
 
