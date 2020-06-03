@@ -36,6 +36,8 @@ That means you need to turn it on manually when switch to Dry/Cool mode if you w
 ## Links
 [Gree app in Homey Apps](https://apps.athom.com/app/com.gree)
 
+[Support topic on Homey Community Forum](https://community.athom.com/t/gree-hvac-app/30801)
+
 ## Translation
 Help wanted to verify and update any incorrect translation.
 
