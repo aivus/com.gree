@@ -17,12 +17,12 @@
   },
   "homepage": "https://github.com/aivus/com.gree#readme",
   "dependencies": {
-    "gree-hvac-client": "^1.2.7"
+    "gree-hvac-client": "git+https://github.com/aivus/gree-hvac-client.git#current_temperature"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
-    "eslint-config-athom": "^2.0.8",
-    "homey": "^2.3.1"
+    "eslint-config-athom": "^2.1.0",
+    "homey": "^2.3.5"
   },
   "engines": {
     "node": ">=8.0.0"

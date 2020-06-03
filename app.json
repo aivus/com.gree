@@ -1,6 +1,6 @@
 {
   "id": "com.gree",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "name": {
@@ -1163,6 +1163,7 @@
       "class": "thermostat",
       "capabilities": [
         "onoff",
+        "measure_temperature",
         "target_temperature",
         "hvac_mode",
         "fan_speed",
@@ -1177,20 +1178,6 @@
           "max": 30,
           "step": 1
         }
-      },
-      "mobile": {
-        "components": [
-          {
-            "id": "icon",
-            "capabilities": []
-          },
-          {
-            "id": "thermostat",
-            "capabilities": [
-              "target_temperature"
-            ]
-          }
-        ]
       },
       "pair": [
         {
