@@ -203,6 +203,9 @@ class GreeHVACDevice extends Homey.Device {
         //     turbo: 'off',
         //     powerSave: 'off' }
 
+        clearInterval(this._reconnectInterval);
+        delete this._reconnectInterval;
+
         this.log('[update]', 'mark device available');
         this.setAvailable();
 
