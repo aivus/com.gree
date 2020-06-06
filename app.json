@@ -7,13 +7,14 @@
     "en": "Gree"
   },
   "description": {
-    "en": "Control your Gree, Cooper&Hunter HVAC devices"
+    "en": "Control your Gree and other EWPE Smart compatible HVAC devices"
   },
   "category": [
     "climate"
   ],
   "tags": {
     "en": [
+      "EWPE Smart",
       "cooper&hunter",
       "gree",
       "cooper and hunter",
@@ -1158,7 +1159,7 @@
     {
       "id": "gree_cooper_hunter_hvac",
       "name": {
-        "en": "Gree, Cooper&Hunter HVAC"
+        "en": "EWPE Smart HVACs"
       },
       "class": "thermostat",
       "capabilities": [

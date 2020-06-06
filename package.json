@@ -1,6 +1,6 @@
 {
   "private": true,
-  "description": "Control your Gree, Cooper&Hunter HVAC devices",
+  "description": "Control your Gree and other EWPE Smart compatible HVAC devices",
   "main": "app.js",
   "scripts": {
     "test": "npm run eslint",
@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/aivus/com.gree#readme",
   "dependencies": {
-    "gree-hvac-client": "git+https://github.com/aivus/gree-hvac-client.git#current_temperature"
+    "gree-hvac-client": "git+https://github.com/inwaar/gree-hvac-client.git#master"
   },
   "devDependencies": {
     "eslint": "^6.8.0",

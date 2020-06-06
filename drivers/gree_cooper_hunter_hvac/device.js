@@ -203,9 +203,6 @@ class GreeHVACDevice extends Homey.Device {
         //     turbo: 'off',
         //     powerSave: 'off' }
 
-        // FIXME: properties log enabled during alpha testing
-        this.log(properties);
-
         this.log('[update]', 'mark device available');
         this.setAvailable();
 
@@ -225,7 +222,8 @@ class GreeHVACDevice extends Homey.Device {
             }).catch(this.error);
         }
 
-        if (this._checkPropertyChanged(updatedProperties, HVAC.PROPERTY.currentTemperature, 'measure_temperature')) {
+        const currentTempChanged = this._checkPropertyChanged(updatedProperties, HVAC.PROPERTY.currentTemperature, 'measure_temperature');
+        if (currentTempChanged && updatedProperties[HVAC.PROPERTY.currentTemperature] !== 0) {
             const value = updatedProperties[HVAC.PROPERTY.currentTemperature];
             this.setCapabilityValue('measure_temperature', value).then(() => {
                 this.log('[update properties]', '[measure_temperature]', value);
