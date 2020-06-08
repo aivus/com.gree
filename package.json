@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/aivus/com.gree#readme",
   "dependencies": {
-    "gree-hvac-client": "git+https://github.com/inwaar/gree-hvac-client.git#master"
+    "gree-hvac-client": "git+https://github.com/inwaar/gree-hvac-client.git#master",
+    "homey-log": "git+https://github.com/aivus/node-homey-log.git#update_raven"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
