@@ -22,6 +22,9 @@ If you want to thank the author of this app you can use [Patreon](https://patreo
 *If you found that your HVAC works and brand is not mentioned above please create an issue to add this brand as compatible*
 
 ## Notes
+### Fan speed
+"Medium Low" and "Medium High" speed modes are not available for 3-speed HVACs
+
 ### X-Fan
 "X-Fan" mode might be turned off automatically by AC in case of switching HVAC mode from Dry and Cool.
 
@@ -32,6 +35,8 @@ That means you need to turn it on manually when switch to Dry/Cool mode if you w
 
 ## Links
 [Gree app in Homey Apps](https://apps.athom.com/app/com.gree)
+
+[Support topic on Homey Community Forum](https://community.athom.com/t/gree-hvac-app/30801)
 
 ## Translation
 Help wanted to verify and update any incorrect translation.
