@@ -1,19 +1,20 @@
 {
   "id": "com.gree",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "name": {
     "en": "Gree"
   },
   "description": {
-    "en": "Control your Gree, Cooper&Hunter HVAC devices"
+    "en": "Control your Gree and other EWPE Smart compatible HVAC devices"
   },
   "category": [
     "climate"
   ],
   "tags": {
     "en": [
+      "EWPE Smart",
       "cooper&hunter",
       "gree",
       "cooper and hunter",
@@ -1159,11 +1160,12 @@
     {
       "id": "gree_cooper_hunter_hvac",
       "name": {
-        "en": "Gree, Cooper&Hunter HVAC"
+        "en": "EWPE Smart HVACs"
       },
       "class": "thermostat",
       "capabilities": [
         "onoff",
+        "measure_temperature",
         "target_temperature",
         "hvac_mode",
         "fan_speed",
@@ -1178,20 +1180,6 @@
           "max": 30,
           "step": 1
         }
-      },
-      "mobile": {
-        "components": [
-          {
-            "id": "icon",
-            "capabilities": []
-          },
-          {
-            "id": "thermostat",
-            "capabilities": [
-              "target_temperature"
-            ]
-          }
-        ]
       },
       "pair": [
         {
