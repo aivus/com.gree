@@ -19,5 +19,9 @@
   },
   "0.4.0": {
     "en": "Show current temperature if possible\r\nAllow to use HVACs in HomeyKit\r\n"
+  },
+  "0.5.0": {
+    "en": "Adds support for manually adding a device by IP address when it's not found via auto-discovery. Added Dutch translations.",
+    "nl": "Voegt ondersteuning toe voor het handmatig toevoegen van een apparaat op basis van IP-adres wanneer deze niet automatische wordt gevonden. Nederlandse vertalingen toegevoegd."
   }
 }
