@@ -11,13 +11,20 @@ class GreeHVACDriver extends Homey.Driver {
     }
 
     onPair(socket) {
+        const existingDevices = this.getDevices();
+
         socket.on('list_devices', (data, callback) => {
             const devices = this._finder.hvacs.map(GreeHVACDriver.hvacToDevice);
+            const newDevices = devices.filter(device => {
+                return existingDevices.filter(existingDevice => {
+                    return device.data.id === existingDevice.getData().id;
+                }).length === 0;
+            });
 
-            if (devices.length === 0) {
+            if (newDevices.length === 0) {
                 socket.showView('search_device');
             } else {
-                callback(null, devices);
+                callback(null, newDevices);
             }
         });
 
