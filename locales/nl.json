@@ -7,8 +7,8 @@
         "search_device": {
             "intro": "Er zijn geen apparaten gevonden, zoek handmatig naar je apparaat of probeer het opnieuw.",
             "title": "Apparaat zoeken...",
-            "ipAddress": "IP-adres",
-            "ipAddressDescriptionRouter": "Zorg ervoor dat het IP-adres van uw apparaat niet wijzigt door deze een statisch adres toe te kennen. <br/><br/> Dit kan u doen in uw router door het MAC-adres van uw apparaat aan een IP-adres toe te wijzen.",
+            "ip_address": "IP-adres",
+            "ip_address_description_router": "Zorg ervoor dat het IP-adres van uw apparaat niet wijzigt door deze een statisch adres toe te kennen. <br/><br/> Dit kan u doen in uw router door het MAC-adres van uw apparaat aan een IP-adres toe te wijzen.",
             "search_again": "Opnieuw zoeken",
             "manual_search": "Handmatig zoeken"
         }

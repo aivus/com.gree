@@ -8,7 +8,7 @@
             "intro": "No devices were found, manually search for your device or try again.",
             "title": "Search device...",
             "ip_address": "IP address",
-            "ipAddressDescriptionRouter": "Ensure that the IP address of your device does not change by assigning it a static IP address. <br/><br/> You can do with your router by assigning the MAC-address of your device to an IP address.",
+            "ip_address_description_router": "Ensure that the IP address of your device does not change by assigning it a static IP address. <br/><br/> You can do this with your router by assigning the MAC-address of your device to an IP address.",
             "search_again": "Search again",
             "manual_search": "Manual search"
         }
