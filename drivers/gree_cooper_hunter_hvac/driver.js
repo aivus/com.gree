@@ -10,19 +10,25 @@ class GreeHVACDriver extends Homey.Driver {
         this._finder = finder;
     }
 
-    onPairListDevices(data, callback) {
-        const devices = this._finder.hvacs.map(GreeHVACDriver.hvacToDevice);
+    onPair(socket) {
+        socket.on('list_devices', (data, callback) => {
+            const devices = this._finder.hvacs.map(GreeHVACDriver.hvacToDevice);
 
-        // // Test device for debugging without connected HVAC
-        // devices.push({
-        //     name: 'test',
-        //     data: {
-        //         id: 'test',
-        //         mac: 'test',
-        //     }
-        // });
+            if (devices.length === 0) {
+                socket.showView('search_device');
+            } else {
+                callback(null, devices);
+            }
+        });
 
-        callback(null, devices);
+        socket.on('validate_data', (data, callback) => {
+            // Show loading view while we validate the ip address
+            socket.showView('loading');
+
+            this._finder.scanSpecificAddress(data.ipAddress);
+
+            socket.showView('list_devices');
+        });
     }
 
     static hvacToDevice(hvac) {
@@ -35,6 +41,7 @@ class GreeHVACDriver extends Homey.Driver {
             data: {
                 id: message.cid,
                 mac: message.mac,
+                ipAddress: remoteInfo.address,
                 // test: 'test',
             },
         };
