@@ -12,7 +12,7 @@ If you want to thank the author of this app you can use [Patreon](https://patreo
 
 ## Supported devices
 * Gree Wi-Fi HVACs
-* Argo WiFi HVACs
+* Argo Wi-Fi HVACs
 * Cooper&Hunter Wi-Fi HVACs
 * Daitsu Wi-Fi HVACs
 * Tosot Wi-Fi HVACs
