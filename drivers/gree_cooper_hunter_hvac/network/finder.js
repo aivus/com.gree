@@ -41,7 +41,7 @@ class Finder {
     }
 
     _onMessage(message, remoteInfo) {
-        console.debug('[finder]', 'message received');
+        console.debug('[finder]', 'message received', message);
         try {
             const parsedMessage = JSON.parse(message);
 
@@ -73,6 +73,10 @@ class Finder {
         } catch (e) {
             console.error(e);
         }
+    }
+
+    scanSpecificAddress(ipAddress) {
+        this.server.send(SCAN_MESSAGE, 0, SCAN_MESSAGE.length, 7000, ipAddress);
     }
 
     _restart(reason) {

@@ -59,6 +59,10 @@ class GreeHVACDevice extends Homey.Device {
         const deviceData = this.getData();
         this.log('[find devices]', 'Finding device with mac:', deviceData.mac);
 
+        if (typeof deviceData.ipAddress !== 'undefined') {
+            finder.scanSpecificAddress(deviceData.ipAddress);
+        }
+
         finder.hvacs.forEach(hvac => {
             if (hvac.message.mac !== deviceData.mac) {
                 // Skip other HVACs from the finder until find current
