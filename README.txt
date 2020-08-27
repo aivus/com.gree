@@ -12,7 +12,6 @@ If you found that your HVAC works and brand is not mentioned above please create
 
 * This app is tested using next devices:
 Cooper&Hunter Alpha CH-S18FTXE (Wi-Fi)
-Argo Milo Plus (Wi-Fi)
 
 Notes
 * Fan speed

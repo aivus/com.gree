@@ -3,18 +3,9 @@
         "intro": {
             "p1": "Voordat je verder gaat, moet je de Airco verbinden met je huidige WiFi-netwerk.",
             "p2": "Dit kan je doen met behulp van een app van de fabrikant zoals <i>EWPE Smart</i> of via de CLI zoals beschreven in de README van de app (geavanceerde gebruikers)"
-        },
-        "search_device": {
-            "intro": "Er zijn geen apparaten gevonden, zoek handmatig naar je apparaat of probeer het opnieuw.",
-            "title": "Apparaat zoeken...",
-            "ip_address": "IP-adres",
-            "ip_address_description_router": "Zorg ervoor dat het IP-adres van uw apparaat niet wijzigt door deze een statisch adres toe te kennen. <br/><br/> Dit kan u doen in uw router door het MAC-adres van uw apparaat aan een IP-adres toe te wijzen.",
-            "search_again": "Opnieuw zoeken",
-            "manual_search": "Handmatig zoeken"
         }
     },
     "error": {
-        "offline": "Je Airco is offline gegaan. Aan het proberen opnieuw te verbinden...",
-        "no_response": "Kreeg geen reactie van het apparaat"
+        "offline": "Je Airco is offline gegaan. Aan het proberen opnieuw te verbinden..."
     }
 }

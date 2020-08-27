@@ -75,10 +75,6 @@ class Finder {
         }
     }
 
-    scanSpecificAddress(ipAddress) {
-        this.server.send(SCAN_MESSAGE, 0, SCAN_MESSAGE.length, 7000, ipAddress);
-    }
-
     _restart(reason) {
         console.error('error occurs, restart server');
         if (reason) console.error(reason);

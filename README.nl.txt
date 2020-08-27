@@ -12,7 +12,6 @@ Als je hebt vastgesteld dat je HVAC werkt met deze app en je ziet het merk hierb
 
 * Deze app is getest met de volgende apparaten:
 Cooper & Hunter Alpha CH-S18FTXE (Wi-Fi)
-Argo Milo Plus (Wi-Fi)
 
 Opmerkingen
 * Ventilator snelheid
