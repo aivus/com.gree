@@ -1,13 +1,15 @@
 {
   "id": "com.gree",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "name": {
     "en": "Gree"
   },
   "description": {
-    "en": "Control your Gree and other EWPE Smart compatible HVAC devices"
+    "en": "Control your Gree and other EWPE Smart compatible HVAC devices",
+    "nl": "Bedien uw Gree en andere EWPE Smart-compatibele HVAC-apparaten",
+    "de": "Steuern Sie Ihre Gree und andere EWPE Smart-kompatible HLK-Geräte"
   },
   "category": [
     "climate"
@@ -17,6 +19,7 @@
       "EWPE Smart",
       "cooper&hunter",
       "gree",
+      "argo",
       "cooper and hunter",
       "daitsu",
       "tosot",
@@ -33,6 +36,14 @@
   "author": {
     "name": "Illia Antypenko",
     "email": "ilya@antipenko.pp.ua"
+  },
+  "contributors": {
+    "translators": [
+      {
+        "name": "Lucas van der Have",
+        "email": "lucasvdhave@gmail.com"
+      }
+    ]
   },
   "homeyCommunityTopicId": 30801,
   "source": "https://github.com/aivus/com.gree",

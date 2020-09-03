@@ -2,6 +2,7 @@ This app adds support of Gree compatible HVACs to Homey.
 
 Supported devices:
 * Gree Wi-Fi HVACs
+* Argo Wi-Fi HVACs
 * Cooper&Hunter Wi-Fi HVACs
 * Daitsu Wi-Fi HVACs
 * Tosot Wi-Fi HVACs
