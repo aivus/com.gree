@@ -41,7 +41,7 @@ class Finder {
     }
 
     _onMessage(message, remoteInfo) {
-        console.debug('[finder]', 'message received', message);
+        console.debug('[finder]', 'message received');
         try {
             const parsedMessage = JSON.parse(message);
 
