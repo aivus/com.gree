@@ -23,7 +23,7 @@
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-athom": "^2.1.0",
-    "homey": "^2.6.1"
+    "homey": "^2.6.2"
   },
   "engines": {
     "node": ">=8.0.0"
