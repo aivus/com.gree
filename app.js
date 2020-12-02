@@ -1,6 +1,8 @@
 'use strict';
 
 const Homey = require('homey');
+// eslint-disable-next-line no-unused-vars
+const { Log } = require('homey-log');
 
 class GreeHVAC extends Homey.App {
 

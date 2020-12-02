@@ -1,21 +1,25 @@
 {
   "id": "com.gree",
-  "version": "0.3.0",
+  "version": "0.4.1",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "name": {
     "en": "Gree"
   },
   "description": {
-    "en": "Control your Gree, Cooper&Hunter HVAC devices"
+    "en": "Control your Gree and other EWPE Smart compatible HVAC devices",
+    "nl": "Bedien uw Gree en andere EWPE Smart-compatibele HVAC-apparaten",
+    "de": "Steuern Sie Ihre Gree und andere EWPE Smart-kompatible HLK-Geräte"
   },
   "category": [
     "climate"
   ],
   "tags": {
     "en": [
+      "EWPE Smart",
       "cooper&hunter",
       "gree",
+      "argo",
       "cooper and hunter",
       "daitsu",
       "tosot",
@@ -33,6 +37,15 @@
     "name": "Illia Antypenko",
     "email": "ilya@antipenko.pp.ua"
   },
+  "contributors": {
+    "translators": [
+      {
+        "name": "Lucas van der Have",
+        "email": "lucasvdhave@gmail.com"
+      }
+    ]
+  },
+  "homeyCommunityTopicId": 30801,
   "source": "https://github.com/aivus/com.gree",
   "flow": {
     "triggers": [
@@ -1158,11 +1171,12 @@
     {
       "id": "gree_cooper_hunter_hvac",
       "name": {
-        "en": "Gree, Cooper&Hunter HVAC"
+        "en": "EWPE Smart HVACs"
       },
       "class": "thermostat",
       "capabilities": [
         "onoff",
+        "measure_temperature",
         "target_temperature",
         "thermostat_mode",
         "fan_speed",
@@ -1177,20 +1191,6 @@
           "max": 30,
           "step": 1
         }
-      },
-      "mobile": {
-        "components": [
-          {
-            "id": "icon",
-            "capabilities": []
-          },
-          {
-            "id": "thermostat",
-            "capabilities": [
-              "target_temperature"
-            ]
-          }
-        ]
       },
       "pair": [
         {

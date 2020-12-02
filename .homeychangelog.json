@@ -16,5 +16,12 @@
   },
   "0.3.0": {
     "en": "Add support of X-Fan and Vertical swing features (thanks to denniedegroot)"
+  },
+  "0.4.0": {
+    "en": "Show current temperature if possible\r\nAllow to use HVACs in HomeyKit\r\n"
+  },
+  "0.4.1": {
+    "en": "Added Dutch translations",
+    "nl": "Nederlandse vertalingen toegevoegd"
   }
 }

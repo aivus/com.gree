@@ -204,7 +204,8 @@ class GreeHVACDevice extends Homey.Device {
         //     turbo: 'off',
         //     powerSave: 'off' }
 
-        // this.log(updatedProperties, properties);
+        clearInterval(this._reconnectInterval);
+        delete this._reconnectInterval;
 
         this.log('[update]', 'mark device available');
         this.setAvailable();
@@ -221,6 +222,15 @@ class GreeHVACDevice extends Homey.Device {
             const value = updatedProperties[HVAC.PROPERTY.temperature];
             this.setCapabilityValue('target_temperature', value).then(() => {
                 this.log('[update properties]', '[target_temperature]', value);
+                return Promise.resolve();
+            }).catch(this.error);
+        }
+
+        const currentTempChanged = this._checkPropertyChanged(updatedProperties, HVAC.PROPERTY.currentTemperature, 'measure_temperature');
+        if (currentTempChanged && updatedProperties[HVAC.PROPERTY.currentTemperature] !== 0) {
+            const value = updatedProperties[HVAC.PROPERTY.currentTemperature];
+            this.setCapabilityValue('measure_temperature', value).then(() => {
+                this.log('[update properties]', '[measure_temperature]', value);
                 return Promise.resolve();
             }).catch(this.error);
         }
@@ -386,18 +396,25 @@ class GreeHVACDevice extends Homey.Device {
             await this.addCapability('lights');
         }
 
-        // Added in v0.2.4
+        // Added in v0.3.0
         if (!this.hasCapability('xfan_mode')) {
             this.log('[migration]', 'Adding "xfan_mode" capability');
             await this.addCapability('xfan_mode');
         }
 
-        // Added in v0.2.4
+        // Added in v0.3.0
         if (!this.hasCapability('vertical_swing')) {
             this.log('[migration]', 'Adding "vertical_swing" capability');
             await this.addCapability('vertical_swing');
         }
 
+        // Added in v0.4.0
+        if (!this.hasCapability('measure_temperature')) {
+            this.log('[migration]', 'Adding "measure_temperature" capability');
+            await this.addCapability('measure_temperature');
+        }
+
+        // Added in v0.4.??
         if (!this.hasCapability('thermostat_mode')) {
             this.log('[migration]', 'Converting "hvac_mode" to "thermostat_mode"');
             await this.removeCapability('hvac_mode');
