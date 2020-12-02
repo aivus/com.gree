@@ -896,7 +896,7 @@
     ]
   },
   "capabilities": {
-    "hvac_mode": {
+    "thermostat_mode": {
       "type": "enum",
       "title": {
         "en": "HVAC mode",
@@ -1178,7 +1178,7 @@
         "onoff",
         "measure_temperature",
         "target_temperature",
-        "hvac_mode",
+        "thermostat_mode",
         "fan_speed",
         "turbo_mode",
         "lights",
