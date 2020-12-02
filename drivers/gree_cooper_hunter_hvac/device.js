@@ -414,8 +414,8 @@ class GreeHVACDevice extends Homey.Device {
             await this.addCapability('measure_temperature');
         }
 
-        // Added in v0.4.??
-        if (!this.hasCapability('thermostat_mode')) {
+        // Added in v0.5.0
+        if (!this.hasCapability('thermostat_mode') && this.hasCapability('hvac_mode')) {
             this.log('[migration]', 'Converting "hvac_mode" to "thermostat_mode"');
             await this.removeCapability('hvac_mode');
             await this.addCapability('thermostat_mode');
