@@ -1,8 +1,8 @@
 {
   "id": "com.gree",
-  "version": "0.5.0",
-  "compatibility": ">=1.5.0",
-  "sdk": 2,
+  "version": "0.6.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
   "name": {
     "en": "Gree"
   },
@@ -44,6 +44,13 @@
         "email": "lucasvdhave@gmail.com"
       }
     ]
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "iantypenko"
+      }
+    }
   },
   "homeyCommunityTopicId": 30801,
   "source": "https://github.com/aivus/com.gree",
