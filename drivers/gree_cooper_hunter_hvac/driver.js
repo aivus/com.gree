@@ -14,13 +14,13 @@ class GreeHVACDriver extends Homey.Driver {
         const devices = this._finder.hvacs.map(GreeHVACDriver.hvacToDevice);
 
         // // Test device for debugging without connected HVAC
-        devices.push({
-            name: 'test',
-            data: {
-                id: 'test',
-                mac: 'test',
-            },
-        });
+        // devices.push({
+        //     name: 'test',
+        //     data: {
+        //         id: 'test',
+        //         mac: 'test',
+        //     },
+        // });
 
         return devices;
     }
