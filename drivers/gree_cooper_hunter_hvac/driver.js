@@ -5,12 +5,12 @@ const finder = require('./network/finder');
 
 class GreeHVACDriver extends Homey.Driver {
 
-    onInit() {
+    async onInit() {
         this.log('GreeHVACDriver has been inited');
         this._finder = finder;
     }
 
-    onPairListDevices(data, callback) {
+    async onPairListDevices() {
         const devices = this._finder.hvacs.map(GreeHVACDriver.hvacToDevice);
 
         // // Test device for debugging without connected HVAC
@@ -19,10 +19,10 @@ class GreeHVACDriver extends Homey.Driver {
         //     data: {
         //         id: 'test',
         //         mac: 'test',
-        //     }
+        //     },
         // });
 
-        callback(null, devices);
+        return devices;
     }
 
     static hvacToDevice(hvac) {

@@ -18,15 +18,15 @@ const DEBUG = false;
 
 class GreeHVACDevice extends Homey.Device {
 
-    onInit() {
+    async onInit() {
         this.log('Gree device has been inited');
 
-        this._flowTriggerHvacFanSpeedChanged = new Homey.FlowCardTriggerDevice('fan_speed_changed').register();
-        this._flowTriggerHvacModeChanged = new Homey.FlowCardTriggerDevice('hvac_mode_changed').register();
-        this._flowTriggerTurboModeChanged = new Homey.FlowCardTriggerDevice('turbo_mode_changed').register();
-        this._flowTriggerHvacLightsChanged = new Homey.FlowCardTriggerDevice('lights_changed').register();
-        this._flowTriggerXFanModeChanged = new Homey.FlowCardTriggerDevice('xfan_mode_changed').register();
-        this._flowTriggerVerticalSwingChanged = new Homey.FlowCardTriggerDevice('vertical_swing_changed').register();
+        this._flowTriggerHvacFanSpeedChanged = this.homey.flow.getDeviceTriggerCard('fan_speed_changed');
+        this._flowTriggerHvacModeChanged = this.homey.flow.getDeviceTriggerCard('hvac_mode_changed');
+        this._flowTriggerTurboModeChanged = this.homey.flow.getDeviceTriggerCard('turbo_mode_changed');
+        this._flowTriggerHvacLightsChanged = this.homey.flow.getDeviceTriggerCard('lights_changed');
+        this._flowTriggerXFanModeChanged = this.homey.flow.getDeviceTriggerCard('xfan_mode_changed');
+        this._flowTriggerVerticalSwingChanged = this.homey.flow.getDeviceTriggerCard('vertical_swing_changed');
 
         this._markOffline();
         this._findDevices();
@@ -41,7 +41,7 @@ class GreeHVACDevice extends Homey.Device {
         this._tryToDisconnect();
 
         if (this._reconnectInterval) {
-            clearInterval(this._reconnectInterval);
+            this.homey.clearInterval(this._reconnectInterval);
             delete this._reconnectInterval;
         }
 
@@ -166,7 +166,7 @@ class GreeHVACDevice extends Homey.Device {
     }
 
     /**
-     * App is sucessfuly connected to the HVAC
+     * App is successfully connected to the HVAC
      * Mark device as available in Homey
      *
      * @param {HVAC.Client} client
@@ -174,7 +174,7 @@ class GreeHVACDevice extends Homey.Device {
      */
     _onConnect(client) {
         this.log('[connect]', 'connected to', client.getDeviceId());
-        clearInterval(this._reconnectInterval);
+        this.homey.clearInterval(this._reconnectInterval);
         delete this._reconnectInterval;
         this.log('[connect]', 'mark device available');
         this.setAvailable();
@@ -204,7 +204,7 @@ class GreeHVACDevice extends Homey.Device {
         //     turbo: 'off',
         //     powerSave: 'off' }
 
-        clearInterval(this._reconnectInterval);
+        this.homey.clearInterval(this._reconnectInterval);
         delete this._reconnectInterval;
 
         this.log('[update]', 'mark device available');
@@ -313,10 +313,10 @@ class GreeHVACDevice extends Homey.Device {
      */
     _markOffline() {
         this.log('[offline] mark device offline');
-        this.setUnavailable(Homey.__('error.offline'));
+        this.setUnavailable(this.homey.__('error.offline'));
 
         if (!this._reconnectInterval) {
-            this._reconnectInterval = setInterval(() => {
+            this._reconnectInterval = this.homey.setInterval(() => {
                 this._findDevices();
             }, RECONNECT_TIME_INTERVAL);
         }
