@@ -13,9 +13,6 @@ const POLLING_INTERVAL = 3000;
 // Timeout for response from the HVAC during polling process (ms)
 const POLLING_TIMEOUT = 2000;
 
-// Debugging mode (for development)
-const DEBUG = false;
-
 class GreeHVACDevice extends Homey.Device {
 
     async onInit() {
@@ -57,6 +54,8 @@ class GreeHVACDevice extends Homey.Device {
      */
     _findDevices() {
         const deviceData = this.getData();
+        const settings = this.getSettings();
+
         this.log('[find devices]', 'Finding device with mac:', deviceData.mac);
 
         finder.hvacs.forEach(hvac => {
@@ -72,7 +71,7 @@ class GreeHVACDevice extends Homey.Device {
             this._tryToDisconnect();
 
             this.client = new HVAC.Client({
-                debug: DEBUG,
+                debug: settings.enable_debug,
                 host: hvac.remoteInfo.address,
                 pollingInterval: POLLING_INTERVAL,
                 pollingTimeout: POLLING_TIMEOUT,
@@ -419,6 +418,13 @@ class GreeHVACDevice extends Homey.Device {
             this.log('[migration]', 'Converting "hvac_mode" to "thermostat_mode"');
             await this.removeCapability('hvac_mode');
             await this.addCapability('thermostat_mode');
+        }
+    }
+
+    async onSettings({ oldSettings, newSettings, changedKeys }) {
+        if (changedKeys.indexOf('enable_debug') > -1) {
+            console.log('Changing the debug settings from', oldSettings.enable_debug, 'to', newSettings.enable_debug);
+            this.client.setDebug(newSettings.enable_debug);
         }
     }
 

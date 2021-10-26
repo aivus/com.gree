@@ -1219,6 +1219,19 @@
           "template": "add_devices"
         }
       ],
+      "settings": [
+        {
+          "id": "enable_debug",
+          "type": "checkbox",
+          "value": false,
+          "label": {
+            "en": "Enable debug"
+          },
+          "hint": {
+            "en": "Enable debug in case the application is crashing. It allows developer to investigate the issue"
+          }
+        }
+      ],
       "images": {
         "large": "/drivers/gree_cooper_hunter_hvac/assets/images/large.png",
         "small": "/drivers/gree_cooper_hunter_hvac/assets/images/small.png"
