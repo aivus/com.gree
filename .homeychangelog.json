@@ -29,5 +29,8 @@
   },
   "0.6.0": {
     "en": "Update app to SDKv3"
+  },
+  "0.7.0": {
+    "en": "Added debug setting to device configuration"
   }
 }
