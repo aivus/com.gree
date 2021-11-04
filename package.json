@@ -23,7 +23,7 @@
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-athom": "^2.1.1",
-    "homey": "^2.23.3",
+    "homey": "^2.23.4",
     "homey-apps-sdk-v3-types": "git+https://github.com/athombv/node-homey-apps-sdk-v3-types.git"
   },
   "engines": {
