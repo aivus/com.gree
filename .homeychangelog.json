@@ -29,5 +29,11 @@
   },
   "0.6.0": {
     "en": "Update app to SDKv3"
+  },
+  "0.7.0": {
+    "en": "Added debug setting to device configuration"
+  },
+  "0.7.1": {
+    "en": "Fix possible crash for some specific HVACs"
   }
 }

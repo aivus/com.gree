@@ -1,6 +1,6 @@
 {
   "id": "com.gree",
-  "version": "0.6.0",
+  "version": "0.7.1",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#ff732e",
@@ -1217,6 +1217,19 @@
         {
           "id": "add_my_devices",
           "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "enable_debug",
+          "type": "checkbox",
+          "value": false,
+          "label": {
+            "en": "Debug"
+          },
+          "hint": {
+            "en": "Enable debug in case the application is crashing. It allows developer to investigate the issue"
+          }
         }
       ],
       "images": {
