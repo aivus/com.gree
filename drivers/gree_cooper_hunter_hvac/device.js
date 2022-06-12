@@ -8,12 +8,20 @@ const finder = require('./network/finder');
 const RECONNECT_TIME_INTERVAL = 10000;
 
 // Interval between polling status from HVAC (ms)
-const POLLING_INTERVAL = 3000;
+const POLLING_INTERVAL = 3500;
 
 // Timeout for response from the HVAC during polling process (ms)
-const POLLING_TIMEOUT = 2000;
+const POLLING_TIMEOUT = 3000;
 
 class GreeHVACDevice extends Homey.Device {
+
+    /**
+     * Flag which indicates that capabilities are already registered
+     *
+     * @type {boolean}
+     * @private
+     */
+    _capabilitiesRegistered = false;
 
     async onInit() {
         this.log('Gree device has been inited');
@@ -26,7 +34,7 @@ class GreeHVACDevice extends Homey.Device {
         this._flowTriggerVerticalSwingChanged = this.homey.flow.getDeviceTriggerCard('vertical_swing_changed');
 
         this._markOffline();
-        this._findDevices();
+        this._scheduleReconnection();
     }
 
     /**
@@ -103,17 +111,24 @@ class GreeHVACDevice extends Homey.Device {
      * @private
      */
     _registerCapabilities() {
+        if (this._capabilitiesRegistered) {
+            return;
+        }
+
+        // Mark capabilities as registered
+        this._capabilitiesRegistered = true;
+
         this.registerCapabilityListener('onoff', value => {
             const rawValue = value ? HVAC.VALUE.power.on : HVAC.VALUE.power.off;
             this.log('[power mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this.client.setProperty(HVAC.PROPERTY.power, rawValue);
+            this._setClientProperty(HVAC.PROPERTY.power, rawValue);
 
             return Promise.resolve();
         });
 
         this.registerCapabilityListener('target_temperature', value => {
             this.log('[temperature change]', `Value: ${value}`);
-            this.client.setProperty(HVAC.PROPERTY.temperature, value);
+            this._setClientProperty(HVAC.PROPERTY.temperature, value);
 
             return Promise.resolve();
         });
@@ -122,44 +137,50 @@ class GreeHVACDevice extends Homey.Device {
             const rawValue = HVAC.VALUE.mode[value];
             this.log('[mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             this._flowTriggerHvacModeChanged.trigger(this, { hvac_mode: value });
-            this.client.setProperty(HVAC.PROPERTY.mode, rawValue);
+            this._setClientProperty(HVAC.PROPERTY.mode, rawValue);
+
             return Promise.resolve();
         });
 
         this.registerCapabilityListener('fan_speed', value => {
             const rawValue = HVAC.VALUE.fanSpeed[value];
             this.log('[fan speed change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this.client.setProperty(HVAC.PROPERTY.fanSpeed, rawValue);
+            this._setClientProperty(HVAC.PROPERTY.fanSpeed, rawValue);
+
             return Promise.resolve();
         });
 
         this.registerCapabilityListener('turbo_mode', value => {
             const rawValue = value ? HVAC.VALUE.turbo.on : HVAC.VALUE.turbo.off;
             this.log('[turbo mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this.client.setProperty(HVAC.PROPERTY.turbo, rawValue);
+            this._setClientProperty(HVAC.PROPERTY.turbo, rawValue);
+
             return Promise.resolve();
         });
 
         this.registerCapabilityListener('lights', value => {
             const rawValue = value ? HVAC.VALUE.lights.on : HVAC.VALUE.lights.off;
             this.log('[lights change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this.client.setProperty(HVAC.PROPERTY.lights, rawValue);
+            this._setClientProperty(HVAC.PROPERTY.lights, rawValue);
             this._flowTriggerHvacLightsChanged.trigger(this, { lights: value });
+
             return Promise.resolve();
         });
 
         this.registerCapabilityListener('xfan_mode', value => {
             const rawValue = value ? HVAC.VALUE.blow.on : HVAC.VALUE.blow.off;
             this.log('[xfan mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this.client.setProperty(HVAC.PROPERTY.blow, rawValue);
+            this._setClientProperty(HVAC.PROPERTY.blow, rawValue);
             this._flowTriggerXFanModeChanged.trigger(this, { xfan_mode: value });
+
             return Promise.resolve();
         });
 
         this.registerCapabilityListener('vertical_swing', value => {
             const rawValue = HVAC.VALUE.swingVert[value];
             this.log('[vertical swing change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this.client.setProperty(HVAC.PROPERTY.swingVert, rawValue);
+            this._setClientProperty(HVAC.PROPERTY.swingVert, rawValue);
+
             return Promise.resolve();
         });
     }
@@ -173,8 +194,12 @@ class GreeHVACDevice extends Homey.Device {
      */
     _onConnect(client) {
         this.log('[connect]', 'connected to', client.getDeviceId());
-        this.homey.clearInterval(this._reconnectInterval);
-        delete this._reconnectInterval;
+
+        if (this._reconnectInterval) {
+            this.homey.clearInterval(this._reconnectInterval);
+            delete this._reconnectInterval;
+        }
+
         this.log('[connect]', 'mark device available');
         this.setAvailable();
     }
@@ -203,11 +228,15 @@ class GreeHVACDevice extends Homey.Device {
         //     turbo: 'off',
         //     powerSave: 'off' }
 
-        this.homey.clearInterval(this._reconnectInterval);
-        delete this._reconnectInterval;
+        if (this._reconnectInterval) {
+            this.homey.clearInterval(this._reconnectInterval);
+            delete this._reconnectInterval;
+        }
 
-        this.log('[update]', 'mark device available');
-        this.setAvailable();
+        if (!this.getAvailable()) {
+            this.log('[update]', 'mark device available');
+            this.setAvailable();
+        }
 
         if (this._checkBoolPropertyChanged(updatedProperties, HVAC.PROPERTY.power, 'onoff')) {
             const value = updatedProperties[HVAC.PROPERTY.power] === HVAC.VALUE.power.on;
@@ -225,9 +254,11 @@ class GreeHVACDevice extends Homey.Device {
             }).catch(this.error);
         }
 
-        const currentTempChanged = this._checkPropertyChanged(updatedProperties, HVAC.PROPERTY.currentTemperature, 'measure_temperature');
-        if (currentTempChanged && updatedProperties[HVAC.PROPERTY.currentTemperature] !== 0) {
-            const value = updatedProperties[HVAC.PROPERTY.currentTemperature];
+        if (this._checkCurrentTemperaturePropertyChanged(updatedProperties, HVAC.PROPERTY.currentTemperature, 'measure_temperature')) {
+            let value = updatedProperties[HVAC.PROPERTY.currentTemperature];
+            if (value === 0) {
+                value = null;
+            }
             this.setCapabilityValue('measure_temperature', value).then(() => {
                 this.log('[update properties]', '[measure_temperature]', value);
                 return Promise.resolve();
@@ -286,11 +317,13 @@ class GreeHVACDevice extends Homey.Device {
     _onError(message, error) {
         this.log('[ERROR]', 'Message:', message, 'Error', error);
         this._markOffline();
+        this._scheduleReconnection();
     }
 
     _onDisconnect() {
         this.log('[disconnect]', 'Disconnecting from device');
         this._markOffline();
+        this._scheduleReconnection();
     }
 
     /**
@@ -301,8 +334,9 @@ class GreeHVACDevice extends Homey.Device {
      * @private
      */
     _onNoResponse(client) {
-        this._markOffline();
         this.log('[no response]', 'Don\'t get response during polling updates');
+        this._markOffline();
+        this._scheduleReconnection();
     }
 
     /**
@@ -313,12 +347,20 @@ class GreeHVACDevice extends Homey.Device {
     _markOffline() {
         this.log('[offline] mark device offline');
         this.setUnavailable(this.homey.__('error.offline'));
+    }
 
+    /**
+     * Start trying to find the device in and reconnect to it
+     *
+     * @private
+     */
+    _scheduleReconnection() {
         if (!this._reconnectInterval) {
             this._reconnectInterval = this.homey.setInterval(() => {
                 this._findDevices();
             }, RECONNECT_TIME_INTERVAL);
         }
+        this._findDevices();
     }
 
     /**
@@ -337,6 +379,33 @@ class GreeHVACDevice extends Homey.Device {
 
         const hvacValue = updatedProperties[propertyName];
         const capabilityValue = this.getCapabilityValue(capabilityName);
+
+        // If HVAC and Homey have different values then it was changed
+        return hvacValue !== capabilityValue;
+    }
+
+    /**
+     * Same as _checkPropertyChanged plus check if capability value is null and from HVAC is "0"
+     * means no data available and should be considered as "no change"
+     *
+     * @param {Array} updatedProperties
+     * @param {string} propertyName
+     * @param {string} capabilityName
+     * @returns {boolean}
+     * @private
+     */
+    _checkCurrentTemperaturePropertyChanged(updatedProperties, propertyName, capabilityName) {
+        if (!Object.prototype.hasOwnProperty.call(updatedProperties, propertyName)) {
+            return false;
+        }
+
+        const hvacValue = updatedProperties[propertyName];
+        const capabilityValue = this.getCapabilityValue(capabilityName);
+
+        // Additional check for current temperature
+        if (capabilityValue === null && hvacValue === 0) {
+            return false;
+        }
 
         // If HVAC and Homey have different values then it was changed
         return hvacValue !== capabilityValue;
@@ -418,6 +487,19 @@ class GreeHVACDevice extends Homey.Device {
             this.log('[migration]', 'Converting "hvac_mode" to "thermostat_mode"');
             await this.removeCapability('hvac_mode');
             await this.addCapability('thermostat_mode');
+        }
+    }
+
+    /**
+     * Set value for the specific property of the HVAC client
+     *
+     * @param property
+     * @param value
+     * @private
+     */
+    _setClientProperty(property, value) {
+        if (this.client) {
+            this.client.setProperty(property, value);
         }
     }
 
