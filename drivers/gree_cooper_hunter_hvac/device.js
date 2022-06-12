@@ -26,7 +26,6 @@ class GreeHVACDevice extends Homey.Device {
         this._flowTriggerVerticalSwingChanged = this.homey.flow.getDeviceTriggerCard('vertical_swing_changed');
 
         this._markOffline();
-        this._findDevices();
         this._scheduleReconnection();
     }
 
@@ -322,6 +321,7 @@ class GreeHVACDevice extends Homey.Device {
     }
 
     /**
+     * Start trying to find the device in and reconnect to it
      *
      * @private
      */
@@ -331,6 +331,7 @@ class GreeHVACDevice extends Homey.Device {
                 this._findDevices();
             }, RECONNECT_TIME_INTERVAL);
         }
+        this._findDevices();
     }
 
     /**
