@@ -355,7 +355,6 @@ class GreeHVACDevice extends Homey.Device {
         return hvacValue !== capabilityValue;
     }
 
-
     /**
      * Same as _checkPropertyChanged plus check if capability value is null and from HVAC is "0"
      * means no data available and should be considered as "no change"
