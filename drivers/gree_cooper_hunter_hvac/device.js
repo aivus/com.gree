@@ -8,10 +8,10 @@ const finder = require('./network/finder');
 const RECONNECT_TIME_INTERVAL = 10000;
 
 // Interval between polling status from HVAC (ms)
-const POLLING_INTERVAL = 3000;
+const POLLING_INTERVAL = 3500;
 
 // Timeout for response from the HVAC during polling process (ms)
-const POLLING_TIMEOUT = 2000;
+const POLLING_TIMEOUT = 3000;
 
 class GreeHVACDevice extends Homey.Device {
 
@@ -27,6 +27,7 @@ class GreeHVACDevice extends Homey.Device {
 
         this._markOffline();
         this._findDevices();
+        this._scheduleReconnection();
     }
 
     /**
@@ -225,9 +226,11 @@ class GreeHVACDevice extends Homey.Device {
             }).catch(this.error);
         }
 
-        const currentTempChanged = this._checkPropertyChanged(updatedProperties, HVAC.PROPERTY.currentTemperature, 'measure_temperature');
-        if (currentTempChanged && updatedProperties[HVAC.PROPERTY.currentTemperature] !== 0) {
-            const value = updatedProperties[HVAC.PROPERTY.currentTemperature];
+        if (this._checkPropertyChanged(updatedProperties, HVAC.PROPERTY.currentTemperature, 'measure_temperature')) {
+            let value = updatedProperties[HVAC.PROPERTY.currentTemperature];
+            if (value === 0) {
+                value = null;
+            }
             this.setCapabilityValue('measure_temperature', value).then(() => {
                 this.log('[update properties]', '[measure_temperature]', value);
                 return Promise.resolve();
@@ -286,11 +289,13 @@ class GreeHVACDevice extends Homey.Device {
     _onError(message, error) {
         this.log('[ERROR]', 'Message:', message, 'Error', error);
         this._markOffline();
+        this._scheduleReconnection();
     }
 
     _onDisconnect() {
         this.log('[disconnect]', 'Disconnecting from device');
         this._markOffline();
+        this._scheduleReconnection();
     }
 
     /**
@@ -301,8 +306,9 @@ class GreeHVACDevice extends Homey.Device {
      * @private
      */
     _onNoResponse(client) {
-        this._markOffline();
         this.log('[no response]', 'Don\'t get response during polling updates');
+        this._markOffline();
+        this._scheduleReconnection();
     }
 
     /**
@@ -313,7 +319,13 @@ class GreeHVACDevice extends Homey.Device {
     _markOffline() {
         this.log('[offline] mark device offline');
         this.setUnavailable(this.homey.__('error.offline'));
+    }
 
+    /**
+     *
+     * @private
+     */
+    _scheduleReconnection() {
         if (!this._reconnectInterval) {
             this._reconnectInterval = this.homey.setInterval(() => {
                 this._findDevices();
