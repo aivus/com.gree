@@ -226,7 +226,7 @@ class GreeHVACDevice extends Homey.Device {
             }).catch(this.error);
         }
 
-        if (this._checkPropertyChanged(updatedProperties, HVAC.PROPERTY.currentTemperature, 'measure_temperature')) {
+        if (this._checkCurrentTemperaturePropertyChanged(updatedProperties, HVAC.PROPERTY.currentTemperature, 'measure_temperature')) {
             let value = updatedProperties[HVAC.PROPERTY.currentTemperature];
             if (value === 0) {
                 value = null;
@@ -349,6 +349,34 @@ class GreeHVACDevice extends Homey.Device {
 
         const hvacValue = updatedProperties[propertyName];
         const capabilityValue = this.getCapabilityValue(capabilityName);
+
+        // If HVAC and Homey have different values then it was changed
+        return hvacValue !== capabilityValue;
+    }
+
+
+    /**
+     * Same as _checkPropertyChanged plus check if capability value is null and from HVAC is "0"
+     * means no data available and should be considered as "no change"
+     *
+     * @param {Array} updatedProperties
+     * @param {string} propertyName
+     * @param {string} capabilityName
+     * @returns {boolean}
+     * @private
+     */
+    _checkCurrentTemperaturePropertyChanged(updatedProperties, propertyName, capabilityName) {
+        if (!Object.prototype.hasOwnProperty.call(updatedProperties, propertyName)) {
+            return false;
+        }
+
+        const hvacValue = updatedProperties[propertyName];
+        const capabilityValue = this.getCapabilityValue(capabilityName);
+
+        // Additional check for current temperature
+        if (capabilityValue === null && hvacValue === 0) {
+            return false;
+        }
 
         // If HVAC and Homey have different values then it was changed
         return hvacValue !== capabilityValue;
