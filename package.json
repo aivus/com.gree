@@ -17,14 +17,14 @@
   },
   "homepage": "https://github.com/aivus/com.gree#readme",
   "dependencies": {
-    "gree-hvac-client": "git+https://github.com/aivus/gree-hvac-client.git#fix-undefined-0",
-    "homey-log": "git+https://github.com/aivus/node-homey-log.git#custom_raven_options"
+    "gree-hvac-client": "git+https://github.com/aivus/gree-hvac-client.git#com.gree/adjustCurrentTemp",
+    "homey-log": "^2.1.0"
   },
   "devDependencies": {
-    "@types/homey": "npm:homey-apps-sdk-v3-types@^0.2.2",
+    "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.1",
     "eslint": "^6.8.0",
     "eslint-config-athom": "^2.1.1",
-    "homey": "^2.23.7"
+    "homey": "^2.29.0"
   },
   "engines": {
     "node": ">=12.16.1"
