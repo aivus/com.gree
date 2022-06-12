@@ -194,8 +194,12 @@ class GreeHVACDevice extends Homey.Device {
      */
     _onConnect(client) {
         this.log('[connect]', 'connected to', client.getDeviceId());
-        this.homey.clearInterval(this._reconnectInterval);
-        delete this._reconnectInterval;
+
+        if (this._reconnectInterval) {
+            this.homey.clearInterval(this._reconnectInterval);
+            delete this._reconnectInterval;
+        }
+
         this.log('[connect]', 'mark device available');
         this.setAvailable();
     }
@@ -224,11 +228,15 @@ class GreeHVACDevice extends Homey.Device {
         //     turbo: 'off',
         //     powerSave: 'off' }
 
-        this.homey.clearInterval(this._reconnectInterval);
-        delete this._reconnectInterval;
+        if (this._reconnectInterval) {
+            this.homey.clearInterval(this._reconnectInterval);
+            delete this._reconnectInterval;
+        }
 
-        this.log('[update]', 'mark device available');
-        this.setAvailable();
+        if (!this.getAvailable()) {
+            this.log('[update]', 'mark device available');
+            this.setAvailable();
+        }
 
         if (this._checkBoolPropertyChanged(updatedProperties, HVAC.PROPERTY.power, 'onoff')) {
             const value = updatedProperties[HVAC.PROPERTY.power] === HVAC.VALUE.power.on;
@@ -501,6 +509,7 @@ class GreeHVACDevice extends Homey.Device {
             this.client.setDebug(newSettings.enable_debug);
         }
     }
+
 }
 
 /**
