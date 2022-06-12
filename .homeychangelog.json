@@ -35,5 +35,8 @@
   },
   "0.7.1": {
     "en": "Fix possible crash for some specific HVACs"
+  },
+  "0.7.2": {
+    "en": "Better handling of current temperature"
   }
 }
