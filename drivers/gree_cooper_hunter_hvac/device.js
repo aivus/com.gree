@@ -15,6 +15,7 @@ const POLLING_INTERVAL = 3500;
 const POLLING_TIMEOUT = 3000;
 
 class GreeHVACDevice extends Homey.Device {
+
     /**
      * Instance of Client to interact with HVAC
      *
