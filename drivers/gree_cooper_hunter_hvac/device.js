@@ -3,9 +3,10 @@
 const Homey = require('homey');
 const HVAC = require('gree-hvac-client');
 const finder = require('./network/finder');
+const { compareBoolProperties } = require('../../utils');
 
 // Interval between trying to found HVAC in network (ms)
-const RECONNECT_TIME_INTERVAL = 10000;
+const LOOKING_FOR_DEVICE_TIME_INTERVAL = 5000;
 
 // Interval between polling status from HVAC (ms)
 const POLLING_INTERVAL = 3500;
@@ -16,12 +17,20 @@ const POLLING_TIMEOUT = 3000;
 class GreeHVACDevice extends Homey.Device {
 
     /**
-     * Flag which indicates that capabilities are already registered
+     * Instance of Client to interact with HVAC
      *
-     * @type {boolean}
+     * @type {Client|null}
      * @private
      */
-    _capabilitiesRegistered = false;
+    _client = null;
+
+    /**
+     * Looking for a device interval reference
+     *
+     * @type {NodeJS.Timeout}
+     * @private
+     */
+    _lookingForDeviceIntervalRef = null;
 
     async onInit() {
         this.log('Gree device has been inited');
@@ -33,22 +42,21 @@ class GreeHVACDevice extends Homey.Device {
         this._flowTriggerXFanModeChanged = this.homey.flow.getDeviceTriggerCard('xfan_mode_changed');
         this._flowTriggerVerticalSwingChanged = this.homey.flow.getDeviceTriggerCard('vertical_swing_changed');
 
+        await this._executeCapabilityMigrations();
+        this._registerCapabilityListeners();
+
         this._markOffline();
-        this._scheduleReconnection();
+        this._startLookingForDevice();
     }
 
     /**
      * Device was removed from Homey. Cleanup, remove all listeners, disconnect from the HVAC
      */
     onDeleted() {
-        this.log('[on deleted]', 'Gree device has been deleted. Disconnecting client.');
+        this.log('[on deleted]', 'Gree device has been deleted. Disconnecting _client.');
 
+        this._stopLookingForDevice();
         this._tryToDisconnect();
-
-        if (this._reconnectInterval) {
-            this.homey.clearInterval(this._reconnectInterval);
-            delete this._reconnectInterval;
-        }
 
         this.log('[on deleted]', 'Cleanup after removing done');
     }
@@ -61,6 +69,10 @@ class GreeHVACDevice extends Homey.Device {
      * @private
      */
     _findDevices() {
+        if (this._client) {
+            return;
+        }
+
         const deviceData = this.getData();
         const settings = this.getSettings();
 
@@ -75,20 +87,16 @@ class GreeHVACDevice extends Homey.Device {
 
             this.log('[find devices]', 'Connecting to device with mac:', hvac.message.mac);
 
-            // Disconnect in case of client exists
-            this._tryToDisconnect();
+            this._stopLookingForDevice();
 
-            this.client = new HVAC.Client({
+            this._client = new HVAC.Client({
                 debug: settings.enable_debug,
                 host: hvac.remoteInfo.address,
                 pollingInterval: POLLING_INTERVAL,
                 pollingTimeout: POLLING_TIMEOUT,
             });
 
-            this._addMissedCapabilities().then(() => {
-                this._registerClientListeners();
-                this._registerCapabilities();
-            });
+            this._registerClientListeners();
         });
     }
 
@@ -98,11 +106,11 @@ class GreeHVACDevice extends Homey.Device {
      * @private
      */
     _registerClientListeners() {
-        this.client.on('error', this._onError.bind(this));
-        this.client.on('disconnect', this._onDisconnect.bind(this));
-        this.client.on('connect', this._onConnect.bind(this));
-        this.client.on('update', this._onUpdate.bind(this));
-        this.client.on('no_response', this._onNoResponse.bind(this));
+        this._client.on('error', this._onError.bind(this));
+        this._client.on('disconnect', this._onDisconnect.bind(this));
+        this._client.on('connect', this._onConnect.bind(this));
+        this._client.on('update', this._onUpdate.bind(this));
+        this._client.on('no_response', this._onNoResponse.bind(this));
     }
 
     /**
@@ -110,14 +118,7 @@ class GreeHVACDevice extends Homey.Device {
      *
      * @private
      */
-    _registerCapabilities() {
-        if (this._capabilitiesRegistered) {
-            return;
-        }
-
-        // Mark capabilities as registered
-        this._capabilitiesRegistered = true;
-
+    _registerCapabilityListeners() {
         this.registerCapabilityListener('onoff', value => {
             const rawValue = value ? HVAC.VALUE.power.on : HVAC.VALUE.power.off;
             this.log('[power mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
@@ -194,12 +195,6 @@ class GreeHVACDevice extends Homey.Device {
      */
     _onConnect(client) {
         this.log('[connect]', 'connected to', client.getDeviceId());
-
-        if (this._reconnectInterval) {
-            this.homey.clearInterval(this._reconnectInterval);
-            delete this._reconnectInterval;
-        }
-
         this.log('[connect]', 'mark device available');
         this.setAvailable();
     }
@@ -227,11 +222,6 @@ class GreeHVACDevice extends Homey.Device {
         //     quiet: 'off',
         //     turbo: 'off',
         //     powerSave: 'off' }
-
-        if (this._reconnectInterval) {
-            this.homey.clearInterval(this._reconnectInterval);
-            delete this._reconnectInterval;
-        }
 
         if (!this.getAvailable()) {
             this.log('[update]', 'mark device available');
@@ -317,26 +307,24 @@ class GreeHVACDevice extends Homey.Device {
     _onError(message, error) {
         this.log('[ERROR]', 'Message:', message, 'Error', error);
         this._markOffline();
-        this._scheduleReconnection();
     }
 
     _onDisconnect() {
         this.log('[disconnect]', 'Disconnecting from device');
         this._markOffline();
-        this._scheduleReconnection();
     }
 
     /**
      * No response received during polling process from HVAC within timeout period.
      * Seems HVAC is offline and doesn't answer on requests. Mark it as offline in Homey
      *
-     * @param {HVAC.Client} client
      * @private
      */
-    _onNoResponse(client) {
-        this.log('[no response]', 'Don\'t get response during polling updates');
+    _onNoResponse() {
+        this.log('[no response]', 'Didn\'t get response during polling updates');
         this._markOffline();
-        this._scheduleReconnection();
+
+        // TODO: Start timeout to do a manual reconnect if no response for long time
     }
 
     /**
@@ -350,17 +338,27 @@ class GreeHVACDevice extends Homey.Device {
     }
 
     /**
-     * Start trying to find the device in and reconnect to it
+     * Start trying to find the device
      *
      * @private
      */
-    _scheduleReconnection() {
-        if (!this._reconnectInterval) {
-            this._reconnectInterval = this.homey.setInterval(() => {
+    _startLookingForDevice() {
+        if (!this._lookingForDeviceIntervalRef) {
+            this._lookingForDeviceIntervalRef = this.homey.setInterval(() => {
                 this._findDevices();
-            }, RECONNECT_TIME_INTERVAL);
+            }, LOOKING_FOR_DEVICE_TIME_INTERVAL);
         }
         this._findDevices();
+    }
+
+    /**
+     * Stop attempts of looking for a device
+     */
+    _stopLookingForDevice() {
+        if (this._lookingForDeviceIntervalRef) {
+            this.homey.clearInterval(this._lookingForDeviceIntervalRef);
+            this._lookingForDeviceIntervalRef = null;
+        }
     }
 
     /**
@@ -432,26 +430,26 @@ class GreeHVACDevice extends Homey.Device {
     }
 
     /**
-     * Try to disconnect client,
+     * Try to disconnect _client,
      * remove all existing listeners
-     * and delete client property from the object
+     * and delete _client property from the object
      *
      * @private
      */
     _tryToDisconnect() {
-        if (this.client) {
-            this.client.disconnect();
-            this.client.removeAllListeners();
-            delete this.client;
+        if (this._client) {
+            this._client.disconnect();
+            this._client.removeAllListeners();
+            this._client = null;
         }
     }
 
-    async _addMissedCapabilities() {
-        // Skip adding if it's Homey's version < 3.0.0.
-        if (typeof this.addCapability !== 'function') {
-            return;
-        }
-
+    /**
+     * Execute migration of capabilities for the device if available
+     *
+     * @returns {Promise<void>}
+     */
+    async _executeCapabilityMigrations() {
         // Added in v0.2.1
         if (!this.hasCapability('turbo_mode')) {
             this.log('[migration]', 'Adding "turbo_mode" capability');
@@ -491,40 +489,31 @@ class GreeHVACDevice extends Homey.Device {
     }
 
     /**
-     * Set value for the specific property of the HVAC client
+     * Set value for the specific property of the HVAC _client
      *
      * @param property
      * @param value
      * @private
      */
     _setClientProperty(property, value) {
-        if (this.client) {
-            this.client.setProperty(property, value);
+        if (this._client) {
+            this._client.setProperty(property, value);
         }
     }
 
     async onSettings({ oldSettings, newSettings, changedKeys }) {
         if (changedKeys.indexOf('enable_debug') > -1) {
             console.log('Changing the debug settings from', oldSettings.enable_debug, 'to', newSettings.enable_debug);
-            this.client.setDebug(newSettings.enable_debug);
+            if (this._client) {
+                this._client.setDebug(newSettings.enable_debug);
+            } else {
+                return Promise.reject();
+            }
         }
+
+        return Promise.resolve();
     }
 
-}
-
-/**
- * Compare boolean properties
- *
- * @param {string} propertyValue
- * @param {string} capabilityValue
- * @param {string} trueValue
- * @returns {boolean}
- */
-function compareBoolProperties(propertyValue, capabilityValue, trueValue) {
-    const changedFromTrueToFalse = capabilityValue && propertyValue !== trueValue;
-    const changedFromFalseToTrue = !capabilityValue && propertyValue === trueValue;
-
-    return changedFromFalseToTrue || changedFromTrueToFalse;
 }
 
 module.exports = GreeHVACDevice;

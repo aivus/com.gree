@@ -38,5 +38,8 @@
   },
   "0.7.2": {
     "en": "Better handling of current temperature"
+  },
+  "0.7.3": {
+    "en": "Rework connection logic"
   }
 }
