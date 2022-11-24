@@ -270,11 +270,16 @@ class GreeHVACDevice extends Homey.Device {
                 }).catch(this.error);
             } else {
                 // Restore Homey thermostat mode when turned on.
-                const restoredHvacMode = properties[HVAC.PROPERTY.mode];
+                const restoredHvacMode = updatedProperties[HVAC.PROPERTY.mode] === undefined ? properties[HVAC.PROPERTY.mode] : updatedProperties[HVAC.PROPERTY.mode];
                 this.setCapabilityValue('thermostat_mode', restoredHvacMode).then(() => {
                     this.log('[update properties]', '[hvac_mode]', restoredHvacMode);
                     return this._flowTriggerHvacModeChanged.trigger(this, { hvac_mode: restoredHvacMode });
                 }).catch(this.error);
+            }
+
+            // Prevent duplicate thermostat_mode update.
+            if (updatedProperties[HVAC.PROPERTY.mode] !== undefined) {
+                delete updatedProperties[HVAC.PROPERTY.mode];
             }
         }
 
