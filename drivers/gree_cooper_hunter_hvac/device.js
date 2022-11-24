@@ -248,6 +248,11 @@ class GreeHVACDevice extends Homey.Device {
         if (!this.getAvailable()) {
             this.log('[update]', 'mark device available');
             this.setAvailable();
+
+            // Ensure that thermostat_mode is properly set in Homey when device becomes available.
+            if (properties[HVAC.PROPERTY.power] === HVAC.VALUE.power.off && this.getCapabilityValue('thermostat_mode') !== 'off') {
+                updatedProperties[HVAC.PROPERTY.mode] = 'off';
+            }
         }
 
         if (this._checkBoolPropertyChanged(updatedProperties, HVAC.PROPERTY.power, 'onoff')) {
