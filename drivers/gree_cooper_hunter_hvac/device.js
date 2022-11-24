@@ -293,7 +293,15 @@ class GreeHVACDevice extends Homey.Device {
         }
 
         if (this._checkPropertyChanged(updatedProperties, HVAC.PROPERTY.mode, 'thermostat_mode')) {
-            if (properties[HVAC.PROPERTY.power] !== HVAC.VALUE.power.off) {
+            if (properties[HVAC.PROPERTY.power] === HVAC.VALUE.power.off) {
+                // When HVAC is off, thermostat_mode should be always "off".
+                if (this.getCapabilityValue('thermostat_mode') !== 'off') {
+                    this.setCapabilityValue('thermostat_mode', 'off').then(() => {
+                        this.log('[update properties]', '[hvac_mode]', 'off');
+                        return this._flowTriggerHvacModeChanged.trigger(this, { hvac_mode: 'off' });
+                    }).catch(this.error);
+                }
+            } else {
                 const value = updatedProperties[HVAC.PROPERTY.mode];
                 this.setCapabilityValue('thermostat_mode', value).then(() => {
                     this.log('[update properties]', '[hvac_mode]', value);
