@@ -41,5 +41,8 @@
   },
   "0.7.3": {
     "en": "Rework connection logic"
+  },
+  "0.7.4": {
+    "en": "Fix possible app crash during the device removal"
   }
 }
