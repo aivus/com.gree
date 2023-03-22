@@ -438,8 +438,8 @@ class GreeHVACDevice extends Homey.Device {
      */
     _tryToDisconnect() {
         if (this._client) {
-            this._client.disconnect();
             this._client.removeAllListeners();
+            this._client.disconnect();
             this._client = null;
         }
     }
