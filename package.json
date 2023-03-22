@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.1",
-    "eslint": "^6.8.0",
+    "eslint": "^7.32.0",
     "eslint-config-athom": "^2.1.1",
     "homey": "^2.33.8"
   },
