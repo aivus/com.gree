@@ -1,0 +1,15 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    assignees:
+      - "aivus"
+    open-pull-requests-limit: 10
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    assignees:
+      - "aivus"
+    schedule:
+      interval: "weekly"
