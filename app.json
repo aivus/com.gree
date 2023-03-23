@@ -1222,6 +1222,30 @@
       ],
       "settings": [
         {
+          "id": "polling_interval",
+          "type": "number",
+          "value": 3500,
+          "min": 100,
+          "label": {
+            "en": "Polling interval"
+          },
+          "hint": {
+            "en": "Interval between polling status from HVAC (ms)"
+          }
+        },
+        {
+          "id": "polling_timeout",
+          "type": "number",
+          "value": 3000,
+          "min": 100,
+          "label": {
+            "en": "Polling timeout"
+          },
+          "hint": {
+            "en": "Timeout for the response from the HVAC during polling process (ms)"
+          }
+        },
+        {
           "id": "enable_debug",
           "type": "checkbox",
           "value": false,
