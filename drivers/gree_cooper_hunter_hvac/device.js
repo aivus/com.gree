@@ -8,12 +8,6 @@ const { compareBoolProperties } = require('../../utils');
 // Interval between trying to found HVAC in network (ms)
 const LOOKING_FOR_DEVICE_TIME_INTERVAL = 5000;
 
-// Interval between polling status from HVAC (ms)
-const POLLING_INTERVAL = 3500;
-
-// Timeout for response from the HVAC during polling process (ms)
-const POLLING_TIMEOUT = 3000;
-
 class GreeHVACDevice extends Homey.Device {
 
     /**
@@ -92,8 +86,8 @@ class GreeHVACDevice extends Homey.Device {
             this._client = new HVAC.Client({
                 debug: settings.enable_debug,
                 host: hvac.remoteInfo.address,
-                pollingInterval: POLLING_INTERVAL,
-                pollingTimeout: POLLING_TIMEOUT,
+                pollingInterval: settings.polling_interval,
+                pollingTimeout: settings.polling_timeout,
             });
 
             this._registerClientListeners();
@@ -508,6 +502,24 @@ class GreeHVACDevice extends Homey.Device {
                 this._client.setDebug(newSettings.enable_debug);
             } else {
                 return Promise.reject();
+            }
+        }
+
+        if (changedKeys.indexOf('polling_interval') > -1) {
+            console.log('Changing the "polling_interval" settings from', oldSettings.polling_interval, 'to', newSettings.polling_interval);
+            if (this._client) {
+                this._markOffline();
+                this._tryToDisconnect();
+                this._startLookingForDevice();
+            }
+        }
+
+        if (changedKeys.indexOf('polling_timeout') > -1) {
+            console.log('Changing the "polling_timeout" settings from', oldSettings.polling_timeout, 'to', newSettings.polling_timeout);
+            if (this._client) {
+                this._markOffline();
+                this._tryToDisconnect();
+                this._startLookingForDevice();
             }
         }
 
