@@ -1226,11 +1226,12 @@
           "type": "number",
           "value": 3500,
           "min": 100,
+          "units": { "en": "ms" },
           "label": {
             "en": "Polling interval"
           },
           "hint": {
-            "en": "Interval between polling status from HVAC (ms)"
+            "en": "Interval between polling status from HVAC"
           }
         },
         {
@@ -1238,11 +1239,12 @@
           "type": "number",
           "value": 3000,
           "min": 100,
+          "units": { "en": "ms" },
           "label": {
             "en": "Polling timeout"
           },
           "hint": {
-            "en": "Timeout for the response from the HVAC during polling process (ms)"
+            "en": "Timeout for the response from the HVAC during polling process"
           }
         },
         {
