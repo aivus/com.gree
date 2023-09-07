@@ -267,6 +267,14 @@
                   "nl": "Alleen fans",
                   "de": "Nur Fan"
                 }
+              },
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Aus"
+                }
               }
             ]
           }
@@ -616,6 +624,14 @@
                   "nl": "Alleen fans",
                   "de": "Nur Fan"
                 }
+              },
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Aus"
+                }
               }
             ]
           }
@@ -956,6 +972,14 @@
             "en": "Fan Only",
             "nl": "Alleen fans",
             "de": "Nur Fan"
+          }
+        },
+        {
+          "id": "off",
+          "title": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Aus"
           }
         }
       ],
