@@ -78,7 +78,7 @@ class GreeHVACDevice extends Homey.Device {
 
         this.log('[find devices]', 'Finding device with mac:', deviceData.mac);
 
-        finder.hvacs.forEach(hvac => {
+        finder.hvacs.forEach((hvac) => {
             if (hvac.message.mac !== deviceData.mac) {
                 // Skip other HVACs from the finder until find current
                 this.log('[find devices]', 'Skipping HVAC with mac:', hvac.message.mac);
@@ -119,7 +119,7 @@ class GreeHVACDevice extends Homey.Device {
      * @private
      */
     _registerCapabilityListeners() {
-        this.registerCapabilityListener('onoff', value => {
+        this.registerCapabilityListener('onoff', (value) => {
             const rawValue = value ? HVAC.VALUE.power.on : HVAC.VALUE.power.off;
             this.log('[power mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             this._setClientProperty(HVAC.PROPERTY.power, rawValue);
@@ -127,14 +127,14 @@ class GreeHVACDevice extends Homey.Device {
             return Promise.resolve();
         });
 
-        this.registerCapabilityListener('target_temperature', value => {
+        this.registerCapabilityListener('target_temperature', (value) => {
             this.log('[temperature change]', `Value: ${value}`);
             this._setClientProperty(HVAC.PROPERTY.temperature, value);
 
             return Promise.resolve();
         });
 
-        this.registerCapabilityListener('thermostat_mode', value => {
+        this.registerCapabilityListener('thermostat_mode', (value) => {
             const rawValue = HVAC.VALUE.mode[value];
             this.log('[mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             this._flowTriggerHvacModeChanged.trigger(this, { hvac_mode: value });
@@ -143,7 +143,7 @@ class GreeHVACDevice extends Homey.Device {
             return Promise.resolve();
         });
 
-        this.registerCapabilityListener('fan_speed', value => {
+        this.registerCapabilityListener('fan_speed', (value) => {
             const rawValue = HVAC.VALUE.fanSpeed[value];
             this.log('[fan speed change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             this._setClientProperty(HVAC.PROPERTY.fanSpeed, rawValue);
@@ -151,7 +151,7 @@ class GreeHVACDevice extends Homey.Device {
             return Promise.resolve();
         });
 
-        this.registerCapabilityListener('turbo_mode', value => {
+        this.registerCapabilityListener('turbo_mode', (value) => {
             const rawValue = value ? HVAC.VALUE.turbo.on : HVAC.VALUE.turbo.off;
             this.log('[turbo mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             this._setClientProperty(HVAC.PROPERTY.turbo, rawValue);
@@ -159,7 +159,7 @@ class GreeHVACDevice extends Homey.Device {
             return Promise.resolve();
         });
 
-        this.registerCapabilityListener('lights', value => {
+        this.registerCapabilityListener('lights', (value) => {
             const rawValue = value ? HVAC.VALUE.lights.on : HVAC.VALUE.lights.off;
             this.log('[lights change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             this._setClientProperty(HVAC.PROPERTY.lights, rawValue);
@@ -168,7 +168,7 @@ class GreeHVACDevice extends Homey.Device {
             return Promise.resolve();
         });
 
-        this.registerCapabilityListener('xfan_mode', value => {
+        this.registerCapabilityListener('xfan_mode', (value) => {
             const rawValue = value ? HVAC.VALUE.blow.on : HVAC.VALUE.blow.off;
             this.log('[xfan mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             this._setClientProperty(HVAC.PROPERTY.blow, rawValue);
@@ -177,7 +177,7 @@ class GreeHVACDevice extends Homey.Device {
             return Promise.resolve();
         });
 
-        this.registerCapabilityListener('vertical_swing', value => {
+        this.registerCapabilityListener('vertical_swing', (value) => {
             const rawValue = HVAC.VALUE.swingVert[value];
             this.log('[vertical swing change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             this._setClientProperty(HVAC.PROPERTY.swingVert, rawValue);
