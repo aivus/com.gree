@@ -119,8 +119,8 @@ class GreeHVAC extends Homey.App {
 
         this._actionChangeQuietMode = this.homey.flow.getActionCard('set_quiet_mode')
             .registerRunListener((args, state) => {
-                return args.device.setCapabilityValue('quiet_mode', args.quiet_mode).then(() => {
-                    return args.device.triggerCapabilityListener('quiet_mode', args.quiet_mode, {});
+                return args.device.setCapabilityValue('quiet_mode', args.mode).then(() => {
+                    return args.device.triggerCapabilityListener('quiet_mode', args.mode, {});
                 });
             });
     }
