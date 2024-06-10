@@ -79,7 +79,7 @@ class GreeHVACDevice extends Homey.Device {
                 return;
             }
 
-            this.log('[find devices]', 'Connecting to device with mac:', hvac.message.mac);
+            this.log('[find devices]', 'Connecting to device with mac:', hvac.message.mac, 'using next settings:', settings);
 
             this._stopLookingForDevice();
 

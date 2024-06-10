@@ -1231,7 +1231,7 @@
             "en": "Polling interval"
           },
           "hint": {
-            "en": "Interval between polling status from HVAC"
+            "en": "Interval between polling status from HVAC.  Default value 3500"
           }
         },
         {
@@ -1244,7 +1244,7 @@
             "en": "Polling timeout"
           },
           "hint": {
-            "en": "Timeout for the response from the HVAC during polling process"
+            "en": "Timeout for the response from the HVAC during polling process. Default value 3000"
           }
         },
         {
@@ -1252,10 +1252,10 @@
           "type": "checkbox",
           "value": false,
           "label": {
-            "en": "Debug"
+            "en": "Verbose logging"
           },
           "hint": {
-            "en": "Enable debug in case the application is crashing. It allows developer to investigate the issue"
+            "en": "Enable verbose logging in case the application is crashing. It allows developer to investigate the issue"
           }
         }
       ],
