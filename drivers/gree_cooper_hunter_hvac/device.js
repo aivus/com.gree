@@ -629,7 +629,7 @@ class GreeHVACDevice extends Homey.Device {
             await this.addCapability('thermostat_mode');
         }
 
-        // Added in v?
+        // Added in v0.8.0
         if (!this.hasCapability('horizontal_swing')) {
             this.log('[migration]', 'Adding "horizontal_swing" capability');
             await this.addCapability('horizontal_swing');
