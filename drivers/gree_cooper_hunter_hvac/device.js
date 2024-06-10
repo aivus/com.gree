@@ -177,9 +177,9 @@ class GreeHVACDevice extends Homey.Device {
             if (this.getCapabilityValue('onoff') === true) {
                 // Homey doesn't support fan_only or dry
                 if (rawValue === 'fan_only') {
-                    rawValue = 'off'
+                    rawValue = 'off';
                 } else if (value === 'dry') {
-                    rawValue = 'cool'
+                    rawValue = 'cool';
                 }
 
                 this.setCapabilityValue('thermostat_mode', rawValue);
@@ -369,17 +369,17 @@ class GreeHVACDevice extends Homey.Device {
                     }).catch(this.error);
                 }
             } else {
-                let thermostat_value = updatedProperties[HVAC.PROPERTY.mode];
+                let thermostatValue = updatedProperties[HVAC.PROPERTY.mode];
 
                 // Homey doesn't support fan_only or dry
-                if (thermostat_value === 'fan_only') {
-                    thermostat_value = 'off'
+                if (thermostatValue === 'fan_only') {
+                    thermostatValue = 'off';
                 } else if (value === 'dry') {
-                    thermostat_value = 'cool'
+                    thermostatValue = 'cool';
                 }
 
-                this.setCapabilityValue('thermostat_mode', thermostat_value).then(() => {
-                    this.log('[update properties]', '[thermostat_mode]', thermostat_value);
+                this.setCapabilityValue('thermostat_mode', thermostatValue).then(() => {
+                    this.log('[update properties]', '[thermostat_mode]', thermostatValue);
                 }).catch(this.error);
             }
 
@@ -425,7 +425,7 @@ class GreeHVACDevice extends Homey.Device {
             const value = updatedProperties[HVAC.PROPERTY.swingVert];
             this.setCapabilityValue('vertical_swing', value).then(() => {
                 this.log('[update properties]', '[vertical_swing]', value);
-                return this._flowTriggerVerticalSwingChanged.trigger(this, { vertical_swing: value});
+                return this._flowTriggerVerticalSwingChanged.trigger(this, { vertical_swing: value });
             }).catch(this.error);
         }
 
@@ -433,7 +433,7 @@ class GreeHVACDevice extends Homey.Device {
             const value = updatedProperties[HVAC.PROPERTY.swingHor];
             this.setCapabilityValue('horizontal_swing', value).then(() => {
                 this.log('[update properties]', '[horizontal_swing]', value);
-                return this._flowTriggerHorizontalSwingChanged.trigger(this, { horizontal_swing: value});
+                return this._flowTriggerHorizontalSwingChanged.trigger(this, { horizontal_swing: value });
             }).catch(this.error);
         }
 
@@ -441,7 +441,7 @@ class GreeHVACDevice extends Homey.Device {
             const value = updatedProperties[HVAC.PROPERTY.quiet];
             this.setCapabilityValue('quiet_mode', value).then(() => {
                 this.log('[update properties]', '[quiet_mode]', value);
-                return this._flowTriggerQuietModeChanged.trigger(this, { quiet_mode: value});
+                return this._flowTriggerQuietModeChanged.trigger(this, { quiet_mode: value });
             }).catch(this.error);
         }
     }
