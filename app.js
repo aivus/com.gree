@@ -13,7 +13,7 @@ class GreeHVAC extends Homey.App {
         // Register conditions for flows
         this._conditionHVACModeIs = this.homey.flow.getConditionCard('hvac_mode_is')
             .registerRunListener((args, state) => {
-                const hvacMode = args.device.getCapabilityValue('thermostat_mode');
+                const hvacMode = args.device.getCapabilityValue('hvac_mode');
                 args.device.log('[condition]', '[current hvac mode]', hvacMode);
                 return args.mode === hvacMode;
             });
@@ -53,11 +53,25 @@ class GreeHVAC extends Homey.App {
                 return args.vertical_swing === verticalSwing;
             });
 
+        this._conditionHorizontalSwingIs = this.homey.flow.getConditionCard('horizontal_swing_is')
+            .registerRunListener((args, state) => {
+                const horizontalSwing = args.device.getCapabilityValue('horizontal_swing');
+                args.device.log('[condition]', '[current swing horizontal]', horizontalSwing);
+                return args.horizontal_swing === horizontalSwing;
+            });
+
+        this._conditionQuietModeIs = this.homey.flow.getConditionCard('quiet_mode_is')
+            .registerRunListener((args, state) => {
+                const quietMode = args.device.getCapabilityValue('quiet_mode_is');
+                args.device.log('[condition]', '[quiet mode]', quietMode);
+                return args.mode === quietMode;
+            });
+
         // Register actions for flows
         this._actionChangeHVACMode = this.homey.flow.getActionCard('set_hvac_mode')
             .registerRunListener((args, state) => {
-                return args.device.setCapabilityValue('thermostat_mode', args.mode).then(() => {
-                    return args.device.triggerCapabilityListener('thermostat_mode', args.mode, {});
+                return args.device.setCapabilityValue('hvac_mode', args.mode).then(() => {
+                    return args.device.triggerCapabilityListener('hvac_mode', args.mode, {});
                 });
             });
 
@@ -93,6 +107,20 @@ class GreeHVAC extends Homey.App {
             .registerRunListener((args, state) => {
                 return args.device.setCapabilityValue('vertical_swing', args.vertical_swing).then(() => {
                     return args.device.triggerCapabilityListener('vertical_swing', args.vertical_swing, {});
+                });
+            });
+
+        this._actionChangeHorizontalSwing = this.homey.flow.getActionCard('set_horizontal_swing')
+            .registerRunListener((args, state) => {
+                return args.device.setCapabilityValue('horizontal_swing', args.horizontal_swing).then(() => {
+                    return args.device.triggerCapabilityListener('horizontal_swing', args.horizontal_swing, {});
+                });
+            });
+
+        this._actionChangeQuietMode = this.homey.flow.getActionCard('set_quiet_mode')
+            .registerRunListener((args, state) => {
+                return args.device.setCapabilityValue('quiet_mode', args.mode).then(() => {
+                    return args.device.triggerCapabilityListener('quiet_mode', args.mode, {});
                 });
             });
     }

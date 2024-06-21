@@ -40,6 +40,11 @@
     "email": "illia@antypenko.dev"
   },
   "contributors": {
+    "developers": [
+      {
+        "name": "Dennie de Groot"
+      }
+    ],
     "translators": [
       {
         "name": "Lucas van der Have",
@@ -207,6 +212,56 @@
             "example": "full"
           }
         ]
+      },
+      {
+        "id": "horizontal_swing_changed",
+        "title": {
+          "en": "Horizontal swing changed"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "horizontal_swing",
+            "type": "string",
+            "title": {
+              "en": "Horizontal swing",
+              "nl": "Horizontale swing",
+              "de": "Horizontales Schaukel"
+            },
+            "example": "full"
+          }
+        ]
+      },
+      {
+        "id": "quiet_mode_changed",
+        "title": {
+          "en": "Quiet mode changed"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "quiet_mode",
+            "type": "string",
+            "title": {
+              "en": "Quiet mode",
+              "nl": "Stilte modus",
+              "de": "Ruhig-Modus"
+            },
+            "example": "off"
+          }
+        ]
       }
     ],
     "conditions": [
@@ -266,6 +321,14 @@
                   "en": "Fan Only",
                   "nl": "Alleen fans",
                   "de": "Nur Fan"
+                }
+              },
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Aus"
                 }
               }
             ]
@@ -557,6 +620,146 @@
             ]
           }
         ]
+      },
+      {
+        "id": "horizontal_swing_is",
+        "title": {
+          "en": "Current horizontal swing !{{is|isn't}} ..."
+        },
+        "titleFormatted": {
+          "en": "Current horizontal swing !{{is|isn't}} [[horizontal_swing]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          },
+          {
+            "name": "horizontal_swing",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "default",
+                "title": {
+                  "en": "Disabled",
+                  "nl": "Uitgeschakeld",
+                  "de": "Behindert"
+                }
+              },
+              {
+                "id": "full",
+                "title": {
+                  "en": "Full range",
+                  "nl": "Volledig bereik",
+                  "de": "Vollständige Palette"
+                }
+              },
+              {
+                "id": "fixedLeft",
+                "title": {
+                  "en": "Fixed left",
+                  "nl": "Fixed links",
+                  "de": "Feste Links"
+                }
+              },
+              {
+                "id": "fixedMidLeft",
+                "title": {
+                  "en": "Fixed top left",
+                  "nl": "Fixed midden links",
+                  "de": "Feste obere Links"
+                }
+              },
+              {
+                "id": "fixedMid",
+                "title": {
+                  "en": "Fixed middle",
+                  "nl": "Fixed midden",
+                  "de": "Feste Mitte"
+                }
+              },
+              {
+                "id": "fixedMidRight",
+                "title": {
+                  "en": "Fixed middle right",
+                  "nl": "Fixed midden rechts",
+                  "de": "Mittlerer Boden fest"
+                }
+              },
+              {
+                "id": "fixedRight",
+                "title": {
+                  "en": "Fixed right",
+                  "nl": "Fixed rechts",
+                  "de": "Feste Rechts"
+                }
+              },
+              {
+                "id": "fullAlt",
+                "title": {
+                  "en": "Full range",
+                  "nl": "Volledig bereik",
+                  "de": "Vollständige Palette"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "quiet_mode_is",
+        "title": {
+          "en": "Current quiet mode !{{is|isn't}} ..."
+        },
+        "titleFormatted": {
+          "en": "Current quiet mode !{{is|isn't}} [[mode]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Aus"
+                }
+              },
+              {
+                "id": "mode1",
+                "title": {
+                  "en": "Mode 1",
+                  "nl": "Mode 1",
+                  "de": "Mode 1"
+                }
+              },
+              {
+                "id": "mode2",
+                "title": {
+                  "en": "Mode 2",
+                  "nl": "Mode 2",
+                  "de": "Mode 2"
+                }
+              },
+              {
+                "id": "mode3",
+                "title": {
+                  "en": "Mode 3",
+                  "nl": "Mode 3",
+                  "de": "Mode 3"
+                }
+              }
+            ]
+          }
+        ]
       }
     ],
     "actions": [
@@ -615,6 +818,14 @@
                   "en": "Fan Only",
                   "nl": "Alleen fans",
                   "de": "Nur Fan"
+                }
+              },
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Aus"
                 }
               }
             ]
@@ -901,11 +1112,149 @@
             ]
           }
         ]
+      },
+      {
+        "id": "set_horizontal_swing",
+        "title": {
+          "en": "Set horizontal swing",
+          "nl": "Horizontale swing instellen",
+          "de": "Horizontales Schaukel einstellen"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          },
+          {
+            "name": "horizontal_swing",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "default",
+                "title": {
+                  "en": "Disabled",
+                  "nl": "Uitgeschakeld",
+                  "de": "Behindert"
+                }
+              },
+              {
+                "id": "full",
+                "title": {
+                  "en": "Full range",
+                  "nl": "Volledig bereik",
+                  "de": "Vollständige Palette"
+                }
+              },
+              {
+                "id": "fixedLeft",
+                "title": {
+                  "en": "Fixed left",
+                  "nl": "Fixed links",
+                  "de": "Feste Links"
+                }
+              },
+              {
+                "id": "fixedMidLeft",
+                "title": {
+                  "en": "Fixed top left",
+                  "nl": "Fixed midden links",
+                  "de": "Feste obere Links"
+                }
+              },
+              {
+                "id": "fixedMid",
+                "title": {
+                  "en": "Fixed middle",
+                  "nl": "Fixed midden",
+                  "de": "Feste Mitte"
+                }
+              },
+              {
+                "id": "fixedMidRight",
+                "title": {
+                  "en": "Fixed middle right",
+                  "nl": "Fixed midden rechts",
+                  "de": "Mittlerer Boden fest"
+                }
+              },
+              {
+                "id": "fixedRight",
+                "title": {
+                  "en": "Fixed right",
+                  "nl": "Fixed rechts",
+                  "de": "Feste Rechts"
+                }
+              },
+              {
+                "id": "fullAlt",
+                "title": {
+                  "en": "Full range",
+                  "nl": "Volledig bereik",
+                  "de": "Vollständige Palette"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_quiet_mode",
+        "title": {
+          "en": "Set quiet mode",
+          "nl": "Stel de quiet-modus in",
+          "de": "Stellen Sie der quiet modus ein"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Aus"
+                }
+              },
+              {
+                "id": "mode1",
+                "title": {
+                  "en": "Mode 1",
+                  "nl": "Mode 1",
+                  "de": "Mode 1"
+                }
+              },
+              {
+                "id": "mode2",
+                "title": {
+                  "en": "Mode 2",
+                  "nl": "Mode 2",
+                  "de": "Mode 2"
+                }
+              },
+              {
+                "id": "mode3",
+                "title": {
+                  "en": "Mode 3",
+                  "nl": "Mode 3",
+                  "de": "Mode 3"
+                }
+              }
+            ]
+          }
+        ]
       }
     ]
   },
   "capabilities": {
-    "thermostat_mode": {
+    "hvac_mode": {
       "type": "enum",
       "title": {
         "en": "HVAC mode",
@@ -1174,6 +1523,138 @@
       "getable": true,
       "setable": true,
       "uiComponent": "picker"
+    },
+    "horizontal_swing": {
+      "type": "enum",
+      "title": {
+        "en": "Horizontal swing",
+        "nl": "Horizontale swing",
+        "de": "Horizontales Schaukel"
+      },
+      "desc": {
+        "en": "Position of the fan swing",
+        "nl": "Positie van de fan swing",
+        "de": "Position der fan swing"
+      },
+      "values": [
+        {
+          "id": "default",
+          "title": {
+            "en": "Disabled",
+            "nl": "Uitgeschakeld",
+            "de": "Behindert"
+          }
+        },
+        {
+          "id": "full",
+          "title": {
+            "en": "Full range",
+            "nl": "Volledig bereik",
+            "de": "Vollständige Palette"
+          }
+        },
+        {
+          "id": "fixedLeft",
+          "title": {
+            "en": "Fixed left",
+            "nl": "Fixed links",
+            "de": "Feste Links"
+          }
+        },
+        {
+          "id": "fixedMidLeft",
+          "title": {
+            "en": "Fixed top left",
+            "nl": "Fixed midden links",
+            "de": "Feste obere Links"
+          }
+        },
+        {
+          "id": "fixedMid",
+          "title": {
+            "en": "Fixed middle",
+            "nl": "Fixed midden",
+            "de": "Feste Mitte"
+          }
+        },
+        {
+          "id": "fixedMidRight",
+          "title": {
+            "en": "Fixed middle right",
+            "nl": "Fixed midden rechts",
+            "de": "Mittlerer Boden fest"
+          }
+        },
+        {
+          "id": "fixedRight",
+          "title": {
+            "en": "Fixed right",
+            "nl": "Fixed rechts",
+            "de": "Feste Rechts"
+          }
+        },
+        {
+          "id": "fullAlt",
+          "title": {
+            "en": "Full range",
+            "nl": "Volledig bereik",
+            "de": "Vollständige Palette"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker"
+    },
+    "quiet_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Quiet mode",
+        "nl": "Stilte modus",
+        "de": "Ruhig-Modus"
+      },
+      "desc": {
+        "en": "Mode of quiet",
+        "nl": "Modus van stilte",
+        "de": "Modus der Ruhig"
+      },
+      "values": [
+        {
+          "id": "off",
+          "title": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Aus"
+          }
+        },
+        {
+          "id": "mode1",
+          "title": {
+            "en": "Mode 1",
+            "nl": "Mode 1",
+            "de": "Mode 1"
+          }
+        },
+        {
+          "id": "mode2",
+          "title": {
+            "en": "Mode 2",
+            "nl": "Mode 2",
+            "de": "Mode 2"
+          }
+        },
+        {
+          "id": "mode3",
+          "title": {
+            "en": "Mode 3",
+            "nl": "Mode 3",
+            "de": "Mode 3"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker"
     }
   },
   "drivers": [
@@ -1188,11 +1669,14 @@
         "measure_temperature",
         "target_temperature",
         "thermostat_mode",
+        "hvac_mode",
         "fan_speed",
         "turbo_mode",
         "lights",
         "xfan_mode",
-        "vertical_swing"
+        "vertical_swing",
+        "horizontal_swing",
+        "quiet_mode"
       ],
       "capabilitiesOptions": {
         "target_temperature": {
