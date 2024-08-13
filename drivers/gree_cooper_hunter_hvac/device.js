@@ -644,6 +644,13 @@ class GreeHVACDevice extends Homey.Device {
             this.log('[migration]', 'Adding "hvac_mode" capability');
             await this.addCapability('hvac_mode');
         }
+
+        // Added in v0.8.1
+        if (this.hasCapability('hvac_mode') && this.hasCapability('thermostat_mode')) {
+            this.log('[migration]', 'Re-add "thermostat_mode" capability');
+            await this.removeCapability('thermostat_mode');
+            await this.addCapability('thermostat_mode');
+        }
     }
 
     /**
