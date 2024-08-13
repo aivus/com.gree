@@ -1,7 +1,7 @@
 'use strict';
 
 const dgram = require('dgram');
-const { EncryptionService } = require('gree-hvac-client/lib/encryption-service');
+const { EncryptionService } = require('gree-hvac-client/src/encryption-service');
 
 const SCAN_MESSAGE = Buffer.from('{"t": "scan"}');
 const THIRTY_SECONDS = 30 * 1000;
