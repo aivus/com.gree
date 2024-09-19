@@ -18,13 +18,6 @@ class GreeHVAC extends Homey.App {
                 return args.mode === hvacMode;
             });
 
-        this.homey.flow.getConditionCard('thermostat_mode_is')
-            .registerRunListener((args, state) => {
-                const hvacMode = args.device.getCapabilityValue('thermostat_mode');
-                args.device.log('[condition]', '[current thermostat mode]', hvacMode);
-                return args.thermostat_mode === hvacMode;
-            });
-
         this.homey.flow.getConditionCard('fan_speed_is')
             .registerRunListener((args, state) => {
                 const fanSpeed = args.device.getCapabilityValue('fan_speed');

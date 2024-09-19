@@ -278,24 +278,24 @@ class GreeHVACDevice extends Homey.Device {
         }
 
         if (this._checkBoolPropertyChanged(updatedProperties, HVAC.PROPERTY.power, 'onoff')) {
-            const value = updatedProperties[HVAC.PROPERTY.power] === HVAC.VALUE.power.on;
-            this.setCapabilityValue('onoff', value).then(() => {
-                this.log('[update properties]', '[onoff]', value);
+            const isOn = updatedProperties[HVAC.PROPERTY.power] === HVAC.VALUE.power.on;
+            this.setCapabilityValue('onoff', isOn).then(() => {
+                this.log('[update properties]', '[onoff]', isOn);
                 return Promise.resolve();
             }).catch(this.error);
 
-            if (!value) {
+            if (!isOn) {
                 // Set Homey thermostat mode to Off when turned off.
                 this.setCapabilityValue('thermostat_mode', 'off').then(() => {
                     this.log('[update properties]', '[thermostat_mode]', 'off');
                 }).catch(this.error);
             } else {
                 // Restore Homey thermostat mode when turned on.
-                const restoredHvacMode = updatedProperties[HVAC.PROPERTY.mode] === undefined ? properties[HVAC.PROPERTY.mode] : updatedProperties[HVAC.PROPERTY.mode];
+                const thermostatValue = properties[HVAC.PROPERTY.mode];
 
-                this.setCapabilityValue('thermostat_mode', restoredHvacMode).then(() => {
-                    this.log('[update properties]', '[thermostat_mode]', restoredHvacMode);
-                    return this._flowTriggerHvacModeChanged.trigger(this, { hvac_mode: restoredHvacMode });
+                this.setCapabilityValue('thermostat_mode', thermostatValue).then(() => {
+                    this.log('[update properties]', '[thermostat_mode]', thermostatValue);
+                    return this._flowTriggerHvacModeChanged.trigger(this, { hvac_mode: thermostatValue });
                 }).catch(this.error);
             }
 
