@@ -7,7 +7,13 @@ const { Log } = require('homey-log');
 class GreeHVAC extends Homey.App {
 
     async onInit() {
-        this.homeyLog = new Log({ homey: this.homey, options: { autoBreadcrumbs: true } });
+        this.homeyLog = new Log({
+            homey: this.homey,
+            options: {
+                autoBreadcrumbs: true,
+                release: Homey.manifest.version,
+            },
+        });
         this.log('Gree HVAC app is up and running...');
 
         // Register conditions for flows
