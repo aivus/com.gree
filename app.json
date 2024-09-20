@@ -1,7 +1,7 @@
 {
   "id": "com.gree",
-  "version": "0.8.0",
-  "compatibility": ">=5.0.0",
+  "version": "0.8.1",
+  "compatibility": ">=12.0.1",
   "sdk": 3,
   "brandColor": "#ff732e",
   "name": {
@@ -90,6 +90,7 @@
       },
       {
         "id": "hvac_mode_changed",
+        "deprecated": true,
         "title": {
           "en": "HVAC mode changed"
         },
@@ -267,6 +268,7 @@
     "conditions": [
       {
         "id": "hvac_mode_is",
+        "deprecated": true,
         "title": {
           "en": "Current HVAC mode !{{is|isn't}} ..."
         },
@@ -765,6 +767,7 @@
     "actions": [
       {
         "id": "set_hvac_mode",
+        "deprecated": true,
         "title": {
           "en": "Set HVAC mode",
           "nl": "Stel de HVAC-modus in",
@@ -1254,64 +1257,6 @@
     ]
   },
   "capabilities": {
-    "hvac_mode": {
-      "type": "enum",
-      "title": {
-        "en": "HVAC mode",
-        "nl": "HVAC modus",
-        "de": "HVAC-Modus"
-      },
-      "desc": {
-        "en": "Mode of the HVAC",
-        "nl": "Modus van de HVAC",
-        "de": "Modus der HVAC"
-      },
-      "values": [
-        {
-          "id": "auto",
-          "title": {
-            "en": "Auto",
-            "nl": "Automatisch",
-            "de": "Automatisch"
-          }
-        },
-        {
-          "id": "cool",
-          "title": {
-            "en": "Cool",
-            "nl": "Koelen",
-            "de": "Kühlen"
-          }
-        },
-        {
-          "id": "heat",
-          "title": {
-            "en": "Heat",
-            "nl": "Verwarmen",
-            "de": "Heizen"
-          }
-        },
-        {
-          "id": "dry",
-          "title": {
-            "en": "Dry",
-            "nl": "Ontvochtigen",
-            "de": "Trocken"
-          }
-        },
-        {
-          "id": "fan_only",
-          "title": {
-            "en": "Fan Only",
-            "nl": "Alleen fans",
-            "de": "Nur Fan"
-          }
-        }
-      ],
-      "getable": true,
-      "setable": true,
-      "uiComponent": "picker"
-    },
     "fan_speed": {
       "type": "enum",
       "title": {
@@ -1663,13 +1608,12 @@
       "name": {
         "en": "EWPE Smart HVACs"
       },
-      "class": "thermostat",
+      "class": "airconditioning",
       "capabilities": [
         "onoff",
         "measure_temperature",
         "target_temperature",
         "thermostat_mode",
-        "hvac_mode",
         "fan_speed",
         "turbo_mode",
         "lights",
@@ -1683,6 +1627,50 @@
           "min": 16,
           "max": 30,
           "step": 1
+        },
+        "thermostat_mode": {
+          "values": [
+            {
+              "id": "auto",
+              "title": {
+                "en": "Auto",
+                "nl": "Automatisch",
+                "de": "Automatisch"
+              }
+            },
+            {
+              "id": "cool",
+              "title": {
+                "en": "Cool",
+                "nl": "Koelen",
+                "de": "Kühlen"
+              }
+            },
+            {
+              "id": "heat",
+              "title": {
+                "en": "Heat",
+                "nl": "Verwarmen",
+                "de": "Heizen"
+              }
+            },
+            {
+              "id": "dry",
+              "title": {
+                "en": "Dry",
+                "nl": "Ontvochtigen",
+                "de": "Trocken"
+              }
+            },
+            {
+              "id": "fan_only",
+              "title": {
+                "en": "Fan Only",
+                "nl": "Alleen fans",
+                "de": "Nur Fan"
+              }
+            }
+          ]
         }
       },
       "pair": [

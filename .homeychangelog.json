@@ -47,5 +47,8 @@
   },
   "0.8.0": {
     "en": "Fix issues with control thermostat using Homey Pro 2023.\r\nAdd \"Horizontal swing\" capability\r\nAdd \"Quite Mode\" capability\r\nThanks to @denniedegroot for all these changes"
+  },
+  "0.8.1": {
+    "en": "Improve compatibility with Homey Pro 2023\r\nDeprecate \"hvac mode\" flow cards (must be replaced by \"thermostat mode\")\r\nFix \"quiet mode\" condition\r\nBumped minimum supported version of Homey firmware to v12.0.1"
   }
 }
