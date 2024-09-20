@@ -1,10 +1,15 @@
 name: Homey validation
 
-on: push
+on:
+  push:
+  pull_request:
 
 jobs:
   publish-validation:
+    name: Validate Homey App
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: aivus/homey-validate-action@v1
+      - uses: athombv/github-action-homey-app-validate@v1
+        with:
+          level: publish
