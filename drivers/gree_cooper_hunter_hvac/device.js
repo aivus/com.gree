@@ -78,6 +78,7 @@ class GreeHVACDevice extends Homey.Device {
 
         const deviceData = this.getData();
         const settings = this.getSettings();
+        const encryptionVersion = this.mapEncryptionModeSetting(settings.encryption_mode);
 
         this.log('[find devices]', 'Finding device with mac:', deviceData.mac);
 
@@ -97,6 +98,7 @@ class GreeHVACDevice extends Homey.Device {
                 host: hvac.remoteInfo.address,
                 pollingInterval: POLLING_INTERVAL,
                 pollingTimeout: POLLING_TIMEOUT,
+                encryptionVersion,
             });
 
             this._registerClientListeners();
@@ -647,6 +649,20 @@ class GreeHVACDevice extends Homey.Device {
         }
 
         return Promise.resolve();
+    }
+
+    mapEncryptionModeSetting(encryptionMode) {
+        switch (encryptionMode) {
+            // not implemented yet
+            case 'auto':
+            case 'v1':
+            default:
+                // AES-ECB
+                return 1;
+            case 'v2':
+                // AES-GCM
+                return 2;
+        }
     }
 
 }
