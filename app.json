@@ -1671,6 +1671,14 @@
                 "nl": "Alleen fans",
                 "de": "Nur Fan"
               }
+            },
+            {
+              "id": "off",
+              "title": {
+                "en": "Off",
+                "nl": "Uit",
+                "de": "Aus"
+              }
             }
           ]
         }
