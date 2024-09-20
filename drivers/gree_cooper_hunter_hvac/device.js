@@ -154,7 +154,6 @@ class GreeHVACDevice extends Homey.Device {
                 const rawValue = HVAC.VALUE.mode[value];
                 this.log('[thermostat_mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
                 this._setClientProperty(HVAC.PROPERTY.mode, rawValue);
-                this.setCapabilityValue('hvac_mode', rawValue);
 
                 // Turn on if needed.
                 const properties = this._client._transformer.fromVendor(this._client._properties);
@@ -162,27 +161,6 @@ class GreeHVACDevice extends Homey.Device {
                     this.setCapabilityValue('onoff', true);
                     this._setClientProperty(HVAC.PROPERTY.power, HVAC.VALUE.power.on);
                 }
-            }
-
-            return Promise.resolve();
-        });
-
-        this.registerCapabilityListener('hvac_mode', (value) => {
-            let rawValue = HVAC.VALUE.mode[value];
-            this.log('[hvac_mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this._setClientProperty(HVAC.PROPERTY.mode, rawValue);
-            this._flowTriggerHvacModeChanged.trigger(this, { hvac_mode: rawValue });
-
-            // Update thermostat_mode when on
-            if (this.getCapabilityValue('onoff') === true) {
-                // Homey doesn't support fan_only or dry
-                if (rawValue === 'fan_only') {
-                    rawValue = 'off';
-                } else if (value === 'dry') {
-                    rawValue = 'cool';
-                }
-
-                this.setCapabilityValue('thermostat_mode', rawValue);
             }
 
             return Promise.resolve();
@@ -300,35 +278,24 @@ class GreeHVACDevice extends Homey.Device {
         }
 
         if (this._checkBoolPropertyChanged(updatedProperties, HVAC.PROPERTY.power, 'onoff')) {
-            const value = updatedProperties[HVAC.PROPERTY.power] === HVAC.VALUE.power.on;
-            this.setCapabilityValue('onoff', value).then(() => {
-                this.log('[update properties]', '[onoff]', value);
+            const isOn = updatedProperties[HVAC.PROPERTY.power] === HVAC.VALUE.power.on;
+            this.setCapabilityValue('onoff', isOn).then(() => {
+                this.log('[update properties]', '[onoff]', isOn);
                 return Promise.resolve();
             }).catch(this.error);
 
-            if (!value) {
+            if (!isOn) {
                 // Set Homey thermostat mode to Off when turned off.
                 this.setCapabilityValue('thermostat_mode', 'off').then(() => {
                     this.log('[update properties]', '[thermostat_mode]', 'off');
                 }).catch(this.error);
             } else {
                 // Restore Homey thermostat mode when turned on.
-                let restoredHvacMode = updatedProperties[HVAC.PROPERTY.mode] === undefined ? properties[HVAC.PROPERTY.mode] : updatedProperties[HVAC.PROPERTY.mode];
+                const thermostatValue = properties[HVAC.PROPERTY.mode];
 
-                this.setCapabilityValue('hvac_mode', restoredHvacMode).then(() => {
-                    this.log('[update properties]', '[hvac_mode]', restoredHvacMode);
-                    return this._flowTriggerHvacModeChanged.trigger(this, { hvac_mode: restoredHvacMode });
-                }).catch(this.error);
-
-                // Homey thermostat doesn't support fan_only or dry
-                if (restoredHvacMode === 'fan_only') {
-                    restoredHvacMode = 'off';
-                } else if (restoredHvacMode === 'dry') {
-                    restoredHvacMode = 'cool';
-                }
-
-                this.setCapabilityValue('thermostat_mode', restoredHvacMode).then(() => {
-                    this.log('[update properties]', '[thermostat_mode]', restoredHvacMode);
+                this.setCapabilityValue('thermostat_mode', thermostatValue).then(() => {
+                    this.log('[update properties]', '[thermostat_mode]', thermostatValue);
+                    return this._flowTriggerHvacModeChanged.trigger(this, { hvac_mode: thermostatValue });
                 }).catch(this.error);
             }
 
@@ -357,9 +324,7 @@ class GreeHVACDevice extends Homey.Device {
             }).catch(this.error);
         }
 
-        if (this._checkPropertyChanged(updatedProperties, HVAC.PROPERTY.mode, 'hvac_mode')) {
-            const value = updatedProperties[HVAC.PROPERTY.mode];
-
+        if (this._checkPropertyChanged(updatedProperties, HVAC.PROPERTY.mode, 'thermostat_mode')) {
             // Update thermostat_mode
             if (properties[HVAC.PROPERTY.power] === HVAC.VALUE.power.off) {
                 // When HVAC is off, thermostat_mode should be always "off".
@@ -369,24 +334,13 @@ class GreeHVACDevice extends Homey.Device {
                     }).catch(this.error);
                 }
             } else {
-                let thermostatValue = updatedProperties[HVAC.PROPERTY.mode];
-
-                // Homey doesn't support fan_only or dry
-                if (thermostatValue === 'fan_only') {
-                    thermostatValue = 'off';
-                } else if (value === 'dry') {
-                    thermostatValue = 'cool';
-                }
+                const thermostatValue = updatedProperties[HVAC.PROPERTY.mode];
 
                 this.setCapabilityValue('thermostat_mode', thermostatValue).then(() => {
                     this.log('[update properties]', '[thermostat_mode]', thermostatValue);
+                    return this._flowTriggerHvacModeChanged.trigger(this, { hvac_mode: thermostatValue });
                 }).catch(this.error);
             }
-
-            this.setCapabilityValue('hvac_mode', value).then(() => {
-                this.log('[update properties]', '[hvac_mode]', value);
-                return this._flowTriggerHvacModeChanged.trigger(this, { hvac_mode: value });
-            }).catch(this.error);
         }
 
         if (this._checkPropertyChanged(updatedProperties, HVAC.PROPERTY.fanSpeed, 'fan_speed')) {
@@ -594,55 +548,71 @@ class GreeHVACDevice extends Homey.Device {
     async _executeCapabilityMigrations() {
         // Added in v0.2.1
         if (!this.hasCapability('turbo_mode')) {
-            this.log('[migration]', 'Adding "turbo_mode" capability');
+            this.log('[migration v0.2.1]', 'Adding "turbo_mode" capability');
             await this.addCapability('turbo_mode');
         }
 
-        // Added in v0.2.1
         if (!this.hasCapability('lights')) {
-            this.log('[migration]', 'Adding "lights" capability');
+            this.log('[migration v0.2.1]', 'Adding "lights" capability');
             await this.addCapability('lights');
         }
 
         // Added in v0.3.0
         if (!this.hasCapability('xfan_mode')) {
-            this.log('[migration]', 'Adding "xfan_mode" capability');
+            this.log('[migration v0.3.0]', 'Adding "xfan_mode" capability');
             await this.addCapability('xfan_mode');
         }
 
         // Added in v0.3.0
         if (!this.hasCapability('vertical_swing')) {
-            this.log('[migration]', 'Adding "vertical_swing" capability');
+            this.log('[migration v0.3.0]', 'Adding "vertical_swing" capability');
             await this.addCapability('vertical_swing');
         }
 
         // Added in v0.4.0
         if (!this.hasCapability('measure_temperature')) {
-            this.log('[migration]', 'Adding "measure_temperature" capability');
+            this.log('[migration v0.4.0]', 'Adding "measure_temperature" capability');
             await this.addCapability('measure_temperature');
         }
 
         // Added in v0.5.0
         if (!this.hasCapability('thermostat_mode') && this.hasCapability('hvac_mode')) {
-            this.log('[migration]', 'Converting "hvac_mode" to "thermostat_mode"');
+            this.log('[migration v0.5.0]', 'Converting "hvac_mode" to "thermostat_mode"');
             await this.removeCapability('hvac_mode');
             await this.addCapability('thermostat_mode');
         }
 
-        // Added in v0.8.0
+        // Added in v0.8.0 (test)
         if (!this.hasCapability('horizontal_swing')) {
-            this.log('[migration]', 'Adding "horizontal_swing" capability');
+            this.log('[migration v0.8.0]', 'Adding "horizontal_swing" capability');
             await this.addCapability('horizontal_swing');
         }
 
         if (!this.hasCapability('quiet_mode')) {
-            this.log('[migration]', 'Adding "quiet_mode" capability');
+            this.log('[migration v0.8.0]', 'Adding "quiet_mode" capability');
             await this.addCapability('quiet_mode');
         }
 
-        if (!this.hasCapability('hvac_mode')) {
-            this.log('[migration]', 'Adding "hvac_mode" capability');
-            await this.addCapability('hvac_mode');
+        // Commented in v0.8.1
+        // if (!this.hasCapability('hvac_mode')) {
+        //     this.log('[migration]', 'Adding "hvac_mode" capability');
+        //     await this.addCapability('hvac_mode');
+        // }
+
+        // Added in v0.8.1
+        // Revert back from "hvac_mode" to "thermostat_mode"
+        if (this.hasCapability('hvac_mode')) {
+            this.log('[migration v0.8.1]', 'Removing "hvac_mode" capability');
+            await this.removeCapability('hvac_mode');
+
+            // Re-add thermostat_mode with new configuration
+            if (this.hasCapability('thermostat_mode')) {
+                this.log('[migration v0.8.1]', 'Removing "thermostat_mode" capability');
+                await this.removeCapability('thermostat_mode');
+            }
+
+            this.log('[migration v0.8.1]', 'Adding "thermostat_mode" capability');
+            await this.addCapability('thermostat_mode');
         }
     }
 
