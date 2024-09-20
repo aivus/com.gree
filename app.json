@@ -1,11 +1,11 @@
 {
-  "id": "com.gree.test",
+  "id": "com.gree",
   "version": "0.8.1",
   "compatibility": ">=12.0.1",
   "sdk": 3,
   "brandColor": "#ff732e",
   "name": {
-    "en": "Gree (test)"
+    "en": "Gree"
   },
   "description": {
     "en": "Control your Gree and other EWPE Smart compatible HVAC devices",

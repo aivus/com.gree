@@ -47,7 +47,7 @@ class GreeHVACDevice extends Homey.Device {
         await this._executeCapabilityMigrations();
         this._registerCapabilityListeners();
 
-        // this._markOffline();
+        this._markOffline();
         this._startLookingForDevice();
     }
 
