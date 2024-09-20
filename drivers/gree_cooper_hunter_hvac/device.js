@@ -45,6 +45,7 @@ class GreeHVACDevice extends Homey.Device {
         this._flowTriggerQuietModeChanged = this.homey.flow.getDeviceTriggerCard('quiet_mode_changed');
 
         await this._executeCapabilityMigrations();
+        await this._executeDeviceClassMigration();
         this._registerCapabilityListeners();
 
         this._markOffline();
@@ -613,6 +614,12 @@ class GreeHVACDevice extends Homey.Device {
 
             this.log('[migration v0.8.1]', 'Adding "thermostat_mode" capability');
             await this.addCapability('thermostat_mode');
+        }
+    }
+
+    async _executeDeviceClassMigration() {
+        if (this.getClass() !== 'airconditioning') {
+            await this.setClass('airconditioning').catch(this.error);
         }
     }
 
