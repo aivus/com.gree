@@ -1,6 +1,6 @@
 {
   "id": "com.gree",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "compatibility": ">=12.0.1",
   "sdk": 3,
   "brandColor": "#ff732e",
@@ -1670,6 +1670,14 @@
                 "en": "Fan Only",
                 "nl": "Alleen fans",
                 "de": "Nur Fan"
+              }
+            },
+            {
+              "id": "off",
+              "title": {
+                "en": "Off",
+                "nl": "Uit",
+                "de": "Aus"
               }
             }
           ]
