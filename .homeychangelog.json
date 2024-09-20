@@ -50,5 +50,8 @@
   },
   "0.8.1": {
     "en": "Improve compatibility with Homey Pro 2023\r\nDeprecate \"hvac mode\" flow cards (must be replaced by \"thermostat mode\")\r\nFix \"quiet mode\" condition\r\nBumped minimum supported version of Homey firmware to v12.0.1"
+  },
+  "0.8.2": {
+    "en": "Fix possible crash when setting thermostat mode to \"off\". Change device class to \"airconditioning\""
   }
 }
