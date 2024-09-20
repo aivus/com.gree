@@ -68,7 +68,7 @@ class GreeHVAC extends Homey.App {
 
         this.homey.flow.getConditionCard('quiet_mode_is')
             .registerRunListener((args, state) => {
-                const quietMode = args.device.getCapabilityValue('quiet_mode_is');
+                const quietMode = args.device.getCapabilityValue('quiet_mode');
                 args.device.log('[condition]', '[quiet mode]', quietMode);
                 return args.mode === quietMode;
             });
