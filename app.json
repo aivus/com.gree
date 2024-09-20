@@ -1608,7 +1608,7 @@
       "name": {
         "en": "EWPE Smart HVACs"
       },
-      "class": "thermostat",
+      "class": "airconditioning",
       "capabilities": [
         "onoff",
         "measure_temperature",
