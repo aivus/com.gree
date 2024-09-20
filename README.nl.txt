@@ -1,13 +1,15 @@
 Deze app voegt ondersteuning van Gree-compatibele HVAC's toe aan Homey.
 
-Ondersteunde apparaten:
-* Gree Wi-Fi HVAC's
-* Argo Wi-Fi HVAC's
-* Cooper&Hunter Wi-Fi HVAC's
-* Daitsu Wi-Fi HVAC's
-* Tosot Wi-Fi HVAC's
-* Wilfa Wi-Fi HVAC's
-* Innova Wi-Fi HVAC's
+Ondersteunde Wi-Fi HVAC's:
+* Gree
+* Argo
+* Cooper&Hunter
+* Daitsu
+* Tosot
+* Wilfa
+* Innova
+* Tadiran
+* Copmax
 
 Als je hebt vastgesteld dat je HVAC werkt met deze app en je ziet het merk hierboven niet terug, maak dan a.u.b. een ticket aan zodat we de ondersteuning voor dit merk kunnen vermelden.
 

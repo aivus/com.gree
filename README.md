@@ -10,14 +10,16 @@ This app is an Open Source Software developed in free time by one developer.
 
 If you want to thank the author of this app you can use [GitHub Sponsors](https://github.com/aivus/com.gree?sponsor=1) or [Patreon](https://patreon.com/aivus)
 
-## Supported devices
-* Gree Wi-Fi HVACs
-* Argo Wi-Fi HVACs
-* Cooper&Hunter Wi-Fi HVACs
-* Daitsu Wi-Fi HVACs
-* Tosot Wi-Fi HVACs
-* Wilfa Wi-Fi HVACs
-* Innova Wi-Fi HVACs
+## Supported Wi-Fi HVACs
+* Gree
+* Argo
+* Cooper&Hunter
+* Daitsu
+* Tosot
+* Wilfa
+* Innova
+* Tadiran
+* Copmax
 
 *This app is tested using Cooper&Hunter Alpha CH-S18FTXE*
 
