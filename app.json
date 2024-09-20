@@ -1629,11 +1629,6 @@
           "step": 1
         },
         "thermostat_mode": {
-          "title": {
-            "en": "HVAC mode",
-            "nl": "HVAC modus",
-            "de": "HVAC-Modus"
-          },
           "values": [
             {
               "id": "auto",
