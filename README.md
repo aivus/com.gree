@@ -19,6 +19,7 @@ If you want to thank the author of this app you can use [GitHub Sponsors](https:
 * Wilfa
 * Innova
 * Tadiran
+* Copmax
 
 *This app is tested using Cooper&Hunter Alpha CH-S18FTXE*
 

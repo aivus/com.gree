@@ -9,6 +9,7 @@ Ondersteunde Wi-Fi HVAC's:
 * Wilfa
 * Innova
 * Tadiran
+* Copmax
 
 Als je hebt vastgesteld dat je HVAC werkt met deze app en je ziet het merk hierboven niet terug, maak dan a.u.b. een ticket aan zodat we de ondersteuning voor dit merk kunnen vermelden.
 
