@@ -640,12 +640,15 @@ class GreeHVACDevice extends Homey.Device {
 
     async onSettings({ oldSettings, newSettings, changedKeys }) {
         if (changedKeys.indexOf('enable_debug') > -1) {
-            console.log('Changing the debug settings from', oldSettings.enable_debug, 'to', newSettings.enable_debug);
+            this.log('Changing the debug setting from', oldSettings.enable_debug, 'to', newSettings.enable_debug);
             if (this._client) {
                 this._client.setDebug(newSettings.enable_debug);
-            } else {
-                return Promise.reject();
             }
+        }
+
+        if (changedKeys.indexOf('encryption_mode') > -1) {
+            this.log('Changing the encryption mode setting from', oldSettings.encryption_mode, 'to', newSettings.encryption_mode);
+            this.homey.setTimeout(this.reconnect, 1000);
         }
 
         return Promise.resolve();
@@ -663,6 +666,13 @@ class GreeHVACDevice extends Homey.Device {
                 // AES-GCM
                 return 2;
         }
+    }
+
+    reconnect() {
+        this.log('Reconnecting to the HVAC');
+        this._markOffline();
+        this._tryToDisconnect();
+        this._startLookingForDevice();
     }
 
 }
