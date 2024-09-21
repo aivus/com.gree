@@ -1704,14 +1704,40 @@
       ],
       "settings": [
         {
+          "id": "polling_interval",
+          "type": "number",
+          "value": 3500,
+          "min": 100,
+          "units": { "en": "ms" },
+          "label": {
+            "en": "Polling interval"
+          },
+          "hint": {
+            "en": "Interval between polling status from HVAC.  Default value 3500"
+          }
+        },
+        {
+          "id": "polling_timeout",
+          "type": "number",
+          "value": 3000,
+          "min": 100,
+          "units": { "en": "ms" },
+          "label": {
+            "en": "Polling timeout"
+          },
+          "hint": {
+            "en": "Timeout for the response from the HVAC during polling process. Default value 3000"
+          }
+        },
+        {
           "id": "enable_debug",
           "type": "checkbox",
           "value": false,
           "label": {
-            "en": "Debug"
+            "en": "Verbose logging"
           },
           "hint": {
-            "en": "Enable debug in case the application is crashing. It allows developer to investigate the issue"
+            "en": "Enable verbose logging in case the application is crashing. It allows developer to investigate the issue"
           }
         }
       ],
