@@ -648,7 +648,7 @@ class GreeHVACDevice extends Homey.Device {
 
         if (changedKeys.indexOf('encryption_mode') > -1) {
             this.log('Changing the encryption mode setting from', oldSettings.encryption_mode, 'to', newSettings.encryption_mode);
-            this.homey.setTimeout(this.reconnect, 1000);
+            this.homey.setTimeout(this.reconnect.bind(this), 1000);
         }
 
         return Promise.resolve();

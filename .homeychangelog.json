@@ -56,5 +56,8 @@
   },
   "0.9.0": {
     "en": "Add experimental support of new interaction protocol for Gree-compatible HVACs with version >=1.21"
+  },
+  "0.9.1": {
+    "en": "Add experimental support of new interaction protocol for Gree-compatible HVACs with version >=1.21"
   }
 }
