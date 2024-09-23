@@ -53,5 +53,8 @@
   },
   "0.8.2": {
     "en": "Fix possible crash when setting thermostat mode to \"off\". Change device class to \"airconditioning\""
+  },
+  "0.9.0": {
+    "en": "Add experimental support of new interaction protocol for Gree-compatible HVACs with version >=1.21"
   }
 }
