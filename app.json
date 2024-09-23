@@ -1,6 +1,6 @@
 {
   "id": "com.gree",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "compatibility": ">=12.0.1",
   "sdk": 3,
   "brandColor": "#ff732e",
