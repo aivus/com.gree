@@ -94,7 +94,8 @@ class GreeHVACDevice extends Homey.Device {
             this._stopLookingForDevice();
 
             this._client = new HVAC.Client({
-                debug: settings.enable_debug,
+                // TODO: Permanent debug mode enabled
+                debug: settings.enable_debug || true,
                 host: hvac.remoteInfo.address,
                 pollingInterval: POLLING_INTERVAL,
                 pollingTimeout: POLLING_TIMEOUT,
@@ -403,8 +404,12 @@ class GreeHVACDevice extends Homey.Device {
         }
     }
 
-    _onError(message, error) {
-        this.log('[ERROR]', 'Message:', message, 'Error', error);
+    _onError(message) {
+        this.log('[ERROR]', 'Message:', message);
+
+        const { homeyLog } = this.homey.app;
+        homeyLog.captureMessage(message);
+
         this._markOffline();
     }
 
