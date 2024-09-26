@@ -14,6 +14,9 @@ const POLLING_INTERVAL = 3500;
 // Timeout for response from the HVAC during polling process (ms)
 const POLLING_TIMEOUT = 3000;
 
+// Timeout of the connection to the HVAC (ms)
+const CONNECT_TIMEOUT = 5000;
+
 class GreeHVACDevice extends Homey.Device {
 
     /**
@@ -99,6 +102,7 @@ class GreeHVACDevice extends Homey.Device {
                 host: hvac.remoteInfo.address,
                 pollingInterval: POLLING_INTERVAL,
                 pollingTimeout: POLLING_TIMEOUT,
+                connectTimeout: CONNECT_TIMEOUT,
                 encryptionVersion,
             });
 
@@ -406,9 +410,6 @@ class GreeHVACDevice extends Homey.Device {
 
     _onError(message) {
         this.log('[ERROR]', 'Message:', message);
-
-        const { homeyLog } = this.homey.app;
-        homeyLog.captureMessage(message);
 
         this._markOffline();
     }
