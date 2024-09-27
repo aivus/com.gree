@@ -59,6 +59,27 @@
       ]
     },
     {
+      "id": "safety_heating_changed",
+      "title": {
+        "en": "8°C heating changed",
+        "nl": "8°C verwarming veranderd",
+        "de": "8°C Heizung geändert"
+      },
+      "args": [],
+      "tokens": [
+        {
+          "name": "safety_heating",
+          "type": "boolean",
+          "title": {
+            "en": "8°C heating",
+            "nl": "8°C verwarming",
+            "de": "8°C Heizung"
+          },
+          "example": "true"
+        }
+      ]
+    },
+    {
       "id": "lights_changed",
       "title": {
         "en": "Lights changed"
@@ -159,10 +180,10 @@
       "id": "hvac_mode_is",
       "deprecated": true,
       "title": {
-        "en": "Current HVAC mode !{{is|isn't}} ..."
+        "en": "HVAC mode !{{is|isn't}} ..."
       },
       "titleFormatted": {
-        "en": "Current HVAC mode !{{is|isn't}} [[mode]]"
+        "en": "HVAC mode !{{is|isn't}} [[mode]]"
       },
       "args": [
         {
@@ -224,10 +245,10 @@
     {
       "id": "fan_speed_is",
       "title": {
-        "en": "Current fan speed !{{is|isn't}} ..."
+        "en": "Fan speed !{{is|isn't}} ..."
       },
       "titleFormatted": {
-        "en": "Current fan speed !{{is|isn't}} [[speed]]"
+        "en": "Fan speed !{{is|isn't}} [[speed]]"
       },
       "args": [
         {
@@ -289,10 +310,43 @@
     {
       "id": "turbo_mode_is",
       "title": {
-        "en": "Current turbo mode !{{is|isn't}} ..."
+        "en": "Turbo mode !{{is|isn't}} ..."
       },
       "titleFormatted": {
-        "en": "Current turbo mode !{{is|isn't}} [[mode]]"
+        "en": "Turbo mode !{{is|isn't}} [[mode]]"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "on",
+              "label": {
+                "en": "On",
+                "nl": "Aan",
+                "de": "Einschalten"
+              }
+            },
+            {
+              "id": "off",
+              "label": {
+                "en": "Off",
+                "nl": "Uit",
+                "de": "Ausschalten"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "safety_heating_is",
+      "title": {
+        "en": "8°C heating !{{is|isn't}} ..."
+      },
+      "titleFormatted": {
+        "en": "8°C heating !{{is|isn't}} [[mode]]"
       },
       "args": [
         {
@@ -322,10 +376,10 @@
     {
       "id": "lights_is",
       "title": {
-        "en": "Current lights !{{is|isn't}} ..."
+        "en": "Lights !{{are|aren't}} ..."
       },
       "titleFormatted": {
-        "en": "Current lights !{{is|isn't}} [[mode]]"
+        "en": "Lights !{{are|aren't}} [[mode]]"
       },
       "args": [
         {
@@ -355,10 +409,10 @@
     {
       "id": "xfan_mode_is",
       "title": {
-        "en": "Current X-Fan mode !{{is|isn't}} ..."
+        "en": "X-Fan mode !{{is|isn't}} ..."
       },
       "titleFormatted": {
-        "en": "Current X-Fan mode !{{is|isn't}} [[mode]]"
+        "en": "X-Fan mode !{{is|isn't}} [[mode]]"
       },
       "args": [
         {
@@ -388,10 +442,10 @@
     {
       "id": "vertical_swing_is",
       "title": {
-        "en": "Current vertical swing !{{is|isn't}} ..."
+        "en": "Vertical swing !{{is|isn't}} ..."
       },
       "titleFormatted": {
-        "en": "Current vertical swing !{{is|isn't}} [[vertical_swing]]"
+        "en": "Vertical swing !{{is|isn't}} [[vertical_swing]]"
       },
       "args": [
         {
@@ -485,10 +539,10 @@
     {
       "id": "horizontal_swing_is",
       "title": {
-        "en": "Current horizontal swing !{{is|isn't}} ..."
+        "en": "Horizontal swing !{{is|isn't}} ..."
       },
       "titleFormatted": {
-        "en": "Current horizontal swing !{{is|isn't}} [[horizontal_swing]]"
+        "en": "Horizontal swing !{{is|isn't}} [[horizontal_swing]]"
       },
       "args": [
         {
@@ -566,10 +620,10 @@
     {
       "id": "quiet_mode_is",
       "title": {
-        "en": "Current quiet mode !{{is|isn't}} ..."
+        "en": "Quiet mode !{{is|isn't}} ..."
       },
       "titleFormatted": {
-        "en": "Current quiet mode !{{is|isn't}} [[mode]]"
+        "en": "Quiet mode !{{is|isn't}} [[mode]]"
       },
       "args": [
         {
@@ -749,6 +803,38 @@
         "en": "Set turbo mode",
         "nl": "Stel de turbomodus in",
         "de": "Stellen Sie den Turbo-Modus ein"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "on",
+              "label": {
+                "en": "On",
+                "nl": "Aan",
+                "de": "Einschalten"
+              }
+            },
+            {
+              "id": "off",
+              "label": {
+                "en": "Off",
+                "nl": "Uit",
+                "de": "Ausschalten"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "set_safety_heating",
+      "title": {
+        "en": "Set 8°C heating",
+        "nl": "Stel 8°C verwarming in",
+        "de": "8°C Heizung einstellen"
       },
       "args": [
         {

@@ -41,6 +41,7 @@ class GreeHVACDevice extends Homey.Device {
         this._flowTriggerHvacFanSpeedChanged = this.homey.flow.getDeviceTriggerCard('fan_speed_changed');
         this._flowTriggerHvacModeChanged = this.homey.flow.getDeviceTriggerCard('hvac_mode_changed');
         this._flowTriggerTurboModeChanged = this.homey.flow.getDeviceTriggerCard('turbo_mode_changed');
+        this._flowTriggerSafetyHeatingChanged = this.homey.flow.getDeviceTriggerCard('safety_heating_changed');
         this._flowTriggerHvacLightsChanged = this.homey.flow.getDeviceTriggerCard('lights_changed');
         this._flowTriggerXFanModeChanged = this.homey.flow.getDeviceTriggerCard('xfan_mode_changed');
         this._flowTriggerVerticalSwingChanged = this.homey.flow.getDeviceTriggerCard('vertical_swing_changed');
@@ -188,6 +189,15 @@ class GreeHVACDevice extends Homey.Device {
             this.log('[turbo mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             this._setClientProperty(HVAC.PROPERTY.turbo, rawValue);
             this._flowTriggerTurboModeChanged.trigger(this, { turbo_mode: value });
+
+            return Promise.resolve();
+        });
+
+        this.registerCapabilityListener('safety_heating', (value) => {
+            const rawValue = value ? HVAC.VALUE.safetyHeating.on : HVAC.VALUE.safetyHeating.off;
+            this.log('[safety heating change]', `Value: ${value}`, `Raw value: ${rawValue}`);
+            this._setClientProperty(HVAC.PROPERTY.safetyHeating, rawValue);
+            this._flowTriggerSafetyHeatingChanged.trigger(this, { safety_heating: value });
 
             return Promise.resolve();
         });
@@ -364,6 +374,14 @@ class GreeHVACDevice extends Homey.Device {
             this.setCapabilityValue('turbo_mode', value).then(() => {
                 this.log('[update properties]', '[turbo_mode]', value);
                 return this._flowTriggerTurboModeChanged.trigger(this, { turbo_mode: value });
+            }).catch(this.error);
+        }
+
+        if (this._checkBoolPropertyChanged(updatedProperties, HVAC.PROPERTY.safetyHeating, 'safety_heating')) {
+            const value = updatedProperties[HVAC.PROPERTY.safetyHeating] === HVAC.VALUE.safetyHeating.on;
+            this.setCapabilityValue('safety_heating', value).then(() => {
+                this.log('[update properties]', '[safety_heating]', value);
+                return this._flowTriggerSafetyHeatingChanged.trigger(this, { safety_heating: value });
             }).catch(this.error);
         }
 
@@ -622,6 +640,12 @@ class GreeHVACDevice extends Homey.Device {
 
             this.log('[migration v0.8.1]', 'Adding "thermostat_mode" capability');
             await this.addCapability('thermostat_mode');
+        }
+
+        // Added in v0.9.4
+        if (!this.hasCapability('safety_heating')) {
+            this.log('[migration v0.9.4]', 'Adding "safety_heating" capability');
+            await this.addCapability('safety_heating');
         }
     }
 

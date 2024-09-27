@@ -1,0 +1,16 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "8°C heating",
+    "nl": "8°C verwarming",
+    "de": "8°C Heizung"
+  },
+  "desc": {
+    "en": "The air conditioner keeps the room temperature at 8°C to prevent freezing",
+    "nl": "De airconditioner houdt de kamertemperatuur op 8°C om bevriezing te voorkomen.",
+    "de": "Die Klimaanlage hält die Raumtemperatur auf 8°C, um ein Einfrieren zu verhindern."
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "toggle"
+}

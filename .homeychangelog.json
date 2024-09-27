@@ -65,5 +65,8 @@
   },
   "0.9.3": {
     "en": "Minor connection improvements.\r\nDisable error collecting"
+  },
+  "0.9.4": {
+    "en": "Add support of \"8°C heating\" mode"
   }
 }

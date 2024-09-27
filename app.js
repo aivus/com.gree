@@ -38,6 +38,13 @@ class GreeHVAC extends Homey.App {
                 return onoffToBoolean(args.mode) === turboMode;
             });
 
+        this.homey.flow.getConditionCard('safety_heating_is')
+            .registerRunListener((args, state) => {
+                const safetyHeating = args.device.getCapabilityValue('safety_heating');
+                args.device.log('[condition]', '[current safety heating]', safetyHeating);
+                return onoffToBoolean(args.mode) === safetyHeating;
+            });
+
         this.homey.flow.getConditionCard('lights_is')
             .registerRunListener((args, state) => {
                 const lightsMode = args.device.getCapabilityValue('lights');
@@ -94,6 +101,12 @@ class GreeHVAC extends Homey.App {
                     return args.device.triggerCapabilityListener('turbo_mode', onoffToBoolean(args.mode), {});
                 });
             });
+        this.homey.flow.getActionCard('set_safety_heating')
+            .registerRunListener((args, state) => {
+                return args.device.setCapabilityValue('safety_heating', onoffToBoolean(args.mode)).then(() => {
+                    return args.device.triggerCapabilityListener('safety_heating', onoffToBoolean(args.mode), {});
+                });
+            });
 
         this.homey.flow.getActionCard('set_lights')
             .registerRunListener((args, state) => {
@@ -130,7 +143,6 @@ class GreeHVAC extends Homey.App {
                 });
             });
     }
-
 }
 
 function onoffToBoolean(value) {
