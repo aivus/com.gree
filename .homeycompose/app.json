@@ -58,9 +58,18 @@
     "donate": {
       "paypal": {
         "username": "iantypenko"
+      },
+      "githubSponsors": {
+        "username": "aivus"
+      },
+      "patreon": {
+        "username": "aivus"
       }
     }
   },
   "homeyCommunityTopicId": 30801,
-  "source": "https://github.com/aivus/com.gree"
+  "source": "https://github.com/aivus/com.gree",
+  "bugs": {
+    "url": "https://github.com/aivus/com.gree/issues"
+  }
 }
