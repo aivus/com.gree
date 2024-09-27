@@ -1,0 +1,145 @@
+{
+  "name": {
+    "en": "EWPE Smart HVACs"
+  },
+  "class": "airconditioning",
+  "capabilities": [
+    "onoff",
+    "measure_temperature",
+    "target_temperature",
+    "thermostat_mode",
+    "fan_speed",
+    "turbo_mode",
+    "lights",
+    "xfan_mode",
+    "vertical_swing",
+    "horizontal_swing",
+    "quiet_mode"
+  ],
+  "capabilitiesOptions": {
+    "target_temperature": {
+      "min": 16,
+      "max": 30,
+      "step": 1
+    },
+    "thermostat_mode": {
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto",
+            "nl": "Automatisch",
+            "de": "Automatisch"
+          }
+        },
+        {
+          "id": "cool",
+          "title": {
+            "en": "Cool",
+            "nl": "Koelen",
+            "de": "Kühlen"
+          }
+        },
+        {
+          "id": "heat",
+          "title": {
+            "en": "Heat",
+            "nl": "Verwarmen",
+            "de": "Heizen"
+          }
+        },
+        {
+          "id": "dry",
+          "title": {
+            "en": "Dry",
+            "nl": "Ontvochtigen",
+            "de": "Trocken"
+          }
+        },
+        {
+          "id": "fan_only",
+          "title": {
+            "en": "Fan Only",
+            "nl": "Alleen fans",
+            "de": "Nur Fan"
+          }
+        },
+        {
+          "id": "off",
+          "title": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Aus"
+          }
+        }
+      ]
+    }
+  },
+  "pair": [
+    {
+      "id": "switch_wifi_info",
+      "navigation": {
+        "next": "list_devices"
+      }
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_my_devices"
+      }
+    },
+    {
+      "id": "add_my_devices",
+      "template": "add_devices"
+    }
+  ],
+  "settings": [
+    {
+      "id": "enable_debug",
+      "type": "checkbox",
+      "value": false,
+      "label": {
+        "en": "Debug"
+      },
+      "hint": {
+        "en": "Enable debug in case the application is crashing. It allows developer to investigate the issue"
+      }
+    },
+    {
+      "id": "encryption_mode",
+      "type": "dropdown",
+      "value": "auto",
+      "label": {
+        "en": "Encryption mode"
+      },
+      "hint": {
+        "en": "Encryption mode used by the HVAC. Most recent firmwares use V2"
+      },
+      "values": [
+        {
+          "id": "auto",
+          "label": {
+            "en": "Autodetect (not implemented yet, V1 used instead)"
+          }
+        },
+        {
+          "id": "v1",
+          "label": {
+            "en": "V1 (HVAC Firmware versions <1.21)"
+          }
+        },
+        {
+          "id": "v2",
+          "label": {
+            "en": "V2 (HVAC Firmware versions >=1.21)"
+          }
+        }
+      ]
+    }
+  ],
+  "images": {
+    "large": "/drivers/gree_cooper_hunter_hvac/assets/images/large.png",
+    "small": "/drivers/gree_cooper_hunter_hvac/assets/images/small.png"
+  }
+}

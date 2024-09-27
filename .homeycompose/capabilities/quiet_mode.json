@@ -1,0 +1,50 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Quiet mode",
+    "nl": "Stilte modus",
+    "de": "Ruhig-Modus"
+  },
+  "desc": {
+    "en": "Mode of quiet",
+    "nl": "Modus van stilte",
+    "de": "Modus der Ruhig"
+  },
+  "values": [
+    {
+      "id": "off",
+      "title": {
+        "en": "Off",
+        "nl": "Uit",
+        "de": "Aus"
+      }
+    },
+    {
+      "id": "mode1",
+      "title": {
+        "en": "Mode 1",
+        "nl": "Mode 1",
+        "de": "Mode 1"
+      }
+    },
+    {
+      "id": "mode2",
+      "title": {
+        "en": "Mode 2",
+        "nl": "Mode 2",
+        "de": "Mode 2"
+      }
+    },
+    {
+      "id": "mode3",
+      "title": {
+        "en": "Mode 3",
+        "nl": "Mode 3",
+        "de": "Mode 3"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true,
+  "uiComponent": "picker"
+}

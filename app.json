@@ -1,4 +1,5 @@
 {
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.gree",
   "version": "0.9.3",
   "compatibility": ">=12.0.1",
@@ -72,8 +73,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=gree_cooper_hunter_hvac"
           }
         ],
@@ -98,8 +99,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=gree_cooper_hunter_hvac"
           }
         ],
@@ -123,8 +124,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=gree_cooper_hunter_hvac"
           }
         ],
@@ -148,8 +149,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=gree_cooper_hunter_hvac"
           }
         ],
@@ -173,8 +174,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=gree_cooper_hunter_hvac"
           }
         ],
@@ -198,8 +199,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=gree_cooper_hunter_hvac"
           }
         ],
@@ -223,8 +224,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=gree_cooper_hunter_hvac"
           }
         ],
@@ -248,8 +249,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=gree_cooper_hunter_hvac"
           }
         ],
@@ -279,8 +280,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=gree_cooper_hunter_hvac"
           },
           {
@@ -349,8 +350,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=gree_cooper_hunter_hvac"
           },
           {
@@ -419,8 +420,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=gree_cooper_hunter_hvac"
           },
           {
@@ -457,8 +458,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=gree_cooper_hunter_hvac"
           },
           {
@@ -495,8 +496,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=gree_cooper_hunter_hvac"
           },
           {
@@ -533,8 +534,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=gree_cooper_hunter_hvac"
           },
           {
@@ -635,8 +636,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=gree_cooper_hunter_hvac"
           },
           {
@@ -721,8 +722,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=gree_cooper_hunter_hvac"
           },
           {
@@ -777,8 +778,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=gree_cooper_hunter_hvac"
           },
           {
@@ -846,8 +847,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=gree_cooper_hunter_hvac"
           },
           {
@@ -915,8 +916,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=gree_cooper_hunter_hvac"
           },
           {
@@ -952,8 +953,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=gree_cooper_hunter_hvac"
           },
           {
@@ -989,8 +990,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=gree_cooper_hunter_hvac"
           },
           {
@@ -1026,8 +1027,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=gree_cooper_hunter_hvac"
           },
           {
@@ -1127,8 +1128,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=gree_cooper_hunter_hvac"
           },
           {
@@ -1212,8 +1213,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=gree_cooper_hunter_hvac"
           },
           {
@@ -1258,355 +1259,8 @@
       }
     ]
   },
-  "capabilities": {
-    "fan_speed": {
-      "type": "enum",
-      "title": {
-        "en": "Fan speed",
-        "nl": "Ventilator snelheid",
-        "de": "Lüftergeschwindigkeit"
-      },
-      "desc": {
-        "en": "Speed of the HVAC's fan",
-        "nl": "Snelheid van de HVAC-ventilator",
-        "de": "Drehzahl der HVAC"
-      },
-      "values": [
-        {
-          "id": "auto",
-          "title": {
-            "en": "Auto",
-            "nl": "Automatisch",
-            "de": "Automatisch"
-          }
-        },
-        {
-          "id": "low",
-          "title": {
-            "en": "Low",
-            "nl": "Laag",
-            "de": "Niedrig"
-          }
-        },
-        {
-          "id": "mediumLow",
-          "title": {
-            "en": "Medium Low",
-            "nl": "Gemiddeld Laag",
-            "de": "Mittel Niedrig"
-          }
-        },
-        {
-          "id": "medium",
-          "title": {
-            "en": "Medium",
-            "nl": "Gemiddeld",
-            "de": "Mittel"
-          }
-        },
-        {
-          "id": "mediumHigh",
-          "title": {
-            "en": "Medium High",
-            "nl": "Gemiddeld hoog",
-            "de": "Mittel hoch"
-          }
-        },
-        {
-          "id": "high",
-          "title": {
-            "en": "High",
-            "nl": "Hoog",
-            "de": "Hoch"
-          }
-        }
-      ],
-      "getable": true,
-      "setable": true,
-      "uiComponent": "picker"
-    },
-    "turbo_mode": {
-      "type": "boolean",
-      "title": {
-        "en": "Turbo mode",
-        "nl": "Turbo modus",
-        "de": "Turbo Modus"
-      },
-      "desc": {
-        "en": "Turbo mode of the HVAC's fan",
-        "nl": "Turbomodus van de ventilator van de HVAC",
-        "de": "Turbomodus des Lüfters der Klimaanlage"
-      },
-      "getable": true,
-      "setable": true,
-      "uiComponent": "toggle"
-    },
-    "lights": {
-      "type": "boolean",
-      "title": {
-        "en": "Lights mode",
-        "nl": "Lichten modus",
-        "de": "Lichtmodus"
-      },
-      "desc": {
-        "en": "Lights mode on the HVAC panel",
-        "nl": "Lichten modus op het airconditioner paneel",
-        "de": "Lichtmodus auf dem Klimaanlage-Panel"
-      },
-      "getable": true,
-      "setable": true,
-      "uiComponent": "toggle"
-    },
-    "xfan_mode": {
-      "type": "boolean",
-      "title": {
-        "en": "X-Fan mode",
-        "nl": "X-Fan modus",
-        "de": "X-Fan Modus"
-      },
-      "desc": {
-        "en": "X-Fan mode of the HVAC's fan",
-        "nl": "X-Fan modus van de ventilator van de HVAC",
-        "de": "X-Fan modus des Lüfters der Klimaanlage"
-      },
-      "getable": true,
-      "setable": true,
-      "uiComponent": "toggle"
-    },
-    "vertical_swing": {
-      "type": "enum",
-      "title": {
-        "en": "Vertical swing",
-        "nl": "Verticale swing",
-        "de": "Vertikale Schaukel"
-      },
-      "desc": {
-        "en": "Position of the fan swing",
-        "nl": "Positie van de fan swing",
-        "de": "Position der fan swing"
-      },
-      "values": [
-        {
-          "id": "default",
-          "title": {
-            "en": "Disabled",
-            "nl": "Uitgeschakeld",
-            "de": "Behindert"
-          }
-        },
-        {
-          "id": "full",
-          "title": {
-            "en": "Full range",
-            "nl": "Volledig bereik",
-            "de": "Vollständige Palette"
-          }
-        },
-        {
-          "id": "fixedTop",
-          "title": {
-            "en": "Fixed top",
-            "nl": "Fixed boven",
-            "de": "Feste Oberseite"
-          }
-        },
-        {
-          "id": "fixedMidTop",
-          "title": {
-            "en": "Fixed top middle",
-            "nl": "Fixed midden boven",
-            "de": "Feste obere Mitte"
-          }
-        },
-        {
-          "id": "fixedMid",
-          "title": {
-            "en": "Fixed middle",
-            "nl": "Fixed midden",
-            "de": "Feste Mitte"
-          }
-        },
-        {
-          "id": "fixedMidBottom",
-          "title": {
-            "en": "Fixed middle bottom",
-            "nl": "Fixed midden onder",
-            "de": "Mittlerer Boden fest"
-          }
-        },
-        {
-          "id": "fixedBottom",
-          "title": {
-            "en": "Fixed bottom",
-            "nl": "Fixed onder",
-            "de": "Feste Unterseite"
-          }
-        },
-        {
-          "id": "swingBottom",
-          "title": {
-            "en": "Swing bottom",
-            "nl": "Swing onder",
-            "de": "Swing Unterseite"
-          }
-        },
-        {
-          "id": "swingMid",
-          "title": {
-            "en": "Swing middle",
-            "nl": "Swing midden",
-            "de": "Mitte schwingen"
-          }
-        },
-        {
-          "id": "swingTop",
-          "title": {
-            "en": "Swing top",
-            "nl": "Swing boven",
-            "de": "Swing Oberseite"
-          }
-        }
-      ],
-      "getable": true,
-      "setable": true,
-      "uiComponent": "picker"
-    },
-    "horizontal_swing": {
-      "type": "enum",
-      "title": {
-        "en": "Horizontal swing",
-        "nl": "Horizontale swing",
-        "de": "Horizontales Schaukel"
-      },
-      "desc": {
-        "en": "Position of the fan swing",
-        "nl": "Positie van de fan swing",
-        "de": "Position der fan swing"
-      },
-      "values": [
-        {
-          "id": "default",
-          "title": {
-            "en": "Disabled",
-            "nl": "Uitgeschakeld",
-            "de": "Behindert"
-          }
-        },
-        {
-          "id": "full",
-          "title": {
-            "en": "Full range",
-            "nl": "Volledig bereik",
-            "de": "Vollständige Palette"
-          }
-        },
-        {
-          "id": "fixedLeft",
-          "title": {
-            "en": "Fixed left",
-            "nl": "Fixed links",
-            "de": "Feste Links"
-          }
-        },
-        {
-          "id": "fixedMidLeft",
-          "title": {
-            "en": "Fixed top left",
-            "nl": "Fixed midden links",
-            "de": "Feste obere Links"
-          }
-        },
-        {
-          "id": "fixedMid",
-          "title": {
-            "en": "Fixed middle",
-            "nl": "Fixed midden",
-            "de": "Feste Mitte"
-          }
-        },
-        {
-          "id": "fixedMidRight",
-          "title": {
-            "en": "Fixed middle right",
-            "nl": "Fixed midden rechts",
-            "de": "Mittlerer Boden fest"
-          }
-        },
-        {
-          "id": "fixedRight",
-          "title": {
-            "en": "Fixed right",
-            "nl": "Fixed rechts",
-            "de": "Feste Rechts"
-          }
-        },
-        {
-          "id": "fullAlt",
-          "title": {
-            "en": "Full range",
-            "nl": "Volledig bereik",
-            "de": "Vollständige Palette"
-          }
-        }
-      ],
-      "getable": true,
-      "setable": true,
-      "uiComponent": "picker"
-    },
-    "quiet_mode": {
-      "type": "enum",
-      "title": {
-        "en": "Quiet mode",
-        "nl": "Stilte modus",
-        "de": "Ruhig-Modus"
-      },
-      "desc": {
-        "en": "Mode of quiet",
-        "nl": "Modus van stilte",
-        "de": "Modus der Ruhig"
-      },
-      "values": [
-        {
-          "id": "off",
-          "title": {
-            "en": "Off",
-            "nl": "Uit",
-            "de": "Aus"
-          }
-        },
-        {
-          "id": "mode1",
-          "title": {
-            "en": "Mode 1",
-            "nl": "Mode 1",
-            "de": "Mode 1"
-          }
-        },
-        {
-          "id": "mode2",
-          "title": {
-            "en": "Mode 2",
-            "nl": "Mode 2",
-            "de": "Mode 2"
-          }
-        },
-        {
-          "id": "mode3",
-          "title": {
-            "en": "Mode 3",
-            "nl": "Mode 3",
-            "de": "Mode 3"
-          }
-        }
-      ],
-      "getable": true,
-      "setable": true,
-      "uiComponent": "picker"
-    }
-  },
   "drivers": [
     {
-      "id": "gree_cooper_hunter_hvac",
       "name": {
         "en": "EWPE Smart HVACs"
       },
@@ -1749,7 +1403,354 @@
       "images": {
         "large": "/drivers/gree_cooper_hunter_hvac/assets/images/large.png",
         "small": "/drivers/gree_cooper_hunter_hvac/assets/images/small.png"
-      }
+      },
+      "id": "gree_cooper_hunter_hvac"
     }
-  ]
+  ],
+  "capabilities": {
+    "fan_speed": {
+      "type": "enum",
+      "title": {
+        "en": "Fan speed",
+        "nl": "Ventilator snelheid",
+        "de": "Lüftergeschwindigkeit"
+      },
+      "desc": {
+        "en": "Speed of the HVAC's fan",
+        "nl": "Snelheid van de HVAC-ventilator",
+        "de": "Drehzahl der HVAC"
+      },
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto",
+            "nl": "Automatisch",
+            "de": "Automatisch"
+          }
+        },
+        {
+          "id": "low",
+          "title": {
+            "en": "Low",
+            "nl": "Laag",
+            "de": "Niedrig"
+          }
+        },
+        {
+          "id": "mediumLow",
+          "title": {
+            "en": "Medium Low",
+            "nl": "Gemiddeld Laag",
+            "de": "Mittel Niedrig"
+          }
+        },
+        {
+          "id": "medium",
+          "title": {
+            "en": "Medium",
+            "nl": "Gemiddeld",
+            "de": "Mittel"
+          }
+        },
+        {
+          "id": "mediumHigh",
+          "title": {
+            "en": "Medium High",
+            "nl": "Gemiddeld hoog",
+            "de": "Mittel hoch"
+          }
+        },
+        {
+          "id": "high",
+          "title": {
+            "en": "High",
+            "nl": "Hoog",
+            "de": "Hoch"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker"
+    },
+    "horizontal_swing": {
+      "type": "enum",
+      "title": {
+        "en": "Horizontal swing",
+        "nl": "Horizontale swing",
+        "de": "Horizontales Schaukel"
+      },
+      "desc": {
+        "en": "Position of the fan swing",
+        "nl": "Positie van de fan swing",
+        "de": "Position der fan swing"
+      },
+      "values": [
+        {
+          "id": "default",
+          "title": {
+            "en": "Disabled",
+            "nl": "Uitgeschakeld",
+            "de": "Behindert"
+          }
+        },
+        {
+          "id": "full",
+          "title": {
+            "en": "Full range",
+            "nl": "Volledig bereik",
+            "de": "Vollständige Palette"
+          }
+        },
+        {
+          "id": "fixedLeft",
+          "title": {
+            "en": "Fixed left",
+            "nl": "Fixed links",
+            "de": "Feste Links"
+          }
+        },
+        {
+          "id": "fixedMidLeft",
+          "title": {
+            "en": "Fixed top left",
+            "nl": "Fixed midden links",
+            "de": "Feste obere Links"
+          }
+        },
+        {
+          "id": "fixedMid",
+          "title": {
+            "en": "Fixed middle",
+            "nl": "Fixed midden",
+            "de": "Feste Mitte"
+          }
+        },
+        {
+          "id": "fixedMidRight",
+          "title": {
+            "en": "Fixed middle right",
+            "nl": "Fixed midden rechts",
+            "de": "Mittlerer Boden fest"
+          }
+        },
+        {
+          "id": "fixedRight",
+          "title": {
+            "en": "Fixed right",
+            "nl": "Fixed rechts",
+            "de": "Feste Rechts"
+          }
+        },
+        {
+          "id": "fullAlt",
+          "title": {
+            "en": "Full range",
+            "nl": "Volledig bereik",
+            "de": "Vollständige Palette"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker"
+    },
+    "lights": {
+      "type": "boolean",
+      "title": {
+        "en": "Lights mode",
+        "nl": "Lichten modus",
+        "de": "Lichtmodus"
+      },
+      "desc": {
+        "en": "Lights mode on the HVAC panel",
+        "nl": "Lichten modus op het airconditioner paneel",
+        "de": "Lichtmodus auf dem Klimaanlage-Panel"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "toggle"
+    },
+    "quiet_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Quiet mode",
+        "nl": "Stilte modus",
+        "de": "Ruhig-Modus"
+      },
+      "desc": {
+        "en": "Mode of quiet",
+        "nl": "Modus van stilte",
+        "de": "Modus der Ruhig"
+      },
+      "values": [
+        {
+          "id": "off",
+          "title": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Aus"
+          }
+        },
+        {
+          "id": "mode1",
+          "title": {
+            "en": "Mode 1",
+            "nl": "Mode 1",
+            "de": "Mode 1"
+          }
+        },
+        {
+          "id": "mode2",
+          "title": {
+            "en": "Mode 2",
+            "nl": "Mode 2",
+            "de": "Mode 2"
+          }
+        },
+        {
+          "id": "mode3",
+          "title": {
+            "en": "Mode 3",
+            "nl": "Mode 3",
+            "de": "Mode 3"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker"
+    },
+    "turbo_mode": {
+      "type": "boolean",
+      "title": {
+        "en": "Turbo mode",
+        "nl": "Turbo modus",
+        "de": "Turbo Modus"
+      },
+      "desc": {
+        "en": "Turbo mode of the HVAC's fan",
+        "nl": "Turbomodus van de ventilator van de HVAC",
+        "de": "Turbomodus des Lüfters der Klimaanlage"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "toggle"
+    },
+    "vertical_swing": {
+      "type": "enum",
+      "title": {
+        "en": "Vertical swing",
+        "nl": "Verticale swing",
+        "de": "Vertikale Schaukel"
+      },
+      "desc": {
+        "en": "Position of the fan swing",
+        "nl": "Positie van de fan swing",
+        "de": "Position der fan swing"
+      },
+      "values": [
+        {
+          "id": "default",
+          "title": {
+            "en": "Disabled",
+            "nl": "Uitgeschakeld",
+            "de": "Behindert"
+          }
+        },
+        {
+          "id": "full",
+          "title": {
+            "en": "Full range",
+            "nl": "Volledig bereik",
+            "de": "Vollständige Palette"
+          }
+        },
+        {
+          "id": "fixedTop",
+          "title": {
+            "en": "Fixed top",
+            "nl": "Fixed boven",
+            "de": "Feste Oberseite"
+          }
+        },
+        {
+          "id": "fixedMidTop",
+          "title": {
+            "en": "Fixed top middle",
+            "nl": "Fixed midden boven",
+            "de": "Feste obere Mitte"
+          }
+        },
+        {
+          "id": "fixedMid",
+          "title": {
+            "en": "Fixed middle",
+            "nl": "Fixed midden",
+            "de": "Feste Mitte"
+          }
+        },
+        {
+          "id": "fixedMidBottom",
+          "title": {
+            "en": "Fixed middle bottom",
+            "nl": "Fixed midden onder",
+            "de": "Mittlerer Boden fest"
+          }
+        },
+        {
+          "id": "fixedBottom",
+          "title": {
+            "en": "Fixed bottom",
+            "nl": "Fixed onder",
+            "de": "Feste Unterseite"
+          }
+        },
+        {
+          "id": "swingBottom",
+          "title": {
+            "en": "Swing bottom",
+            "nl": "Swing onder",
+            "de": "Swing Unterseite"
+          }
+        },
+        {
+          "id": "swingMid",
+          "title": {
+            "en": "Swing middle",
+            "nl": "Swing midden",
+            "de": "Mitte schwingen"
+          }
+        },
+        {
+          "id": "swingTop",
+          "title": {
+            "en": "Swing top",
+            "nl": "Swing boven",
+            "de": "Swing Oberseite"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker"
+    },
+    "xfan_mode": {
+      "type": "boolean",
+      "title": {
+        "en": "X-Fan mode",
+        "nl": "X-Fan modus",
+        "de": "X-Fan Modus"
+      },
+      "desc": {
+        "en": "X-Fan mode of the HVAC's fan",
+        "nl": "X-Fan modus van de ventilator van de HVAC",
+        "de": "X-Fan modus des Lüfters der Klimaanlage"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "toggle"
+    }
+  }
 }

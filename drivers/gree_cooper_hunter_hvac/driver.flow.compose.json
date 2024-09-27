@@ -1,0 +1,1067 @@
+{
+  "triggers": [
+    {
+      "id": "fan_speed_changed",
+      "title": {
+        "en": "Fan speed changed"
+      },
+      "args": [],
+      "tokens": [
+        {
+          "name": "fan_speed",
+          "type": "string",
+          "title": {
+            "en": "Fan speed",
+            "nl": "Ventilator snelheid",
+            "de": "Lüftergeschwindigkeit"
+          },
+          "example": "low"
+        }
+      ]
+    },
+    {
+      "id": "hvac_mode_changed",
+      "deprecated": true,
+      "title": {
+        "en": "HVAC mode changed"
+      },
+      "args": [],
+      "tokens": [
+        {
+          "name": "hvac_mode",
+          "type": "string",
+          "title": {
+            "en": "HVAC mode",
+            "nl": "HVAC modus",
+            "de": "HVAC-Modus"
+          },
+          "example": "cool"
+        }
+      ]
+    },
+    {
+      "id": "turbo_mode_changed",
+      "title": {
+        "en": "Turbo mode changed"
+      },
+      "args": [],
+      "tokens": [
+        {
+          "name": "turbo_mode",
+          "type": "boolean",
+          "title": {
+            "en": "Turbo mode",
+            "nl": "Turbo modus",
+            "de": "Turbo Modus"
+          },
+          "example": "true"
+        }
+      ]
+    },
+    {
+      "id": "lights_changed",
+      "title": {
+        "en": "Lights changed"
+      },
+      "args": [],
+      "tokens": [
+        {
+          "name": "lights",
+          "type": "boolean",
+          "title": {
+            "en": "Lights mode",
+            "nl": "Lichten modus",
+            "de": "Lichtmodus"
+          },
+          "example": "true"
+        }
+      ]
+    },
+    {
+      "id": "xfan_mode_changed",
+      "title": {
+        "en": "X-Fan mode changed"
+      },
+      "args": [],
+      "tokens": [
+        {
+          "name": "xfan_mode",
+          "type": "boolean",
+          "title": {
+            "en": "X-Fan mode",
+            "nl": "X-Fan modus",
+            "de": "X-Fan Modus"
+          },
+          "example": "false"
+        }
+      ]
+    },
+    {
+      "id": "vertical_swing_changed",
+      "title": {
+        "en": "Vertical swing changed"
+      },
+      "args": [],
+      "tokens": [
+        {
+          "name": "vertical_swing",
+          "type": "string",
+          "title": {
+            "en": "Vertical swing",
+            "nl": "Verticale swing",
+            "de": "Vertikale Schaukel"
+          },
+          "example": "full"
+        }
+      ]
+    },
+    {
+      "id": "horizontal_swing_changed",
+      "title": {
+        "en": "Horizontal swing changed"
+      },
+      "args": [],
+      "tokens": [
+        {
+          "name": "horizontal_swing",
+          "type": "string",
+          "title": {
+            "en": "Horizontal swing",
+            "nl": "Horizontale swing",
+            "de": "Horizontales Schaukel"
+          },
+          "example": "full"
+        }
+      ]
+    },
+    {
+      "id": "quiet_mode_changed",
+      "title": {
+        "en": "Quiet mode changed"
+      },
+      "args": [],
+      "tokens": [
+        {
+          "name": "quiet_mode",
+          "type": "string",
+          "title": {
+            "en": "Quiet mode",
+            "nl": "Stilte modus",
+            "de": "Ruhig-Modus"
+          },
+          "example": "off"
+        }
+      ]
+    }
+  ],
+  "conditions": [
+    {
+      "id": "hvac_mode_is",
+      "deprecated": true,
+      "title": {
+        "en": "Current HVAC mode !{{is|isn't}} ..."
+      },
+      "titleFormatted": {
+        "en": "Current HVAC mode !{{is|isn't}} [[mode]]"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "auto",
+              "label": {
+                "en": "Auto",
+                "nl": "Automatisch",
+                "de": "Automatisch"
+              }
+            },
+            {
+              "id": "cool",
+              "label": {
+                "en": "Cool",
+                "nl": "Koelen",
+                "de": "Kühlen"
+              }
+            },
+            {
+              "id": "heat",
+              "label": {
+                "en": "Heat",
+                "nl": "Verwarmen",
+                "de": "Heizen"
+              }
+            },
+            {
+              "id": "dry",
+              "label": {
+                "en": "Dry",
+                "nl": "Ontvochtigen",
+                "de": "Trocken"
+              }
+            },
+            {
+              "id": "fan_only",
+              "label": {
+                "en": "Fan Only",
+                "nl": "Alleen fans",
+                "de": "Nur Fan"
+              }
+            },
+            {
+              "id": "off",
+              "title": {
+                "en": "Off",
+                "nl": "Uit",
+                "de": "Aus"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fan_speed_is",
+      "title": {
+        "en": "Current fan speed !{{is|isn't}} ..."
+      },
+      "titleFormatted": {
+        "en": "Current fan speed !{{is|isn't}} [[speed]]"
+      },
+      "args": [
+        {
+          "name": "speed",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "auto",
+              "label": {
+                "en": "Auto",
+                "nl": "Automatisch",
+                "de": "Automatisch"
+              }
+            },
+            {
+              "id": "low",
+              "label": {
+                "en": "Low",
+                "nl": "Laag",
+                "de": "Niedrig"
+              }
+            },
+            {
+              "id": "mediumLow",
+              "label": {
+                "en": "Medium Low",
+                "nl": "Gemiddeld Laag",
+                "de": "Mittel Niedrig"
+              }
+            },
+            {
+              "id": "medium",
+              "label": {
+                "en": "Medium",
+                "nl": "Gemiddeld",
+                "de": "Mittel"
+              }
+            },
+            {
+              "id": "mediumHigh",
+              "label": {
+                "en": "Medium High",
+                "nl": "Gemiddeld hoog",
+                "de": "Mittel hoch"
+              }
+            },
+            {
+              "id": "high",
+              "label": {
+                "en": "High",
+                "nl": "Hoog",
+                "de": "Hoch"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "turbo_mode_is",
+      "title": {
+        "en": "Current turbo mode !{{is|isn't}} ..."
+      },
+      "titleFormatted": {
+        "en": "Current turbo mode !{{is|isn't}} [[mode]]"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "on",
+              "label": {
+                "en": "On",
+                "nl": "Aan",
+                "de": "Einschalten"
+              }
+            },
+            {
+              "id": "off",
+              "label": {
+                "en": "Off",
+                "nl": "Uit",
+                "de": "Ausschalten"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lights_is",
+      "title": {
+        "en": "Current lights !{{is|isn't}} ..."
+      },
+      "titleFormatted": {
+        "en": "Current lights !{{is|isn't}} [[mode]]"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "on",
+              "label": {
+                "en": "On",
+                "nl": "Aan",
+                "de": "Einschalten"
+              }
+            },
+            {
+              "id": "off",
+              "label": {
+                "en": "Off",
+                "nl": "Uit",
+                "de": "Ausschalten"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xfan_mode_is",
+      "title": {
+        "en": "Current X-Fan mode !{{is|isn't}} ..."
+      },
+      "titleFormatted": {
+        "en": "Current X-Fan mode !{{is|isn't}} [[mode]]"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "on",
+              "label": {
+                "en": "On",
+                "nl": "Aan",
+                "de": "Einschalten"
+              }
+            },
+            {
+              "id": "off",
+              "label": {
+                "en": "Off",
+                "nl": "Uit",
+                "de": "Ausschalten"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vertical_swing_is",
+      "title": {
+        "en": "Current vertical swing !{{is|isn't}} ..."
+      },
+      "titleFormatted": {
+        "en": "Current vertical swing !{{is|isn't}} [[vertical_swing]]"
+      },
+      "args": [
+        {
+          "name": "vertical_swing",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "default",
+              "title": {
+                "en": "Disabled",
+                "nl": "Uitgeschakeld",
+                "de": "Behindert"
+              }
+            },
+            {
+              "id": "full",
+              "title": {
+                "en": "Full range",
+                "nl": "Volledig bereik",
+                "de": "Vollständige Palette"
+              }
+            },
+            {
+              "id": "fixedTop",
+              "title": {
+                "en": "Fixed top",
+                "nl": "Fixed boven",
+                "de": "Feste Oberseite"
+              }
+            },
+            {
+              "id": "fixedMidTop",
+              "title": {
+                "en": "Fixed top middle",
+                "nl": "Fixed midden boven",
+                "de": "Feste obere Mitte"
+              }
+            },
+            {
+              "id": "fixedMid",
+              "title": {
+                "en": "Fixed middle",
+                "nl": "Fixed midden",
+                "de": "Feste Mitte"
+              }
+            },
+            {
+              "id": "fixedMidBottom",
+              "title": {
+                "en": "Fixed middle bottom",
+                "nl": "Fixed midden onder",
+                "de": "Mittlerer Boden fest"
+              }
+            },
+            {
+              "id": "fixedBottom",
+              "title": {
+                "en": "Fixed bottom",
+                "nl": "Fixed onder",
+                "de": "Feste Unterseite"
+              }
+            },
+            {
+              "id": "swingBottom",
+              "title": {
+                "en": "Swing bottom",
+                "nl": "Swing onder",
+                "de": "Swing Unterseite"
+              }
+            },
+            {
+              "id": "swingMid",
+              "title": {
+                "en": "Swing middle",
+                "nl": "Swing midden",
+                "de": "Mitte schwingen"
+              }
+            },
+            {
+              "id": "swingTop",
+              "title": {
+                "en": "Swing top",
+                "nl": "Swing boven",
+                "de": "Swing Oberseite"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "horizontal_swing_is",
+      "title": {
+        "en": "Current horizontal swing !{{is|isn't}} ..."
+      },
+      "titleFormatted": {
+        "en": "Current horizontal swing !{{is|isn't}} [[horizontal_swing]]"
+      },
+      "args": [
+        {
+          "name": "horizontal_swing",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "default",
+              "title": {
+                "en": "Disabled",
+                "nl": "Uitgeschakeld",
+                "de": "Behindert"
+              }
+            },
+            {
+              "id": "full",
+              "title": {
+                "en": "Full range",
+                "nl": "Volledig bereik",
+                "de": "Vollständige Palette"
+              }
+            },
+            {
+              "id": "fixedLeft",
+              "title": {
+                "en": "Fixed left",
+                "nl": "Fixed links",
+                "de": "Feste Links"
+              }
+            },
+            {
+              "id": "fixedMidLeft",
+              "title": {
+                "en": "Fixed top left",
+                "nl": "Fixed midden links",
+                "de": "Feste obere Links"
+              }
+            },
+            {
+              "id": "fixedMid",
+              "title": {
+                "en": "Fixed middle",
+                "nl": "Fixed midden",
+                "de": "Feste Mitte"
+              }
+            },
+            {
+              "id": "fixedMidRight",
+              "title": {
+                "en": "Fixed middle right",
+                "nl": "Fixed midden rechts",
+                "de": "Mittlerer Boden fest"
+              }
+            },
+            {
+              "id": "fixedRight",
+              "title": {
+                "en": "Fixed right",
+                "nl": "Fixed rechts",
+                "de": "Feste Rechts"
+              }
+            },
+            {
+              "id": "fullAlt",
+              "title": {
+                "en": "Full range",
+                "nl": "Volledig bereik",
+                "de": "Vollständige Palette"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiet_mode_is",
+      "title": {
+        "en": "Current quiet mode !{{is|isn't}} ..."
+      },
+      "titleFormatted": {
+        "en": "Current quiet mode !{{is|isn't}} [[mode]]"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "off",
+              "title": {
+                "en": "Off",
+                "nl": "Uit",
+                "de": "Aus"
+              }
+            },
+            {
+              "id": "mode1",
+              "title": {
+                "en": "Mode 1",
+                "nl": "Mode 1",
+                "de": "Mode 1"
+              }
+            },
+            {
+              "id": "mode2",
+              "title": {
+                "en": "Mode 2",
+                "nl": "Mode 2",
+                "de": "Mode 2"
+              }
+            },
+            {
+              "id": "mode3",
+              "title": {
+                "en": "Mode 3",
+                "nl": "Mode 3",
+                "de": "Mode 3"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "id": "set_hvac_mode",
+      "deprecated": true,
+      "title": {
+        "en": "Set HVAC mode",
+        "nl": "Stel de HVAC-modus in",
+        "de": "Stellen Sie der HVAC modus ein"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "auto",
+              "label": {
+                "en": "Auto",
+                "nl": "Automatisch",
+                "de": "Automatisch"
+              }
+            },
+            {
+              "id": "cool",
+              "label": {
+                "en": "Cool",
+                "nl": "Koelen",
+                "de": "Kühlen"
+              }
+            },
+            {
+              "id": "heat",
+              "label": {
+                "en": "Heat",
+                "nl": "Verwarmen",
+                "de": "Heizen"
+              }
+            },
+            {
+              "id": "dry",
+              "label": {
+                "en": "Dry",
+                "nl": "Ontvochtigen",
+                "de": "Trocken"
+              }
+            },
+            {
+              "id": "fan_only",
+              "label": {
+                "en": "Fan Only",
+                "nl": "Alleen fans",
+                "de": "Nur Fan"
+              }
+            },
+            {
+              "id": "off",
+              "title": {
+                "en": "Off",
+                "nl": "Uit",
+                "de": "Aus"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "set_fan_speed",
+      "title": {
+        "en": "Set fan speed",
+        "nl": "Ventilatorsnelheid instellen",
+        "de": "Gebläsedrehzahl einstellen"
+      },
+      "args": [
+        {
+          "name": "speed",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "auto",
+              "label": {
+                "en": "Auto",
+                "nl": "Automatisch",
+                "de": "Automatisch"
+              }
+            },
+            {
+              "id": "low",
+              "label": {
+                "en": "Low",
+                "nl": "Laag",
+                "de": "Niedrig"
+              }
+            },
+            {
+              "id": "mediumLow",
+              "label": {
+                "en": "Medium Low",
+                "nl": "Gemiddeld Laag",
+                "de": "Mittel Niedrig"
+              }
+            },
+            {
+              "id": "medium",
+              "label": {
+                "en": "Medium",
+                "nl": "Gemiddeld",
+                "de": "Mittel"
+              }
+            },
+            {
+              "id": "mediumHigh",
+              "label": {
+                "en": "Medium High",
+                "nl": "Gemiddeld hoog",
+                "de": "Mittel hoch"
+              }
+            },
+            {
+              "id": "high",
+              "label": {
+                "en": "High",
+                "nl": "Hoog",
+                "de": "Hoch"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "set_turbo_mode",
+      "title": {
+        "en": "Set turbo mode",
+        "nl": "Stel de turbomodus in",
+        "de": "Stellen Sie den Turbo-Modus ein"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "on",
+              "label": {
+                "en": "On",
+                "nl": "Aan",
+                "de": "Einschalten"
+              }
+            },
+            {
+              "id": "off",
+              "label": {
+                "en": "Off",
+                "nl": "Uit",
+                "de": "Ausschalten"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "set_lights",
+      "title": {
+        "en": "Set lights",
+        "nl": "Lichten instellen",
+        "de": "Lichter einstellen"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "on",
+              "label": {
+                "en": "On",
+                "nl": "Aan",
+                "de": "Einschalten"
+              }
+            },
+            {
+              "id": "off",
+              "label": {
+                "en": "Off",
+                "nl": "Uit",
+                "de": "Ausschalten"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "set_xfan_mode",
+      "title": {
+        "en": "Set X-Fan mode",
+        "nl": "Stel de X-Fan modus in",
+        "de": "Stellen Sie den X-Fan modus ein"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "on",
+              "label": {
+                "en": "On",
+                "nl": "Aan",
+                "de": "Einschalten"
+              }
+            },
+            {
+              "id": "off",
+              "label": {
+                "en": "Off",
+                "nl": "Uit",
+                "de": "Ausschalten"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "set_vertical_swing",
+      "title": {
+        "en": "Set vertical swing",
+        "nl": "Verticale swing instellen",
+        "de": "Vertikale Schaukel einstellen"
+      },
+      "args": [
+        {
+          "name": "vertical_swing",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "default",
+              "title": {
+                "en": "Disabled",
+                "nl": "Uitgeschakeld",
+                "de": "Behindert"
+              }
+            },
+            {
+              "id": "full",
+              "title": {
+                "en": "Full range",
+                "nl": "Volledig bereik",
+                "de": "Vollständige Palette"
+              }
+            },
+            {
+              "id": "fixedTop",
+              "title": {
+                "en": "Fixed top",
+                "nl": "Fixed boven",
+                "de": "Feste Oberseite"
+              }
+            },
+            {
+              "id": "fixedMidTop",
+              "title": {
+                "en": "Fixed top middle",
+                "nl": "Fixed midden boven",
+                "de": "Feste obere Mitte"
+              }
+            },
+            {
+              "id": "fixedMid",
+              "title": {
+                "en": "Fixed middle",
+                "nl": "Fixed midden",
+                "de": "Feste Mitte"
+              }
+            },
+            {
+              "id": "fixedMidBottom",
+              "title": {
+                "en": "Fixed middle bottom",
+                "nl": "Fixed midden onder",
+                "de": "Mittlerer Boden fest"
+              }
+            },
+            {
+              "id": "fixedBottom",
+              "title": {
+                "en": "Fixed bottom",
+                "nl": "Fixed onder",
+                "de": "Feste Unterseite"
+              }
+            },
+            {
+              "id": "swingBottom",
+              "title": {
+                "en": "Swing bottom",
+                "nl": "Swing onder",
+                "de": "Swing Unterseite"
+              }
+            },
+            {
+              "id": "swingMid",
+              "title": {
+                "en": "Swing middle",
+                "nl": "Swing midden",
+                "de": "Mitte schwingen"
+              }
+            },
+            {
+              "id": "swingTop",
+              "title": {
+                "en": "Swing top",
+                "nl": "Swing boven",
+                "de": "Swing Oberseite"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "set_horizontal_swing",
+      "title": {
+        "en": "Set horizontal swing",
+        "nl": "Horizontale swing instellen",
+        "de": "Horizontales Schaukel einstellen"
+      },
+      "args": [
+        {
+          "name": "horizontal_swing",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "default",
+              "title": {
+                "en": "Disabled",
+                "nl": "Uitgeschakeld",
+                "de": "Behindert"
+              }
+            },
+            {
+              "id": "full",
+              "title": {
+                "en": "Full range",
+                "nl": "Volledig bereik",
+                "de": "Vollständige Palette"
+              }
+            },
+            {
+              "id": "fixedLeft",
+              "title": {
+                "en": "Fixed left",
+                "nl": "Fixed links",
+                "de": "Feste Links"
+              }
+            },
+            {
+              "id": "fixedMidLeft",
+              "title": {
+                "en": "Fixed top left",
+                "nl": "Fixed midden links",
+                "de": "Feste obere Links"
+              }
+            },
+            {
+              "id": "fixedMid",
+              "title": {
+                "en": "Fixed middle",
+                "nl": "Fixed midden",
+                "de": "Feste Mitte"
+              }
+            },
+            {
+              "id": "fixedMidRight",
+              "title": {
+                "en": "Fixed middle right",
+                "nl": "Fixed midden rechts",
+                "de": "Mittlerer Boden fest"
+              }
+            },
+            {
+              "id": "fixedRight",
+              "title": {
+                "en": "Fixed right",
+                "nl": "Fixed rechts",
+                "de": "Feste Rechts"
+              }
+            },
+            {
+              "id": "fullAlt",
+              "title": {
+                "en": "Full range",
+                "nl": "Volledig bereik",
+                "de": "Vollständige Palette"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "set_quiet_mode",
+      "title": {
+        "en": "Set quiet mode",
+        "nl": "Stel de quiet-modus in",
+        "de": "Stellen Sie der quiet modus ein"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "off",
+              "title": {
+                "en": "Off",
+                "nl": "Uit",
+                "de": "Aus"
+              }
+            },
+            {
+              "id": "mode1",
+              "title": {
+                "en": "Mode 1",
+                "nl": "Mode 1",
+                "de": "Mode 1"
+              }
+            },
+            {
+              "id": "mode2",
+              "title": {
+                "en": "Mode 2",
+                "nl": "Mode 2",
+                "de": "Mode 2"
+              }
+            },
+            {
+              "id": "mode3",
+              "title": {
+                "en": "Mode 3",
+                "nl": "Mode 3",
+                "de": "Mode 3"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Lights mode",
+    "nl": "Lichten modus",
+    "de": "Lichtmodus"
+  },
+  "desc": {
+    "en": "Lights mode on the HVAC panel",
+    "nl": "Lichten modus op het airconditioner paneel",
+    "de": "Lichtmodus auf dem Klimaanlage-Panel"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "toggle"
+}

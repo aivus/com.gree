@@ -1,0 +1,66 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Fan speed",
+    "nl": "Ventilator snelheid",
+    "de": "Lüftergeschwindigkeit"
+  },
+  "desc": {
+    "en": "Speed of the HVAC's fan",
+    "nl": "Snelheid van de HVAC-ventilator",
+    "de": "Drehzahl der HVAC"
+  },
+  "values": [
+    {
+      "id": "auto",
+      "title": {
+        "en": "Auto",
+        "nl": "Automatisch",
+        "de": "Automatisch"
+      }
+    },
+    {
+      "id": "low",
+      "title": {
+        "en": "Low",
+        "nl": "Laag",
+        "de": "Niedrig"
+      }
+    },
+    {
+      "id": "mediumLow",
+      "title": {
+        "en": "Medium Low",
+        "nl": "Gemiddeld Laag",
+        "de": "Mittel Niedrig"
+      }
+    },
+    {
+      "id": "medium",
+      "title": {
+        "en": "Medium",
+        "nl": "Gemiddeld",
+        "de": "Mittel"
+      }
+    },
+    {
+      "id": "mediumHigh",
+      "title": {
+        "en": "Medium High",
+        "nl": "Gemiddeld hoog",
+        "de": "Mittel hoch"
+      }
+    },
+    {
+      "id": "high",
+      "title": {
+        "en": "High",
+        "nl": "Hoog",
+        "de": "Hoch"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true,
+  "uiComponent": "picker"
+}

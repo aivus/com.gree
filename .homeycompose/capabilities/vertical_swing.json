@@ -1,0 +1,98 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Vertical swing",
+    "nl": "Verticale swing",
+    "de": "Vertikale Schaukel"
+  },
+  "desc": {
+    "en": "Position of the fan swing",
+    "nl": "Positie van de fan swing",
+    "de": "Position der fan swing"
+  },
+  "values": [
+    {
+      "id": "default",
+      "title": {
+        "en": "Disabled",
+        "nl": "Uitgeschakeld",
+        "de": "Behindert"
+      }
+    },
+    {
+      "id": "full",
+      "title": {
+        "en": "Full range",
+        "nl": "Volledig bereik",
+        "de": "Vollständige Palette"
+      }
+    },
+    {
+      "id": "fixedTop",
+      "title": {
+        "en": "Fixed top",
+        "nl": "Fixed boven",
+        "de": "Feste Oberseite"
+      }
+    },
+    {
+      "id": "fixedMidTop",
+      "title": {
+        "en": "Fixed top middle",
+        "nl": "Fixed midden boven",
+        "de": "Feste obere Mitte"
+      }
+    },
+    {
+      "id": "fixedMid",
+      "title": {
+        "en": "Fixed middle",
+        "nl": "Fixed midden",
+        "de": "Feste Mitte"
+      }
+    },
+    {
+      "id": "fixedMidBottom",
+      "title": {
+        "en": "Fixed middle bottom",
+        "nl": "Fixed midden onder",
+        "de": "Mittlerer Boden fest"
+      }
+    },
+    {
+      "id": "fixedBottom",
+      "title": {
+        "en": "Fixed bottom",
+        "nl": "Fixed onder",
+        "de": "Feste Unterseite"
+      }
+    },
+    {
+      "id": "swingBottom",
+      "title": {
+        "en": "Swing bottom",
+        "nl": "Swing onder",
+        "de": "Swing Unterseite"
+      }
+    },
+    {
+      "id": "swingMid",
+      "title": {
+        "en": "Swing middle",
+        "nl": "Swing midden",
+        "de": "Mitte schwingen"
+      }
+    },
+    {
+      "id": "swingTop",
+      "title": {
+        "en": "Swing top",
+        "nl": "Swing boven",
+        "de": "Swing Oberseite"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true,
+  "uiComponent": "picker"
+}

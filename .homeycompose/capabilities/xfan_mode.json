@@ -1,0 +1,16 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "X-Fan mode",
+    "nl": "X-Fan modus",
+    "de": "X-Fan Modus"
+  },
+  "desc": {
+    "en": "X-Fan mode of the HVAC's fan",
+    "nl": "X-Fan modus van de ventilator van de HVAC",
+    "de": "X-Fan modus des Lüfters der Klimaanlage"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "toggle"
+}
