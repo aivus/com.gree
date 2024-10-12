@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/aivus/com.gree#readme",
   "dependencies": {
-    "gree-hvac-client": "github:aivus/gree-hvac-client#com.gree/encryption",
+    "gree-hvac-client": "github:aivus/gree-hvac-client#com.gree/gcm",
     "homey-log": "^2.1.0"
   },
   "devDependencies": {
