@@ -68,5 +68,8 @@
   },
   "0.9.4": {
     "en": "Add support of \"8°C heating\" mode"
+  },
+  "0.9.5": {
+    "en": "Enable encryption mode autodetection"
   }
 }
