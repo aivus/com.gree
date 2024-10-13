@@ -106,6 +106,37 @@
       "hint": {
         "en": "Enable debug in case the application is crashing. It allows developer to investigate the issue"
       }
+    },
+    {
+      "id": "encryption_mode",
+      "type": "dropdown",
+      "value": "auto",
+      "label": {
+        "en": "Encryption mode"
+      },
+      "hint": {
+        "en": "Encryption mode used by the HVAC. Most recent firmwares use V2"
+      },
+      "values": [
+        {
+          "id": "auto",
+          "label": {
+            "en": "Autodetect (not implemented yet, V1 used instead)"
+          }
+        },
+        {
+          "id": "v1",
+          "label": {
+            "en": "V1 (HVAC Firmware versions <1.21)"
+          }
+        },
+        {
+          "id": "v2",
+          "label": {
+            "en": "V2 (HVAC Firmware versions >=1.21)"
+          }
+        }
+      ]
     }
   ],
   "images": {
