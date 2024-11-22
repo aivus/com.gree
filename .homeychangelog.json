@@ -77,5 +77,8 @@
   },
   "0.9.7": {
     "en": "Revert back to the 0.9.4"
+  },
+  "0.9.8": {
+    "en": "Second try to implement encryption mode autodetection"
   }
 }
