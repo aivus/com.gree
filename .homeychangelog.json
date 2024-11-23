@@ -80,5 +80,8 @@
   },
   "0.9.8": {
     "en": "Second try to implement encryption mode autodetection"
+  },
+  "0.9.9": {
+    "en": "Second try to implement encryption mode autodetection"
   }
 }
