@@ -10,6 +10,7 @@ Supported Wi-Fi HVACs:
 * Innova
 * Tadiran
 * Copmax
+* Syen
 
 If you found that your HVAC works and brand is not mentioned above please create an issue to add this brand as compatible
 

@@ -20,6 +20,7 @@ If you want to thank the author of this app you can use [GitHub Sponsors](https:
 * Innova
 * Tadiran
 * Copmax
+* Syen
 
 *This app is tested using Cooper&Hunter Alpha CH-S18FTXE*
 
