@@ -81,7 +81,6 @@ class GreeHVACDevice extends Homey.Device {
         }
 
         const deviceData = this.getData();
-        const settings = this.getSettings();
 
         this.log('[find devices]', 'Finding device with mac:', deviceData.mac);
 
@@ -97,8 +96,7 @@ class GreeHVACDevice extends Homey.Device {
             this._stopLookingForDevice();
 
             this._client = new HVAC.Client({
-                // TODO: Permanent debug mode enabled
-                debug: settings.enable_debug || true,
+                debug: true,
                 host: hvac.remoteInfo.address,
                 pollingInterval: POLLING_INTERVAL,
                 pollingTimeout: POLLING_TIMEOUT,
@@ -664,17 +662,6 @@ class GreeHVACDevice extends Homey.Device {
         if (this._client) {
             this._client.setProperty(property, value);
         }
-    }
-
-    async onSettings({ oldSettings, newSettings, changedKeys }) {
-        if (changedKeys.indexOf('enable_debug') > -1) {
-            this.log('Changing the debug setting from', oldSettings.enable_debug, 'to', newSettings.enable_debug);
-            if (this._client) {
-                this._client.setDebug(newSettings.enable_debug);
-            }
-        }
-
-        return Promise.resolve();
     }
 
     reconnect() {

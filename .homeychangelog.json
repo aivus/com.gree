@@ -83,5 +83,8 @@
   },
   "0.9.9": {
     "en": "Second try to implement encryption mode autodetection"
+  },
+  "0.9.10": {
+    "en": "Remove \"debug\" setting.\n\rPrepare for stable release of the app"
   }
 }
