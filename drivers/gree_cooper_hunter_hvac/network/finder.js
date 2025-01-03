@@ -2,6 +2,8 @@
 
 const dgram = require('dgram');
 const { EncryptionService } = require('gree-hvac-client/src/encryption-service');
+const { createLogger } = require('gree-hvac-client/src/logger');
+const { randomUUID } = require('crypto');
 
 const SCAN_MESSAGE = Buffer.from('{"t": "scan"}');
 const THIRTY_SECONDS = 30 * 1000;
@@ -9,7 +11,11 @@ const THIRTY_SECONDS = 30 * 1000;
 class Finder {
 
     constructor() {
-        this._encryptionService = new EncryptionService();
+        const encryptionServiceLogger = createLogger('debug').child({
+            service: 'finder',
+            sid: randomUUID(),
+        });
+        this._encryptionService = new EncryptionService(encryptionServiceLogger);
         this._hvacs = {};
         this.start();
     }
