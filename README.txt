@@ -3,7 +3,7 @@ This app adds support of Gree compatible HVACs to Homey.
 Supported Wi-Fi HVACs:
 * Gree
 * Argo
-* Cooper&Hunter
+* Cooper & Hunter
 * Daitsu
 * Tosot
 * Wilfa
@@ -11,11 +11,15 @@ Supported Wi-Fi HVACs:
 * Tadiran
 * Copmax
 * Syen
+* Trane
+* Proklima
+* Heiwa
+* Ekokai
+* Lessar
 
 If you found that your HVAC works and brand is not mentioned above please create an issue to add this brand as compatible
 
-* This app is tested using next devices:
-Cooper&Hunter Alpha CH-S18FTXE (Wi-Fi)
+* This app is tested using Cooper & Hunter Alpha CH-S18FTXE
 
 Notes
 * Fan speed

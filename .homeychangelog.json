@@ -86,5 +86,8 @@
   },
   "0.9.10": {
     "en": "Remove \"debug\" setting.\n\rPrepare for stable release of the app"
+  },
+  "0.9.11": {
+    "en": "Added more supported brands.\n\rUpdate dependencies"
   }
 }

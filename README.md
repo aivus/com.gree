@@ -13,7 +13,7 @@ If you want to thank the author of this app you can use [GitHub Sponsors](https:
 ## Supported Wi-Fi HVACs
 * Gree
 * Argo
-* Cooper&Hunter
+* Cooper & Hunter
 * Daitsu
 * Tosot
 * Wilfa
@@ -21,8 +21,13 @@ If you want to thank the author of this app you can use [GitHub Sponsors](https:
 * Tadiran
 * Copmax
 * Syen
+* Trane
+* Proklima
+* Heiwa
+* Ekokai
+* Lessar
 
-*This app is tested using Cooper&Hunter Alpha CH-S18FTXE*
+*This app is tested using Cooper & Hunter Alpha CH-S18FTXE*
 
 *If you found that your HVAC works and brand is not mentioned above please create an issue to add this brand as compatible*
 
