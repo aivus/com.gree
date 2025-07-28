@@ -89,5 +89,8 @@
   },
   "0.9.11": {
     "en": "Added more supported brands.\n\rUpdate dependencies"
+  },
+  "0.9.12": {
+    "en": "Fix an issue with app crash when turning the AC on"
   }
 }
