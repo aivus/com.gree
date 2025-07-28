@@ -92,5 +92,8 @@
   },
   "0.9.12": {
     "en": "Fix an issue with app crash when turning the AC on"
+  },
+  "0.9.13": {
+    "en": "Improved logging"
   }
 }
