@@ -137,7 +137,11 @@ class GreeHVACDevice extends Homey.Device {
             } else {
                 // Restore thermostat_mode.
                 const properties = this._client._transformer.fromVendor(this._client._properties);
-                this.setCapabilityValue('thermostat_mode', HVAC.VALUE.mode[properties[HVAC.PROPERTY.mode]]);
+                const mode = properties[HVAC.PROPERTY.mode];
+
+                if (mode !== undefined) {
+                    this.setCapabilityValue('thermostat_mode', HVAC.VALUE.mode[mode]);
+                }
             }
 
             return Promise.resolve();
