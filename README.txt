@@ -16,6 +16,7 @@ Supported Wi-Fi HVACs:
 * Heiwa
 * Ekokai
 * Lessar
+* Altech
 
 If you found that your HVAC works and brand is not mentioned above please create an issue to add this brand as compatible
 
