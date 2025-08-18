@@ -96,7 +96,7 @@ class GreeHVACDevice extends Homey.Device {
             this._stopLookingForDevice();
 
             this._client = new HVAC.Client({
-                debug: true,
+                logLevel: 'debug',
                 host: hvac.remoteInfo.address,
                 pollingInterval: POLLING_INTERVAL,
                 pollingTimeout: POLLING_TIMEOUT,
