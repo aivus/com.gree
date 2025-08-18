@@ -95,5 +95,8 @@
   },
   "0.9.13": {
     "en": "Improved logging"
+  },
+  "0.9.14": {
+    "en": "[Technical] Improved logging"
   }
 }
