@@ -11,18 +11,18 @@ const THIRTY_SECONDS = 30 * 1000;
 class Finder {
 
     constructor() {
-        const encryptionServiceLogger = createLogger('debug').child({
+        this._encryptionServiceLogger = createLogger('info').child({
             service: 'finder',
             sid: randomUUID(),
         });
-        this._encryptionService = new EncryptionService(encryptionServiceLogger);
+        this._encryptionService = new EncryptionService(this._encryptionServiceLogger);
         this._hvacs = {};
         this.start();
     }
 
     start() {
         this._listen();
-        console.debug('[finder]', 'start listening');
+        this._encryptionServiceLogger.info('start listening');
         this.server.on('listening', () => {
             this._broadcast();
             this.broadcastInterval = setInterval(this._broadcast.bind(this), THIRTY_SECONDS);
@@ -41,19 +41,19 @@ class Finder {
     }
 
     _broadcast() {
-        console.debug('[finder]', 'send broadcast message');
+        this._encryptionServiceLogger.info('send broadcast message');
         this.server.setBroadcast(true);
         this.server.send(SCAN_MESSAGE, 0, SCAN_MESSAGE.length, 7000, '255.255.255.255');
     }
 
     _onMessage(message, remoteInfo) {
-        console.debug('[finder]', 'message received', message);
+        this._encryptionServiceLogger.info('message received', { message });
         try {
             const parsedMessage = JSON.parse(message);
 
             // Skip scan messages
             if (parsedMessage.t === 'scan') {
-                console.debug('[finder]', 'scan message. Skipping...');
+                this._encryptionServiceLogger.info('scan message. Skipping...');
                 return;
             }
 
@@ -61,7 +61,10 @@ class Finder {
 
             this._hvacs[decryptedMessage.mac] = { message: decryptedMessage, remoteInfo };
 
-            console.debug('[finder]', 'HVAC found. Remote info: ', remoteInfo, 'Message: ', decryptedMessage);
+            this._encryptionServiceLogger.info('HVAC found', {
+                remoteInfo,
+                decryptedMessage,
+            });
 
             // { t: 'dev',
             //     cid: 'f4911e46fbd5',
@@ -77,13 +80,15 @@ class Finder {
             //     ver: 'V1.1.13',
             //     lock: 0 }
         } catch (e) {
-            console.error(e);
+            this._encryptionServiceLogger.error('Error occurred', {
+                exception: e,
+                message,
+            });
         }
     }
 
     _restart(reason) {
-        console.error('error occurs, restart server');
-        if (reason) console.error(reason);
+        this._encryptionServiceLogger.error('restart server', { reason });
         clearInterval(this.broadcastInterval);
         this.server.close();
 
