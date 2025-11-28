@@ -9,7 +9,7 @@ jobs:
     name: Validate Homey App
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: athombv/github-action-homey-app-validate@v1
         with:
           level: publish
