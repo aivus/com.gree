@@ -18,7 +18,7 @@
   "homepage": "https://github.com/aivus/com.gree#readme",
   "dependencies": {
     "gree-hvac-client": "^2.2.0",
-    "homey-log": "^2.1.0"
+    "homey-log": "^2.1.2"
   },
   "devDependencies": {
     "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.7",
