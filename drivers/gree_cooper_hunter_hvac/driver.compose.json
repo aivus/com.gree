@@ -93,6 +93,33 @@
     {
       "id": "add_my_devices",
       "template": "add_devices"
+    },
+    {
+      "id": "add_static_ip",
+      "navigation": {
+        "next": "list_devices"
+      }
+    }
+  ],
+  "settings": [
+    {
+      "type": "group",
+      "label": {
+        "en": "Network"
+      },
+      "children": [
+        {
+          "id": "static_ip",
+          "type": "text",
+          "label": {
+            "en": "Static IP Address"
+          },
+          "hint": {
+            "en": "Leave empty to use auto-discovery. Set to force a direct connection to a specific IP address."
+          },
+          "value": ""
+        }
+      ]
     }
   ],
   "images": {

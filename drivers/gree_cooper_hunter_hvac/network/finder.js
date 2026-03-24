@@ -61,6 +61,14 @@ class Finder {
 
             this._hvacs[decryptedMessage.mac] = { message: decryptedMessage, remoteInfo };
 
+            // Resolve any pending probe for this IP
+            if (this._pendingProbes && this._pendingProbes[remoteInfo.address]) {
+                const probe = this._pendingProbes[remoteInfo.address];
+                clearTimeout(probe.timeoutRef);
+                delete this._pendingProbes[remoteInfo.address];
+                probe.resolve({ message: decryptedMessage, remoteInfo });
+            }
+
             this._encryptionServiceLogger.info('HVAC found', {
                 remoteInfo,
                 decryptedMessage,
@@ -93,6 +101,29 @@ class Finder {
         this.server.close();
 
         this.start();
+    }
+
+    /**
+     * Send a unicast scan to a specific IP and resolve with the device info when it responds.
+     *
+     * @param {string} ip
+     * @returns {Promise<{message: object, remoteInfo: object}>}
+     */
+    probe(ip) {
+        return new Promise((resolve, reject) => {
+            if (!this._pendingProbes) {
+                this._pendingProbes = {};
+            }
+
+            const timeoutRef = setTimeout(() => {
+                delete this._pendingProbes[ip];
+                reject(new Error(`No response from device at ${ip}`));
+            }, 5000);
+
+            this._pendingProbes[ip] = { resolve, reject, timeoutRef };
+
+            this.server.send(SCAN_MESSAGE, 0, SCAN_MESSAGE.length, 7000, ip);
+        });
     }
 
     get hvacs() {

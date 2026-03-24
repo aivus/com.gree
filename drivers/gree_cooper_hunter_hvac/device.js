@@ -71,12 +71,21 @@ class GreeHVACDevice extends Homey.Device {
     /**
      * Check all available HVACs from the Finder module
      * and try to find one which will work with this Device instance
-     * based on MAC address
+     * based on MAC address. If a static IP is configured, connect directly.
      *
      * @private
      */
     _findDevices() {
         if (this._client) {
+            return;
+        }
+
+        const staticIp = this.getSetting('static_ip');
+
+        if (staticIp) {
+            this.log('[find devices]', 'Using static IP:', staticIp);
+            this._stopLookingForDevice();
+            this._connectToHost(staticIp);
             return;
         }
 
@@ -94,17 +103,26 @@ class GreeHVACDevice extends Homey.Device {
             this.log('[find devices]', 'Connecting to device with mac:', hvac.message.mac);
 
             this._stopLookingForDevice();
-
-            this._client = new HVAC.Client({
-                logLevel: 'debug',
-                host: hvac.remoteInfo.address,
-                pollingInterval: POLLING_INTERVAL,
-                pollingTimeout: POLLING_TIMEOUT,
-                connectTimeout: CONNECT_TIMEOUT,
-            });
-
-            this._registerClientListeners();
+            this._connectToHost(hvac.remoteInfo.address);
         });
+    }
+
+    /**
+     * Create a client for the given host and register listeners.
+     *
+     * @param {string} host
+     * @private
+     */
+    _connectToHost(host) {
+        this._client = new HVAC.Client({
+            logLevel: 'debug',
+            host,
+            pollingInterval: POLLING_INTERVAL,
+            pollingTimeout: POLLING_TIMEOUT,
+            connectTimeout: CONNECT_TIMEOUT,
+        });
+
+        this._registerClientListeners();
     }
 
     /**
