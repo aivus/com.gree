@@ -1,0 +1,65 @@
+<div style="max-width: 400px; margin: 0 auto; padding: 16px;">
+  <p data-i18n="pair.static_ip.description"></p>
+  <form id="form">
+    <label>
+      <span data-i18n="pair.static_ip.label"></span><br />
+      <input
+        type="text"
+        id="ip_address"
+        placeholder="192.168.1.100"
+        pattern="^\d{1,3}(\.\d{1,3}){3}$"
+        style="width: 100%; margin-top: 8px; margin-bottom: 8px; padding: 6px;"
+        required
+      />
+    </label>
+
+    <label style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; cursor: pointer;">
+      <input type="checkbox" id="skip_scan" />
+      <span data-i18n="pair.static_ip.skip_scan"></span>
+    </label>
+
+    <div id="name_row" style="display: none;">
+      <label>
+        <span data-i18n="pair.static_ip.name_label"></span><br />
+        <input
+          type="text"
+          id="device_name"
+          style="width: 100%; margin-top: 8px; margin-bottom: 8px; padding: 6px;"
+        />
+      </label>
+    </div>
+
+    <p id="error" style="color: red; display: none;"></p>
+    <button type="submit" data-i18n="pair.static_ip.button" style="width: 100%; padding: 8px;"></button>
+  </form>
+</div>
+
+<script>
+  document.getElementById('skip_scan').addEventListener('change', function () {
+    document.getElementById('name_row').style.display = this.checked ? 'block' : 'none';
+  });
+
+  document.getElementById('form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var ip = document.getElementById('ip_address').value.trim();
+    var skipScan = document.getElementById('skip_scan').checked;
+    var name = document.getElementById('device_name').value.trim();
+    var errorEl = document.getElementById('error');
+    errorEl.style.display = 'none';
+
+    Homey.showLoadingOverlay();
+
+    Homey.emit('addStaticDevice', { ip: ip, skipScan: skipScan, name: name }, function (err) {
+      Homey.hideLoadingOverlay();
+
+      if (err) {
+        errorEl.textContent = err.message || err;
+        errorEl.style.display = 'block';
+        return;
+      }
+
+      Homey.showView('list_devices');
+    });
+  });
+</script>
