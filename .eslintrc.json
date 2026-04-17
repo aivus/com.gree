@@ -13,7 +13,9 @@
                 "jest": true
             },
             "rules": {
-                "node/no-unpublished-require": "off"
+                "node/no-unpublished-require": "off",
+                "mocha/no-mocha-arrows": "off",
+                "global-require": "off"
             }
         }
     ]
