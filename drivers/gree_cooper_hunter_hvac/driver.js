@@ -10,19 +10,46 @@ class GreeHVACDriver extends Homey.Driver {
         this._finder = finder;
     }
 
-    async onPairListDevices() {
-        const devices = this._finder.hvacs.map(GreeHVACDriver.hvacToDevice);
+    async onPair(session) {
+        // Devices added manually via static IP during this pair session
+        const staticDevices = [];
 
-        // // Test device for debugging without connected HVAC
-        // devices.push({
-        //     name: 'test',
-        //     data: {
-        //         id: 'test',
-        //         mac: 'test',
-        //     },
-        // });
+        session.setHandler('list_devices', async () => {
+            const found = finder.hvacs.map(GreeHVACDriver.hvacToDevice);
 
-        return devices;
+            // Include static devices, skipping any already found via broadcast
+            const foundMacs = new Set(found.map((d) => d.data.mac));
+            const manual = staticDevices
+                .filter((hvac) => !foundMacs.has(hvac.message.mac))
+                .map((hvac) => ({
+                    ...GreeHVACDriver.hvacToDevice(hvac),
+                    settings: { static_ip: hvac.remoteInfo.address },
+                }));
+
+            return [...found, ...manual];
+        });
+
+        session.setHandler('addStaticDevice', async ({ ip, skipScan, name }) => {
+            if (!ip || !/^\d{1,3}(\.\d{1,3}){3}$/.test(ip.trim())) {
+                throw new Error('Invalid IP address');
+            }
+
+            const cleanIp = ip.trim();
+
+            if (skipScan) {
+                const deviceName = (name && name.trim()) || cleanIp;
+                const hvac = {
+                    message: { cid: cleanIp, mac: cleanIp, name: deviceName },
+                    remoteInfo: { address: cleanIp },
+                };
+                staticDevices.push(hvac);
+                return GreeHVACDriver.hvacToDevice(hvac);
+            }
+
+            const hvac = await finder.probe(cleanIp);
+            staticDevices.push(hvac);
+            return GreeHVACDriver.hvacToDevice(hvac);
+        });
     }
 
     static hvacToDevice(hvac) {
