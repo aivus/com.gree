@@ -15,9 +15,21 @@ class GreeHVACDriver extends Homey.Driver {
         const staticDevices = [];
 
         session.setHandler('list_devices', async () => {
-            const found = finder.hvacs.map(GreeHVACDriver.hvacToDevice);
+            const staticIpByMac = {};
+            for (const hvac of staticDevices) {
+                staticIpByMac[hvac.message.mac] = hvac.remoteInfo.address;
+            }
 
-            // Include static devices, skipping any already found via broadcast
+            const found = finder.hvacs.map((hvac) => {
+                const device = GreeHVACDriver.hvacToDevice(hvac);
+                const staticIp = staticIpByMac[hvac.message.mac];
+                if (staticIp) {
+                    device.settings = { static_ip: staticIp };
+                }
+                return device;
+            });
+
+            // Include static devices not found via broadcast
             const foundMacs = new Set(found.map((d) => d.data.mac));
             const manual = staticDevices
                 .filter((hvac) => !foundMacs.has(hvac.message.mac))
