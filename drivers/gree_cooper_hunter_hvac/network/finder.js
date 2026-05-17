@@ -110,20 +110,37 @@ class Finder {
      * @returns {Promise<{message: object, remoteInfo: object}>}
      */
     probe(ip) {
-        return new Promise((resolve, reject) => {
-            if (!this._pendingProbes) {
-                this._pendingProbes = {};
-            }
+        if (!this._pendingProbes) {
+            this._pendingProbes = {};
+        }
 
-            const timeoutRef = setTimeout(() => {
+        if (this._pendingProbes[ip]) {
+            return this._pendingProbes[ip].promise;
+        }
+
+        let timeoutRef;
+        let resolveProbe;
+        let rejectProbe;
+
+        const promise = new Promise((resolve, reject) => {
+            resolveProbe = resolve;
+            rejectProbe = reject;
+            timeoutRef = setTimeout(() => {
                 delete this._pendingProbes[ip];
                 reject(new Error(`No response from device at ${ip}`));
             }, 5000);
-
-            this._pendingProbes[ip] = { resolve, reject, timeoutRef };
-
-            this.server.send(SCAN_MESSAGE, 0, SCAN_MESSAGE.length, 7000, ip);
         });
+
+        this._pendingProbes[ip] = {
+            promise,
+            resolve: resolveProbe,
+            reject: rejectProbe,
+            timeoutRef,
+        };
+
+        this.server.send(SCAN_MESSAGE, 0, SCAN_MESSAGE.length, 7000, ip);
+
+        return promise;
     }
 
     get hvacs() {

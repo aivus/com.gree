@@ -91,6 +91,16 @@ describe('Finder.probe()', () => {
         expect(resolved).not.toHaveBeenCalled();
     });
 
+    test('reuses an in-flight probe for the same IP', async () => {
+        const firstProbe = finder.probe('192.168.1.50');
+        const secondProbe = finder.probe('192.168.1.50');
+
+        fakeSocket.emit('message', Buffer.from('{"t":"dev","pack":"x"}'), { address: '192.168.1.50' });
+
+        await expect(firstProbe).resolves.toEqual(await secondProbe);
+        expect(fakeSocket.send).toHaveBeenCalledTimes(1);
+    });
+
     test('rejects after 5 seconds with no response', async () => {
         const probePromise = finder.probe('192.168.1.50');
 
