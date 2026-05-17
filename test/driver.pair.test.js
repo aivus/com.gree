@@ -46,6 +46,12 @@ describe('GreeHVACDriver.onPair()', () => {
 
             await expect(handlers.addStaticDevice({ ip: '' }))
                 .rejects.toThrow('Invalid IP address');
+
+            await expect(handlers.addStaticDevice({ ip: '256.168.1.10' }))
+                .rejects.toThrow('Invalid IP address');
+
+            await expect(handlers.addStaticDevice({ ip: '192.168.1.999' }))
+                .rejects.toThrow('Invalid IP address');
         });
 
         test('calls finder.probe() when skipScan is false', async () => {

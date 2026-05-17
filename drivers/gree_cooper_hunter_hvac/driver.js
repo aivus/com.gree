@@ -42,7 +42,7 @@ class GreeHVACDriver extends Homey.Driver {
         });
 
         session.setHandler('addStaticDevice', async ({ ip, skipScan, name }) => {
-            if (!ip || !/^\d{1,3}(\.\d{1,3}){3}$/.test(ip.trim())) {
+            if (!GreeHVACDriver.isValidIpv4(ip)) {
                 throw new Error('Invalid IP address');
             }
 
@@ -61,6 +61,22 @@ class GreeHVACDriver extends Homey.Driver {
             const hvac = await finder.probe(cleanIp);
             staticDevices.push(hvac);
             return GreeHVACDriver.hvacToDevice(hvac);
+        });
+    }
+
+    static isValidIpv4(ip) {
+        if (!ip) {
+            return false;
+        }
+
+        const octets = ip.trim().split('.');
+        return octets.length === 4 && octets.every((octet) => {
+            if (!/^\d+$/.test(octet)) {
+                return false;
+            }
+
+            const value = Number(octet);
+            return value >= 0 && value <= 255;
         });
     }
 

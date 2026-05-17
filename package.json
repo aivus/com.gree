@@ -10,7 +10,7 @@
   "jest": {
     "testEnvironment": "node",
     "testMatch": [
-      "**/test/**/*.test.js"
+      "<rootDir>/test/**/*.test.js"
     ]
   },
   "repository": {
