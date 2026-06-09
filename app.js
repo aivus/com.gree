@@ -4,6 +4,8 @@ const Homey = require('homey');
 // eslint-disable-next-line no-unused-vars
 const { Log } = require('homey-log');
 
+const Sentry = require('@sentry/node-core');
+
 class GreeHVAC extends Homey.App {
 
     async onInit() {
@@ -12,6 +14,18 @@ class GreeHVAC extends Homey.App {
             options: {
                 autoBreadcrumbs: true,
                 release: Homey.manifest.version,
+                defaultIntegrations: false,
+                integrations: [
+                    Sentry.consoleIntegration(),
+                    Sentry.contextLinesIntegration(),
+                    // Sentry.nodeContextIntegration(),
+                    Sentry.dedupeIntegration(),
+                    Sentry.functionToStringIntegration(),
+                    Sentry.eventFiltersIntegration(),
+                    Sentry.linkedErrorsIntegration(),
+                    Sentry.onUncaughtExceptionIntegration(),
+                    Sentry.onUnhandledRejectionIntegration(),
+                ],
             },
         });
         this.log('Gree HVAC app is up and running...');
