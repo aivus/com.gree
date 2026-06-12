@@ -1,2 +1,12 @@
 <p data-i18n="pair.intro.p1"></p>
 <p data-i18n="pair.intro.p2"></p>
+<p>
+  <a href="#" id="static_ip_link" data-i18n="pair.intro.static_ip_link"></a>
+</p>
+
+<script>
+  document.getElementById('static_ip_link').addEventListener('click', function (e) {
+    e.preventDefault();
+    Homey.showView('add_static_ip');
+  });
+</script>

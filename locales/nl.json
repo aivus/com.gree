@@ -2,7 +2,16 @@
     "pair": {
         "intro": {
             "p1": "Voordat je verder gaat, moet je de Airco verbinden met je huidige WiFi-netwerk.",
-            "p2": "Dit kan je doen met behulp van een app van de fabrikant zoals <i>EWPE Smart</i> of via de CLI zoals beschreven in de README van de app (geavanceerde gebruikers)"
+            "p2": "Dit kan je doen met behulp van een app van de fabrikant zoals <i>EWPE Smart</i> of via de CLI zoals beschreven in de README van de app (geavanceerde gebruikers)",
+            "static_ip_link": "Mijn apparaat heeft een statisch IP-adres →"
+        },
+        "static_ip": {
+            "description": "Voer het statische IP-adres van je HVAC-apparaat in. Het apparaat moet bereikbaar zijn op je netwerk.",
+            "label": "IP-adres",
+            "skip_scan": "UDP-scan overslaan (gebruik dit als UDP geblokkeerd is)",
+            "name_label": "Apparaatnaam (optioneel)",
+            "button": "Apparaat zoeken",
+            "error_no_response": "Geen reactie van het apparaat. Controleer het IP-adres en zorg dat het apparaat bereikbaar is."
         }
     },
     "error": {

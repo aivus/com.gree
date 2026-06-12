@@ -10,19 +10,74 @@ class GreeHVACDriver extends Homey.Driver {
         this._finder = finder;
     }
 
-    async onPairListDevices() {
-        const devices = this._finder.hvacs.map(GreeHVACDriver.hvacToDevice);
+    async onPair(session) {
+        // Devices added manually via static IP during this pair session
+        const staticDevices = [];
 
-        // // Test device for debugging without connected HVAC
-        // devices.push({
-        //     name: 'test',
-        //     data: {
-        //         id: 'test',
-        //         mac: 'test',
-        //     },
-        // });
+        session.setHandler('list_devices', async () => {
+            const staticIpByMac = {};
+            for (const hvac of staticDevices) {
+                staticIpByMac[hvac.message.mac] = hvac.remoteInfo.address;
+            }
 
-        return devices;
+            const found = finder.hvacs.map((hvac) => {
+                const device = GreeHVACDriver.hvacToDevice(hvac);
+                const staticIp = staticIpByMac[hvac.message.mac];
+                if (staticIp) {
+                    device.settings = { static_ip: staticIp };
+                }
+                return device;
+            });
+
+            // Include static devices not found via broadcast
+            const foundMacs = new Set(found.map((d) => d.data.mac));
+            const manual = staticDevices
+                .filter((hvac) => !foundMacs.has(hvac.message.mac))
+                .map((hvac) => ({
+                    ...GreeHVACDriver.hvacToDevice(hvac),
+                    settings: { static_ip: hvac.remoteInfo.address },
+                }));
+
+            return [...found, ...manual];
+        });
+
+        session.setHandler('addStaticDevice', async ({ ip, skipScan, name }) => {
+            if (!GreeHVACDriver.isValidIpv4(ip)) {
+                throw new Error('Invalid IP address');
+            }
+
+            const cleanIp = ip.trim();
+
+            if (skipScan) {
+                const deviceName = (name && name.trim()) || cleanIp;
+                const hvac = {
+                    message: { cid: cleanIp, mac: cleanIp, name: deviceName },
+                    remoteInfo: { address: cleanIp },
+                };
+                staticDevices.push(hvac);
+                return GreeHVACDriver.hvacToDevice(hvac);
+            }
+
+            const hvac = await finder.probe(cleanIp);
+            staticDevices.push(hvac);
+            return GreeHVACDriver.hvacToDevice(hvac);
+        });
+    }
+
+    static isValidIpv4(ip) {
+        if (!ip) {
+            return false;
+        }
+
+        const octets = ip.trim().split('.');
+        return octets.length === 4 && octets.every((octet) => {
+            if (!/^\d+$/.test(octet)) {
+                return false;
+            }
+
+            const value = Number(octet);
+            return value >= 0 && value <= 255;
+        });
     }
 
     static hvacToDevice(hvac) {

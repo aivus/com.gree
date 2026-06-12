@@ -35,6 +35,14 @@ class GreeHVACDevice extends Homey.Device {
      */
     _lookingForDeviceIntervalRef = null;
 
+    /**
+     * Current static IP setting value, including pending updates from onSettings.
+     *
+     * @type {string|undefined}
+     * @private
+     */
+    _staticIpSetting = undefined;
+
     async onInit() {
         this.log('Gree device has been inited');
 
@@ -68,15 +76,38 @@ class GreeHVACDevice extends Homey.Device {
         this.log('[on deleted]', 'Cleanup after removing done');
     }
 
+    onSettings({ oldSettings, newSettings, changedKeys }) {
+        if (!changedKeys.includes('static_ip')) {
+            return;
+        }
+
+        if (oldSettings.static_ip === newSettings.static_ip) {
+            return;
+        }
+
+        this.log('[settings]', 'Static IP changed. Reconnecting.');
+        this._staticIpSetting = newSettings.static_ip;
+        this.reconnect();
+    }
+
     /**
      * Check all available HVACs from the Finder module
      * and try to find one which will work with this Device instance
-     * based on MAC address
+     * based on MAC address. If a static IP is configured, connect directly.
      *
      * @private
      */
     _findDevices() {
         if (this._client) {
+            return;
+        }
+
+        const staticIp = this._getStaticIpSetting();
+
+        if (staticIp) {
+            this.log('[find devices]', 'Using static IP:', staticIp);
+            this._stopLookingForDevice();
+            this._connectToHost(staticIp);
             return;
         }
 
@@ -94,17 +125,26 @@ class GreeHVACDevice extends Homey.Device {
             this.log('[find devices]', 'Connecting to device with mac:', hvac.message.mac);
 
             this._stopLookingForDevice();
-
-            this._client = new HVAC.Client({
-                logLevel: 'debug',
-                host: hvac.remoteInfo.address,
-                pollingInterval: POLLING_INTERVAL,
-                pollingTimeout: POLLING_TIMEOUT,
-                connectTimeout: CONNECT_TIMEOUT,
-            });
-
-            this._registerClientListeners();
+            this._connectToHost(hvac.remoteInfo.address);
         });
+    }
+
+    /**
+     * Create a client for the given host and register listeners.
+     *
+     * @param {string} host
+     * @private
+     */
+    _connectToHost(host) {
+        this._client = new HVAC.Client({
+            logLevel: 'debug',
+            host,
+            pollingInterval: POLLING_INTERVAL,
+            pollingTimeout: POLLING_TIMEOUT,
+            connectTimeout: CONNECT_TIMEOUT,
+        });
+
+        this._registerClientListeners();
     }
 
     /**
@@ -565,6 +605,21 @@ class GreeHVACDevice extends Homey.Device {
             this._client.disconnect();
             this._client = null;
         }
+    }
+
+    /**
+     * Get static IP from the latest settings state.
+     * onSettings runs before Homey stores new settings, so pending values are cached locally.
+     *
+     * @returns {string}
+     * @private
+     */
+    _getStaticIpSetting() {
+        if (this._staticIpSetting !== undefined) {
+            return this._staticIpSetting;
+        }
+
+        return this.getSetting('static_ip');
     }
 
     /**

@@ -2,7 +2,16 @@
     "pair": {
         "intro": {
             "p1": "Before continue you need to connect HVAC to your current WiFi network.",
-            "p2": "It can be done using regular manufacturer application like <i>EWPE Smart</i> or using CLI instruction from app README (advanced users)"
+            "p2": "It can be done using regular manufacturer application like <i>EWPE Smart</i> or using CLI instruction from app README (advanced users)",
+            "static_ip_link": "My device has a static IP address →"
+        },
+        "static_ip": {
+            "description": "Enter the static IP address of your HVAC device. The device must be reachable on your network.",
+            "label": "IP Address",
+            "skip_scan": "Skip UDP scan (use when UDP is blocked)",
+            "name_label": "Device name (optional)",
+            "button": "Find Device",
+            "error_no_response": "No response from device. Check the IP address and ensure the device is reachable."
         }
     },
     "error": {
