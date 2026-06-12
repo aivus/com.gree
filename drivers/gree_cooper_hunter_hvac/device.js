@@ -279,6 +279,10 @@ class GreeHVACDevice extends Homey.Device {
         });
 
         this.registerCapabilityListener('quiet_mode', (value) => {
+            if (value === null) {
+                this.log('[quiet mode change]', 'Skip null value');
+                return Promise.resolve();
+            }
             const rawValue = HVAC.VALUE.quiet[value];
             this.log('[quiet mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             this._setClientProperty(HVAC.PROPERTY.quiet, rawValue);
