@@ -35,6 +35,14 @@ class GreeHVACDevice extends Homey.Device {
      */
     _lookingForDeviceIntervalRef = null;
 
+    /**
+     * Current static IP setting value, including pending updates from onSettings.
+     *
+     * @type {string|undefined}
+     * @private
+     */
+    _staticIpSetting = undefined;
+
     async onInit() {
         this.log('Gree device has been inited');
 
@@ -78,6 +86,7 @@ class GreeHVACDevice extends Homey.Device {
         }
 
         this.log('[settings]', 'Static IP changed. Reconnecting.');
+        this._staticIpSetting = newSettings.static_ip;
         this.reconnect();
     }
 
@@ -93,7 +102,7 @@ class GreeHVACDevice extends Homey.Device {
             return;
         }
 
-        const staticIp = this.getSetting('static_ip');
+        const staticIp = this._getStaticIpSetting();
 
         if (staticIp) {
             this.log('[find devices]', 'Using static IP:', staticIp);
@@ -596,6 +605,21 @@ class GreeHVACDevice extends Homey.Device {
             this._client.disconnect();
             this._client = null;
         }
+    }
+
+    /**
+     * Get static IP from the latest settings state.
+     * onSettings runs before Homey stores new settings, so pending values are cached locally.
+     *
+     * @returns {string}
+     * @private
+     */
+    _getStaticIpSetting() {
+        if (this._staticIpSetting !== undefined) {
+            return this._staticIpSetting;
+        }
+
+        return this.getSetting('static_ip');
     }
 
     /**

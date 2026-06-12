@@ -113,6 +113,8 @@ describe('GreeHVACDevice._findDevices()', () => {
         });
 
         expect(device.reconnect).toHaveBeenCalledTimes(1);
+        expect(device.reconnect).toHaveBeenCalledWith();
+        expect(device._staticIpSetting).toBe('192.168.1.51');
     });
 
     test('does not reconnect when static IP setting value is unchanged', () => {
@@ -137,5 +139,45 @@ describe('GreeHVACDevice._findDevices()', () => {
         });
 
         expect(device.reconnect).not.toHaveBeenCalled();
+    });
+
+    test('reconnects with an empty static IP override when static IP setting is cleared', () => {
+        device.reconnect = jest.fn();
+
+        device.onSettings({
+            oldSettings: { static_ip: '192.168.1.50' },
+            newSettings: { static_ip: '' },
+            changedKeys: ['static_ip'],
+        });
+
+        expect(device.reconnect).toHaveBeenCalledTimes(1);
+        expect(device.reconnect).toHaveBeenCalledWith();
+        expect(device._staticIpSetting).toBe('');
+    });
+
+    test('reconnect starts lookup', () => {
+        device._markOffline = jest.fn();
+        device._tryToDisconnect = jest.fn();
+        device._startLookingForDevice = jest.fn();
+
+        device.reconnect();
+
+        expect(device._markOffline).toHaveBeenCalledTimes(1);
+        expect(device._tryToDisconnect).toHaveBeenCalledTimes(1);
+        expect(device._startLookingForDevice).toHaveBeenCalledTimes(1);
+        expect(device._startLookingForDevice).toHaveBeenCalledWith();
+    });
+
+    test('find devices uses pending empty static IP setting instead of old stored setting', () => {
+        device.getSetting = jest.fn(() => '192.168.1.50');
+        device._staticIpSetting = '';
+        mockFinder.hvacs = [
+            { message: { mac: 'aabb' }, remoteInfo: { address: '10.0.0.5' } },
+        ];
+
+        device._findDevices();
+
+        expect(device._connectToHost).toHaveBeenCalledWith('10.0.0.5');
+        expect(device._connectToHost).not.toHaveBeenCalledWith('192.168.1.50');
     });
 });
