@@ -101,5 +101,8 @@
   },
   "0.10.0": {
     "en": "Add support of specifying static IP address for the HVAC"
+  },
+  "0.11.0": {
+    "en": "Improve stability of the app"
   }
 }
