@@ -98,5 +98,8 @@
   },
   "0.9.14": {
     "en": "[Technical] Improved logging"
+  },
+  "0.10.0": {
+    "en": "Add support of specifying static IP address for the HVAC"
   }
 }
