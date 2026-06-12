@@ -68,6 +68,19 @@ class GreeHVACDevice extends Homey.Device {
         this.log('[on deleted]', 'Cleanup after removing done');
     }
 
+    onSettings({ oldSettings, newSettings, changedKeys }) {
+        if (!changedKeys.includes('static_ip')) {
+            return;
+        }
+
+        if (oldSettings.static_ip === newSettings.static_ip) {
+            return;
+        }
+
+        this.log('[settings]', 'Static IP changed. Reconnecting.');
+        this.reconnect();
+    }
+
     /**
      * Check all available HVACs from the Finder module
      * and try to find one which will work with this Device instance

@@ -102,4 +102,40 @@ describe('GreeHVACDevice._findDevices()', () => {
         expect(device._connectToHost).toHaveBeenCalledTimes(1);
         expect(device._connectToHost).toHaveBeenCalledWith('10.0.0.2');
     });
+
+    test('reconnects when static IP setting changes', () => {
+        device.reconnect = jest.fn();
+
+        device.onSettings({
+            oldSettings: { static_ip: '192.168.1.50' },
+            newSettings: { static_ip: '192.168.1.51' },
+            changedKeys: ['static_ip'],
+        });
+
+        expect(device.reconnect).toHaveBeenCalledTimes(1);
+    });
+
+    test('does not reconnect when static IP setting value is unchanged', () => {
+        device.reconnect = jest.fn();
+
+        device.onSettings({
+            oldSettings: { static_ip: '192.168.1.50' },
+            newSettings: { static_ip: '192.168.1.50' },
+            changedKeys: ['static_ip'],
+        });
+
+        expect(device.reconnect).not.toHaveBeenCalled();
+    });
+
+    test('does not reconnect when unrelated settings change', () => {
+        device.reconnect = jest.fn();
+
+        device.onSettings({
+            oldSettings: { static_ip: '192.168.1.50' },
+            newSettings: { static_ip: '192.168.1.50' },
+            changedKeys: ['other_setting'],
+        });
+
+        expect(device.reconnect).not.toHaveBeenCalled();
+    });
 });
