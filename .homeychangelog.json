@@ -104,5 +104,8 @@
   },
   "0.11.0": {
     "en": "Improve stability of the app"
+  },
+  "0.11.1": {
+    "en": "Add support of the new firmwares"
   }
 }
