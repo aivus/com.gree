@@ -1,0 +1,59 @@
+diff --git a/node_modules/gree-hvac-client/src/encryption-service.js b/node_modules/gree-hvac-client/src/encryption-service.js
+index 5b4314f..ec509d2 100644
+--- a/node_modules/gree-hvac-client/src/encryption-service.js
++++ b/node_modules/gree-hvac-client/src/encryption-service.js
+@@ -61,7 +61,7 @@ class EncryptionService {
+      * @returns {object}
+      */
+     decrypt(input) {
+-        const decrypted = this._activeCipher.decrypt(input);
++        const decrypted = this._decryptWithFallback(input);
+         const payload = decrypted.payload;
+ 
+         if (payload.t === 'bindok') {
+@@ -73,6 +73,45 @@ class EncryptionService {
+         return payload;
+     }
+ 
++    /**
++     * Decrypt using the active cipher, falling back to the other cipher.
++     *
++     * Newer devices (firmware V2.x) answer the scan/handshake with a GCM
++     * encrypted message before any bind has happened, so we cannot rely on the
++     * bind-attempt counter to pick the cipher. Auto-detect instead: try the
++     * active cipher first, then the other one, and make whichever succeeds the
++     * active cipher. GCM is authenticated and ECB validates via JSON parsing,
++     * so a wrong cipher reliably throws rather than returning garbage.
++     *
++     * @param {object} input Response object
++     * @returns {object}
++     * @private
++     */
++    _decryptWithFallback(input) {
++        const ciphers =
++            this._activeCipher === this._gcmCipher
++                ? [this._gcmCipher, this._aesCipher]
++                : [this._aesCipher, this._gcmCipher];
++
++        let lastError;
++        for (const cipher of ciphers) {
++            try {
++                const decrypted = cipher.decrypt(input);
++                if (this._activeCipher !== cipher) {
++                    this._logger.debug('Switching active cipher', {
++                        cipher: decrypted.cipher,
++                    });
++                    this._activeCipher = cipher;
++                }
++                return decrypted;
++            } catch (error) {
++                lastError = error;
++            }
++        }
++
++        throw lastError;
++    }
++
+     /**
+      * Encrypt UDP message
+      *

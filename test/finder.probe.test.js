@@ -25,16 +25,20 @@ describe('Finder.probe()', () => {
             createSocket: jest.fn(() => fakeSocket),
         }));
 
-        jest.doMock('gree-hvac-client/src/encryption-service', () => ({
-            EncryptionService: jest.fn().mockImplementation(() => ({
-                decrypt: jest.fn((msg) => ({
+        jest.doMock('gree-hvac-client/src/encryption-service', () => {
+            const decrypt = jest.fn(() => ({
+                payload: {
                     mac: 'aabbccddeeff',
                     cid: 'aabbccddeeff',
                     name: 'TestDevice',
                     t: 'dev',
-                })),
-            })),
-        }));
+                },
+            }));
+            return {
+                EcbCipher: jest.fn().mockImplementation(() => ({ decrypt })),
+                GcmCipher: jest.fn().mockImplementation(() => ({ decrypt })),
+            };
+        });
 
         jest.doMock('gree-hvac-client/src/logger', () => ({
             createLogger: jest.fn(() => ({
