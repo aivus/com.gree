@@ -173,6 +173,27 @@
           "example": "off"
         }
       ]
+    },
+    {
+      "id": "health_mode_changed",
+      "title": {
+        "en": "Health mode changed",
+        "nl": "Gezondheidsmodus veranderd",
+        "de": "Gesundheitsmodus geändert"
+      },
+      "args": [],
+      "tokens": [
+        {
+          "name": "health_mode",
+          "type": "boolean",
+          "title": {
+            "en": "Health mode",
+            "nl": "Gezondheidsmodus",
+            "de": "Gesundheitsmodus"
+          },
+          "example": "true"
+        }
+      ]
     }
   ],
   "conditions": [
@@ -660,6 +681,39 @@
                 "en": "Mode 3",
                 "nl": "Mode 3",
                 "de": "Mode 3"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "health_mode_is",
+      "title": {
+        "en": "Health mode !{{is|isn't}} ..."
+      },
+      "titleFormatted": {
+        "en": "Health mode !{{is|isn't}} [[mode]]"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "on",
+              "label": {
+                "en": "On",
+                "nl": "Aan",
+                "de": "Einschalten"
+              }
+            },
+            {
+              "id": "off",
+              "label": {
+                "en": "Off",
+                "nl": "Uit",
+                "de": "Ausschalten"
               }
             }
           ]
@@ -1188,6 +1242,43 @@
                 "en": "Mode 3",
                 "nl": "Mode 3",
                 "de": "Mode 3"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "set_health_mode",
+      "title": {
+        "en": "Set health mode",
+        "nl": "Stel de gezondheidsmodus in",
+        "de": "Stellen Sie den Gesundheitsmodus ein"
+      },
+      "titleFormatted": {
+        "en": "Set health mode to [[mode]]",
+        "nl": "Stel de gezondheidsmodus in op [[mode]]",
+        "de": "Stellen Sie den Gesundheitsmodus auf [[mode]] ein"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "on",
+              "label": {
+                "en": "On",
+                "nl": "Aan",
+                "de": "Einschalten"
+              }
+            },
+            {
+              "id": "off",
+              "label": {
+                "en": "Off",
+                "nl": "Uit",
+                "de": "Ausschalten"
               }
             }
           ]

@@ -80,6 +80,13 @@ class GreeHVAC extends Homey.App {
                 return args.mode === quietMode;
             });
 
+        this.homey.flow.getConditionCard('health_mode_is')
+            .registerRunListener((args, state) => {
+                const healthMode = args.device.getCapabilityValue('health_mode');
+                args.device.log('[condition]', '[current health mode]', healthMode);
+                return onoffToBoolean(args.mode) === healthMode;
+            });
+
         // Register actions for flows
         this.homey.flow.getActionCard('set_hvac_mode')
             .registerRunListener((args, state) => {
@@ -149,6 +156,14 @@ class GreeHVAC extends Homey.App {
                 return args.device.setCapabilityValue('quiet_mode', args.mode)
                     .then(() => {
                         return args.device.triggerCapabilityListener('quiet_mode', args.mode, {});
+                    });
+            });
+
+        this.homey.flow.getActionCard('set_health_mode')
+            .registerRunListener((args, state) => {
+                return args.device.setCapabilityValue('health_mode', onoffToBoolean(args.mode))
+                    .then(() => {
+                        return args.device.triggerCapabilityListener('health_mode', onoffToBoolean(args.mode), {});
                     });
             });
     }

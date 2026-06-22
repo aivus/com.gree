@@ -15,7 +15,8 @@
     "xfan_mode",
     "vertical_swing",
     "horizontal_swing",
-    "quiet_mode"
+    "quiet_mode",
+    "health_mode"
   ],
   "capabilitiesOptions": {
     "target_temperature": {

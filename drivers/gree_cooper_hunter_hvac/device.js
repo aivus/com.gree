@@ -67,6 +67,7 @@ class GreeHVACDevice extends Homey.Device {
         this._flowTriggerVerticalSwingChanged = this.homey.flow.getDeviceTriggerCard('vertical_swing_changed');
         this._flowTriggerHorizontalSwingChanged = this.homey.flow.getDeviceTriggerCard('horizontal_swing_changed');
         this._flowTriggerQuietModeChanged = this.homey.flow.getDeviceTriggerCard('quiet_mode_changed');
+        this._flowTriggerHealthModeChanged = this.homey.flow.getDeviceTriggerCard('health_mode_changed');
 
         await this._executeCapabilityMigrations();
         await this._executeDeviceClassMigration();
@@ -355,6 +356,15 @@ class GreeHVACDevice extends Homey.Device {
 
             return Promise.resolve();
         });
+
+        this.registerCapabilityListener('health_mode', (value) => {
+            const rawValue = value ? HVAC.VALUE.health.on : HVAC.VALUE.health.off;
+            this.log('[health mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
+            this._setClientProperty(HVAC.PROPERTY.health, rawValue);
+            this._flowTriggerHealthModeChanged.trigger(this, { health_mode: value });
+
+            return Promise.resolve();
+        });
     }
 
     /**
@@ -536,6 +546,14 @@ class GreeHVACDevice extends Homey.Device {
             this.setCapabilityValue('quiet_mode', value).then(() => {
                 this.log('[update properties]', '[quiet_mode]', value);
                 return this._flowTriggerQuietModeChanged.trigger(this, { quiet_mode: value });
+            }).catch(this.error);
+        }
+
+        if (this._checkBoolPropertyChanged(updatedProperties, HVAC.PROPERTY.health, 'health_mode')) {
+            const value = updatedProperties[HVAC.PROPERTY.health] === HVAC.VALUE.health.on;
+            this.setCapabilityValue('health_mode', value).then(() => {
+                this.log('[update properties]', '[health_mode]', value);
+                return this._flowTriggerHealthModeChanged.trigger(this, { health_mode: value });
             }).catch(this.error);
         }
     }
@@ -809,6 +827,12 @@ class GreeHVACDevice extends Homey.Device {
         if (!this.hasCapability('safety_heating')) {
             this.log('[migration v0.9.4]', 'Adding "safety_heating" capability');
             await this.addCapability('safety_heating');
+        }
+
+        // Added in v0.13.0
+        if (!this.hasCapability('health_mode')) {
+            this.log('[migration v0.13.0]', 'Adding "health_mode" capability');
+            await this.addCapability('health_mode');
         }
     }
 
