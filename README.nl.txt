@@ -33,3 +33,6 @@ Opmerkingen
 
 * Verticale zwaai
 ** "Uitgeschakeld"/"Standaard" positie betekent dat de verticale zwaai wordt gestopt en op de huidige positie blijft staan.
+
+* Gezondheidsmodus
+** "Gezondheidsmodus" (ook bekend als "Koud plasma") schakelt de ionisator-luchtreinigingsfunctie in op ondersteunde HVAC's.
