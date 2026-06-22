@@ -5,7 +5,8 @@
   "scripts": {
     "test": "npm run eslint && jest",
     "eslint": "eslint .",
-    "jest": "jest"
+    "jest": "jest",
+    "postinstall": "patch-package"
   },
   "jest": {
     "testEnvironment": "node",
@@ -32,7 +33,8 @@
     "eslint": "^7.32.0",
     "eslint-config-athom": "^3.1.5",
     "homey": "^4.3.0",
-    "jest": "^30.4.2"
+    "jest": "^30.4.2",
+    "patch-package": "^8.0.1"
   },
   "engines": {
     "node": ">=16"

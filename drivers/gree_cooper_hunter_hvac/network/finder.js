@@ -1,7 +1,7 @@
 'use strict';
 
 const dgram = require('dgram');
-const { EncryptionService } = require('gree-hvac-client/src/encryption-service');
+const { EcbCipher, GcmCipher } = require('gree-hvac-client/src/encryption-service');
 const { createLogger } = require('gree-hvac-client/src/logger');
 const { randomUUID } = require('crypto');
 
@@ -15,7 +15,9 @@ class Finder {
             service: 'finder',
             sid: randomUUID(),
         });
-        this._encryptionService = new EncryptionService(this._encryptionServiceLogger);
+        // Devices answer the scan with their generic key. Older devices use
+        // AES-ECB, newer ones (firmware V2.x) use AES-GCM, so try both.
+        this._ciphers = [new EcbCipher(), new GcmCipher()];
         this._hvacs = {};
         this.start();
     }
@@ -57,7 +59,7 @@ class Finder {
                 return;
             }
 
-            const decryptedMessage = this._encryptionService.decrypt(parsedMessage);
+            const decryptedMessage = this._decrypt(parsedMessage);
 
             this._hvacs[decryptedMessage.mac] = { message: decryptedMessage, remoteInfo };
 
@@ -93,6 +95,25 @@ class Finder {
                 message,
             });
         }
+    }
+
+    /**
+     * Decrypt a device message, trying each supported cipher (ECB / GCM).
+     *
+     * @param {object} message Parsed UDP message with a `pack` field
+     * @returns {object} Decrypted payload
+     * @private
+     */
+    _decrypt(message) {
+        let lastError;
+        for (const cipher of this._ciphers) {
+            try {
+                return cipher.decrypt(message).payload;
+            } catch (error) {
+                lastError = error;
+            }
+        }
+        throw lastError;
     }
 
     _restart(reason) {
