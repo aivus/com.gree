@@ -857,6 +857,11 @@
           "nl": "Stel de HVAC-modus in",
           "de": "Stellen Sie der HVAC modus ein"
         },
+        "titleFormatted": {
+          "en": "Set HVAC mode to [[mode]]",
+          "nl": "Stel de HVAC-modus in op [[mode]]",
+          "de": "Stellen Sie der HVAC modus auf [[mode]] ein"
+        },
         "args": [
           {
             "type": "device",
@@ -925,6 +930,11 @@
           "en": "Set fan speed",
           "nl": "Ventilatorsnelheid instellen",
           "de": "Gebläsedrehzahl einstellen"
+        },
+        "titleFormatted": {
+          "en": "Set fan speed to [[speed]]",
+          "nl": "Ventilatorsnelheid instellen op [[speed]]",
+          "de": "Gebläsedrehzahl auf [[speed]] einstellen"
         },
         "args": [
           {
@@ -995,6 +1005,11 @@
           "nl": "Stel de turbomodus in",
           "de": "Stellen Sie den Turbo-Modus ein"
         },
+        "titleFormatted": {
+          "en": "Set turbo mode to [[mode]]",
+          "nl": "Stel de turbomodus in op [[mode]]",
+          "de": "Stellen Sie den Turbo-Modus auf [[mode]] ein"
+        },
         "args": [
           {
             "type": "device",
@@ -1031,6 +1046,11 @@
           "en": "Set 8°C heating",
           "nl": "Stel 8°C verwarming in",
           "de": "8°C Heizung einstellen"
+        },
+        "titleFormatted": {
+          "en": "Set 8°C heating to [[mode]]",
+          "nl": "Stel 8°C verwarming in op [[mode]]",
+          "de": "8°C Heizung auf [[mode]] einstellen"
         },
         "args": [
           {
@@ -1069,6 +1089,11 @@
           "nl": "Lichten instellen",
           "de": "Lichter einstellen"
         },
+        "titleFormatted": {
+          "en": "Set lights to [[mode]]",
+          "nl": "Lichten instellen op [[mode]]",
+          "de": "Lichter auf [[mode]] einstellen"
+        },
         "args": [
           {
             "type": "device",
@@ -1106,6 +1131,11 @@
           "nl": "Stel de X-Fan modus in",
           "de": "Stellen Sie den X-Fan modus ein"
         },
+        "titleFormatted": {
+          "en": "Set X-Fan mode to [[mode]]",
+          "nl": "Stel de X-Fan modus in op [[mode]]",
+          "de": "Stellen Sie den X-Fan modus auf [[mode]] ein"
+        },
         "args": [
           {
             "type": "device",
@@ -1142,6 +1172,11 @@
           "en": "Set vertical swing",
           "nl": "Verticale swing instellen",
           "de": "Vertikale Schaukel einstellen"
+        },
+        "titleFormatted": {
+          "en": "Set vertical swing to [[vertical_swing]]",
+          "nl": "Verticale swing instellen op [[vertical_swing]]",
+          "de": "Vertikale Schaukel auf [[vertical_swing]] einstellen"
         },
         "args": [
           {
@@ -1244,6 +1279,11 @@
           "nl": "Horizontale swing instellen",
           "de": "Horizontales Schaukel einstellen"
         },
+        "titleFormatted": {
+          "en": "Set horizontal swing to [[horizontal_swing]]",
+          "nl": "Horizontale swing instellen op [[horizontal_swing]]",
+          "de": "Horizontales Schaukel auf [[horizontal_swing]] einstellen"
+        },
         "args": [
           {
             "type": "device",
@@ -1328,6 +1368,11 @@
           "en": "Set quiet mode",
           "nl": "Stel de quiet-modus in",
           "de": "Stellen Sie der quiet modus ein"
+        },
+        "titleFormatted": {
+          "en": "Set quiet mode to [[mode]]",
+          "nl": "Stel de quiet-modus in op [[mode]]",
+          "de": "Stellen Sie der quiet modus auf [[mode]] ein"
         },
         "args": [
           {
