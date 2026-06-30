@@ -26,7 +26,7 @@ const GCM_DEV_MESSAGE = {
 
 const logger = createLogger('error').child({ service: 'test' });
 
-describe('GCM encryption support (patched gree-hvac-client)', () => {
+describe('GCM encryption support (gree-hvac-client)', () => {
     test('GcmCipher decrypts a V2.x device scan response', () => {
         const { payload } = new GcmCipher().decrypt(GCM_DEV_MESSAGE);
 
@@ -36,10 +36,10 @@ describe('GCM encryption support (patched gree-hvac-client)', () => {
     });
 
     test('EncryptionService auto-detects GCM even though it defaults to ECB', () => {
-        // Regression guard for patches/gree-hvac-client+3.0.3.patch: the service
-        // must fall back from the default ECB cipher to GCM, otherwise GCM
-        // devices fail to decrypt with ERR_OSSL_WRONG_FINAL_BLOCK_LENGTH and are
-        // never discovered.
+        // Regression guard for the GCM auto-detect fix (gree-hvac-client v3.0.4):
+        // the service must fall back from the default ECB cipher to GCM,
+        // otherwise GCM devices fail to decrypt with
+        // ERR_OSSL_WRONG_FINAL_BLOCK_LENGTH and are never discovered.
         const service = new EncryptionService(logger);
 
         const payload = service.decrypt(GCM_DEV_MESSAGE);
