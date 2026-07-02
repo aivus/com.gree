@@ -8,6 +8,10 @@ const { randomUUID } = require('crypto');
 const SCAN_MESSAGE = Buffer.from('{"t": "scan"}');
 const THIRTY_SECONDS = 30 * 1000;
 
+// Delay before recreating the socket after an error to avoid a tight
+// error -> restart -> error loop (e.g. when port 7000 is already in use)
+const RESTART_DELAY = 10 * 1000;
+
 class Finder {
 
     constructor() {
@@ -44,8 +48,14 @@ class Finder {
 
     _broadcast() {
         this._encryptionServiceLogger.info('send broadcast message');
-        this.server.setBroadcast(true);
-        this.server.send(SCAN_MESSAGE, 0, SCAN_MESSAGE.length, 7000, '255.255.255.255');
+        try {
+            this.server.setBroadcast(true);
+            this.server.send(SCAN_MESSAGE, 0, SCAN_MESSAGE.length, 7000, '255.255.255.255');
+        } catch (error) {
+            // setBroadcast()/send() throw when the socket is not bound or already
+            // closed. An uncaught exception here would crash the whole app.
+            this._encryptionServiceLogger.error('failed to send broadcast message', { error });
+        }
     }
 
     _onMessage(message, remoteInfo) {
@@ -118,10 +128,24 @@ class Finder {
 
     _restart(reason) {
         this._encryptionServiceLogger.error('restart server', { reason });
-        clearInterval(this.broadcastInterval);
-        this.server.close();
 
-        this.start();
+        if (this._restartTimeoutRef) {
+            return;
+        }
+
+        clearInterval(this.broadcastInterval);
+        this.server.removeAllListeners();
+        try {
+            this.server.close();
+        } catch (error) {
+            // close() throws when the socket is already closed / was never bound
+            this._encryptionServiceLogger.error('failed to close server', { error });
+        }
+
+        this._restartTimeoutRef = setTimeout(() => {
+            this._restartTimeoutRef = null;
+            this.start();
+        }, RESTART_DELAY);
     }
 
     /**
@@ -159,7 +183,16 @@ class Finder {
             timeoutRef,
         };
 
-        this.server.send(SCAN_MESSAGE, 0, SCAN_MESSAGE.length, 7000, ip);
+        try {
+            this.server.send(SCAN_MESSAGE, 0, SCAN_MESSAGE.length, 7000, ip);
+        } catch (error) {
+            // send() throws when the socket is closed (e.g. during a restart).
+            // Without this, the throw would leave a pending probe behind whose
+            // timeout later rejects a promise nobody holds anymore.
+            clearTimeout(timeoutRef);
+            delete this._pendingProbes[ip];
+            rejectProbe(error);
+        }
 
         return promise;
     }
