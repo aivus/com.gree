@@ -3,7 +3,7 @@
 const Homey = require('homey');
 const HVAC = require('gree-hvac-client');
 const finder = require('./network/finder');
-const { compareBoolProperties } = require('../../utils');
+const { compareBoolProperties, isValidIpv4 } = require('../../utils');
 
 // Interval between trying to found HVAC in network (ms)
 const LOOKING_FOR_DEVICE_TIME_INTERVAL = 5000;
@@ -16,6 +16,10 @@ const POLLING_TIMEOUT = 3000;
 
 // Timeout of the connection to the HVAC (ms)
 const CONNECT_TIMEOUT = 5000;
+
+// Time without any response from the HVAC after which
+// the connection is dropped and discovery is restarted (ms)
+const NO_RESPONSE_RECONNECT_TIMEOUT = 60 * 1000;
 
 class GreeHVACDevice extends Homey.Device {
 
@@ -34,6 +38,14 @@ class GreeHVACDevice extends Homey.Device {
      * @private
      */
     _lookingForDeviceIntervalRef = null;
+
+    /**
+     * Reconnect on prolonged lack of response timeout reference
+     *
+     * @type {NodeJS.Timeout|null}
+     * @private
+     */
+    _noResponseReconnectTimeoutRef = null;
 
     /**
      * Current static IP setting value, including pending updates from onSettings.
@@ -70,10 +82,32 @@ class GreeHVACDevice extends Homey.Device {
     onDeleted() {
         this.log('[on deleted]', 'Gree device has been deleted. Disconnecting _client.');
 
-        this._stopLookingForDevice();
-        this._tryToDisconnect();
+        this._cleanup();
 
         this.log('[on deleted]', 'Cleanup after removing done');
+    }
+
+    /**
+     * App is shutting down. Same cleanup as removal: the HVAC client owns
+     * its own socket and timers which the SDK does not clean up for us.
+     */
+    async onUninit() {
+        this.log('[on uninit]', 'App is shutting down. Disconnecting _client.');
+
+        this._cleanup();
+
+        this.log('[on uninit]', 'Cleanup done');
+    }
+
+    /**
+     * Stop all timers and disconnect from the HVAC
+     *
+     * @private
+     */
+    _cleanup() {
+        this._stopLookingForDevice();
+        this._cancelNoResponseReconnect();
+        this._tryToDisconnect();
     }
 
     onSettings({ oldSettings, newSettings, changedKeys }) {
@@ -83,6 +117,10 @@ class GreeHVACDevice extends Homey.Device {
 
         if (oldSettings.static_ip === newSettings.static_ip) {
             return;
+        }
+
+        if (newSettings.static_ip && !isValidIpv4(newSettings.static_ip)) {
+            throw new Error(this.homey.__('error.invalid_static_ip'));
         }
 
         this.log('[settings]', 'Static IP changed. Reconnecting.');
@@ -111,12 +149,20 @@ class GreeHVACDevice extends Homey.Device {
             return;
         }
 
-        const deviceData = this.getData();
+        const mac = this.getMac();
 
-        this.log('[find devices]', 'Finding device with mac:', deviceData.mac);
+        if (!mac) {
+            // Paired via "Skip UDP scan" and never connected so far:
+            // the real MAC is unknown until the first successful
+            // connection via static IP, so discovery cannot match anything
+            this.log('[find devices]', 'MAC is not known yet. Set a static IP to connect');
+            return;
+        }
+
+        this.log('[find devices]', 'Finding device with mac:', mac);
 
         finder.hvacs.forEach((hvac) => {
-            if (hvac.message.mac !== deviceData.mac) {
+            if (hvac.message.mac !== mac) {
                 // Skip other HVACs from the finder until find current
                 this.log('[find devices]', 'Skipping HVAC with mac:', hvac.message.mac);
                 return;
@@ -173,14 +219,14 @@ class GreeHVACDevice extends Homey.Device {
 
             if (rawValue === HVAC.VALUE.power.off) {
                 // Set Thermostat mode to Off.
-                this.setCapabilityValue('thermostat_mode', 'off');
+                this.setCapabilityValue('thermostat_mode', 'off').catch(this.error);
             } else {
                 // Restore thermostat_mode.
-                const properties = this._client._transformer.fromVendor(this._client._properties);
+                const properties = this._getCurrentClientProperties();
                 const mode = properties[HVAC.PROPERTY.mode];
 
                 if (mode !== undefined) {
-                    this.setCapabilityValue('thermostat_mode', HVAC.VALUE.mode[mode]);
+                    this.setCapabilityValue('thermostat_mode', HVAC.VALUE.mode[mode]).catch(this.error);
                 }
             }
 
@@ -198,16 +244,16 @@ class GreeHVACDevice extends Homey.Device {
             if (value === 'off') {
                 this.log('[power mode change]', `Value: ${value}`);
                 this._setClientProperty(HVAC.PROPERTY.power, HVAC.VALUE.power.off);
-                this.setCapabilityValue('onoff', false);
+                this.setCapabilityValue('onoff', false).catch(this.error);
             } else {
                 const rawValue = HVAC.VALUE.mode[value];
                 this.log('[thermostat_mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
                 this._setClientProperty(HVAC.PROPERTY.mode, rawValue);
 
                 // Turn on if needed.
-                const properties = this._client._transformer.fromVendor(this._client._properties);
+                const properties = this._getCurrentClientProperties();
                 if (properties[HVAC.PROPERTY.power] === HVAC.VALUE.power.off) {
-                    this.setCapabilityValue('onoff', true);
+                    this.setCapabilityValue('onoff', true).catch(this.error);
                     this._setClientProperty(HVAC.PROPERTY.power, HVAC.VALUE.power.on);
                 }
             }
@@ -218,8 +264,9 @@ class GreeHVACDevice extends Homey.Device {
         this.registerCapabilityListener('fan_speed', (value) => {
             const rawValue = HVAC.VALUE.fanSpeed[value];
             this.log('[fan speed change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this._setClientProperty(HVAC.PROPERTY.fanSpeed, rawValue);
-            this._flowTriggerHvacFanSpeedChanged.trigger(this, { fan_speed: value });
+            if (this._setClientProperty(HVAC.PROPERTY.fanSpeed, rawValue)) {
+                this._flowTriggerHvacFanSpeedChanged.trigger(this, { fan_speed: value });
+            }
 
             return Promise.resolve();
         });
@@ -227,8 +274,9 @@ class GreeHVACDevice extends Homey.Device {
         this.registerCapabilityListener('turbo_mode', (value) => {
             const rawValue = value ? HVAC.VALUE.turbo.on : HVAC.VALUE.turbo.off;
             this.log('[turbo mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this._setClientProperty(HVAC.PROPERTY.turbo, rawValue);
-            this._flowTriggerTurboModeChanged.trigger(this, { turbo_mode: value });
+            if (this._setClientProperty(HVAC.PROPERTY.turbo, rawValue)) {
+                this._flowTriggerTurboModeChanged.trigger(this, { turbo_mode: value });
+            }
 
             return Promise.resolve();
         });
@@ -236,8 +284,9 @@ class GreeHVACDevice extends Homey.Device {
         this.registerCapabilityListener('safety_heating', (value) => {
             const rawValue = value ? HVAC.VALUE.safetyHeating.on : HVAC.VALUE.safetyHeating.off;
             this.log('[safety heating change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this._setClientProperty(HVAC.PROPERTY.safetyHeating, rawValue);
-            this._flowTriggerSafetyHeatingChanged.trigger(this, { safety_heating: value });
+            if (this._setClientProperty(HVAC.PROPERTY.safetyHeating, rawValue)) {
+                this._flowTriggerSafetyHeatingChanged.trigger(this, { safety_heating: value });
+            }
 
             return Promise.resolve();
         });
@@ -245,8 +294,9 @@ class GreeHVACDevice extends Homey.Device {
         this.registerCapabilityListener('lights', (value) => {
             const rawValue = value ? HVAC.VALUE.lights.on : HVAC.VALUE.lights.off;
             this.log('[lights change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this._setClientProperty(HVAC.PROPERTY.lights, rawValue);
-            this._flowTriggerHvacLightsChanged.trigger(this, { lights: value });
+            if (this._setClientProperty(HVAC.PROPERTY.lights, rawValue)) {
+                this._flowTriggerHvacLightsChanged.trigger(this, { lights: value });
+            }
 
             return Promise.resolve();
         });
@@ -254,8 +304,9 @@ class GreeHVACDevice extends Homey.Device {
         this.registerCapabilityListener('xfan_mode', (value) => {
             const rawValue = value ? HVAC.VALUE.blow.on : HVAC.VALUE.blow.off;
             this.log('[xfan mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this._setClientProperty(HVAC.PROPERTY.blow, rawValue);
-            this._flowTriggerXFanModeChanged.trigger(this, { xfan_mode: value });
+            if (this._setClientProperty(HVAC.PROPERTY.blow, rawValue)) {
+                this._flowTriggerXFanModeChanged.trigger(this, { xfan_mode: value });
+            }
 
             return Promise.resolve();
         });
@@ -263,8 +314,9 @@ class GreeHVACDevice extends Homey.Device {
         this.registerCapabilityListener('vertical_swing', (value) => {
             const rawValue = HVAC.VALUE.swingVert[value];
             this.log('[vertical swing change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this._setClientProperty(HVAC.PROPERTY.swingVert, rawValue);
-            this._flowTriggerVerticalSwingChanged.trigger(this, { vertical_swing: value });
+            if (this._setClientProperty(HVAC.PROPERTY.swingVert, rawValue)) {
+                this._flowTriggerVerticalSwingChanged.trigger(this, { vertical_swing: value });
+            }
 
             return Promise.resolve();
         });
@@ -272,8 +324,9 @@ class GreeHVACDevice extends Homey.Device {
         this.registerCapabilityListener('horizontal_swing', (value) => {
             const rawValue = HVAC.VALUE.swingHor[value];
             this.log('[horizontal swing change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this._setClientProperty(HVAC.PROPERTY.swingHor, rawValue);
-            this._flowTriggerHorizontalSwingChanged.trigger(this, { horizontal_swing: value });
+            if (this._setClientProperty(HVAC.PROPERTY.swingHor, rawValue)) {
+                this._flowTriggerHorizontalSwingChanged.trigger(this, { horizontal_swing: value });
+            }
 
             return Promise.resolve();
         });
@@ -285,8 +338,9 @@ class GreeHVACDevice extends Homey.Device {
             }
             const rawValue = HVAC.VALUE.quiet[value];
             this.log('[quiet mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this._setClientProperty(HVAC.PROPERTY.quiet, rawValue);
-            this._flowTriggerQuietModeChanged.trigger(this, { quiet_mode: value });
+            if (this._setClientProperty(HVAC.PROPERTY.quiet, rawValue)) {
+                this._flowTriggerQuietModeChanged.trigger(this, { quiet_mode: value });
+            }
 
             return Promise.resolve();
         });
@@ -302,6 +356,8 @@ class GreeHVACDevice extends Homey.Device {
     _onConnect(client) {
         this.log('[connect]', 'connected to', client.getDeviceId());
         this.log('[connect]', 'mark device available');
+        this._cancelNoResponseReconnect();
+        this._updateMacFromClient(client);
         this.setAvailable();
     }
 
@@ -328,6 +384,9 @@ class GreeHVACDevice extends Homey.Device {
         //     quiet: 'off',
         //     turbo: 'off',
         //     powerSave: 'off' }
+
+        // The HVAC is responding again
+        this._cancelNoResponseReconnect();
 
         if (!this.getAvailable()) {
             this.log('[update]', 'mark device available');
@@ -490,8 +549,39 @@ class GreeHVACDevice extends Homey.Device {
     _onNoResponse() {
         this.log('[no response]', 'Didn\'t get response during polling updates');
         this._markOffline();
+        this._scheduleNoResponseReconnect();
+    }
 
-        // TODO: Start timeout to do a manual reconnect if no response for long time
+    /**
+     * Schedule a full reconnect if the HVAC keeps not responding.
+     * Covers the case when the HVAC changed its IP address (e.g. via DHCP):
+     * the client would keep polling the old address forever,
+     * so drop the connection and restart discovery instead.
+     *
+     * @private
+     */
+    _scheduleNoResponseReconnect() {
+        if (this._noResponseReconnectTimeoutRef) {
+            return;
+        }
+
+        this._noResponseReconnectTimeoutRef = this.homey.setTimeout(() => {
+            this._noResponseReconnectTimeoutRef = null;
+            this.log('[no response]', 'No response for too long. Reconnecting');
+            this.reconnect();
+        }, NO_RESPONSE_RECONNECT_TIMEOUT);
+    }
+
+    /**
+     * Cancel the scheduled reconnect, e.g. when the HVAC started responding again
+     *
+     * @private
+     */
+    _cancelNoResponseReconnect() {
+        if (this._noResponseReconnectTimeoutRef) {
+            this.homey.clearTimeout(this._noResponseReconnectTimeoutRef);
+            this._noResponseReconnectTimeoutRef = null;
+        }
     }
 
     /**
@@ -606,7 +696,9 @@ class GreeHVACDevice extends Homey.Device {
     _tryToDisconnect() {
         if (this._client) {
             this._client.removeAllListeners();
-            this._client.disconnect();
+            // disconnect() rejects when the client has no active socket
+            // (e.g. in the middle of its own reconnect cycle)
+            this._client.disconnect().catch(this.error);
             this._client = null;
         }
     }
@@ -619,11 +711,12 @@ class GreeHVACDevice extends Homey.Device {
      * @private
      */
     _getStaticIpSetting() {
-        if (this._staticIpSetting !== undefined) {
-            return this._staticIpSetting;
-        }
+        const value = this._staticIpSetting !== undefined
+            ? this._staticIpSetting
+            : this.getSetting('static_ip');
 
-        return this.getSetting('static_ip');
+        // The user may have entered the IP with surrounding whitespace
+        return typeof value === 'string' ? value.trim() : value;
     }
 
     /**
@@ -715,20 +808,87 @@ class GreeHVACDevice extends Homey.Device {
     }
 
     /**
+     * Get the MAC address of the HVAC.
+     *
+     * Devices paired via "Skip UDP scan" have no MAC in the immutable device
+     * data (older versions stored the IP address there instead). For them the
+     * real MAC, resolved on the first successful connection, is kept in the
+     * device store.
+     *
+     * @returns {string|undefined}
+     */
+    getMac() {
+        return this.getStoreValue('mac') || this.getData().mac;
+    }
+
+    /**
+     * Persist the real MAC reported by the connected HVAC for devices
+     * paired via "Skip UDP scan": they have either no MAC at all or,
+     * for devices paired by older app versions, the IP address as a
+     * placeholder MAC. This makes MAC-based discovery work for them,
+     * e.g. after the static IP setting is cleared.
+     *
+     * A real MAC obtained during pairing is never overwritten: discovery
+     * matches on the MAC broadcast by the device, while getDeviceId()
+     * returns the client cid, which is not guaranteed to be identical.
+     *
+     * @param {HVAC.Client} client
+     * @private
+     */
+    _updateMacFromClient(client) {
+        const knownMac = this.getMac();
+
+        if (knownMac && !isValidIpv4(knownMac)) {
+            return;
+        }
+
+        const mac = client.getDeviceId();
+
+        if (!mac || mac === knownMac) {
+            return;
+        }
+
+        this.log('[connect]', 'Updating stored mac to:', mac);
+        this.setStoreValue('mac', mac).catch(this.error);
+    }
+
+    /**
+     * Get the latest known HVAC properties in the API format.
+     * Returns an empty object when the client is not connected,
+     * e.g. while the device is still being discovered or is reconnecting.
+     *
+     * @returns {Object}
+     * @private
+     */
+    _getCurrentClientProperties() {
+        if (!this._client) {
+            return {};
+        }
+
+        return this._client._transformer.fromVendor(this._client._properties);
+    }
+
+    /**
      * Set value for the specific property of the HVAC _client
      *
      * @param property
      * @param value
+     * @returns {boolean} true when the command was sent to the HVAC
      * @private
      */
     _setClientProperty(property, value) {
-        if (this._client) {
-            this._client.setProperty(property, value);
+        if (!this._client) {
+            this.log('[set property]', `Skip setting "${property}". Client is not connected`);
+            return false;
         }
+
+        this._client.setProperty(property, value);
+        return true;
     }
 
     reconnect() {
         this.log('Reconnecting to the HVAC');
+        this._cancelNoResponseReconnect();
         this._markOffline();
         this._tryToDisconnect();
         this._startLookingForDevice();

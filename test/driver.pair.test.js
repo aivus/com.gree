@@ -5,6 +5,7 @@ describe('GreeHVACDriver.onPair()', () => {
     let mockFinder;
     let session;
     let handlers;
+    let pairedDevices;
 
     beforeEach(() => {
         jest.resetModules();
@@ -25,6 +26,7 @@ describe('GreeHVACDriver.onPair()', () => {
         GreeHVACDriver = require('../drivers/gree_cooper_hunter_hvac/driver');
 
         handlers = {};
+        pairedDevices = [];
         session = {
             setHandler: jest.fn((name, fn) => {
                 handlers[name] = fn;
@@ -32,8 +34,13 @@ describe('GreeHVACDriver.onPair()', () => {
         };
     });
 
+    function makePairedDevice(mac) {
+        return { getMac: jest.fn(() => mac) };
+    }
+
     async function initPair() {
         const driver = new GreeHVACDriver();
+        driver.getDevices = jest.fn(() => pairedDevices);
         await driver.onPair(session);
     }
 
@@ -90,14 +97,15 @@ describe('GreeHVACDriver.onPair()', () => {
             expect(mockFinder.probe).not.toHaveBeenCalled();
         });
 
-        test('uses IP as id, mac, and name when skipScan is true and no name given', async () => {
+        test('uses IP as id and name but no MAC when skipScan is true and no name given', async () => {
             await initPair();
 
             const result = await handlers.addStaticDevice({ ip: '192.168.1.10', skipScan: true, name: '' });
 
             expect(result.data.id).toBe('192.168.1.10');
-            expect(result.data.mac).toBe('192.168.1.10');
+            expect(result.data.mac).toBeUndefined();
             expect(result.name).toBe('192.168.1.10 (192.168.1.10)');
+            expect(result.settings.static_ip).toBe('192.168.1.10');
         });
 
         test('uses provided name when skipScan is true and name is given', async () => {
@@ -185,6 +193,38 @@ describe('GreeHVACDriver.onPair()', () => {
             expect(devices).toHaveLength(1);
         });
 
+        test('excludes broadcast devices that are already paired (by resolved MAC)', async () => {
+            // Device was paired via "Skip UDP scan" (data.mac is an IP),
+            // but its real MAC was resolved on first connect
+            pairedDevices = [makePairedDevice('aabb')];
+            mockFinder.hvacs = [
+                { message: { cid: 'aabb', mac: 'aabb', name: 'Living' }, remoteInfo: { address: '10.0.0.1' } },
+                { message: { cid: 'ccdd', mac: 'ccdd', name: 'Bedroom' }, remoteInfo: { address: '10.0.0.2' } },
+            ];
+
+            await initPair();
+
+            const devices = await handlers.list_devices();
+
+            expect(devices).toHaveLength(1);
+            expect(devices[0].data.mac).toBe('ccdd');
+        });
+
+        test('excludes manually added devices that are already paired', async () => {
+            pairedDevices = [makePairedDevice('ccdd')];
+            await initPair();
+
+            mockFinder.probe.mockResolvedValue({
+                message: { cid: 'ccdd', mac: 'ccdd', name: 'Bedroom' },
+                remoteInfo: { address: '10.0.0.2' },
+            });
+            await handlers.addStaticDevice({ ip: '10.0.0.2', skipScan: false });
+
+            const devices = await handlers.list_devices();
+
+            expect(devices).toHaveLength(0);
+        });
+
         test('returns both broadcast and unique static devices', async () => {
             mockFinder.hvacs = [
                 { message: { cid: 'aabb', mac: 'aabb', name: 'Living' }, remoteInfo: { address: '10.0.0.1' } },
@@ -196,6 +236,18 @@ describe('GreeHVACDriver.onPair()', () => {
             const devices = await handlers.list_devices();
 
             expect(devices).toHaveLength(2);
+        });
+
+        test('always includes skipScan devices since they cannot be deduplicated', async () => {
+            pairedDevices = [makePairedDevice('aabb')];
+            await initPair();
+
+            await handlers.addStaticDevice({ ip: '10.0.0.2', skipScan: true, name: 'Bedroom' });
+
+            const devices = await handlers.list_devices();
+
+            expect(devices).toHaveLength(1);
+            expect(devices[0].data.id).toBe('10.0.0.2');
         });
     });
 });

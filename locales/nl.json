@@ -15,6 +15,7 @@
         }
     },
     "error": {
-        "offline": "Je Airco is offline gegaan. Aan het proberen opnieuw te verbinden..."
+        "offline": "Je Airco is offline gegaan. Aan het proberen opnieuw te verbinden...",
+        "invalid_static_ip": "Ongeldig IP-adres. Voer een geldig IPv4-adres in of laat het veld leeg om automatische detectie te gebruiken."
     }
 }
