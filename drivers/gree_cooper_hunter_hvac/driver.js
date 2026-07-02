@@ -12,17 +12,19 @@ class GreeHVACDriver extends Homey.Driver {
     }
 
     async onPair(session) {
-        // Devices added manually via static IP during this pair session
+        // Device descriptors added manually via static IP during this pair session
         const staticDevices = [];
 
         session.setHandler('list_devices', async () => {
             const staticIpByMac = {};
-            for (const hvac of staticDevices) {
-                staticIpByMac[hvac.message.mac] = hvac.remoteInfo.address;
+            for (const device of staticDevices) {
+                if (device.data.mac) {
+                    staticIpByMac[device.data.mac] = device.settings.static_ip;
+                }
             }
 
             // MACs of already paired devices. Devices paired via "Skip UDP scan"
-            // have an IP as data.mac, so Homey cannot match them by device data
+            // have no MAC in their device data, so Homey cannot match them
             // when they show up in the broadcast results with their real MAC.
             const pairedMacs = new Set(this.getDevices().map((device) => device.getMac()));
 
@@ -37,12 +39,14 @@ class GreeHVACDriver extends Homey.Driver {
 
             // Include static devices not found via broadcast
             const foundMacs = new Set(found.map((d) => d.data.mac));
-            const manual = staticDevices
-                .filter((hvac) => !foundMacs.has(hvac.message.mac) && !pairedMacs.has(hvac.message.mac))
-                .map((hvac) => ({
-                    ...GreeHVACDriver.hvacToDevice(hvac),
-                    settings: { static_ip: hvac.remoteInfo.address },
-                }));
+            const manual = staticDevices.filter((device) => {
+                // Devices without a known MAC ("Skip UDP scan") cannot be deduplicated
+                if (!device.data.mac) {
+                    return true;
+                }
+
+                return !foundMacs.has(device.data.mac) && !pairedMacs.has(device.data.mac);
+            });
 
             return [...found, ...manual];
         });
@@ -54,19 +58,25 @@ class GreeHVACDriver extends Homey.Driver {
 
             const cleanIp = ip.trim();
 
+            let device;
             if (skipScan) {
+                // The device cannot be probed, so its MAC is unknown at pair time.
+                // Use the IP as the unique device id; the real MAC is resolved
+                // and stored by the device on the first successful connection.
                 const deviceName = (name && name.trim()) || cleanIp;
-                const hvac = {
-                    message: { cid: cleanIp, mac: cleanIp, name: deviceName },
-                    remoteInfo: { address: cleanIp },
+                device = {
+                    name: `${deviceName} (${cleanIp})`,
+                    data: {
+                        id: cleanIp,
+                    },
                 };
-                staticDevices.push(hvac);
-                return GreeHVACDriver.hvacToDevice(hvac);
+            } else {
+                device = GreeHVACDriver.hvacToDevice(await finder.probe(cleanIp));
             }
 
-            const hvac = await finder.probe(cleanIp);
-            staticDevices.push(hvac);
-            return GreeHVACDriver.hvacToDevice(hvac);
+            device.settings = { static_ip: cleanIp };
+            staticDevices.push(device);
+            return device;
         });
     }
 

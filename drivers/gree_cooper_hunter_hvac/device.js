@@ -130,6 +130,14 @@ class GreeHVACDevice extends Homey.Device {
 
         const mac = this.getMac();
 
+        if (!mac) {
+            // Paired via "Skip UDP scan" and never connected so far:
+            // the real MAC is unknown until the first successful
+            // connection via static IP, so discovery cannot match anything
+            this.log('[find devices]', 'MAC is not known yet. Set a static IP to connect');
+            return;
+        }
+
         this.log('[find devices]', 'Finding device with mac:', mac);
 
         finder.hvacs.forEach((hvac) => {
@@ -781,11 +789,12 @@ class GreeHVACDevice extends Homey.Device {
     /**
      * Get the MAC address of the HVAC.
      *
-     * Devices paired via "Skip UDP scan" have the IP address stored as MAC
-     * in the immutable device data. For them the real MAC (resolved on the
-     * first successful connection) is kept in the device store.
+     * Devices paired via "Skip UDP scan" have no MAC in the immutable device
+     * data (older versions stored the IP address there instead). For them the
+     * real MAC, resolved on the first successful connection, is kept in the
+     * device store.
      *
-     * @returns {string}
+     * @returns {string|undefined}
      */
     getMac() {
         return this.getStoreValue('mac') || this.getData().mac;

@@ -90,5 +90,20 @@ describe('GreeHVACDevice MAC resolution for "Skip UDP scan" devices', () => {
 
             expect(device._connectToHost).toHaveBeenCalledWith('10.0.0.7');
         });
+
+        test('skips discovery when the MAC is not known yet', () => {
+            // Paired via "Skip UDP scan": no MAC in device data, none resolved yet
+            device.getData = jest.fn(() => ({ id: '192.168.1.50' }));
+            device.getSetting = jest.fn(() => '');
+            device._stopLookingForDevice = jest.fn();
+            device._connectToHost = jest.fn();
+            mockFinder.hvacs = [
+                { message: { mac: 'aabbccddeeff' }, remoteInfo: { address: '10.0.0.7' } },
+            ];
+
+            device._findDevices();
+
+            expect(device._connectToHost).not.toHaveBeenCalled();
+        });
     });
 });

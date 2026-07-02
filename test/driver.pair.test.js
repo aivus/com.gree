@@ -97,14 +97,15 @@ describe('GreeHVACDriver.onPair()', () => {
             expect(mockFinder.probe).not.toHaveBeenCalled();
         });
 
-        test('uses IP as id, mac, and name when skipScan is true and no name given', async () => {
+        test('uses IP as id and name but no MAC when skipScan is true and no name given', async () => {
             await initPair();
 
             const result = await handlers.addStaticDevice({ ip: '192.168.1.10', skipScan: true, name: '' });
 
             expect(result.data.id).toBe('192.168.1.10');
-            expect(result.data.mac).toBe('192.168.1.10');
+            expect(result.data.mac).toBeUndefined();
             expect(result.name).toBe('192.168.1.10 (192.168.1.10)');
+            expect(result.settings.static_ip).toBe('192.168.1.10');
         });
 
         test('uses provided name when skipScan is true and name is given', async () => {
@@ -235,6 +236,18 @@ describe('GreeHVACDriver.onPair()', () => {
             const devices = await handlers.list_devices();
 
             expect(devices).toHaveLength(2);
+        });
+
+        test('always includes skipScan devices since they cannot be deduplicated', async () => {
+            pairedDevices = [makePairedDevice('aabb')];
+            await initPair();
+
+            await handlers.addStaticDevice({ ip: '10.0.0.2', skipScan: true, name: 'Bedroom' });
+
+            const devices = await handlers.list_devices();
+
+            expect(devices).toHaveLength(1);
+            expect(devices[0].data.id).toBe('10.0.0.2');
         });
     });
 });
