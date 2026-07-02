@@ -173,14 +173,14 @@ class GreeHVACDevice extends Homey.Device {
 
             if (rawValue === HVAC.VALUE.power.off) {
                 // Set Thermostat mode to Off.
-                this.setCapabilityValue('thermostat_mode', 'off');
+                this.setCapabilityValue('thermostat_mode', 'off').catch(this.error);
             } else {
                 // Restore thermostat_mode.
-                const properties = this._client._transformer.fromVendor(this._client._properties);
+                const properties = this._getCurrentClientProperties();
                 const mode = properties[HVAC.PROPERTY.mode];
 
                 if (mode !== undefined) {
-                    this.setCapabilityValue('thermostat_mode', HVAC.VALUE.mode[mode]);
+                    this.setCapabilityValue('thermostat_mode', HVAC.VALUE.mode[mode]).catch(this.error);
                 }
             }
 
@@ -198,16 +198,16 @@ class GreeHVACDevice extends Homey.Device {
             if (value === 'off') {
                 this.log('[power mode change]', `Value: ${value}`);
                 this._setClientProperty(HVAC.PROPERTY.power, HVAC.VALUE.power.off);
-                this.setCapabilityValue('onoff', false);
+                this.setCapabilityValue('onoff', false).catch(this.error);
             } else {
                 const rawValue = HVAC.VALUE.mode[value];
                 this.log('[thermostat_mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
                 this._setClientProperty(HVAC.PROPERTY.mode, rawValue);
 
                 // Turn on if needed.
-                const properties = this._client._transformer.fromVendor(this._client._properties);
+                const properties = this._getCurrentClientProperties();
                 if (properties[HVAC.PROPERTY.power] === HVAC.VALUE.power.off) {
-                    this.setCapabilityValue('onoff', true);
+                    this.setCapabilityValue('onoff', true).catch(this.error);
                     this._setClientProperty(HVAC.PROPERTY.power, HVAC.VALUE.power.on);
                 }
             }
@@ -712,6 +712,22 @@ class GreeHVACDevice extends Homey.Device {
         if (this.getClass() !== 'airconditioning') {
             await this.setClass('airconditioning').catch(this.error);
         }
+    }
+
+    /**
+     * Get the latest known HVAC properties in the API format.
+     * Returns an empty object when the client is not connected,
+     * e.g. while the device is still being discovered or is reconnecting.
+     *
+     * @returns {Object}
+     * @private
+     */
+    _getCurrentClientProperties() {
+        if (!this._client) {
+            return {};
+        }
+
+        return this._client._transformer.fromVendor(this._client._properties);
     }
 
     /**
