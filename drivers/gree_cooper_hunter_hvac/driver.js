@@ -21,7 +21,12 @@ class GreeHVACDriver extends Homey.Driver {
                 staticIpByMac[hvac.message.mac] = hvac.remoteInfo.address;
             }
 
-            const found = finder.hvacs.map((hvac) => {
+            // MACs of already paired devices. Devices paired via "Skip UDP scan"
+            // have an IP as data.mac, so Homey cannot match them by device data
+            // when they show up in the broadcast results with their real MAC.
+            const pairedMacs = new Set(this.getDevices().map((device) => device.getMac()));
+
+            const found = finder.hvacs.filter((hvac) => !pairedMacs.has(hvac.message.mac)).map((hvac) => {
                 const device = GreeHVACDriver.hvacToDevice(hvac);
                 const staticIp = staticIpByMac[hvac.message.mac];
                 if (staticIp) {
@@ -33,7 +38,7 @@ class GreeHVACDriver extends Homey.Driver {
             // Include static devices not found via broadcast
             const foundMacs = new Set(found.map((d) => d.data.mac));
             const manual = staticDevices
-                .filter((hvac) => !foundMacs.has(hvac.message.mac))
+                .filter((hvac) => !foundMacs.has(hvac.message.mac) && !pairedMacs.has(hvac.message.mac))
                 .map((hvac) => ({
                     ...GreeHVACDriver.hvacToDevice(hvac),
                     settings: { static_ip: hvac.remoteInfo.address },

@@ -128,12 +128,12 @@ class GreeHVACDevice extends Homey.Device {
             return;
         }
 
-        const deviceData = this.getData();
+        const mac = this.getMac();
 
-        this.log('[find devices]', 'Finding device with mac:', deviceData.mac);
+        this.log('[find devices]', 'Finding device with mac:', mac);
 
         finder.hvacs.forEach((hvac) => {
-            if (hvac.message.mac !== deviceData.mac) {
+            if (hvac.message.mac !== mac) {
                 // Skip other HVACs from the finder until find current
                 this.log('[find devices]', 'Skipping HVAC with mac:', hvac.message.mac);
                 return;
@@ -328,6 +328,7 @@ class GreeHVACDevice extends Homey.Device {
         this.log('[connect]', 'connected to', client.getDeviceId());
         this.log('[connect]', 'mark device available');
         this._cancelNoResponseReconnect();
+        this._updateMacFromClient(client);
         this.setAvailable();
     }
 
@@ -775,6 +776,40 @@ class GreeHVACDevice extends Homey.Device {
         if (this.getClass() !== 'airconditioning') {
             await this.setClass('airconditioning').catch(this.error);
         }
+    }
+
+    /**
+     * Get the MAC address of the HVAC.
+     *
+     * Devices paired via "Skip UDP scan" have the IP address stored as MAC
+     * in the immutable device data. For them the real MAC (resolved on the
+     * first successful connection) is kept in the device store.
+     *
+     * @returns {string}
+     */
+    getMac() {
+        return this.getStoreValue('mac') || this.getData().mac;
+    }
+
+    /**
+     * Persist the real MAC reported by the connected HVAC when it differs
+     * from what is currently known (i.e. the device was paired via
+     * "Skip UDP scan" with the IP address as a placeholder MAC).
+     * This makes MAC-based discovery work for such devices,
+     * e.g. after the static IP setting is cleared.
+     *
+     * @param {HVAC.Client} client
+     * @private
+     */
+    _updateMacFromClient(client) {
+        const mac = client.getDeviceId();
+
+        if (!mac || mac === this.getMac()) {
+            return;
+        }
+
+        this.log('[connect]', 'Updating stored mac to:', mac);
+        this.setStoreValue('mac', mac).catch(this.error);
     }
 
     /**

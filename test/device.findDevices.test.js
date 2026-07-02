@@ -30,6 +30,7 @@ describe('GreeHVACDevice._findDevices()', () => {
         device = new GreeHVACDevice();
         device._client = null;
         device.getData = jest.fn(() => ({ id: 'aabb', mac: 'aabb' }));
+        device.getStoreValue = jest.fn(() => null);
         device.getSetting = jest.fn(() => '');
         device.log = jest.fn();
         device._stopLookingForDevice = jest.fn();
