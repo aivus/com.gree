@@ -17,6 +17,10 @@ const POLLING_TIMEOUT = 3000;
 // Timeout of the connection to the HVAC (ms)
 const CONNECT_TIMEOUT = 5000;
 
+// Time without any response from the HVAC after which
+// the connection is dropped and discovery is restarted (ms)
+const NO_RESPONSE_RECONNECT_TIMEOUT = 60 * 1000;
+
 class GreeHVACDevice extends Homey.Device {
 
     /**
@@ -34,6 +38,14 @@ class GreeHVACDevice extends Homey.Device {
      * @private
      */
     _lookingForDeviceIntervalRef = null;
+
+    /**
+     * Reconnect on prolonged lack of response timeout reference
+     *
+     * @type {NodeJS.Timeout|null}
+     * @private
+     */
+    _noResponseReconnectTimeoutRef = null;
 
     /**
      * Current static IP setting value, including pending updates from onSettings.
@@ -71,6 +83,7 @@ class GreeHVACDevice extends Homey.Device {
         this.log('[on deleted]', 'Gree device has been deleted. Disconnecting _client.');
 
         this._stopLookingForDevice();
+        this._cancelNoResponseReconnect();
         this._tryToDisconnect();
 
         this.log('[on deleted]', 'Cleanup after removing done');
@@ -302,6 +315,7 @@ class GreeHVACDevice extends Homey.Device {
     _onConnect(client) {
         this.log('[connect]', 'connected to', client.getDeviceId());
         this.log('[connect]', 'mark device available');
+        this._cancelNoResponseReconnect();
         this.setAvailable();
     }
 
@@ -328,6 +342,9 @@ class GreeHVACDevice extends Homey.Device {
         //     quiet: 'off',
         //     turbo: 'off',
         //     powerSave: 'off' }
+
+        // The HVAC is responding again
+        this._cancelNoResponseReconnect();
 
         if (!this.getAvailable()) {
             this.log('[update]', 'mark device available');
@@ -490,8 +507,39 @@ class GreeHVACDevice extends Homey.Device {
     _onNoResponse() {
         this.log('[no response]', 'Didn\'t get response during polling updates');
         this._markOffline();
+        this._scheduleNoResponseReconnect();
+    }
 
-        // TODO: Start timeout to do a manual reconnect if no response for long time
+    /**
+     * Schedule a full reconnect if the HVAC keeps not responding.
+     * Covers the case when the HVAC changed its IP address (e.g. via DHCP):
+     * the client would keep polling the old address forever,
+     * so drop the connection and restart discovery instead.
+     *
+     * @private
+     */
+    _scheduleNoResponseReconnect() {
+        if (this._noResponseReconnectTimeoutRef) {
+            return;
+        }
+
+        this._noResponseReconnectTimeoutRef = this.homey.setTimeout(() => {
+            this._noResponseReconnectTimeoutRef = null;
+            this.log('[no response]', 'No response for too long. Reconnecting');
+            this.reconnect();
+        }, NO_RESPONSE_RECONNECT_TIMEOUT);
+    }
+
+    /**
+     * Cancel the scheduled reconnect, e.g. when the HVAC started responding again
+     *
+     * @private
+     */
+    _cancelNoResponseReconnect() {
+        if (this._noResponseReconnectTimeoutRef) {
+            this.homey.clearTimeout(this._noResponseReconnectTimeoutRef);
+            this._noResponseReconnectTimeoutRef = null;
+        }
     }
 
     /**
@@ -745,6 +793,7 @@ class GreeHVACDevice extends Homey.Device {
 
     reconnect() {
         this.log('Reconnecting to the HVAC');
+        this._cancelNoResponseReconnect();
         this._markOffline();
         this._tryToDisconnect();
         this._startLookingForDevice();
