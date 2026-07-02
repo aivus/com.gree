@@ -117,6 +117,28 @@ describe('GreeHVACDevice._findDevices()', () => {
         expect(device._staticIpSetting).toBe('192.168.1.51');
     });
 
+    test('rejects an invalid static IP and does not reconnect', () => {
+        device.reconnect = jest.fn();
+        device.homey = { __: jest.fn((key) => key) };
+
+        expect(() => device.onSettings({
+            oldSettings: { static_ip: '' },
+            newSettings: { static_ip: 'not-an-ip' },
+            changedKeys: ['static_ip'],
+        })).toThrow('error.invalid_static_ip');
+
+        expect(device.reconnect).not.toHaveBeenCalled();
+        expect(device._staticIpSetting).toBeUndefined();
+    });
+
+    test('find devices trims whitespace around the static IP setting', () => {
+        device.getSetting = jest.fn(() => '  192.168.1.50  ');
+
+        device._findDevices();
+
+        expect(device._connectToHost).toHaveBeenCalledWith('192.168.1.50');
+    });
+
     test('does not reconnect when static IP setting value is unchanged', () => {
         device.reconnect = jest.fn();
 

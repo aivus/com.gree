@@ -3,7 +3,7 @@
 const Homey = require('homey');
 const HVAC = require('gree-hvac-client');
 const finder = require('./network/finder');
-const { compareBoolProperties } = require('../../utils');
+const { compareBoolProperties, isValidIpv4 } = require('../../utils');
 
 // Interval between trying to found HVAC in network (ms)
 const LOOKING_FOR_DEVICE_TIME_INTERVAL = 5000;
@@ -96,6 +96,10 @@ class GreeHVACDevice extends Homey.Device {
 
         if (oldSettings.static_ip === newSettings.static_ip) {
             return;
+        }
+
+        if (newSettings.static_ip && !isValidIpv4(newSettings.static_ip)) {
+            throw new Error(this.homey.__('error.invalid_static_ip'));
         }
 
         this.log('[settings]', 'Static IP changed. Reconnecting.');
@@ -677,11 +681,12 @@ class GreeHVACDevice extends Homey.Device {
      * @private
      */
     _getStaticIpSetting() {
-        if (this._staticIpSetting !== undefined) {
-            return this._staticIpSetting;
-        }
+        const value = this._staticIpSetting !== undefined
+            ? this._staticIpSetting
+            : this.getSetting('static_ip');
 
-        return this.getSetting('static_ip');
+        // The user may have entered the IP with surrounding whitespace
+        return typeof value === 'string' ? value.trim() : value;
     }
 
     /**

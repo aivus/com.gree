@@ -2,6 +2,7 @@
 
 const Homey = require('homey');
 const finder = require('./network/finder');
+const { isValidIpv4 } = require('../../utils');
 
 class GreeHVACDriver extends Homey.Driver {
 
@@ -42,7 +43,7 @@ class GreeHVACDriver extends Homey.Driver {
         });
 
         session.setHandler('addStaticDevice', async ({ ip, skipScan, name }) => {
-            if (!GreeHVACDriver.isValidIpv4(ip)) {
+            if (!isValidIpv4(ip)) {
                 throw new Error('Invalid IP address');
             }
 
@@ -61,22 +62,6 @@ class GreeHVACDriver extends Homey.Driver {
             const hvac = await finder.probe(cleanIp);
             staticDevices.push(hvac);
             return GreeHVACDriver.hvacToDevice(hvac);
-        });
-    }
-
-    static isValidIpv4(ip) {
-        if (!ip) {
-            return false;
-        }
-
-        const octets = ip.trim().split('.');
-        return octets.length === 4 && octets.every((octet) => {
-            if (!/^\d+$/.test(octet)) {
-                return false;
-            }
-
-            const value = Number(octet);
-            return value >= 0 && value <= 255;
         });
     }
 
