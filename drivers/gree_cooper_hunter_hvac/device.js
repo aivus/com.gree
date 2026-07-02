@@ -662,7 +662,9 @@ class GreeHVACDevice extends Homey.Device {
     _tryToDisconnect() {
         if (this._client) {
             this._client.removeAllListeners();
-            this._client.disconnect();
+            // disconnect() rejects when the client has no active socket
+            // (e.g. in the middle of its own reconnect cycle)
+            this._client.disconnect().catch(this.error);
             this._client = null;
         }
     }
