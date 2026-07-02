@@ -11,6 +11,15 @@ class GreeHVACDriver extends Homey.Driver {
         this._finder = finder;
     }
 
+    /**
+     * App is shutting down. Stop discovery and release the UDP socket,
+     * timers and pending probes held by the finder.
+     */
+    async onUninit() {
+        this.log('GreeHVACDriver is uninitializing. Stopping finder.');
+        this._finder.stop();
+    }
+
     async onPair(session) {
         // Device descriptors added manually via static IP during this pair session
         const staticDevices = [];

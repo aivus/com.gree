@@ -149,6 +149,39 @@ class Finder {
     }
 
     /**
+     * Stop discovery and release all resources: the broadcast interval,
+     * a pending restart, pending probes and the UDP socket.
+     * Called when the app is shutting down.
+     */
+    stop() {
+        this._encryptionServiceLogger.info('stop listening');
+
+        clearInterval(this.broadcastInterval);
+
+        if (this._restartTimeoutRef) {
+            clearTimeout(this._restartTimeoutRef);
+            this._restartTimeoutRef = null;
+        }
+
+        if (this._pendingProbes) {
+            for (const ip of Object.keys(this._pendingProbes)) {
+                const probe = this._pendingProbes[ip];
+                clearTimeout(probe.timeoutRef);
+                probe.reject(new Error('Finder is stopping'));
+            }
+            this._pendingProbes = {};
+        }
+
+        this.server.removeAllListeners();
+        try {
+            this.server.close();
+        } catch (error) {
+            // close() throws when the socket is already closed / was never bound
+            this._encryptionServiceLogger.error('failed to close server', { error });
+        }
+    }
+
+    /**
      * Send a unicast scan to a specific IP and resolve with the device info when it responds.
      *
      * @param {string} ip

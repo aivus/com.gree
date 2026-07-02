@@ -82,11 +82,32 @@ class GreeHVACDevice extends Homey.Device {
     onDeleted() {
         this.log('[on deleted]', 'Gree device has been deleted. Disconnecting _client.');
 
+        this._cleanup();
+
+        this.log('[on deleted]', 'Cleanup after removing done');
+    }
+
+    /**
+     * App is shutting down. Same cleanup as removal: the HVAC client owns
+     * its own socket and timers which the SDK does not clean up for us.
+     */
+    async onUninit() {
+        this.log('[on uninit]', 'App is shutting down. Disconnecting _client.');
+
+        this._cleanup();
+
+        this.log('[on uninit]', 'Cleanup done');
+    }
+
+    /**
+     * Stop all timers and disconnect from the HVAC
+     *
+     * @private
+     */
+    _cleanup() {
         this._stopLookingForDevice();
         this._cancelNoResponseReconnect();
         this._tryToDisconnect();
-
-        this.log('[on deleted]', 'Cleanup after removing done');
     }
 
     onSettings({ oldSettings, newSettings, changedKeys }) {
