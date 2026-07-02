@@ -231,8 +231,9 @@ class GreeHVACDevice extends Homey.Device {
         this.registerCapabilityListener('fan_speed', (value) => {
             const rawValue = HVAC.VALUE.fanSpeed[value];
             this.log('[fan speed change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this._setClientProperty(HVAC.PROPERTY.fanSpeed, rawValue);
-            this._flowTriggerHvacFanSpeedChanged.trigger(this, { fan_speed: value });
+            if (this._setClientProperty(HVAC.PROPERTY.fanSpeed, rawValue)) {
+                this._flowTriggerHvacFanSpeedChanged.trigger(this, { fan_speed: value });
+            }
 
             return Promise.resolve();
         });
@@ -240,8 +241,9 @@ class GreeHVACDevice extends Homey.Device {
         this.registerCapabilityListener('turbo_mode', (value) => {
             const rawValue = value ? HVAC.VALUE.turbo.on : HVAC.VALUE.turbo.off;
             this.log('[turbo mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this._setClientProperty(HVAC.PROPERTY.turbo, rawValue);
-            this._flowTriggerTurboModeChanged.trigger(this, { turbo_mode: value });
+            if (this._setClientProperty(HVAC.PROPERTY.turbo, rawValue)) {
+                this._flowTriggerTurboModeChanged.trigger(this, { turbo_mode: value });
+            }
 
             return Promise.resolve();
         });
@@ -249,8 +251,9 @@ class GreeHVACDevice extends Homey.Device {
         this.registerCapabilityListener('safety_heating', (value) => {
             const rawValue = value ? HVAC.VALUE.safetyHeating.on : HVAC.VALUE.safetyHeating.off;
             this.log('[safety heating change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this._setClientProperty(HVAC.PROPERTY.safetyHeating, rawValue);
-            this._flowTriggerSafetyHeatingChanged.trigger(this, { safety_heating: value });
+            if (this._setClientProperty(HVAC.PROPERTY.safetyHeating, rawValue)) {
+                this._flowTriggerSafetyHeatingChanged.trigger(this, { safety_heating: value });
+            }
 
             return Promise.resolve();
         });
@@ -258,8 +261,9 @@ class GreeHVACDevice extends Homey.Device {
         this.registerCapabilityListener('lights', (value) => {
             const rawValue = value ? HVAC.VALUE.lights.on : HVAC.VALUE.lights.off;
             this.log('[lights change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this._setClientProperty(HVAC.PROPERTY.lights, rawValue);
-            this._flowTriggerHvacLightsChanged.trigger(this, { lights: value });
+            if (this._setClientProperty(HVAC.PROPERTY.lights, rawValue)) {
+                this._flowTriggerHvacLightsChanged.trigger(this, { lights: value });
+            }
 
             return Promise.resolve();
         });
@@ -267,8 +271,9 @@ class GreeHVACDevice extends Homey.Device {
         this.registerCapabilityListener('xfan_mode', (value) => {
             const rawValue = value ? HVAC.VALUE.blow.on : HVAC.VALUE.blow.off;
             this.log('[xfan mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this._setClientProperty(HVAC.PROPERTY.blow, rawValue);
-            this._flowTriggerXFanModeChanged.trigger(this, { xfan_mode: value });
+            if (this._setClientProperty(HVAC.PROPERTY.blow, rawValue)) {
+                this._flowTriggerXFanModeChanged.trigger(this, { xfan_mode: value });
+            }
 
             return Promise.resolve();
         });
@@ -276,8 +281,9 @@ class GreeHVACDevice extends Homey.Device {
         this.registerCapabilityListener('vertical_swing', (value) => {
             const rawValue = HVAC.VALUE.swingVert[value];
             this.log('[vertical swing change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this._setClientProperty(HVAC.PROPERTY.swingVert, rawValue);
-            this._flowTriggerVerticalSwingChanged.trigger(this, { vertical_swing: value });
+            if (this._setClientProperty(HVAC.PROPERTY.swingVert, rawValue)) {
+                this._flowTriggerVerticalSwingChanged.trigger(this, { vertical_swing: value });
+            }
 
             return Promise.resolve();
         });
@@ -285,8 +291,9 @@ class GreeHVACDevice extends Homey.Device {
         this.registerCapabilityListener('horizontal_swing', (value) => {
             const rawValue = HVAC.VALUE.swingHor[value];
             this.log('[horizontal swing change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this._setClientProperty(HVAC.PROPERTY.swingHor, rawValue);
-            this._flowTriggerHorizontalSwingChanged.trigger(this, { horizontal_swing: value });
+            if (this._setClientProperty(HVAC.PROPERTY.swingHor, rawValue)) {
+                this._flowTriggerHorizontalSwingChanged.trigger(this, { horizontal_swing: value });
+            }
 
             return Promise.resolve();
         });
@@ -298,8 +305,9 @@ class GreeHVACDevice extends Homey.Device {
             }
             const rawValue = HVAC.VALUE.quiet[value];
             this.log('[quiet mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this._setClientProperty(HVAC.PROPERTY.quiet, rawValue);
-            this._flowTriggerQuietModeChanged.trigger(this, { quiet_mode: value });
+            if (this._setClientProperty(HVAC.PROPERTY.quiet, rawValue)) {
+                this._flowTriggerQuietModeChanged.trigger(this, { quiet_mode: value });
+            }
 
             return Promise.resolve();
         });
@@ -783,12 +791,17 @@ class GreeHVACDevice extends Homey.Device {
      *
      * @param property
      * @param value
+     * @returns {boolean} true when the command was sent to the HVAC
      * @private
      */
     _setClientProperty(property, value) {
-        if (this._client) {
-            this._client.setProperty(property, value);
+        if (!this._client) {
+            this.log('[set property]', `Skip setting "${property}". Client is not connected`);
+            return false;
         }
+
+        this._client.setProperty(property, value);
+        return true;
     }
 
     reconnect() {
