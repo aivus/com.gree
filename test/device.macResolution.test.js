@@ -67,6 +67,16 @@ describe('GreeHVACDevice MAC resolution for "Skip UDP scan" devices', () => {
             expect(device.setStoreValue).not.toHaveBeenCalled();
         });
 
+        test('never overwrites a real MAC obtained during pairing', () => {
+            device.getData = jest.fn(() => ({ id: 'aabbccddeeff', mac: 'aabbccddeeff' }));
+            // Client cid is not guaranteed to equal the broadcast MAC
+            const client = { getDeviceId: jest.fn(() => 'different-cid') };
+
+            device._onConnect(client);
+
+            expect(device.setStoreValue).not.toHaveBeenCalled();
+        });
+
         test('ignores an empty device id from the client', () => {
             const client = { getDeviceId: jest.fn(() => null) };
 

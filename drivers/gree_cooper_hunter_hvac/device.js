@@ -801,19 +801,29 @@ class GreeHVACDevice extends Homey.Device {
     }
 
     /**
-     * Persist the real MAC reported by the connected HVAC when it differs
-     * from what is currently known (i.e. the device was paired via
-     * "Skip UDP scan" with the IP address as a placeholder MAC).
-     * This makes MAC-based discovery work for such devices,
+     * Persist the real MAC reported by the connected HVAC for devices
+     * paired via "Skip UDP scan": they have either no MAC at all or,
+     * for devices paired by older app versions, the IP address as a
+     * placeholder MAC. This makes MAC-based discovery work for them,
      * e.g. after the static IP setting is cleared.
+     *
+     * A real MAC obtained during pairing is never overwritten: discovery
+     * matches on the MAC broadcast by the device, while getDeviceId()
+     * returns the client cid, which is not guaranteed to be identical.
      *
      * @param {HVAC.Client} client
      * @private
      */
     _updateMacFromClient(client) {
+        const knownMac = this.getMac();
+
+        if (knownMac && !isValidIpv4(knownMac)) {
+            return;
+        }
+
         const mac = client.getDeviceId();
 
-        if (!mac || mac === this.getMac()) {
+        if (!mac || mac === knownMac) {
             return;
         }
 
