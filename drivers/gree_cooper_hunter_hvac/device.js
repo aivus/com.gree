@@ -247,6 +247,9 @@ class GreeHVACDevice extends Homey.Device {
                 this.setCapabilityValue('onoff', false).catch(this.error);
             } else {
                 const rawValue = HVAC.VALUE.mode[value];
+                if (rawValue === undefined) {
+                    return Promise.reject(new Error(`Unknown thermostat_mode value: ${JSON.stringify(value)}`));
+                }
                 this.log('[thermostat_mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
                 this._setClientProperty(HVAC.PROPERTY.mode, rawValue);
 
@@ -263,6 +266,9 @@ class GreeHVACDevice extends Homey.Device {
 
         this.registerCapabilityListener('fan_speed', (value) => {
             const rawValue = HVAC.VALUE.fanSpeed[value];
+            if (rawValue === undefined) {
+                return Promise.reject(new Error(`Unknown fan speed value: ${JSON.stringify(value)}`));
+            }
             this.log('[fan speed change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             if (this._setClientProperty(HVAC.PROPERTY.fanSpeed, rawValue)) {
                 this._flowTriggerHvacFanSpeedChanged.trigger(this, { fan_speed: value });
@@ -313,6 +319,9 @@ class GreeHVACDevice extends Homey.Device {
 
         this.registerCapabilityListener('vertical_swing', (value) => {
             const rawValue = HVAC.VALUE.swingVert[value];
+            if (rawValue === undefined) {
+                return Promise.reject(new Error(`Unknown vertical swing value: ${JSON.stringify(value)}`));
+            }
             this.log('[vertical swing change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             if (this._setClientProperty(HVAC.PROPERTY.swingVert, rawValue)) {
                 this._flowTriggerVerticalSwingChanged.trigger(this, { vertical_swing: value });
@@ -323,6 +332,9 @@ class GreeHVACDevice extends Homey.Device {
 
         this.registerCapabilityListener('horizontal_swing', (value) => {
             const rawValue = HVAC.VALUE.swingHor[value];
+            if (rawValue === undefined) {
+                return Promise.reject(new Error(`Unknown horizontal swing value: ${JSON.stringify(value)}`));
+            }
             this.log('[horizontal swing change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             if (this._setClientProperty(HVAC.PROPERTY.swingHor, rawValue)) {
                 this._flowTriggerHorizontalSwingChanged.trigger(this, { horizontal_swing: value });
@@ -332,11 +344,10 @@ class GreeHVACDevice extends Homey.Device {
         });
 
         this.registerCapabilityListener('quiet_mode', (value) => {
-            if (value === null) {
-                this.log('[quiet mode change]', 'Skip null value');
-                return Promise.resolve();
-            }
             const rawValue = HVAC.VALUE.quiet[value];
+            if (rawValue === undefined) {
+                return Promise.reject(new Error(`Unknown quiet mode value: ${JSON.stringify(value)}`));
+            }
             this.log('[quiet mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             if (this._setClientProperty(HVAC.PROPERTY.quiet, rawValue)) {
                 this._flowTriggerQuietModeChanged.trigger(this, { quiet_mode: value });

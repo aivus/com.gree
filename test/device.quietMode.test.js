@@ -44,12 +44,12 @@ describe('GreeHVACDevice quiet_mode listener', () => {
         device.log = jest.fn();
     });
 
-    test('skips null quiet mode values', async () => {
+    test('rejects null quiet mode values', async () => {
         device._registerCapabilityListeners();
 
-        await capabilityListeners.quiet_mode(null);
+        await expect(capabilityListeners.quiet_mode(null))
+            .rejects.toThrow('Unknown quiet mode value: null');
 
-        expect(device.log).toHaveBeenCalledWith('[quiet mode change]', 'Skip null value');
         expect(device._setClientProperty).not.toHaveBeenCalled();
         expect(device._flowTriggerQuietModeChanged.trigger).not.toHaveBeenCalled();
     });

@@ -59,4 +59,14 @@ describe('GreeHVACDevice flow triggers from capability listeners', () => {
         expect(device._flowTriggerHvacFanSpeedChanged.trigger).not.toHaveBeenCalled();
         expect(device._flowTriggerTurboModeChanged.trigger).not.toHaveBeenCalled();
     });
+
+    test('rejects an unknown fan speed value without sending the command or firing the trigger', async () => {
+        device._client = { setProperty: jest.fn() };
+
+        await expect(capabilityListeners.fan_speed(null))
+            .rejects.toThrow('Unknown fan speed value: null');
+
+        expect(device._client.setProperty).not.toHaveBeenCalled();
+        expect(device._flowTriggerHvacFanSpeedChanged.trigger).not.toHaveBeenCalled();
+    });
 });
