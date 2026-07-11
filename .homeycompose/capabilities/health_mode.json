@@ -1,0 +1,16 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Health mode",
+    "nl": "Gezondheidsmodus",
+    "de": "Gesundheitsmodus"
+  },
+  "desc": {
+    "en": "Cold plasma / ionizer air purification mode of the HVAC",
+    "nl": "Koud plasma / ionisator luchtreinigingsmodus van de HVAC",
+    "de": "Kaltplasma- / Ionisator-Luftreinigungsmodus der Klimaanlage"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "toggle"
+}

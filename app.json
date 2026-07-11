@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.gree",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "compatibility": ">=12.0.1",
   "sdk": 3,
   "brandColor": "#ff732e",
@@ -307,6 +307,33 @@
               "de": "Ruhig-Modus"
             },
             "example": "off"
+          }
+        ]
+      },
+      {
+        "id": "health_mode_changed",
+        "title": {
+          "en": "Health mode changed",
+          "nl": "Gezondheidsmodus veranderd",
+          "de": "Gesundheitsmodus geändert"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "health_mode",
+            "type": "boolean",
+            "title": {
+              "en": "Health mode",
+              "nl": "Gezondheidsmodus",
+              "de": "Gesundheitsmodus"
+            },
+            "example": "true"
           }
         ]
       }
@@ -841,6 +868,44 @@
                   "en": "Mode 3",
                   "nl": "Mode 3",
                   "de": "Mode 3"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "health_mode_is",
+        "title": {
+          "en": "Health mode !{{is|isn't}} ..."
+        },
+        "titleFormatted": {
+          "en": "Health mode !{{is|isn't}} [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan",
+                  "de": "Einschalten"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Ausschalten"
                 }
               }
             ]
@@ -1419,6 +1484,48 @@
             ]
           }
         ]
+      },
+      {
+        "id": "set_health_mode",
+        "title": {
+          "en": "Set health mode",
+          "nl": "Stel de gezondheidsmodus in",
+          "de": "Stellen Sie den Gesundheitsmodus ein"
+        },
+        "titleFormatted": {
+          "en": "Set health mode to [[mode]]",
+          "nl": "Stel de gezondheidsmodus in op [[mode]]",
+          "de": "Stellen Sie den Gesundheitsmodus auf [[mode]] ein"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan",
+                  "de": "Einschalten"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Ausschalten"
+                }
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -1440,7 +1547,8 @@
         "xfan_mode",
         "vertical_swing",
         "horizontal_swing",
-        "quiet_mode"
+        "quiet_mode",
+        "health_mode"
       ],
       "capabilitiesOptions": {
         "target_temperature": {
@@ -1620,6 +1728,22 @@
       "getable": true,
       "setable": true,
       "uiComponent": "picker"
+    },
+    "health_mode": {
+      "type": "boolean",
+      "title": {
+        "en": "Health mode",
+        "nl": "Gezondheidsmodus",
+        "de": "Gesundheitsmodus"
+      },
+      "desc": {
+        "en": "Cold plasma / ionizer air purification mode of the HVAC",
+        "nl": "Koud plasma / ionisator luchtreinigingsmodus van de HVAC",
+        "de": "Kaltplasma- / Ionisator-Luftreinigungsmodus der Klimaanlage"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "toggle"
     },
     "horizontal_swing": {
       "type": "enum",

@@ -44,6 +44,9 @@ That means you need to turn it on manually when switch to Dry/Cool mode if you w
 ### Vertical swing
 "Disabled"/"Default" position means that vertical swing will be stopped and left on the current position.
 
+### Health mode
+"Health mode" (also known as "Cold plasma") enables the ionizer air purification feature on supported HVACs.
+
 ## Links
 [Gree app in Homey Apps](https://apps.athom.com/app/com.gree)
 

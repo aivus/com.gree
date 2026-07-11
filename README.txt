@@ -32,3 +32,6 @@ Notes
 
 * Vertical swing
 ** "Disabled"/"Default" position means that vertical swing will be stopped and left on the current position.
+
+* Health mode
+** "Health mode" (also known as "Cold plasma") enables the ionizer air purification feature on supported HVACs.
