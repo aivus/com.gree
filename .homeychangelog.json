@@ -113,5 +113,8 @@
   },
   "0.13.0": {
     "en": "Add support of \"Health\" (Cold plasma) mode"
+  },
+  "1.0.0": {
+    "en": "Add support of \"Power save\", \"Sleep\" and \"Fresh air\" modes"
   }
 }

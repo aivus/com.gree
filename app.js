@@ -87,6 +87,27 @@ class GreeHVAC extends Homey.App {
                 return onoffToBoolean(args.mode) === healthMode;
             });
 
+        this.homey.flow.getConditionCard('power_save_mode_is')
+            .registerRunListener((args, state) => {
+                const powerSaveMode = args.device.getCapabilityValue('power_save_mode');
+                args.device.log('[condition]', '[current power save mode]', powerSaveMode);
+                return onoffToBoolean(args.mode) === powerSaveMode;
+            });
+
+        this.homey.flow.getConditionCard('sleep_mode_is')
+            .registerRunListener((args, state) => {
+                const sleepMode = args.device.getCapabilityValue('sleep_mode');
+                args.device.log('[condition]', '[current sleep mode]', sleepMode);
+                return onoffToBoolean(args.mode) === sleepMode;
+            });
+
+        this.homey.flow.getConditionCard('fresh_air_mode_is')
+            .registerRunListener((args, state) => {
+                const freshAirMode = args.device.getCapabilityValue('fresh_air_mode');
+                args.device.log('[condition]', '[current fresh air mode]', freshAirMode);
+                return args.mode === freshAirMode;
+            });
+
         // Register actions for flows
         this.homey.flow.getActionCard('set_hvac_mode')
             .registerRunListener((args, state) => {
@@ -164,6 +185,30 @@ class GreeHVAC extends Homey.App {
                 return args.device.setCapabilityValue('health_mode', onoffToBoolean(args.mode))
                     .then(() => {
                         return args.device.triggerCapabilityListener('health_mode', onoffToBoolean(args.mode), {});
+                    });
+            });
+
+        this.homey.flow.getActionCard('set_power_save_mode')
+            .registerRunListener((args, state) => {
+                return args.device.setCapabilityValue('power_save_mode', onoffToBoolean(args.mode))
+                    .then(() => {
+                        return args.device.triggerCapabilityListener('power_save_mode', onoffToBoolean(args.mode), {});
+                    });
+            });
+
+        this.homey.flow.getActionCard('set_sleep_mode')
+            .registerRunListener((args, state) => {
+                return args.device.setCapabilityValue('sleep_mode', onoffToBoolean(args.mode))
+                    .then(() => {
+                        return args.device.triggerCapabilityListener('sleep_mode', onoffToBoolean(args.mode), {});
+                    });
+            });
+
+        this.homey.flow.getActionCard('set_fresh_air_mode')
+            .registerRunListener((args, state) => {
+                return args.device.setCapabilityValue('fresh_air_mode', args.mode)
+                    .then(() => {
+                        return args.device.triggerCapabilityListener('fresh_air_mode', args.mode, {});
                     });
             });
     }

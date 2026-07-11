@@ -1,0 +1,16 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Power save mode",
+    "nl": "Energiebesparende modus",
+    "de": "Energiesparmodus"
+  },
+  "desc": {
+    "en": "Power saving mode of the HVAC",
+    "nl": "Energiebesparende modus van de HVAC",
+    "de": "Energiesparmodus der Klimaanlage"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "toggle"
+}

@@ -1,0 +1,50 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Fresh air mode",
+    "nl": "Verse lucht modus",
+    "de": "Frischluftmodus"
+  },
+  "desc": {
+    "en": "Fresh air valve mode of the HVAC",
+    "nl": "Verse luchtklep modus van de HVAC",
+    "de": "Frischluftventil-Modus der Klimaanlage"
+  },
+  "values": [
+    {
+      "id": "off",
+      "title": {
+        "en": "Off",
+        "nl": "Uit",
+        "de": "Aus"
+      }
+    },
+    {
+      "id": "inside",
+      "title": {
+        "en": "Inside",
+        "nl": "Binnen",
+        "de": "Innen"
+      }
+    },
+    {
+      "id": "outside",
+      "title": {
+        "en": "Outside",
+        "nl": "Buiten",
+        "de": "Außen"
+      }
+    },
+    {
+      "id": "mode3",
+      "title": {
+        "en": "Mode 3",
+        "nl": "Mode 3",
+        "de": "Mode 3"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true,
+  "uiComponent": "picker"
+}
