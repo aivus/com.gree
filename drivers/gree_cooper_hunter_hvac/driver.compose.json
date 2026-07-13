@@ -16,7 +16,10 @@
     "vertical_swing",
     "horizontal_swing",
     "quiet_mode",
-    "health_mode"
+    "health_mode",
+    "power_save_mode",
+    "sleep_mode",
+    "fresh_air_mode"
   ],
   "capabilitiesOptions": {
     "target_temperature": {

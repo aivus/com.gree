@@ -68,6 +68,9 @@ class GreeHVACDevice extends Homey.Device {
         this._flowTriggerHorizontalSwingChanged = this.homey.flow.getDeviceTriggerCard('horizontal_swing_changed');
         this._flowTriggerQuietModeChanged = this.homey.flow.getDeviceTriggerCard('quiet_mode_changed');
         this._flowTriggerHealthModeChanged = this.homey.flow.getDeviceTriggerCard('health_mode_changed');
+        this._flowTriggerPowerSaveModeChanged = this.homey.flow.getDeviceTriggerCard('power_save_mode_changed');
+        this._flowTriggerSleepModeChanged = this.homey.flow.getDeviceTriggerCard('sleep_mode_changed');
+        this._flowTriggerFreshAirModeChanged = this.homey.flow.getDeviceTriggerCard('fresh_air_mode_changed');
 
         await this._executeCapabilityMigrations();
         await this._executeDeviceClassMigration();
@@ -365,6 +368,39 @@ class GreeHVACDevice extends Homey.Device {
 
             return Promise.resolve();
         });
+
+        this.registerCapabilityListener('power_save_mode', (value) => {
+            const rawValue = value ? HVAC.VALUE.powerSave.on : HVAC.VALUE.powerSave.off;
+            this.log('[power save mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
+            if (this._setClientProperty(HVAC.PROPERTY.powerSave, rawValue)) {
+                this._flowTriggerPowerSaveModeChanged.trigger(this, { power_save_mode: value });
+            }
+
+            return Promise.resolve();
+        });
+
+        this.registerCapabilityListener('sleep_mode', (value) => {
+            const rawValue = value ? HVAC.VALUE.sleep.on : HVAC.VALUE.sleep.off;
+            this.log('[sleep mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
+            if (this._setClientProperty(HVAC.PROPERTY.sleep, rawValue)) {
+                this._flowTriggerSleepModeChanged.trigger(this, { sleep_mode: value });
+            }
+
+            return Promise.resolve();
+        });
+
+        this.registerCapabilityListener('fresh_air_mode', (value) => {
+            const rawValue = HVAC.VALUE.air[value];
+            if (rawValue === undefined) {
+                return Promise.reject(new Error(`Unknown fresh air mode value: ${JSON.stringify(value)}`));
+            }
+            this.log('[fresh air mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
+            if (this._setClientProperty(HVAC.PROPERTY.air, rawValue)) {
+                this._flowTriggerFreshAirModeChanged.trigger(this, { fresh_air_mode: value });
+            }
+
+            return Promise.resolve();
+        });
     }
 
     /**
@@ -554,6 +590,30 @@ class GreeHVACDevice extends Homey.Device {
             this.setCapabilityValue('health_mode', value).then(() => {
                 this.log('[update properties]', '[health_mode]', value);
                 return this._flowTriggerHealthModeChanged.trigger(this, { health_mode: value });
+            }).catch(this.error);
+        }
+
+        if (this._checkBoolPropertyChanged(updatedProperties, HVAC.PROPERTY.powerSave, 'power_save_mode')) {
+            const value = updatedProperties[HVAC.PROPERTY.powerSave] === HVAC.VALUE.powerSave.on;
+            this.setCapabilityValue('power_save_mode', value).then(() => {
+                this.log('[update properties]', '[power_save_mode]', value);
+                return this._flowTriggerPowerSaveModeChanged.trigger(this, { power_save_mode: value });
+            }).catch(this.error);
+        }
+
+        if (this._checkBoolPropertyChanged(updatedProperties, HVAC.PROPERTY.sleep, 'sleep_mode')) {
+            const value = updatedProperties[HVAC.PROPERTY.sleep] === HVAC.VALUE.sleep.on;
+            this.setCapabilityValue('sleep_mode', value).then(() => {
+                this.log('[update properties]', '[sleep_mode]', value);
+                return this._flowTriggerSleepModeChanged.trigger(this, { sleep_mode: value });
+            }).catch(this.error);
+        }
+
+        if (this._checkPropertyChanged(updatedProperties, HVAC.PROPERTY.air, 'fresh_air_mode')) {
+            const value = updatedProperties[HVAC.PROPERTY.air];
+            this.setCapabilityValue('fresh_air_mode', value).then(() => {
+                this.log('[update properties]', '[fresh_air_mode]', value);
+                return this._flowTriggerFreshAirModeChanged.trigger(this, { fresh_air_mode: value });
             }).catch(this.error);
         }
     }
@@ -833,6 +893,22 @@ class GreeHVACDevice extends Homey.Device {
         if (!this.hasCapability('health_mode')) {
             this.log('[migration v0.13.0]', 'Adding "health_mode" capability');
             await this.addCapability('health_mode');
+        }
+
+        // Added in v1.0.0
+        if (!this.hasCapability('power_save_mode')) {
+            this.log('[migration v1.0.0]', 'Adding "power_save_mode" capability');
+            await this.addCapability('power_save_mode');
+        }
+
+        if (!this.hasCapability('sleep_mode')) {
+            this.log('[migration v1.0.0]', 'Adding "sleep_mode" capability');
+            await this.addCapability('sleep_mode');
+        }
+
+        if (!this.hasCapability('fresh_air_mode')) {
+            this.log('[migration v1.0.0]', 'Adding "fresh_air_mode" capability');
+            await this.addCapability('fresh_air_mode');
         }
     }
 

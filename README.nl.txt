@@ -36,3 +36,12 @@ Opmerkingen
 
 * Gezondheidsmodus
 ** "Gezondheidsmodus" (ook bekend als "Koud plasma") schakelt de ionisator-luchtreinigingsfunctie in op ondersteunde HVAC's.
+
+* Energiebesparende modus
+** "Energiebesparende modus" vermindert het energieverbruik van de HVAC.
+
+* Slaapmodus
+** "Slaapmodus" verandert geleidelijk de temperatuur in de modi Koelen, Verwarmen en Ontvochtigen voor een comfortabele slaap.
+
+* Verse lucht modus
+** "Verse lucht modus" bedient de verse luchtklep (ventilatie) op HVAC's die hiermee zijn uitgerust.

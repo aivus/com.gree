@@ -1,0 +1,16 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Sleep mode",
+    "nl": "Slaapmodus",
+    "de": "Schlafmodus"
+  },
+  "desc": {
+    "en": "Sleep mode gradually changes the temperature in Cool, Heat and Dry mode",
+    "nl": "Slaapmodus verandert geleidelijk de temperatuur in de modi Koelen, Verwarmen en Ontvochtigen",
+    "de": "Der Schlafmodus ändert die Temperatur schrittweise in den Modi Kühlen, Heizen und Trocknen"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "toggle"
+}

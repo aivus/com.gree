@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.gree",
-  "version": "0.13.0",
+  "version": "1.0.0",
   "compatibility": ">=12.0.1",
   "sdk": 3,
   "brandColor": "#ff732e",
@@ -334,6 +334,87 @@
               "de": "Gesundheitsmodus"
             },
             "example": "true"
+          }
+        ]
+      },
+      {
+        "id": "power_save_mode_changed",
+        "title": {
+          "en": "Power save mode changed",
+          "nl": "Energiebesparende modus veranderd",
+          "de": "Energiesparmodus geändert"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "power_save_mode",
+            "type": "boolean",
+            "title": {
+              "en": "Power save mode",
+              "nl": "Energiebesparende modus",
+              "de": "Energiesparmodus"
+            },
+            "example": "true"
+          }
+        ]
+      },
+      {
+        "id": "sleep_mode_changed",
+        "title": {
+          "en": "Sleep mode changed",
+          "nl": "Slaapmodus veranderd",
+          "de": "Schlafmodus geändert"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "sleep_mode",
+            "type": "boolean",
+            "title": {
+              "en": "Sleep mode",
+              "nl": "Slaapmodus",
+              "de": "Schlafmodus"
+            },
+            "example": "true"
+          }
+        ]
+      },
+      {
+        "id": "fresh_air_mode_changed",
+        "title": {
+          "en": "Fresh air mode changed",
+          "nl": "Verse lucht modus veranderd",
+          "de": "Frischluftmodus geändert"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "fresh_air_mode",
+            "type": "string",
+            "title": {
+              "en": "Fresh air mode",
+              "nl": "Verse lucht modus",
+              "de": "Frischluftmodus"
+            },
+            "example": "off"
           }
         ]
       }
@@ -906,6 +987,136 @@
                   "en": "Off",
                   "nl": "Uit",
                   "de": "Ausschalten"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "power_save_mode_is",
+        "title": {
+          "en": "Power save mode !{{is|isn't}} ..."
+        },
+        "titleFormatted": {
+          "en": "Power save mode !{{is|isn't}} [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan",
+                  "de": "Einschalten"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Ausschalten"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sleep_mode_is",
+        "title": {
+          "en": "Sleep mode !{{is|isn't}} ..."
+        },
+        "titleFormatted": {
+          "en": "Sleep mode !{{is|isn't}} [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan",
+                  "de": "Einschalten"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Ausschalten"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fresh_air_mode_is",
+        "title": {
+          "en": "Fresh air mode !{{is|isn't}} ..."
+        },
+        "titleFormatted": {
+          "en": "Fresh air mode !{{is|isn't}} [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Aus"
+                }
+              },
+              {
+                "id": "inside",
+                "title": {
+                  "en": "Inside",
+                  "nl": "Binnen",
+                  "de": "Innen"
+                }
+              },
+              {
+                "id": "outside",
+                "title": {
+                  "en": "Outside",
+                  "nl": "Buiten",
+                  "de": "Außen"
+                }
+              },
+              {
+                "id": "mode3",
+                "title": {
+                  "en": "Mode 3",
+                  "nl": "Mode 3",
+                  "de": "Mode 3"
                 }
               }
             ]
@@ -1486,6 +1697,148 @@
         ]
       },
       {
+        "id": "set_power_save_mode",
+        "title": {
+          "en": "Set power save mode",
+          "nl": "Stel de energiebesparende modus in",
+          "de": "Stellen Sie den Energiesparmodus ein"
+        },
+        "titleFormatted": {
+          "en": "Set power save mode to [[mode]]",
+          "nl": "Stel de energiebesparende modus in op [[mode]]",
+          "de": "Stellen Sie den Energiesparmodus auf [[mode]] ein"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan",
+                  "de": "Einschalten"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Ausschalten"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_sleep_mode",
+        "title": {
+          "en": "Set sleep mode",
+          "nl": "Stel de slaapmodus in",
+          "de": "Stellen Sie den Schlafmodus ein"
+        },
+        "titleFormatted": {
+          "en": "Set sleep mode to [[mode]]",
+          "nl": "Stel de slaapmodus in op [[mode]]",
+          "de": "Stellen Sie den Schlafmodus auf [[mode]] ein"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan",
+                  "de": "Einschalten"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Ausschalten"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_fresh_air_mode",
+        "title": {
+          "en": "Set fresh air mode",
+          "nl": "Stel de verse lucht modus in",
+          "de": "Stellen Sie den Frischluftmodus ein"
+        },
+        "titleFormatted": {
+          "en": "Set fresh air mode to [[mode]]",
+          "nl": "Stel de verse lucht modus in op [[mode]]",
+          "de": "Stellen Sie den Frischluftmodus auf [[mode]] ein"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Aus"
+                }
+              },
+              {
+                "id": "inside",
+                "title": {
+                  "en": "Inside",
+                  "nl": "Binnen",
+                  "de": "Innen"
+                }
+              },
+              {
+                "id": "outside",
+                "title": {
+                  "en": "Outside",
+                  "nl": "Buiten",
+                  "de": "Außen"
+                }
+              },
+              {
+                "id": "mode3",
+                "title": {
+                  "en": "Mode 3",
+                  "nl": "Mode 3",
+                  "de": "Mode 3"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "set_health_mode",
         "title": {
           "en": "Set health mode",
@@ -1548,7 +1901,10 @@
         "vertical_swing",
         "horizontal_swing",
         "quiet_mode",
-        "health_mode"
+        "health_mode",
+        "power_save_mode",
+        "sleep_mode",
+        "fresh_air_mode"
       ],
       "capabilitiesOptions": {
         "target_temperature": {
@@ -1729,6 +2085,56 @@
       "setable": true,
       "uiComponent": "picker"
     },
+    "fresh_air_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Fresh air mode",
+        "nl": "Verse lucht modus",
+        "de": "Frischluftmodus"
+      },
+      "desc": {
+        "en": "Fresh air valve mode of the HVAC",
+        "nl": "Verse luchtklep modus van de HVAC",
+        "de": "Frischluftventil-Modus der Klimaanlage"
+      },
+      "values": [
+        {
+          "id": "off",
+          "title": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Aus"
+          }
+        },
+        {
+          "id": "inside",
+          "title": {
+            "en": "Inside",
+            "nl": "Binnen",
+            "de": "Innen"
+          }
+        },
+        {
+          "id": "outside",
+          "title": {
+            "en": "Outside",
+            "nl": "Buiten",
+            "de": "Außen"
+          }
+        },
+        {
+          "id": "mode3",
+          "title": {
+            "en": "Mode 3",
+            "nl": "Mode 3",
+            "de": "Mode 3"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker"
+    },
     "health_mode": {
       "type": "boolean",
       "title": {
@@ -1843,6 +2249,22 @@
       "setable": true,
       "uiComponent": "toggle"
     },
+    "power_save_mode": {
+      "type": "boolean",
+      "title": {
+        "en": "Power save mode",
+        "nl": "Energiebesparende modus",
+        "de": "Energiesparmodus"
+      },
+      "desc": {
+        "en": "Power saving mode of the HVAC",
+        "nl": "Energiebesparende modus van de HVAC",
+        "de": "Energiesparmodus der Klimaanlage"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "toggle"
+    },
     "quiet_mode": {
       "type": "enum",
       "title": {
@@ -1904,6 +2326,22 @@
         "en": "The air conditioner keeps the room temperature at 8°C to prevent freezing",
         "nl": "De airconditioner houdt de kamertemperatuur op 8°C om bevriezing te voorkomen.",
         "de": "Die Klimaanlage hält die Raumtemperatur auf 8°C, um ein Einfrieren zu verhindern."
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "toggle"
+    },
+    "sleep_mode": {
+      "type": "boolean",
+      "title": {
+        "en": "Sleep mode",
+        "nl": "Slaapmodus",
+        "de": "Schlafmodus"
+      },
+      "desc": {
+        "en": "Sleep mode gradually changes the temperature in Cool, Heat and Dry mode",
+        "nl": "Slaapmodus verandert geleidelijk de temperatuur in de modi Koelen, Verwarmen en Ontvochtigen",
+        "de": "Der Schlafmodus ändert die Temperatur schrittweise in den Modi Kühlen, Heizen und Trocknen"
       },
       "getable": true,
       "setable": true,
