@@ -3,12 +3,28 @@
   "title": {
     "en": "Sleep mode",
     "nl": "Slaapmodus",
-    "de": "Schlafmodus"
+    "de": "Schlafmodus",
+    "fr": "Mode sommeil",
+    "it": "Modalità notte",
+    "sv": "Viloläge",
+    "no": "Sovemodus",
+    "es": "Modo de reposo",
+    "da": "Dvaletilstand",
+    "pl": "Tryb uśpienia",
+    "ko": "취침 모드"
   },
   "desc": {
     "en": "Sleep mode gradually changes the temperature in Cool, Heat and Dry mode",
     "nl": "Slaapmodus verandert geleidelijk de temperatuur in de modi Koelen, Verwarmen en Ontvochtigen",
-    "de": "Der Schlafmodus ändert die Temperatur schrittweise in den Modi Kühlen, Heizen und Trocknen"
+    "de": "Der Schlafmodus ändert die Temperatur schrittweise in den Modi Kühlen, Heizen und Trocknen",
+    "fr": "Le mode sommeil modifie progressivement la température en mode Refroidissement, Chauffage et Déshumidification",
+    "it": "La modalità notte cambia gradualmente la temperatura nelle modalità Raffreddamento, Riscaldamento e Deumidificazione",
+    "sv": "Viloläget ändrar temperaturen gradvis i lägena Kyla, Värme och Avfuktning",
+    "no": "Sovemodus endrer temperaturen gradvis i modusene Kjøling, Oppvarming og Avfukting",
+    "es": "El modo de reposo cambia gradualmente la temperatura en los modos Enfriar, Calentar y Deshumidificar",
+    "da": "Dvaletilstand ændrer gradvist temperaturen i tilstandene Køl, Varme og Affugtning",
+    "pl": "Tryb uśpienia stopniowo zmienia temperaturę w trybie chłodzenia, ogrzewania i osuszania",
+    "ko": "취침 모드는 냉방, 난방 및 제습 모드에서 온도를 점진적으로 변경합니다"
   },
   "getable": true,
   "setable": true,

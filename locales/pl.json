@@ -1,0 +1,21 @@
+{
+    "pair": {
+        "intro": {
+            "p1": "Zanim przejdziesz dalej, musisz połączyć klimatyzator z bieżącą siecią WiFi.",
+            "p2": "Można to zrobić za pomocą standardowej aplikacji producenta, takiej jak <i>EWPE Smart</i>, lub za pomocą instrukcji CLI z pliku README aplikacji (użytkownicy zaawansowani)",
+            "static_ip_link": "Moje urządzenie ma statyczny adres IP →"
+        },
+        "static_ip": {
+            "description": "Wprowadź statyczny adres IP swojego klimatyzatora. Urządzenie musi być osiągalne w Twojej sieci.",
+            "label": "Adres IP",
+            "skip_scan": "Pomiń skanowanie UDP (użyj, gdy UDP jest zablokowane)",
+            "name_label": "Nazwa urządzenia (opcjonalnie)",
+            "button": "Znajdź urządzenie",
+            "error_no_response": "Brak odpowiedzi od urządzenia. Sprawdź adres IP i upewnij się, że urządzenie jest osiągalne."
+        }
+    },
+    "error": {
+        "offline": "Twój klimatyzator przeszedł w tryb offline. Próba ponownego połączenia...",
+        "invalid_static_ip": "Nieprawidłowy adres IP. Wprowadź prawidłowy adres IPv4 lub pozostaw pole puste, aby użyć automatycznego wykrywania."
+    }
+}

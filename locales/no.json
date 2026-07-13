@@ -1,0 +1,21 @@
+{
+    "pair": {
+        "intro": {
+            "p1": "Før du fortsetter må du koble klimaanlegget til ditt nåværende WiFi-nettverk.",
+            "p2": "Dette kan gjøres med en vanlig produsentapp som <i>EWPE Smart</i> eller ved hjelp av CLI-instruksjonene i appens README (avanserte brukere)",
+            "static_ip_link": "Enheten min har en statisk IP-adresse →"
+        },
+        "static_ip": {
+            "description": "Angi den statiske IP-adressen til klimaanlegget ditt. Enheten må være tilgjengelig på nettverket ditt.",
+            "label": "IP-adresse",
+            "skip_scan": "Hopp over UDP-skanning (bruk når UDP er blokkert)",
+            "name_label": "Enhetsnavn (valgfritt)",
+            "button": "Finn enhet",
+            "error_no_response": "Ingen respons fra enheten. Kontroller IP-adressen og sørg for at enheten er tilgjengelig."
+        }
+    },
+    "error": {
+        "offline": "Klimaanlegget ditt ble frakoblet. Prøver å koble til på nytt...",
+        "invalid_static_ip": "Ugyldig IP-adresse. Angi en gyldig IPv4-adresse eller la feltet stå tomt for å bruke automatisk oppdagelse."
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "pair": {
+        "intro": {
+            "p1": "Innan du fortsätter måste du ansluta HVAC:n till ditt nuvarande WiFi-nätverk.",
+            "p2": "Det kan göras med en vanlig tillverkarapp som <i>EWPE Smart</i> eller via CLI-instruktionerna i appens README (avancerade användare)",
+            "static_ip_link": "Min enhet har en statisk IP-adress →"
+        },
+        "static_ip": {
+            "description": "Ange den statiska IP-adressen för din HVAC-enhet. Enheten måste vara nåbar i ditt nätverk.",
+            "label": "IP-adress",
+            "skip_scan": "Hoppa över UDP-skanning (använd när UDP är blockerat)",
+            "name_label": "Enhetsnamn (valfritt)",
+            "button": "Hitta enhet",
+            "error_no_response": "Inget svar från enheten. Kontrollera IP-adressen och se till att enheten är nåbar."
+        }
+    },
+    "error": {
+        "offline": "Din HVAC har kopplats från. Försöker återansluta...",
+        "invalid_static_ip": "Ogiltig IP-adress. Ange en giltig IPv4-adress eller lämna fältet tomt för att använda automatisk identifiering."
+    }
+}

@@ -3,12 +3,28 @@
   "title": {
     "en": "8°C heating",
     "nl": "8°C verwarming",
-    "de": "8°C Heizung"
+    "de": "8°C Heizung",
+    "fr": "Chauffage 8°C",
+    "it": "Riscaldamento a 8°C",
+    "sv": "8°C uppvärmning",
+    "no": "8°C oppvarming",
+    "es": "Calefacción a 8°C",
+    "da": "8°C opvarmning",
+    "pl": "Ogrzewanie 8°C",
+    "ko": "8°C 난방"
   },
   "desc": {
     "en": "The air conditioner keeps the room temperature at 8°C to prevent freezing",
     "nl": "De airconditioner houdt de kamertemperatuur op 8°C om bevriezing te voorkomen.",
-    "de": "Die Klimaanlage hält die Raumtemperatur auf 8°C, um ein Einfrieren zu verhindern."
+    "de": "Die Klimaanlage hält die Raumtemperatur auf 8°C, um ein Einfrieren zu verhindern.",
+    "fr": "Le climatiseur maintient la température de la pièce à 8°C pour éviter le gel",
+    "it": "Il condizionatore mantiene la temperatura ambiente a 8°C per prevenire il congelamento",
+    "sv": "Luftkonditioneringen håller rumstemperaturen på 8°C för att förhindra frysning",
+    "no": "Klimaanlegget holder romtemperaturen på 8°C for å hindre frysing.",
+    "es": "El aire acondicionado mantiene la temperatura de la habitación a 8°C para evitar la congelación",
+    "da": "Airconditionanlægget holder rumtemperaturen på 8°C for at forhindre frost.",
+    "pl": "Klimatyzator utrzymuje temperaturę w pomieszczeniu na poziomie 8°C, aby zapobiec zamarzaniu",
+    "ko": "에어컨이 동결을 방지하기 위해 실내 온도를 8°C로 유지합니다"
   },
   "getable": true,
   "setable": true,

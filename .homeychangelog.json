@@ -1,120 +1,509 @@
 {
   "0.1.0": {
-    "en": "First version of app\r\nAllow to turn on and off\r\nAllow to change HVAC mode\r\nAllow to control temperature"
+    "en": "First version of app\r\nAllow to turn on and off\r\nAllow to change HVAC mode\r\nAllow to control temperature",
+    "nl": "Eerste versie van de app\r\nIn- en uitschakelen mogelijk\r\nHVAC-modus wijzigen mogelijk\r\nTemperatuur regelen mogelijk",
+    "de": "Erste Version der App\r\nEin- und Ausschalten möglich\r\nHVAC-Modus ändern möglich\r\nTemperatur regeln möglich",
+    "fr": "Première version de l'application\r\nPermet d'allumer et d'éteindre\r\nPermet de changer le mode HVAC\r\nPermet de contrôler la température",
+    "it": "Prima versione dell'app\r\nConsente di accendere e spegnere\r\nConsente di cambiare la modalità HVAC\r\nConsente di controllare la temperatura",
+    "sv": "Första versionen av appen\r\nMöjlighet att slå på och av\r\nMöjlighet att ändra HVAC-läge\r\nMöjlighet att styra temperaturen",
+    "no": "Første versjon av appen\r\nMulighet for å slå på og av\r\nMulighet for å endre HVAC-modus\r\nMulighet for å styre temperaturen",
+    "es": "Primera versión de la app\r\nPermite encender y apagar\r\nPermite cambiar el modo HVAC\r\nPermite controlar la temperatura",
+    "da": "Første version af appen\r\nMulighed for at tænde og slukke\r\nMulighed for at ændre HVAC-tilstand\r\nMulighed for at styre temperaturen",
+    "pl": "Pierwsza wersja aplikacji\r\nMożliwość włączania i wyłączania\r\nMożliwość zmiany trybu HVAC\r\nMożliwość sterowania temperaturą",
+    "ko": "앱의 첫 번째 버전\r\n켜기 및 끄기 가능\r\nHVAC 모드 변경 가능\r\n온도 제어 가능"
   },
   "0.1.3": {
-    "en": "Fix connection bug when few HVACs are in use"
+    "en": "Fix connection bug when few HVACs are in use",
+    "nl": "Verbindingsprobleem opgelost wanneer meerdere HVAC's in gebruik zijn",
+    "de": "Verbindungsfehler behoben, wenn mehrere Klimaanlagen verwendet werden",
+    "fr": "Correction d'un bug de connexion lorsque plusieurs HVAC sont utilisés",
+    "it": "Corretto un bug di connessione quando sono in uso più condizionatori",
+    "sv": "Åtgärdat anslutningsfel när flera HVAC:er används",
+    "no": "Rettet en tilkoblingsfeil når flere klimaanlegg er i bruk",
+    "es": "Corrige un error de conexión cuando se usan varios HVAC",
+    "da": "Rettet forbindelsesfejl, når flere HVAC'er er i brug",
+    "pl": "Naprawiono błąd połączenia, gdy używanych jest kilka klimatyzatorów",
+    "ko": "여러 대의 HVAC를 사용할 때 발생하는 연결 버그 수정"
   },
   "0.2.1": {
-    "en": "Fix connection issue in case of changing IP address by the HVAC\r\nUse MAC instead of HVAC name for storing ACs info\r\nUse fork for gree-hvac-client to catch and ignore invalid JSON\r\nUse fork for gree-hvac-client to prevent `Error [ERR_SOCKET_DGRAM_NOT_RUNNING]: Not running` error\r\nAllow to activate \"turbo mode\"\r\nAllow to turn on and off lights of HVAC"
+    "en": "Fix connection issue in case of changing IP address by the HVAC\r\nUse MAC instead of HVAC name for storing ACs info\r\nUse fork for gree-hvac-client to catch and ignore invalid JSON\r\nUse fork for gree-hvac-client to prevent `Error [ERR_SOCKET_DGRAM_NOT_RUNNING]: Not running` error\r\nAllow to activate \"turbo mode\"\r\nAllow to turn on and off lights of HVAC",
+    "nl": "Verbindingsprobleem opgelost wanneer de HVAC van IP-adres verandert\r\nMAC gebruiken in plaats van HVAC-naam om AC-informatie op te slaan\r\nEen fork van gree-hvac-client gebruiken om ongeldige JSON op te vangen en te negeren\r\nEen fork van gree-hvac-client gebruiken om de fout `Error [ERR_SOCKET_DGRAM_NOT_RUNNING]: Not running` te voorkomen\r\n\"turbo mode\" activeren mogelijk\r\nVerlichting van de HVAC in- en uitschakelen mogelijk",
+    "de": "Verbindungsproblem behoben, wenn die Klimaanlage ihre IP-Adresse ändert\r\nMAC statt Klimaanlagen-Name zum Speichern der Geräteinformationen verwenden\r\nEinen Fork von gree-hvac-client verwenden, um ungültiges JSON abzufangen und zu ignorieren\r\nEinen Fork von gree-hvac-client verwenden, um den Fehler `Error [ERR_SOCKET_DGRAM_NOT_RUNNING]: Not running` zu verhindern\r\n\"turbo mode\" aktivieren möglich\r\nBeleuchtung der Klimaanlage ein- und ausschalten möglich",
+    "fr": "Correction d'un problème de connexion en cas de changement d'adresse IP par le HVAC\r\nUtilisation de l'adresse MAC au lieu du nom du HVAC pour stocker les informations des climatiseurs\r\nUtilisation d'un fork de gree-hvac-client pour intercepter et ignorer le JSON invalide\r\nUtilisation d'un fork de gree-hvac-client pour éviter l'erreur `Error [ERR_SOCKET_DGRAM_NOT_RUNNING]: Not running`\r\nPermet d'activer le \"turbo mode\"\r\nPermet d'allumer et d'éteindre l'éclairage du HVAC",
+    "it": "Corretto un problema di connessione quando il condizionatore cambia indirizzo IP\r\nUso del MAC invece del nome del condizionatore per memorizzare le informazioni degli AC\r\nUso di un fork di gree-hvac-client per intercettare e ignorare JSON non valido\r\nUso di un fork di gree-hvac-client per prevenire l'errore `Error [ERR_SOCKET_DGRAM_NOT_RUNNING]: Not running`\r\nConsente di attivare la \"turbo mode\"\r\nConsente di accendere e spegnere le luci del condizionatore",
+    "sv": "Åtgärdat anslutningsproblem när HVAC:n byter IP-adress\r\nAnvänder MAC i stället för HVAC-namn för att lagra AC-information\r\nAnvänder en fork av gree-hvac-client för att fånga och ignorera ogiltig JSON\r\nAnvänder en fork av gree-hvac-client för att förhindra felet `Error [ERR_SOCKET_DGRAM_NOT_RUNNING]: Not running`\r\nMöjlighet att aktivera \"turbo mode\"\r\nMöjlighet att slå på och av HVAC:ns belysning",
+    "no": "Rettet tilkoblingsproblem når klimaanlegget endrer IP-adresse\r\nBruker MAC i stedet for klimaanleggets navn for å lagre informasjon om klimaanlegg\r\nBruker en fork av gree-hvac-client for å fange opp og ignorere ugyldig JSON\r\nBruker en fork av gree-hvac-client for å forhindre feilen `Error [ERR_SOCKET_DGRAM_NOT_RUNNING]: Not running`\r\nMulighet for å aktivere \"turbo mode\"\r\nMulighet for å slå lysene på klimaanlegget på og av",
+    "es": "Corrige un problema de conexión cuando el HVAC cambia de dirección IP\r\nUsa la MAC en lugar del nombre del HVAC para almacenar la información de los AC\r\nUsa un fork de gree-hvac-client para capturar e ignorar JSON no válido\r\nUsa un fork de gree-hvac-client para evitar el error `Error [ERR_SOCKET_DGRAM_NOT_RUNNING]: Not running`\r\nPermite activar el \"turbo mode\"\r\nPermite encender y apagar las luces del HVAC",
+    "da": "Rettet forbindelsesproblem, når HVAC'en ændrer IP-adresse\r\nBruger MAC i stedet for HVAC-navn til at gemme oplysninger om AC'er\r\nBruger en fork af gree-hvac-client til at opfange og ignorere ugyldig JSON\r\nBruger en fork af gree-hvac-client for at forhindre fejlen `Error [ERR_SOCKET_DGRAM_NOT_RUNNING]: Not running`\r\nMulighed for at aktivere \"turbo mode\"\r\nMulighed for at tænde og slukke HVAC'ens lys",
+    "pl": "Naprawiono problem z połączeniem w przypadku zmiany adresu IP przez klimatyzator\r\nUżycie MAC zamiast nazwy klimatyzatora do przechowywania informacji o klimatyzatorach\r\nUżycie forka gree-hvac-client do przechwytywania i ignorowania nieprawidłowego JSON\r\nUżycie forka gree-hvac-client, aby zapobiec błędowi `Error [ERR_SOCKET_DGRAM_NOT_RUNNING]: Not running`\r\nMożliwość aktywacji \"turbo mode\"\r\nMożliwość włączania i wyłączania oświetlenia klimatyzatora",
+    "ko": "HVAC가 IP 주소를 변경하는 경우의 연결 문제 수정\r\nAC 정보를 저장하기 위해 HVAC 이름 대신 MAC 사용\r\n유효하지 않은 JSON을 잡아 무시하기 위해 gree-hvac-client의 fork 사용\r\n`Error [ERR_SOCKET_DGRAM_NOT_RUNNING]: Not running` 오류를 방지하기 위해 gree-hvac-client의 fork 사용\r\n\"turbo mode\" 활성화 가능\r\nHVAC의 조명 켜기 및 끄기 가능"
   },
   "0.2.2": {
-    "en": "Update application to comply with latest Homey changes"
+    "en": "Update application to comply with latest Homey changes",
+    "nl": "Applicatie bijgewerkt om te voldoen aan de nieuwste Homey-wijzigingen",
+    "de": "Anwendung aktualisiert, um den neuesten Homey-Änderungen zu entsprechen",
+    "fr": "Mise à jour de l'application pour se conformer aux dernières modifications de Homey",
+    "it": "Applicazione aggiornata per essere conforme alle ultime modifiche di Homey",
+    "sv": "Uppdaterade applikationen för att uppfylla de senaste Homey-ändringarna",
+    "no": "Oppdaterte applikasjonen for å samsvare med de nyeste Homey-endringene",
+    "es": "Actualiza la aplicación para cumplir con los últimos cambios de Homey",
+    "da": "Opdateret applikationen, så den overholder de nyeste Homey-ændringer",
+    "pl": "Zaktualizowano aplikację, aby była zgodna z najnowszymi zmianami Homey",
+    "ko": "최신 Homey 변경 사항을 준수하도록 애플리케이션 업데이트"
   },
   "0.2.3": {
-    "en": "Add new capabilities to existing devices instead of re-pairing"
+    "en": "Add new capabilities to existing devices instead of re-pairing",
+    "nl": "Nieuwe mogelijkheden toevoegen aan bestaande apparaten in plaats van opnieuw koppelen",
+    "de": "Neue Funktionen zu bestehenden Geräten hinzufügen, statt sie neu zu koppeln",
+    "fr": "Ajout de nouvelles fonctionnalités aux appareils existants au lieu de les recoupler",
+    "it": "Aggiunta di nuove funzionalità ai dispositivi esistenti invece di riassociarli",
+    "sv": "Lägger till nya funktioner till befintliga enheter i stället för att koppla om dem",
+    "no": "Legger til nye funksjoner på eksisterende enheter i stedet for å koble dem på nytt",
+    "es": "Añade nuevas funciones a los dispositivos existentes en lugar de volver a emparejarlos",
+    "da": "Tilføjer nye funktioner til eksisterende enheder i stedet for at parre igen",
+    "pl": "Dodawanie nowych funkcji do istniejących urządzeń zamiast ponownego parowania",
+    "ko": "다시 페어링하는 대신 기존 기기에 새 기능 추가"
   },
   "0.3.0": {
-    "en": "Add support of X-Fan and Vertical swing features (thanks to @denniedegroot)"
+    "en": "Add support of X-Fan and Vertical swing features (thanks to @denniedegroot)",
+    "nl": "Ondersteuning toegevoegd voor X-Fan en verticale swing (met dank aan @denniedegroot)",
+    "de": "Unterstützung für X-Fan und vertikale Schwenkung hinzugefügt (Dank an @denniedegroot)",
+    "fr": "Ajout de la prise en charge des fonctionnalités X-Fan et Vertical swing (merci à @denniedegroot)",
+    "it": "Aggiunto il supporto per le funzioni X-Fan e oscillazione verticale (grazie a @denniedegroot)",
+    "sv": "Lade till stöd för X-Fan och vertikal svängning (tack till @denniedegroot)",
+    "no": "La til støtte for X-Fan og Vertical swing-funksjonene (takk til @denniedegroot)",
+    "es": "Añade compatibilidad con las funciones X-Fan y oscilación vertical (gracias a @denniedegroot)",
+    "da": "Tilføjet understøttelse af X-Fan og lodret svingning (tak til @denniedegroot)",
+    "pl": "Dodano obsługę funkcji X-Fan i wahania pionowego (dzięki @denniedegroot)",
+    "ko": "X-Fan 및 수직 스윙 기능 지원 추가(@denniedegroot 님께 감사드립니다)"
   },
   "0.4.0": {
-    "en": "Show current temperature if possible\r\nAllow to use HVACs in HomeyKit\r\n"
+    "en": "Show current temperature if possible\r\nAllow to use HVACs in HomeyKit\r\n",
+    "nl": "Huidige temperatuur tonen indien mogelijk\r\nHVAC's gebruiken in HomeyKit mogelijk\r\n",
+    "de": "Aktuelle Temperatur anzeigen, wenn möglich\r\nKlimaanlagen in HomeyKit verwenden möglich\r\n",
+    "fr": "Affichage de la température actuelle si possible\r\nPermet d'utiliser les HVAC dans HomeyKit\r\n",
+    "it": "Mostra la temperatura attuale se possibile\r\nConsente di usare i condizionatori in HomeyKit\r\n",
+    "sv": "Visar aktuell temperatur om möjligt\r\nMöjlighet att använda HVAC:er i HomeyKit\r\n",
+    "no": "Viser gjeldende temperatur hvis mulig\r\nMulighet for å bruke klimaanlegg i HomeyKit\r\n",
+    "es": "Muestra la temperatura actual si es posible\r\nPermite usar los HVAC en HomeyKit\r\n",
+    "da": "Viser den aktuelle temperatur, hvis det er muligt\r\nMulighed for at bruge HVAC'er i HomeyKit\r\n",
+    "pl": "Wyświetlanie bieżącej temperatury, jeśli to możliwe\r\nMożliwość używania klimatyzatorów w HomeyKit\r\n",
+    "ko": "가능한 경우 현재 온도 표시\r\nHomeyKit에서 HVAC 사용 가능\r\n"
   },
   "0.4.1": {
     "en": "Added Dutch translations",
-    "nl": "Nederlandse vertalingen toegevoegd"
+    "nl": "Nederlandse vertalingen toegevoegd",
+    "de": "Niederländische Übersetzungen hinzugefügt",
+    "fr": "Ajout des traductions néerlandaises",
+    "it": "Aggiunte le traduzioni in olandese",
+    "sv": "Lade till nederländska översättningar",
+    "no": "La til nederlandske oversettelser",
+    "es": "Añadidas traducciones al neerlandés",
+    "da": "Tilføjet nederlandske oversættelser",
+    "pl": "Dodano tłumaczenia niderlandzkie",
+    "ko": "네덜란드어 번역 추가"
   },
   "0.5.0": {
-    "en": "Enable limited support of Google Home"
+    "en": "Enable limited support of Google Home",
+    "nl": "Beperkte ondersteuning voor Google Home ingeschakeld",
+    "de": "Eingeschränkte Unterstützung für Google Home aktiviert",
+    "fr": "Activation d'une prise en charge limitée de Google Home",
+    "it": "Abilitato il supporto limitato per Google Home",
+    "sv": "Aktiverade begränsat stöd för Google Home",
+    "no": "Aktiverte begrenset støtte for Google Home",
+    "es": "Habilita compatibilidad limitada con Google Home",
+    "da": "Aktiveret begrænset understøttelse af Google Home",
+    "pl": "Włączono ograniczoną obsługę Google Home",
+    "ko": "Google Home에 대한 제한적 지원 활성화"
   },
   "0.6.0": {
-    "en": "Update app to SDKv3"
+    "en": "Update app to SDKv3",
+    "nl": "App bijgewerkt naar SDKv3",
+    "de": "App auf SDKv3 aktualisiert",
+    "fr": "Mise à jour de l'application vers SDKv3",
+    "it": "App aggiornata a SDKv3",
+    "sv": "Uppdaterade appen till SDKv3",
+    "no": "Oppdaterte appen til SDKv3",
+    "es": "Actualiza la app a SDKv3",
+    "da": "Opdateret appen til SDKv3",
+    "pl": "Zaktualizowano aplikację do SDKv3",
+    "ko": "앱을 SDKv3로 업데이트"
   },
   "0.7.0": {
-    "en": "Added debug setting to device configuration"
+    "en": "Added debug setting to device configuration",
+    "nl": "Debug-instelling toegevoegd aan de apparaatconfiguratie",
+    "de": "Debug-Einstellung zur Gerätekonfiguration hinzugefügt",
+    "fr": "Ajout d'un paramètre de débogage à la configuration de l'appareil",
+    "it": "Aggiunta l'impostazione di debug alla configurazione del dispositivo",
+    "sv": "Lade till felsökningsinställning i enhetskonfigurationen",
+    "no": "La til feilsøkingsinnstilling i enhetskonfigurasjonen",
+    "es": "Añadida la opción de depuración a la configuración del dispositivo",
+    "da": "Tilføjet debug-indstilling til enhedskonfigurationen",
+    "pl": "Dodano ustawienie debugowania do konfiguracji urządzenia",
+    "ko": "기기 구성에 디버그 설정 추가"
   },
   "0.7.1": {
-    "en": "Fix possible crash for some specific HVACs"
+    "en": "Fix possible crash for some specific HVACs",
+    "nl": "Mogelijke crash opgelost voor sommige specifieke HVAC's",
+    "de": "Möglichen Absturz bei bestimmten Klimaanlagen behoben",
+    "fr": "Correction d'un plantage possible pour certains HVAC spécifiques",
+    "it": "Corretto un possibile crash per alcuni condizionatori specifici",
+    "sv": "Åtgärdade en möjlig krasch för vissa specifika HVAC:er",
+    "no": "Rettet en mulig krasj for enkelte spesifikke klimaanlegg",
+    "es": "Corrige un posible fallo en algunos HVAC específicos",
+    "da": "Rettet muligt nedbrud for visse specifikke HVAC'er",
+    "pl": "Naprawiono możliwą awarię dla niektórych konkretnych klimatyzatorów",
+    "ko": "일부 특정 HVAC에서 발생할 수 있는 충돌 수정"
   },
   "0.7.2": {
-    "en": "Better handling of current temperature"
+    "en": "Better handling of current temperature",
+    "nl": "Betere verwerking van de huidige temperatuur",
+    "de": "Bessere Verarbeitung der aktuellen Temperatur",
+    "fr": "Meilleure gestion de la température actuelle",
+    "it": "Migliore gestione della temperatura attuale",
+    "sv": "Bättre hantering av den aktuella temperaturen",
+    "no": "Bedre håndtering av gjeldende temperatur",
+    "es": "Mejor gestión de la temperatura actual",
+    "da": "Bedre håndtering af den aktuelle temperatur",
+    "pl": "Lepsza obsługa bieżącej temperatury",
+    "ko": "현재 온도 처리 개선"
   },
   "0.7.3": {
-    "en": "Rework connection logic"
+    "en": "Rework connection logic",
+    "nl": "Verbindingslogica herzien",
+    "de": "Verbindungslogik überarbeitet",
+    "fr": "Refonte de la logique de connexion",
+    "it": "Rielaborata la logica di connessione",
+    "sv": "Omarbetade anslutningslogiken",
+    "no": "Omarbeidet tilkoblingslogikken",
+    "es": "Rediseña la lógica de conexión",
+    "da": "Omarbejdet forbindelseslogikken",
+    "pl": "Przebudowano logikę połączenia",
+    "ko": "연결 로직 재작업"
   },
   "0.7.4": {
-    "en": "Fix possible app crash during the device removal"
+    "en": "Fix possible app crash during the device removal",
+    "nl": "Mogelijke app-crash tijdens het verwijderen van een apparaat opgelost",
+    "de": "Möglichen App-Absturz beim Entfernen eines Geräts behoben",
+    "fr": "Correction d'un plantage possible de l'application lors de la suppression d'un appareil",
+    "it": "Corretto un possibile crash dell'app durante la rimozione del dispositivo",
+    "sv": "Åtgärdade en möjlig appkrasch när en enhet tas bort",
+    "no": "Rettet en mulig app-krasj under fjerning av en enhet",
+    "es": "Corrige un posible fallo de la app al eliminar un dispositivo",
+    "da": "Rettet muligt app-nedbrud under fjernelse af en enhed",
+    "pl": "Naprawiono możliwą awarię aplikacji podczas usuwania urządzenia",
+    "ko": "기기 제거 중 발생할 수 있는 앱 충돌 수정"
   },
   "0.8.0": {
-    "en": "Fix issues with control thermostat using Homey Pro 2023.\r\nAdd \"Horizontal swing\" capability\r\nAdd \"Quite Mode\" capability\r\nThanks to @denniedegroot for all these changes"
+    "en": "Fix issues with control thermostat using Homey Pro 2023.\r\nAdd \"Horizontal swing\" capability\r\nAdd \"Quite Mode\" capability\r\nThanks to @denniedegroot for all these changes",
+    "nl": "Problemen met het bedienen van de thermostaat op Homey Pro 2023 opgelost.\r\n\"Horizontal swing\"-functie toegevoegd\r\n\"Quite Mode\"-functie toegevoegd\r\nMet dank aan @denniedegroot voor al deze wijzigingen",
+    "de": "Probleme mit der Thermostatsteuerung auf Homey Pro 2023 behoben.\r\n\"Horizontal swing\"-Funktion hinzugefügt\r\n\"Quite Mode\"-Funktion hinzugefügt\r\nDank an @denniedegroot für all diese Änderungen",
+    "fr": "Correction de problèmes de contrôle du thermostat avec Homey Pro 2023.\r\nAjout de la fonctionnalité \"Horizontal swing\"\r\nAjout de la fonctionnalité \"Quite Mode\"\r\nMerci à @denniedegroot pour toutes ces modifications",
+    "it": "Corretti problemi con il controllo del termostato utilizzando Homey Pro 2023.\r\nAggiunta la funzione \"Horizontal swing\"\r\nAggiunta la funzione \"Quite Mode\"\r\nGrazie a @denniedegroot per tutte queste modifiche",
+    "sv": "Åtgärdade problem med att styra termostaten på Homey Pro 2023.\r\nLade till funktionen \"Horizontal swing\"\r\nLade till funktionen \"Quite Mode\"\r\nTack till @denniedegroot för alla dessa ändringar",
+    "no": "Rettet problemer med å styre termostaten med Homey Pro 2023.\r\nLa til \"Horizontal swing\"-funksjonen\r\nLa til \"Quite Mode\"-funksjonen\r\nTakk til @denniedegroot for alle disse endringene",
+    "es": "Corrige problemas con el control del termostato en Homey Pro 2023.\r\nAñade la función \"Horizontal swing\"\r\nAñade la función \"Quite Mode\"\r\nGracias a @denniedegroot por todos estos cambios",
+    "da": "Rettet problemer med at styre termostaten på Homey Pro 2023.\r\nTilføjet \"Horizontal swing\"-funktion\r\nTilføjet \"Quite Mode\"-funktion\r\nTak til @denniedegroot for alle disse ændringer",
+    "pl": "Naprawiono problemy ze sterowaniem termostatem na Homey Pro 2023.\r\nDodano funkcję \"Horizontal swing\"\r\nDodano funkcję \"Quite Mode\"\r\nDzięki @denniedegroot za wszystkie te zmiany",
+    "ko": "Homey Pro 2023을 사용한 온도 조절기 제어 문제 수정.\r\n\"Horizontal swing\" 기능 추가\r\n\"Quite Mode\" 기능 추가\r\n이 모든 변경 사항에 대해 @denniedegroot 님께 감사드립니다"
   },
   "0.8.1": {
-    "en": "Improve compatibility with Homey Pro 2023\r\nDeprecate \"hvac mode\" flow cards (must be replaced by \"thermostat mode\")\r\nFix \"quiet mode\" condition\r\nBumped minimum supported version of Homey firmware to v12.0.1"
+    "en": "Improve compatibility with Homey Pro 2023\r\nDeprecate \"hvac mode\" flow cards (must be replaced by \"thermostat mode\")\r\nFix \"quiet mode\" condition\r\nBumped minimum supported version of Homey firmware to v12.0.1",
+    "nl": "Compatibiliteit met Homey Pro 2023 verbeterd\r\n\"hvac mode\"-flowkaarten afgeschaft (moeten worden vervangen door \"thermostat mode\")\r\n\"quiet mode\"-voorwaarde opgelost\r\nMinimaal ondersteunde versie van de Homey-firmware verhoogd naar v12.0.1",
+    "de": "Kompatibilität mit Homey Pro 2023 verbessert\r\n\"hvac mode\"-Flow-Karten als veraltet markiert (müssen durch \"thermostat mode\" ersetzt werden)\r\n\"quiet mode\"-Bedingung behoben\r\nMindestens unterstützte Version der Homey-Firmware auf v12.0.1 angehoben",
+    "fr": "Amélioration de la compatibilité avec Homey Pro 2023\r\nDépréciation des cartes de flux \"hvac mode\" (doivent être remplacées par \"thermostat mode\")\r\nCorrection de la condition \"quiet mode\"\r\nVersion minimale prise en charge du firmware Homey portée à v12.0.1",
+    "it": "Migliorata la compatibilità con Homey Pro 2023\r\nSchede di flusso \"hvac mode\" deprecate (devono essere sostituite da \"thermostat mode\")\r\nCorretta la condizione \"quiet mode\"\r\nVersione minima supportata del firmware Homey aumentata a v12.0.1",
+    "sv": "Förbättrade kompatibiliteten med Homey Pro 2023\r\nFasar ut flödeskorten för \"hvac mode\" (måste ersättas med \"thermostat mode\")\r\nÅtgärdade villkoret för \"quiet mode\"\r\nHöjde den lägsta versionen av Homey-firmware som stöds till v12.0.1",
+    "no": "Forbedret kompatibiliteten med Homey Pro 2023\r\nFaset ut \"hvac mode\"-flytkort (må erstattes med \"thermostat mode\")\r\nRettet \"quiet mode\"-betingelsen\r\nHevet minste støttede versjon av Homey-fastvaren til v12.0.1",
+    "es": "Mejora la compatibilidad con Homey Pro 2023\r\nMarca como obsoletas las tarjetas de flujo \"hvac mode\" (deben reemplazarse por \"thermostat mode\")\r\nCorrige la condición \"quiet mode\"\r\nAumenta la versión mínima compatible del firmware de Homey a v12.0.1",
+    "da": "Forbedret kompatibilitet med Homey Pro 2023\r\n\"hvac mode\"-flowkort er udfaset (skal erstattes af \"thermostat mode\")\r\nRettet \"quiet mode\"-betingelse\r\nHævet den mindst understøttede version af Homey-firmwaren til v12.0.1",
+    "pl": "Poprawiono zgodność z Homey Pro 2023\r\nWycofano karty flow \"hvac mode\" (muszą zostać zastąpione przez \"thermostat mode\")\r\nNaprawiono warunek \"quiet mode\"\r\nPodniesiono minimalną obsługiwaną wersję firmware Homey do v12.0.1",
+    "ko": "Homey Pro 2023과의 호환성 개선\r\n\"hvac mode\" 플로우 카드 지원 중단(\"thermostat mode\"로 교체해야 함)\r\n\"quiet mode\" 조건 수정\r\n지원되는 최소 Homey 펌웨어 버전을 v12.0.1로 상향"
   },
   "0.8.2": {
-    "en": "Fix possible crash when setting thermostat mode to \"off\". Change device class to \"airconditioning\""
+    "en": "Fix possible crash when setting thermostat mode to \"off\". Change device class to \"airconditioning\"",
+    "nl": "Mogelijke crash opgelost bij het instellen van de thermostaatmodus op \"off\". Apparaatklasse gewijzigd naar \"airconditioning\"",
+    "de": "Möglichen Absturz beim Setzen des Thermostatmodus auf \"off\" behoben. Geräteklasse in \"airconditioning\" geändert",
+    "fr": "Correction d'un plantage possible lors du réglage du mode thermostat sur \"off\". Changement de la classe d'appareil en \"airconditioning\"",
+    "it": "Corretto un possibile crash quando si imposta la modalità del termostato su \"off\". Classe del dispositivo cambiata in \"airconditioning\"",
+    "sv": "Åtgärdade en möjlig krasch vid inställning av termostatläget till \"off\". Ändrade enhetsklassen till \"airconditioning\"",
+    "no": "Rettet en mulig krasj ved innstilling av termostatmodus til \"off\". Endret enhetsklassen til \"airconditioning\"",
+    "es": "Corrige un posible fallo al establecer el modo del termostato en \"off\". Cambia la clase del dispositivo a \"airconditioning\"",
+    "da": "Rettet muligt nedbrud ved indstilling af termostattilstand til \"off\". Ændret enhedsklasse til \"airconditioning\"",
+    "pl": "Naprawiono możliwą awarię przy ustawianiu trybu termostatu na \"off\". Zmieniono klasę urządzenia na \"airconditioning\"",
+    "ko": "온도 조절기 모드를 \"off\"로 설정할 때 발생할 수 있는 충돌 수정. 기기 클래스를 \"airconditioning\"으로 변경"
   },
   "0.9.0": {
-    "en": "Add experimental support of new interaction protocol for Gree-compatible HVACs with version >=1.21"
+    "en": "Add experimental support of new interaction protocol for Gree-compatible HVACs with version >=1.21",
+    "nl": "Experimentele ondersteuning toegevoegd voor het nieuwe interactieprotocol voor Gree-compatibele HVAC's met versie >=1.21",
+    "de": "Experimentelle Unterstützung für das neue Interaktionsprotokoll für Gree-kompatible Klimaanlagen mit Version >=1.21 hinzugefügt",
+    "fr": "Ajout de la prise en charge expérimentale du nouveau protocole d'interaction pour les HVAC compatibles Gree avec la version >=1.21",
+    "it": "Aggiunto il supporto sperimentale per il nuovo protocollo di interazione per condizionatori compatibili Gree con versione >=1.21",
+    "sv": "Lade till experimentellt stöd för det nya interaktionsprotokollet för Gree-kompatibla HVAC:er med version >=1.21",
+    "no": "La til eksperimentell støtte for den nye interaksjonsprotokollen for Gree-kompatible klimaanlegg med versjon >=1.21",
+    "es": "Añade compatibilidad experimental con el nuevo protocolo de interacción para HVAC compatibles con Gree con versión >=1.21",
+    "da": "Tilføjet eksperimentel understøttelse af den nye interaktionsprotokol for Gree-kompatible HVAC'er med version >=1.21",
+    "pl": "Dodano eksperymentalną obsługę nowego protokołu interakcji dla klimatyzatorów zgodnych z Gree w wersji >=1.21",
+    "ko": "버전 >=1.21의 Gree 호환 HVAC를 위한 새로운 상호작용 프로토콜에 대한 실험적 지원 추가"
   },
   "0.9.1": {
-    "en": "Add experimental support of new interaction protocol for Gree-compatible HVACs with version >=1.21"
+    "en": "Add experimental support of new interaction protocol for Gree-compatible HVACs with version >=1.21",
+    "nl": "Experimentele ondersteuning toegevoegd voor het nieuwe interactieprotocol voor Gree-compatibele HVAC's met versie >=1.21",
+    "de": "Experimentelle Unterstützung für das neue Interaktionsprotokoll für Gree-kompatible Klimaanlagen mit Version >=1.21 hinzugefügt",
+    "fr": "Ajout de la prise en charge expérimentale du nouveau protocole d'interaction pour les HVAC compatibles Gree avec la version >=1.21",
+    "it": "Aggiunto il supporto sperimentale per il nuovo protocollo di interazione per condizionatori compatibili Gree con versione >=1.21",
+    "sv": "Lade till experimentellt stöd för det nya interaktionsprotokollet för Gree-kompatibla HVAC:er med version >=1.21",
+    "no": "La til eksperimentell støtte for den nye interaksjonsprotokollen for Gree-kompatible klimaanlegg med versjon >=1.21",
+    "es": "Añade compatibilidad experimental con el nuevo protocolo de interacción para HVAC compatibles con Gree con versión >=1.21",
+    "da": "Tilføjet eksperimentel understøttelse af den nye interaktionsprotokol for Gree-kompatible HVAC'er med version >=1.21",
+    "pl": "Dodano eksperymentalną obsługę nowego protokołu interakcji dla klimatyzatorów zgodnych z Gree w wersji >=1.21",
+    "ko": "버전 >=1.21의 Gree 호환 HVAC를 위한 새로운 상호작용 프로토콜에 대한 실험적 지원 추가"
   },
   "0.9.2": {
-    "en": "Enable debug logging.\r\nCollect all client errors"
+    "en": "Enable debug logging.\r\nCollect all client errors",
+    "nl": "Debug-logging ingeschakeld.\r\nAlle client-fouten verzamelen",
+    "de": "Debug-Protokollierung aktiviert.\r\nAlle Client-Fehler sammeln",
+    "fr": "Activation de la journalisation de débogage.\r\nCollecte de toutes les erreurs du client",
+    "it": "Abilitata la registrazione di debug.\r\nRaccolta di tutti gli errori del client",
+    "sv": "Aktiverade felsökningsloggning.\r\nSamlar in alla klientfel",
+    "no": "Aktiverte feilsøkingslogging.\r\nSamler alle klientfeil",
+    "es": "Habilita el registro de depuración.\r\nRecopila todos los errores del cliente",
+    "da": "Aktiveret debug-logning.\r\nIndsamler alle klientfejl",
+    "pl": "Włączono rejestrowanie debugowania.\r\nZbieranie wszystkich błędów klienta",
+    "ko": "디버그 로깅 활성화.\r\n모든 클라이언트 오류 수집"
   },
   "0.9.3": {
-    "en": "Minor connection improvements.\r\nDisable error collecting"
+    "en": "Minor connection improvements.\r\nDisable error collecting",
+    "nl": "Kleine verbindingsverbeteringen.\r\nFoutenverzameling uitgeschakeld",
+    "de": "Kleinere Verbindungsverbesserungen.\r\nFehlersammlung deaktiviert",
+    "fr": "Améliorations mineures de la connexion.\r\nDésactivation de la collecte des erreurs",
+    "it": "Piccoli miglioramenti alla connessione.\r\nDisabilitata la raccolta degli errori",
+    "sv": "Mindre anslutningsförbättringar.\r\nInaktiverade insamling av fel",
+    "no": "Mindre tilkoblingsforbedringer.\r\nDeaktiverte feilinnsamling",
+    "es": "Pequeñas mejoras de conexión.\r\nDesactiva la recopilación de errores",
+    "da": "Mindre forbindelsesforbedringer.\r\nDeaktiveret fejlindsamling",
+    "pl": "Drobne usprawnienia połączenia.\r\nWyłączono zbieranie błędów",
+    "ko": "사소한 연결 개선.\r\n오류 수집 비활성화"
   },
   "0.9.4": {
-    "en": "Add support of \"8°C heating\" mode"
+    "en": "Add support of \"8°C heating\" mode",
+    "nl": "Ondersteuning toegevoegd voor de modus \"8°C heating\"",
+    "de": "Unterstützung für den Modus \"8°C heating\" hinzugefügt",
+    "fr": "Ajout de la prise en charge du mode \"8°C heating\"",
+    "it": "Aggiunto il supporto per la modalità \"8°C heating\"",
+    "sv": "Lade till stöd för läget \"8°C heating\"",
+    "no": "La til støtte for \"8°C heating\"-modus",
+    "es": "Añade compatibilidad con el modo \"8°C heating\"",
+    "da": "Tilføjet understøttelse af \"8°C heating\"-tilstand",
+    "pl": "Dodano obsługę trybu \"8°C heating\"",
+    "ko": "\"8°C heating\" 모드 지원 추가"
   },
   "0.9.5": {
-    "en": "Enable encryption mode autodetection"
+    "en": "Enable encryption mode autodetection",
+    "nl": "Automatische detectie van versleutelingsmodus ingeschakeld",
+    "de": "Automatische Erkennung des Verschlüsselungsmodus aktiviert",
+    "fr": "Activation de la détection automatique du mode de chiffrement",
+    "it": "Abilitato il rilevamento automatico della modalità di crittografia",
+    "sv": "Aktiverade automatisk identifiering av krypteringsläge",
+    "no": "Aktiverte automatisk gjenkjenning av krypteringsmodus",
+    "es": "Habilita la detección automática del modo de cifrado",
+    "da": "Aktiveret automatisk registrering af krypteringstilstand",
+    "pl": "Włączono automatyczne wykrywanie trybu szyfrowania",
+    "ko": "암호화 모드 자동 감지 활성화"
   },
   "0.9.6": {
-    "en": "Revert back to the 0.9.4"
+    "en": "Revert back to the 0.9.4",
+    "nl": "Teruggedraaid naar 0.9.4",
+    "de": "Zurück zu 0.9.4",
+    "fr": "Retour à la version 0.9.4",
+    "it": "Ripristinata la versione 0.9.4",
+    "sv": "Återgick till 0.9.4",
+    "no": "Tilbakestilte til 0.9.4",
+    "es": "Vuelve a la versión 0.9.4",
+    "da": "Rullet tilbage til 0.9.4",
+    "pl": "Przywrócono wersję 0.9.4",
+    "ko": "0.9.4로 되돌림"
   },
   "0.9.7": {
-    "en": "Revert back to the 0.9.4"
+    "en": "Revert back to the 0.9.4",
+    "nl": "Teruggedraaid naar 0.9.4",
+    "de": "Zurück zu 0.9.4",
+    "fr": "Retour à la version 0.9.4",
+    "it": "Ripristinata la versione 0.9.4",
+    "sv": "Återgick till 0.9.4",
+    "no": "Tilbakestilte til 0.9.4",
+    "es": "Vuelve a la versión 0.9.4",
+    "da": "Rullet tilbage til 0.9.4",
+    "pl": "Przywrócono wersję 0.9.4",
+    "ko": "0.9.4로 되돌림"
   },
   "0.9.8": {
-    "en": "Second try to implement encryption mode autodetection"
+    "en": "Second try to implement encryption mode autodetection",
+    "nl": "Tweede poging om automatische detectie van de versleutelingsmodus te implementeren",
+    "de": "Zweiter Versuch, die automatische Erkennung des Verschlüsselungsmodus zu implementieren",
+    "fr": "Deuxième tentative d'implémentation de la détection automatique du mode de chiffrement",
+    "it": "Secondo tentativo di implementare il rilevamento automatico della modalità di crittografia",
+    "sv": "Andra försöket att implementera automatisk identifiering av krypteringsläge",
+    "no": "Andre forsøk på å implementere automatisk gjenkjenning av krypteringsmodus",
+    "es": "Segundo intento de implementar la detección automática del modo de cifrado",
+    "da": "Andet forsøg på at implementere automatisk registrering af krypteringstilstand",
+    "pl": "Druga próba wdrożenia automatycznego wykrywania trybu szyfrowania",
+    "ko": "암호화 모드 자동 감지를 구현하기 위한 두 번째 시도"
   },
   "0.9.9": {
-    "en": "Second try to implement encryption mode autodetection"
+    "en": "Second try to implement encryption mode autodetection",
+    "nl": "Tweede poging om automatische detectie van de versleutelingsmodus te implementeren",
+    "de": "Zweiter Versuch, die automatische Erkennung des Verschlüsselungsmodus zu implementieren",
+    "fr": "Deuxième tentative d'implémentation de la détection automatique du mode de chiffrement",
+    "it": "Secondo tentativo di implementare il rilevamento automatico della modalità di crittografia",
+    "sv": "Andra försöket att implementera automatisk identifiering av krypteringsläge",
+    "no": "Andre forsøk på å implementere automatisk gjenkjenning av krypteringsmodus",
+    "es": "Segundo intento de implementar la detección automática del modo de cifrado",
+    "da": "Andet forsøg på at implementere automatisk registrering af krypteringstilstand",
+    "pl": "Druga próba wdrożenia automatycznego wykrywania trybu szyfrowania",
+    "ko": "암호화 모드 자동 감지를 구현하기 위한 두 번째 시도"
   },
   "0.9.10": {
-    "en": "Remove \"debug\" setting.\n\rPrepare for stable release of the app"
+    "en": "Remove \"debug\" setting.\n\rPrepare for stable release of the app",
+    "nl": "\"debug\"-instelling verwijderd.\n\rVoorbereiden op de stabiele release van de app",
+    "de": "\"debug\"-Einstellung entfernt.\n\rVorbereitung auf die stabile Veröffentlichung der App",
+    "fr": "Suppression du paramètre \"debug\".\n\rPréparation de la version stable de l'application",
+    "it": "Rimossa l'impostazione \"debug\".\n\rPreparazione per il rilascio stabile dell'app",
+    "sv": "Tog bort inställningen \"debug\".\n\rFörbereder för en stabil lansering av appen",
+    "no": "Fjernet \"debug\"-innstillingen.\n\rForbereder stabil utgivelse av appen",
+    "es": "Elimina la opción \"debug\".\n\rPrepara el lanzamiento estable de la app",
+    "da": "Fjernet \"debug\"-indstillingen.\n\rForbereder den stabile udgivelse af appen",
+    "pl": "Usunięto ustawienie \"debug\".\n\rPrzygotowanie do stabilnego wydania aplikacji",
+    "ko": "\"debug\" 설정 제거.\n\r앱의 안정 버전 출시 준비"
   },
   "0.9.11": {
-    "en": "Added more supported brands.\n\rUpdate dependencies"
+    "en": "Added more supported brands.\n\rUpdate dependencies",
+    "nl": "Meer ondersteunde merken toegevoegd.\n\rAfhankelijkheden bijgewerkt",
+    "de": "Weitere unterstützte Marken hinzugefügt.\n\rAbhängigkeiten aktualisiert",
+    "fr": "Ajout d'autres marques prises en charge.\n\rMise à jour des dépendances",
+    "it": "Aggiunte altre marche supportate.\n\rDipendenze aggiornate",
+    "sv": "Lade till fler märken som stöds.\n\rUppdaterade beroenden",
+    "no": "La til flere støttede merker.\n\rOppdaterte avhengigheter",
+    "es": "Añadidas más marcas compatibles.\n\rActualiza las dependencias",
+    "da": "Tilføjet flere understøttede mærker.\n\rOpdateret afhængigheder",
+    "pl": "Dodano więcej obsługiwanych marek.\n\rZaktualizowano zależności",
+    "ko": "지원되는 브랜드 추가.\n\r종속성 업데이트"
   },
   "0.9.12": {
-    "en": "Fix an issue with app crash when turning the AC on"
+    "en": "Fix an issue with app crash when turning the AC on",
+    "nl": "Probleem opgelost waarbij de app crashte bij het inschakelen van de AC",
+    "de": "Problem behoben, bei dem die App beim Einschalten der Klimaanlage abstürzte",
+    "fr": "Correction d'un problème de plantage de l'application lors de l'allumage du climatiseur",
+    "it": "Corretto un problema di crash dell'app durante l'accensione dell'AC",
+    "sv": "Åtgärdade ett problem där appen kraschade när AC:n slogs på",
+    "no": "Rettet et problem med app-krasj når klimaanlegget slås på",
+    "es": "Corrige un problema por el que la app se bloqueaba al encender el AC",
+    "da": "Rettet et problem, hvor appen gik ned ved tænding af AC'en",
+    "pl": "Naprawiono problem z awarią aplikacji przy włączaniu klimatyzatora",
+    "ko": "AC를 켤 때 앱이 충돌하는 문제 수정"
   },
   "0.9.13": {
-    "en": "Improved logging"
+    "en": "Improved logging",
+    "nl": "Logging verbeterd",
+    "de": "Protokollierung verbessert",
+    "fr": "Journalisation améliorée",
+    "it": "Registrazione migliorata",
+    "sv": "Förbättrade loggningen",
+    "no": "Forbedret logging",
+    "es": "Registro mejorado",
+    "da": "Forbedret logning",
+    "pl": "Ulepszono rejestrowanie",
+    "ko": "로깅 개선"
   },
   "0.9.14": {
-    "en": "[Technical] Improved logging"
+    "en": "[Technical] Improved logging",
+    "nl": "[Technisch] Logging verbeterd",
+    "de": "[Technisch] Protokollierung verbessert",
+    "fr": "[Technique] Journalisation améliorée",
+    "it": "[Tecnico] Registrazione migliorata",
+    "sv": "[Tekniskt] Förbättrade loggningen",
+    "no": "[Teknisk] Forbedret logging",
+    "es": "[Técnico] Registro mejorado",
+    "da": "[Teknisk] Forbedret logning",
+    "pl": "[Techniczne] Ulepszono rejestrowanie",
+    "ko": "[기술] 로깅 개선"
   },
   "0.10.0": {
-    "en": "Add support of specifying static IP address for the HVAC"
+    "en": "Add support of specifying static IP address for the HVAC",
+    "nl": "Ondersteuning toegevoegd voor het opgeven van een statisch IP-adres voor de HVAC",
+    "de": "Unterstützung für die Angabe einer statischen IP-Adresse für die Klimaanlage hinzugefügt",
+    "fr": "Ajout de la prise en charge de la spécification d'une adresse IP statique pour le HVAC",
+    "it": "Aggiunto il supporto per specificare un indirizzo IP statico per il condizionatore",
+    "sv": "Lade till stöd för att ange en statisk IP-adress för HVAC:n",
+    "no": "La til støtte for å angi en statisk IP-adresse for klimaanlegget",
+    "es": "Añade compatibilidad para especificar una dirección IP estática para el HVAC",
+    "da": "Tilføjet understøttelse af angivelse af en statisk IP-adresse for HVAC'en",
+    "pl": "Dodano obsługę określania statycznego adresu IP dla klimatyzatora",
+    "ko": "HVAC의 고정 IP 주소 지정 지원 추가"
   },
   "0.11.0": {
-    "en": "Improve stability of the app"
+    "en": "Improve stability of the app",
+    "nl": "Stabiliteit van de app verbeterd",
+    "de": "Stabilität der App verbessert",
+    "fr": "Amélioration de la stabilité de l'application",
+    "it": "Migliorata la stabilità dell'app",
+    "sv": "Förbättrade appens stabilitet",
+    "no": "Forbedret appens stabilitet",
+    "es": "Mejora la estabilidad de la app",
+    "da": "Forbedret appens stabilitet",
+    "pl": "Poprawiono stabilność aplikacji",
+    "ko": "앱 안정성 개선"
   },
   "0.11.1": {
-    "en": "Add support of the new firmwares"
+    "en": "Add support of the new firmwares",
+    "nl": "Ondersteuning toegevoegd voor de nieuwe firmwares",
+    "de": "Unterstützung für die neuen Firmwares hinzugefügt",
+    "fr": "Ajout de la prise en charge des nouveaux firmwares",
+    "it": "Aggiunto il supporto per i nuovi firmware",
+    "sv": "Lade till stöd för de nya firmware-versionerna",
+    "no": "La til støtte for de nye fastvarene",
+    "es": "Añade compatibilidad con los nuevos firmwares",
+    "da": "Tilføjet understøttelse af de nye firmwares",
+    "pl": "Dodano obsługę nowych wersji firmware",
+    "ko": "새 펌웨어 지원 추가"
   },
   "0.12.0": {
-    "en": "Improve stability of the app"
+    "en": "Improve stability of the app",
+    "nl": "Stabiliteit van de app verbeterd",
+    "de": "Stabilität der App verbessert",
+    "fr": "Amélioration de la stabilité de l'application",
+    "it": "Migliorata la stabilità dell'app",
+    "sv": "Förbättrade appens stabilitet",
+    "no": "Forbedret appens stabilitet",
+    "es": "Mejora la estabilidad de la app",
+    "da": "Forbedret appens stabilitet",
+    "pl": "Poprawiono stabilność aplikacji",
+    "ko": "앱 안정성 개선"
   },
   "0.13.0": {
-    "en": "Add support of \"Health\" (Cold plasma) mode"
+    "en": "Add support of \"Health\" (Cold plasma) mode",
+    "nl": "Ondersteuning toegevoegd voor de modus \"Health\" (Cold plasma)",
+    "de": "Unterstützung für den Modus \"Health\" (Cold plasma) hinzugefügt",
+    "fr": "Ajout de la prise en charge du mode \"Health\" (Cold plasma)",
+    "it": "Aggiunto il supporto per la modalità \"Health\" (Cold plasma)",
+    "sv": "Lade till stöd för läget \"Health\" (Cold plasma)",
+    "no": "La til støtte for \"Health\"-modus (Cold plasma)",
+    "es": "Añade compatibilidad con el modo \"Health\" (Cold plasma)",
+    "da": "Tilføjet understøttelse af \"Health\" (Cold plasma)-tilstand",
+    "pl": "Dodano obsługę trybu \"Health\" (Cold plasma)",
+    "ko": "\"Health\" (Cold plasma) 모드 지원 추가"
   },
   "1.0.0": {
-    "en": "Add support of \"Power save\", \"Sleep\" and \"Fresh air\" modes"
+    "en": "Add support of \"Power save\", \"Sleep\" and \"Fresh air\" modes",
+    "nl": "Ondersteuning toegevoegd voor de modi \"Power save\", \"Sleep\" en \"Fresh air\"",
+    "de": "Unterstützung für die Modi \"Power save\", \"Sleep\" und \"Fresh air\" hinzugefügt",
+    "fr": "Ajout de la prise en charge des modes \"Power save\", \"Sleep\" et \"Fresh air\"",
+    "it": "Aggiunto il supporto per le modalità \"Power save\", \"Sleep\" e \"Fresh air\"",
+    "sv": "Lade till stöd för lägena \"Power save\", \"Sleep\" och \"Fresh air\"",
+    "no": "La til støtte for modusene \"Power save\", \"Sleep\" og \"Fresh air\"",
+    "es": "Añade compatibilidad con los modos \"Power save\", \"Sleep\" y \"Fresh air\"",
+    "da": "Tilføjet understøttelse af tilstandene \"Power save\", \"Sleep\" og \"Fresh air\"",
+    "pl": "Dodano obsługę trybów \"Power save\", \"Sleep\" i \"Fresh air\"",
+    "ko": "\"Power save\", \"Sleep\" 및 \"Fresh air\" 모드 지원 추가"
   }
 }

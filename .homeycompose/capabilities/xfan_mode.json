@@ -3,12 +3,28 @@
   "title": {
     "en": "X-Fan mode",
     "nl": "X-Fan modus",
-    "de": "X-Fan Modus"
+    "de": "X-Fan Modus",
+    "fr": "Mode X-Fan",
+    "it": "Modalità X-Fan",
+    "sv": "X-Fan-läge",
+    "no": "X-Fan-modus",
+    "es": "Modo X-Fan",
+    "da": "X-Fan-tilstand",
+    "pl": "Tryb X-Fan",
+    "ko": "X-Fan 모드"
   },
   "desc": {
     "en": "X-Fan mode of the HVAC's fan",
     "nl": "X-Fan modus van de ventilator van de HVAC",
-    "de": "X-Fan modus des Lüfters der Klimaanlage"
+    "de": "X-Fan modus des Lüfters der Klimaanlage",
+    "fr": "Mode X-Fan du ventilateur du HVAC",
+    "it": "Modalità X-Fan della ventola del condizionatore",
+    "sv": "X-Fan-läge för HVAC:ns fläkt",
+    "no": "X-Fan-modus for klimaanleggets vifte",
+    "es": "Modo X-Fan del ventilador del HVAC",
+    "da": "X-Fan-tilstand for HVAC'ens ventilator",
+    "pl": "Tryb X-Fan wentylatora klimatyzatora",
+    "ko": "HVAC 팬의 X-Fan 모드"
   },
   "getable": true,
   "setable": true,

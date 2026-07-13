@@ -1,6 +1,16 @@
 {
   "name": {
-    "en": "EWPE Smart HVACs"
+    "en": "EWPE Smart HVACs",
+    "nl": "EWPE Smart airco's",
+    "de": "EWPE Smart Klimaanlagen",
+    "fr": "Climatiseurs EWPE Smart",
+    "it": "Condizionatori EWPE Smart",
+    "sv": "EWPE Smart-luftkonditioneringar",
+    "no": "EWPE Smart klimaanlegg",
+    "es": "Aires acondicionados EWPE Smart",
+    "da": "EWPE Smart HVAC'er",
+    "pl": "Klimatyzatory EWPE Smart",
+    "ko": "EWPE Smart 에어컨"
   },
   "class": "airconditioning",
   "capabilities": [
@@ -34,7 +44,15 @@
           "title": {
             "en": "Auto",
             "nl": "Automatisch",
-            "de": "Automatisch"
+            "de": "Automatisch",
+            "fr": "Automatique",
+            "it": "Automatico",
+            "sv": "Automatiskt",
+            "no": "Automatisk",
+            "es": "Automático",
+            "da": "Automatisk",
+            "pl": "Automatyczny",
+            "ko": "자동"
           }
         },
         {
@@ -42,7 +60,15 @@
           "title": {
             "en": "Cool",
             "nl": "Koelen",
-            "de": "Kühlen"
+            "de": "Kühlen",
+            "fr": "Refroidissement",
+            "it": "Raffreddamento",
+            "sv": "Kyla",
+            "no": "Kjøling",
+            "es": "Enfriar",
+            "da": "Køl",
+            "pl": "Chłodzenie",
+            "ko": "냉방"
           }
         },
         {
@@ -50,7 +76,15 @@
           "title": {
             "en": "Heat",
             "nl": "Verwarmen",
-            "de": "Heizen"
+            "de": "Heizen",
+            "fr": "Chauffage",
+            "it": "Riscaldamento",
+            "sv": "Värme",
+            "no": "Oppvarming",
+            "es": "Calentar",
+            "da": "Varme",
+            "pl": "Ogrzewanie",
+            "ko": "난방"
           }
         },
         {
@@ -58,15 +92,31 @@
           "title": {
             "en": "Dry",
             "nl": "Ontvochtigen",
-            "de": "Trocken"
+            "de": "Trocken",
+            "fr": "Déshumidification",
+            "it": "Deumidificazione",
+            "sv": "Avfuktning",
+            "no": "Avfukting",
+            "es": "Deshumidificar",
+            "da": "Affugtning",
+            "pl": "Osuszanie",
+            "ko": "제습"
           }
         },
         {
           "id": "fan_only",
           "title": {
             "en": "Fan Only",
-            "nl": "Alleen fans",
-            "de": "Nur Fan"
+            "nl": "Alleen ventileren",
+            "de": "Nur Lüften",
+            "fr": "Ventilation seule",
+            "it": "Solo ventilazione",
+            "sv": "Endast fläkt",
+            "no": "Kun vifte",
+            "es": "Solo ventilador",
+            "da": "Kun ventilator",
+            "pl": "Tylko wentylator",
+            "ko": "송풍"
           }
         },
         {
@@ -74,7 +124,15 @@
           "title": {
             "en": "Off",
             "nl": "Uit",
-            "de": "Aus"
+            "de": "Aus",
+            "fr": "Arrêt",
+            "it": "Spento",
+            "sv": "Av",
+            "no": "Av",
+            "es": "Apagado",
+            "da": "Fra",
+            "pl": "Wył.",
+            "ko": "끄기"
           }
         }
       ]
@@ -109,17 +167,47 @@
     {
       "type": "group",
       "label": {
-        "en": "Network"
+        "en": "Network",
+        "nl": "Netwerk",
+        "de": "Netzwerk",
+        "fr": "Réseau",
+        "it": "Rete",
+        "sv": "Nätverk",
+        "no": "Nettverk",
+        "es": "Red",
+        "da": "Netværk",
+        "pl": "Sieć",
+        "ko": "네트워크"
       },
       "children": [
         {
           "id": "static_ip",
           "type": "text",
           "label": {
-            "en": "Static IP Address"
+            "en": "Static IP Address",
+            "nl": "Statisch IP-adres",
+            "de": "Statische IP-Adresse",
+            "fr": "Adresse IP statique",
+            "it": "Indirizzo IP statico",
+            "sv": "Statisk IP-adress",
+            "no": "Statisk IP-adresse",
+            "es": "Dirección IP estática",
+            "da": "Statisk IP-adresse",
+            "pl": "Statyczny adres IP",
+            "ko": "고정 IP 주소"
           },
           "hint": {
-            "en": "Leave empty to use auto-discovery. Set to force a direct connection to a specific IP address."
+            "en": "Leave empty to use auto-discovery. Set to force a direct connection to a specific IP address.",
+            "nl": "Laat leeg om automatische detectie te gebruiken. Stel in om een directe verbinding met een specifiek IP-adres te forceren.",
+            "de": "Leer lassen, um die automatische Erkennung zu verwenden. Festlegen, um eine direkte Verbindung zu einer bestimmten IP-Adresse zu erzwingen.",
+            "fr": "Laissez vide pour utiliser la détection automatique. Définissez une valeur pour forcer une connexion directe à une adresse IP spécifique.",
+            "it": "Lascia vuoto per usare il rilevamento automatico. Imposta per forzare una connessione diretta a un indirizzo IP specifico.",
+            "sv": "Lämna tomt för att använda automatisk identifiering. Ange för att tvinga fram en direkt anslutning till en specifik IP-adress.",
+            "no": "La stå tomt for å bruke automatisk oppdagelse. Angi for å tvinge en direkte tilkobling til en bestemt IP-adresse.",
+            "es": "Deja vacío para usar la detección automática. Configúralo para forzar una conexión directa a una dirección IP específica.",
+            "da": "Lad feltet være tomt for at bruge automatisk registrering. Angiv en værdi for at gennemtvinge en direkte forbindelse til en bestemt IP-adresse.",
+            "pl": "Pozostaw puste, aby użyć automatycznego wykrywania. Ustaw, aby wymusić bezpośrednie połączenie z określonym adresem IP.",
+            "ko": "자동 검색을 사용하려면 비워 두세요. 특정 IP 주소로 직접 연결을 강제하려면 설정하세요."
           },
           "value": ""
         }

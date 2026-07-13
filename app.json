@@ -6,12 +6,28 @@
   "sdk": 3,
   "brandColor": "#ff732e",
   "name": {
-    "en": "Gree"
+    "en": "Gree",
+    "fr": "Gree",
+    "it": "Gree",
+    "sv": "Gree",
+    "no": "Gree",
+    "es": "Gree",
+    "da": "Gree",
+    "pl": "Gree",
+    "ko": "Gree"
   },
   "description": {
     "en": "Control your Gree and other EWPE Smart compatible HVAC devices",
     "nl": "Bedien uw Gree en andere EWPE Smart-compatibele HVAC-apparaten",
-    "de": "Steuern Sie Ihre Gree und andere EWPE Smart-kompatible HLK-Geräte"
+    "de": "Steuern Sie Ihre Gree und andere EWPE Smart-kompatible HLK-Geräte",
+    "fr": "Contrôlez vos appareils HVAC Gree et autres compatibles EWPE Smart",
+    "it": "Controlla i tuoi dispositivi Gree e altri condizionatori compatibili con EWPE Smart",
+    "sv": "Styr dina Gree och andra EWPE Smart-kompatibla HVAC-enheter",
+    "no": "Styr dine Gree og andre EWPE Smart-kompatible klimaanlegg",
+    "es": "Controla tus dispositivos HVAC Gree y otros compatibles con EWPE Smart",
+    "da": "Styr dine Gree- og andre EWPE Smart-kompatible HVAC-enheder",
+    "pl": "Steruj urządzeniami Gree i innymi klimatyzatorami zgodnymi z EWPE Smart",
+    "ko": "Gree 및 기타 EWPE Smart 호환 HVAC 기기를 제어하세요"
   },
   "category": [
     "climate"
@@ -85,7 +101,17 @@
       {
         "id": "fan_speed_changed",
         "title": {
-          "en": "Fan speed changed"
+          "en": "Fan speed changed",
+          "nl": "Ventilator snelheid veranderd",
+          "de": "Lüftergeschwindigkeit geändert",
+          "fr": "Vitesse du ventilateur modifiée",
+          "it": "Velocità della ventola cambiata",
+          "sv": "Fläkthastighet ändrad",
+          "no": "Viftehastighet endret",
+          "es": "Velocidad del ventilador cambiada",
+          "da": "Ventilatorhastighed ændret",
+          "pl": "Zmieniono prędkość wentylatora",
+          "ko": "팬 속도 변경됨"
         },
         "args": [
           {
@@ -101,7 +127,15 @@
             "title": {
               "en": "Fan speed",
               "nl": "Ventilator snelheid",
-              "de": "Lüftergeschwindigkeit"
+              "de": "Lüftergeschwindigkeit",
+              "fr": "Vitesse du ventilateur",
+              "it": "Velocità della ventola",
+              "sv": "Fläkthastighet",
+              "no": "Viftehastighet",
+              "es": "Velocidad del ventilador",
+              "da": "Ventilatorhastighed",
+              "pl": "Prędkość wentylatora",
+              "ko": "팬 속도"
             },
             "example": "low"
           }
@@ -111,7 +145,17 @@
         "id": "hvac_mode_changed",
         "deprecated": true,
         "title": {
-          "en": "HVAC mode changed"
+          "en": "HVAC mode changed",
+          "nl": "HVAC modus veranderd",
+          "de": "HVAC-Modus geändert",
+          "fr": "Mode HVAC modifié",
+          "it": "Modalità HVAC cambiata",
+          "sv": "HVAC-läge ändrat",
+          "no": "HVAC-modus endret",
+          "es": "Modo HVAC cambiado",
+          "da": "HVAC-tilstand ændret",
+          "pl": "Zmieniono tryb HVAC",
+          "ko": "HVAC 모드 변경됨"
         },
         "args": [
           {
@@ -127,7 +171,15 @@
             "title": {
               "en": "HVAC mode",
               "nl": "HVAC modus",
-              "de": "HVAC-Modus"
+              "de": "HVAC-Modus",
+              "fr": "Mode HVAC",
+              "it": "Modalità HVAC",
+              "sv": "HVAC-läge",
+              "no": "HVAC-modus",
+              "es": "Modo HVAC",
+              "da": "HVAC-tilstand",
+              "pl": "Tryb HVAC",
+              "ko": "HVAC 모드"
             },
             "example": "cool"
           }
@@ -136,7 +188,17 @@
       {
         "id": "turbo_mode_changed",
         "title": {
-          "en": "Turbo mode changed"
+          "en": "Turbo mode changed",
+          "nl": "Turbo modus veranderd",
+          "de": "Turbo-Modus geändert",
+          "fr": "Mode turbo modifié",
+          "it": "Modalità turbo cambiata",
+          "sv": "Turboläge ändrat",
+          "no": "Turbomodus endret",
+          "es": "Modo turbo cambiado",
+          "da": "Turbotilstand ændret",
+          "pl": "Zmieniono tryb turbo",
+          "ko": "터보 모드 변경됨"
         },
         "args": [
           {
@@ -152,7 +214,15 @@
             "title": {
               "en": "Turbo mode",
               "nl": "Turbo modus",
-              "de": "Turbo Modus"
+              "de": "Turbo-Modus",
+              "fr": "Mode turbo",
+              "it": "Modalità turbo",
+              "sv": "Turboläge",
+              "no": "Turbomodus",
+              "es": "Modo turbo",
+              "da": "Turbotilstand",
+              "pl": "Tryb turbo",
+              "ko": "터보 모드"
             },
             "example": "true"
           }
@@ -163,7 +233,15 @@
         "title": {
           "en": "8°C heating changed",
           "nl": "8°C verwarming veranderd",
-          "de": "8°C Heizung geändert"
+          "de": "8°C Heizung geändert",
+          "fr": "Chauffage 8°C modifié",
+          "it": "Riscaldamento a 8°C cambiato",
+          "sv": "8°C uppvärmning ändrad",
+          "no": "8°C oppvarming endret",
+          "es": "Calefacción a 8°C cambiada",
+          "da": "8°C opvarmning ændret",
+          "pl": "Zmieniono ogrzewanie 8°C",
+          "ko": "8°C 난방 변경됨"
         },
         "args": [
           {
@@ -179,7 +257,15 @@
             "title": {
               "en": "8°C heating",
               "nl": "8°C verwarming",
-              "de": "8°C Heizung"
+              "de": "8°C Heizung",
+              "fr": "Chauffage 8°C",
+              "it": "Riscaldamento a 8°C",
+              "sv": "8°C uppvärmning",
+              "no": "8°C oppvarming",
+              "es": "Calefacción a 8°C",
+              "da": "8°C opvarmning",
+              "pl": "Ogrzewanie 8°C",
+              "ko": "8°C 난방"
             },
             "example": "true"
           }
@@ -188,7 +274,17 @@
       {
         "id": "lights_changed",
         "title": {
-          "en": "Lights changed"
+          "en": "Lights changed",
+          "nl": "Lichten modus veranderd",
+          "de": "Lichtmodus geändert",
+          "fr": "Mode éclairage modifié",
+          "it": "Luci cambiate",
+          "sv": "Belysning ändrad",
+          "no": "Lys endret",
+          "es": "Luces cambiadas",
+          "da": "Lystilstand ændret",
+          "pl": "Zmieniono światła",
+          "ko": "조명 변경됨"
         },
         "args": [
           {
@@ -204,7 +300,15 @@
             "title": {
               "en": "Lights mode",
               "nl": "Lichten modus",
-              "de": "Lichtmodus"
+              "de": "Lichtmodus",
+              "fr": "Mode éclairage",
+              "it": "Modalità luci",
+              "sv": "Belysningsläge",
+              "no": "Lysmodus",
+              "es": "Modo de luces",
+              "da": "Lystilstand",
+              "pl": "Tryb świateł",
+              "ko": "조명 모드"
             },
             "example": "true"
           }
@@ -213,7 +317,17 @@
       {
         "id": "xfan_mode_changed",
         "title": {
-          "en": "X-Fan mode changed"
+          "en": "X-Fan mode changed",
+          "nl": "X-Fan modus veranderd",
+          "de": "X-Fan-Modus geändert",
+          "fr": "Mode X-Fan modifié",
+          "it": "Modalità X-Fan cambiata",
+          "sv": "X-Fan-läge ändrat",
+          "no": "X-Fan-modus endret",
+          "es": "Modo X-Fan cambiado",
+          "da": "X-Fan-tilstand ændret",
+          "pl": "Zmieniono tryb X-Fan",
+          "ko": "X-Fan 모드 변경됨"
         },
         "args": [
           {
@@ -229,7 +343,15 @@
             "title": {
               "en": "X-Fan mode",
               "nl": "X-Fan modus",
-              "de": "X-Fan Modus"
+              "de": "X-Fan-Modus",
+              "fr": "Mode X-Fan",
+              "it": "Modalità X-Fan",
+              "sv": "X-Fan-läge",
+              "no": "X-Fan-modus",
+              "es": "Modo X-Fan",
+              "da": "X-Fan-tilstand",
+              "pl": "Tryb X-Fan",
+              "ko": "X-Fan 모드"
             },
             "example": "false"
           }
@@ -238,7 +360,17 @@
       {
         "id": "vertical_swing_changed",
         "title": {
-          "en": "Vertical swing changed"
+          "en": "Vertical swing changed",
+          "nl": "Verticale swing veranderd",
+          "de": "Vertikale Schwenkung geändert",
+          "fr": "Balayage vertical modifié",
+          "it": "Oscillazione verticale cambiata",
+          "sv": "Vertikal svängning ändrad",
+          "no": "Vertikal svinging endret",
+          "es": "Oscilación vertical cambiada",
+          "da": "Lodret svingning ændret",
+          "pl": "Zmieniono wahanie pionowe",
+          "ko": "수직 스윙 변경됨"
         },
         "args": [
           {
@@ -254,7 +386,15 @@
             "title": {
               "en": "Vertical swing",
               "nl": "Verticale swing",
-              "de": "Vertikale Schaukel"
+              "de": "Vertikale Schwenkung",
+              "fr": "Balayage vertical",
+              "it": "Oscillazione verticale",
+              "sv": "Vertikal svängning",
+              "no": "Vertikal svinging",
+              "es": "Oscilación vertical",
+              "da": "Lodret svingning",
+              "pl": "Wahanie pionowe",
+              "ko": "수직 스윙"
             },
             "example": "full"
           }
@@ -263,7 +403,17 @@
       {
         "id": "horizontal_swing_changed",
         "title": {
-          "en": "Horizontal swing changed"
+          "en": "Horizontal swing changed",
+          "nl": "Horizontale swing veranderd",
+          "de": "Horizontale Schwenkung geändert",
+          "fr": "Balayage horizontal modifié",
+          "it": "Oscillazione orizzontale cambiata",
+          "sv": "Horisontell svängning ändrad",
+          "no": "Horisontal svinging endret",
+          "es": "Oscilación horizontal cambiada",
+          "da": "Vandret svingning ændret",
+          "pl": "Zmieniono wahanie poziome",
+          "ko": "수평 스윙 변경됨"
         },
         "args": [
           {
@@ -279,7 +429,15 @@
             "title": {
               "en": "Horizontal swing",
               "nl": "Horizontale swing",
-              "de": "Horizontales Schaukel"
+              "de": "Horizontale Schwenkung",
+              "fr": "Balayage horizontal",
+              "it": "Oscillazione orizzontale",
+              "sv": "Horisontell svängning",
+              "no": "Horisontal svinging",
+              "es": "Oscilación horizontal",
+              "da": "Vandret svingning",
+              "pl": "Wahanie poziome",
+              "ko": "수평 스윙"
             },
             "example": "full"
           }
@@ -288,7 +446,17 @@
       {
         "id": "quiet_mode_changed",
         "title": {
-          "en": "Quiet mode changed"
+          "en": "Quiet mode changed",
+          "nl": "Stilte modus veranderd",
+          "de": "Ruhig-Modus geändert",
+          "fr": "Mode silencieux modifié",
+          "it": "Modalità silenziosa cambiata",
+          "sv": "Tyst läge ändrat",
+          "no": "Stillemodus endret",
+          "es": "Modo silencioso cambiado",
+          "da": "Stille tilstand ændret",
+          "pl": "Zmieniono tryb cichy",
+          "ko": "저소음 모드 변경됨"
         },
         "args": [
           {
@@ -304,7 +472,15 @@
             "title": {
               "en": "Quiet mode",
               "nl": "Stilte modus",
-              "de": "Ruhig-Modus"
+              "de": "Ruhig-Modus",
+              "fr": "Mode silencieux",
+              "it": "Modalità silenziosa",
+              "sv": "Tyst läge",
+              "no": "Stillemodus",
+              "es": "Modo silencioso",
+              "da": "Stille tilstand",
+              "pl": "Tryb cichy",
+              "ko": "저소음 모드"
             },
             "example": "off"
           }
@@ -315,7 +491,15 @@
         "title": {
           "en": "Health mode changed",
           "nl": "Gezondheidsmodus veranderd",
-          "de": "Gesundheitsmodus geändert"
+          "de": "Gesundheitsmodus geändert",
+          "fr": "Mode santé modifié",
+          "it": "Modalità salute cambiata",
+          "sv": "Hälsoläge ändrat",
+          "no": "Helsemodus endret",
+          "es": "Modo salud cambiado",
+          "da": "Sundhedstilstand ændret",
+          "pl": "Zmieniono tryb zdrowotny",
+          "ko": "건강 모드 변경됨"
         },
         "args": [
           {
@@ -331,7 +515,15 @@
             "title": {
               "en": "Health mode",
               "nl": "Gezondheidsmodus",
-              "de": "Gesundheitsmodus"
+              "de": "Gesundheitsmodus",
+              "fr": "Mode santé",
+              "it": "Modalità salute",
+              "sv": "Hälsoläge",
+              "no": "Helsemodus",
+              "es": "Modo salud",
+              "da": "Sundhedstilstand",
+              "pl": "Tryb zdrowotny",
+              "ko": "건강 모드"
             },
             "example": "true"
           }
@@ -342,7 +534,15 @@
         "title": {
           "en": "Power save mode changed",
           "nl": "Energiebesparende modus veranderd",
-          "de": "Energiesparmodus geändert"
+          "de": "Energiesparmodus geändert",
+          "fr": "Mode économie d'énergie modifié",
+          "it": "Modalità risparmio energetico cambiata",
+          "sv": "Energisparläge ändrat",
+          "no": "Strømsparemodus endret",
+          "es": "Modo de ahorro de energía cambiado",
+          "da": "Strømsparetilstand ændret",
+          "pl": "Zmieniono tryb oszczędzania energii",
+          "ko": "절전 모드 변경됨"
         },
         "args": [
           {
@@ -358,7 +558,15 @@
             "title": {
               "en": "Power save mode",
               "nl": "Energiebesparende modus",
-              "de": "Energiesparmodus"
+              "de": "Energiesparmodus",
+              "fr": "Mode économie d'énergie",
+              "it": "Modalità risparmio energetico",
+              "sv": "Energisparläge",
+              "no": "Strømsparemodus",
+              "es": "Modo de ahorro de energía",
+              "da": "Strømsparetilstand",
+              "pl": "Tryb oszczędzania energii",
+              "ko": "절전 모드"
             },
             "example": "true"
           }
@@ -369,7 +577,15 @@
         "title": {
           "en": "Sleep mode changed",
           "nl": "Slaapmodus veranderd",
-          "de": "Schlafmodus geändert"
+          "de": "Schlafmodus geändert",
+          "fr": "Mode sommeil modifié",
+          "it": "Modalità notte cambiata",
+          "sv": "Viloläge ändrat",
+          "no": "Sovemodus endret",
+          "es": "Modo de reposo cambiado",
+          "da": "Dvaletilstand ændret",
+          "pl": "Zmieniono tryb uśpienia",
+          "ko": "취침 모드 변경됨"
         },
         "args": [
           {
@@ -385,7 +601,15 @@
             "title": {
               "en": "Sleep mode",
               "nl": "Slaapmodus",
-              "de": "Schlafmodus"
+              "de": "Schlafmodus",
+              "fr": "Mode sommeil",
+              "it": "Modalità notte",
+              "sv": "Viloläge",
+              "no": "Sovemodus",
+              "es": "Modo de reposo",
+              "da": "Dvaletilstand",
+              "pl": "Tryb uśpienia",
+              "ko": "취침 모드"
             },
             "example": "true"
           }
@@ -396,7 +620,15 @@
         "title": {
           "en": "Fresh air mode changed",
           "nl": "Verse lucht modus veranderd",
-          "de": "Frischluftmodus geändert"
+          "de": "Frischluftmodus geändert",
+          "fr": "Mode air frais modifié",
+          "it": "Modalità aria fresca cambiata",
+          "sv": "Friskluftsläge ändrat",
+          "no": "Friskluftmodus endret",
+          "es": "Modo de aire fresco cambiado",
+          "da": "Friskluftstilstand ændret",
+          "pl": "Zmieniono tryb świeżego powietrza",
+          "ko": "환기 모드 변경됨"
         },
         "args": [
           {
@@ -412,7 +644,15 @@
             "title": {
               "en": "Fresh air mode",
               "nl": "Verse lucht modus",
-              "de": "Frischluftmodus"
+              "de": "Frischluftmodus",
+              "fr": "Mode air frais",
+              "it": "Modalità aria fresca",
+              "sv": "Friskluftsläge",
+              "no": "Friskluftmodus",
+              "es": "Modo de aire fresco",
+              "da": "Friskluftstilstand",
+              "pl": "Tryb świeżego powietrza",
+              "ko": "환기 모드"
             },
             "example": "off"
           }
@@ -424,10 +664,30 @@
         "id": "hvac_mode_is",
         "deprecated": true,
         "title": {
-          "en": "HVAC mode !{{is|isn't}} ..."
+          "en": "HVAC mode !{{is|isn't}} ...",
+          "nl": "HVAC modus !{{is|is niet}} ...",
+          "de": "HVAC-Modus !{{ist|ist nicht}} ...",
+          "fr": "Mode HVAC !{{est|n'est pas}} ...",
+          "it": "La modalità HVAC !{{è|non è}} ...",
+          "sv": "HVAC-läge !{{är|är inte}} ...",
+          "no": "HVAC-modus !{{er|er ikke}} ...",
+          "es": "Modo HVAC !{{es|no es}} ...",
+          "da": "HVAC-tilstand !{{er|er ikke}} ...",
+          "pl": "Tryb HVAC !{{jest|nie jest}} ...",
+          "ko": "HVAC 모드가 ...!{{임|아님}}"
         },
         "titleFormatted": {
-          "en": "HVAC mode !{{is|isn't}} [[mode]]"
+          "en": "HVAC mode !{{is|isn't}} [[mode]]",
+          "nl": "HVAC modus !{{is|is niet}} [[mode]]",
+          "de": "HVAC-Modus !{{ist|ist nicht}} [[mode]]",
+          "fr": "Mode HVAC !{{est|n'est pas}} [[mode]]",
+          "it": "La modalità HVAC !{{è|non è}} [[mode]]",
+          "sv": "HVAC-läge !{{är|är inte}} [[mode]]",
+          "no": "HVAC-modus !{{er|er ikke}} [[mode]]",
+          "es": "Modo HVAC !{{es|no es}} [[mode]]",
+          "da": "HVAC-tilstand !{{er|er ikke}} [[mode]]",
+          "pl": "Tryb HVAC !{{jest|nie jest}} [[mode]]",
+          "ko": "HVAC 모드가 [[mode]]!{{임|아님}}"
         },
         "args": [
           {
@@ -444,7 +704,15 @@
                 "label": {
                   "en": "Auto",
                   "nl": "Automatisch",
-                  "de": "Automatisch"
+                  "de": "Automatisch",
+                  "fr": "Automatique",
+                  "it": "Automatico",
+                  "sv": "Automatiskt",
+                  "no": "Automatisk",
+                  "es": "Automático",
+                  "da": "Automatisk",
+                  "pl": "Automatyczny",
+                  "ko": "자동"
                 }
               },
               {
@@ -452,7 +720,15 @@
                 "label": {
                   "en": "Cool",
                   "nl": "Koelen",
-                  "de": "Kühlen"
+                  "de": "Kühlen",
+                  "fr": "Refroidissement",
+                  "it": "Raffreddamento",
+                  "sv": "Kyla",
+                  "no": "Kjøling",
+                  "es": "Enfriar",
+                  "da": "Køl",
+                  "pl": "Chłodzenie",
+                  "ko": "냉방"
                 }
               },
               {
@@ -460,7 +736,15 @@
                 "label": {
                   "en": "Heat",
                   "nl": "Verwarmen",
-                  "de": "Heizen"
+                  "de": "Heizen",
+                  "fr": "Chauffage",
+                  "it": "Riscaldamento",
+                  "sv": "Värme",
+                  "no": "Oppvarming",
+                  "es": "Calentar",
+                  "da": "Varme",
+                  "pl": "Ogrzewanie",
+                  "ko": "난방"
                 }
               },
               {
@@ -468,15 +752,31 @@
                 "label": {
                   "en": "Dry",
                   "nl": "Ontvochtigen",
-                  "de": "Trocken"
+                  "de": "Trocken",
+                  "fr": "Déshumidification",
+                  "it": "Deumidificazione",
+                  "sv": "Avfuktning",
+                  "no": "Avfukting",
+                  "es": "Deshumidificar",
+                  "da": "Affugtning",
+                  "pl": "Osuszanie",
+                  "ko": "제습"
                 }
               },
               {
                 "id": "fan_only",
                 "label": {
                   "en": "Fan Only",
-                  "nl": "Alleen fans",
-                  "de": "Nur Fan"
+                  "nl": "Alleen ventileren",
+                  "de": "Nur Lüften",
+                  "fr": "Ventilation seule",
+                  "it": "Solo ventilazione",
+                  "sv": "Endast fläkt",
+                  "no": "Kun vifte",
+                  "es": "Solo ventilador",
+                  "da": "Kun ventilator",
+                  "pl": "Tylko wentylator",
+                  "ko": "송풍"
                 }
               },
               {
@@ -484,7 +784,15 @@
                 "title": {
                   "en": "Off",
                   "nl": "Uit",
-                  "de": "Aus"
+                  "de": "Aus",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
                 }
               }
             ]
@@ -494,10 +802,30 @@
       {
         "id": "fan_speed_is",
         "title": {
-          "en": "Fan speed !{{is|isn't}} ..."
+          "en": "Fan speed !{{is|isn't}} ...",
+          "nl": "Ventilator snelheid !{{is|is niet}} ...",
+          "de": "Lüftergeschwindigkeit !{{ist|ist nicht}} ...",
+          "fr": "Vitesse du ventilateur !{{est|n'est pas}} ...",
+          "it": "La velocità della ventola !{{è|non è}} ...",
+          "sv": "Fläkthastighet !{{är|är inte}} ...",
+          "no": "Viftehastighet !{{er|er ikke}} ...",
+          "es": "Velocidad del ventilador !{{es|no es}} ...",
+          "da": "Ventilatorhastighed !{{er|er ikke}} ...",
+          "pl": "Prędkość wentylatora !{{jest|nie jest}} ...",
+          "ko": "팬 속도가 ...!{{임|아님}}"
         },
         "titleFormatted": {
-          "en": "Fan speed !{{is|isn't}} [[speed]]"
+          "en": "Fan speed !{{is|isn't}} [[speed]]",
+          "nl": "Ventilator snelheid !{{is|is niet}} [[speed]]",
+          "de": "Lüftergeschwindigkeit !{{ist|ist nicht}} [[speed]]",
+          "fr": "Vitesse du ventilateur !{{est|n'est pas}} [[speed]]",
+          "it": "La velocità della ventola !{{è|non è}} [[speed]]",
+          "sv": "Fläkthastighet !{{är|är inte}} [[speed]]",
+          "no": "Viftehastighet !{{er|er ikke}} [[speed]]",
+          "es": "Velocidad del ventilador !{{es|no es}} [[speed]]",
+          "da": "Ventilatorhastighed !{{er|er ikke}} [[speed]]",
+          "pl": "Prędkość wentylatora !{{jest|nie jest}} [[speed]]",
+          "ko": "팬 속도가 [[speed]]!{{임|아님}}"
         },
         "args": [
           {
@@ -514,7 +842,15 @@
                 "label": {
                   "en": "Auto",
                   "nl": "Automatisch",
-                  "de": "Automatisch"
+                  "de": "Automatisch",
+                  "fr": "Automatique",
+                  "it": "Automatico",
+                  "sv": "Automatiskt",
+                  "no": "Automatisk",
+                  "es": "Automático",
+                  "da": "Automatisk",
+                  "pl": "Automatyczny",
+                  "ko": "자동"
                 }
               },
               {
@@ -522,7 +858,15 @@
                 "label": {
                   "en": "Low",
                   "nl": "Laag",
-                  "de": "Niedrig"
+                  "de": "Niedrig",
+                  "fr": "Faible",
+                  "it": "Bassa",
+                  "sv": "Låg",
+                  "no": "Lav",
+                  "es": "Bajo",
+                  "da": "Lav",
+                  "pl": "Niska",
+                  "ko": "낮음"
                 }
               },
               {
@@ -530,7 +874,15 @@
                 "label": {
                   "en": "Medium Low",
                   "nl": "Gemiddeld Laag",
-                  "de": "Mittel Niedrig"
+                  "de": "Mittel Niedrig",
+                  "fr": "Moyen faible",
+                  "it": "Medio-bassa",
+                  "sv": "Medellåg",
+                  "no": "Middels lav",
+                  "es": "Medio bajo",
+                  "da": "Mellem lav",
+                  "pl": "Średnio niska",
+                  "ko": "중간 낮음"
                 }
               },
               {
@@ -538,7 +890,15 @@
                 "label": {
                   "en": "Medium",
                   "nl": "Gemiddeld",
-                  "de": "Mittel"
+                  "de": "Mittel",
+                  "fr": "Moyen",
+                  "it": "Media",
+                  "sv": "Medel",
+                  "no": "Middels",
+                  "es": "Medio",
+                  "da": "Mellem",
+                  "pl": "Średnia",
+                  "ko": "중간"
                 }
               },
               {
@@ -546,7 +906,15 @@
                 "label": {
                   "en": "Medium High",
                   "nl": "Gemiddeld hoog",
-                  "de": "Mittel hoch"
+                  "de": "Mittel hoch",
+                  "fr": "Moyen élevé",
+                  "it": "Medio-alta",
+                  "sv": "Medelhög",
+                  "no": "Middels høy",
+                  "es": "Medio alto",
+                  "da": "Mellem høj",
+                  "pl": "Średnio wysoka",
+                  "ko": "중간 높음"
                 }
               },
               {
@@ -554,7 +922,15 @@
                 "label": {
                   "en": "High",
                   "nl": "Hoog",
-                  "de": "Hoch"
+                  "de": "Hoch",
+                  "fr": "Élevé",
+                  "it": "Alta",
+                  "sv": "Hög",
+                  "no": "Høy",
+                  "es": "Alto",
+                  "da": "Høj",
+                  "pl": "Wysoka",
+                  "ko": "높음"
                 }
               }
             ]
@@ -564,10 +940,30 @@
       {
         "id": "turbo_mode_is",
         "title": {
-          "en": "Turbo mode !{{is|isn't}} ..."
+          "en": "Turbo mode !{{is|isn't}} ...",
+          "nl": "Turbo modus !{{is|is niet}} ...",
+          "de": "Turbo-Modus !{{ist|ist nicht}} ...",
+          "fr": "Mode turbo !{{est|n'est pas}} ...",
+          "it": "La modalità turbo !{{è|non è}} ...",
+          "sv": "Turboläge !{{är|är inte}} ...",
+          "no": "Turbomodus !{{er|er ikke}} ...",
+          "es": "Modo turbo !{{es|no es}} ...",
+          "da": "Turbotilstand !{{er|er ikke}} ...",
+          "pl": "Tryb turbo !{{jest|nie jest}} ...",
+          "ko": "터보 모드가 ...!{{임|아님}}"
         },
         "titleFormatted": {
-          "en": "Turbo mode !{{is|isn't}} [[mode]]"
+          "en": "Turbo mode !{{is|isn't}} [[mode]]",
+          "nl": "Turbo modus !{{is|is niet}} [[mode]]",
+          "de": "Turbo-Modus !{{ist|ist nicht}} [[mode]]",
+          "fr": "Mode turbo !{{est|n'est pas}} [[mode]]",
+          "it": "La modalità turbo !{{è|non è}} [[mode]]",
+          "sv": "Turboläge !{{är|är inte}} [[mode]]",
+          "no": "Turbomodus !{{er|er ikke}} [[mode]]",
+          "es": "Modo turbo !{{es|no es}} [[mode]]",
+          "da": "Turbotilstand !{{er|er ikke}} [[mode]]",
+          "pl": "Tryb turbo !{{jest|nie jest}} [[mode]]",
+          "ko": "터보 모드가 [[mode]]!{{임|아님}}"
         },
         "args": [
           {
@@ -584,7 +980,15 @@
                 "label": {
                   "en": "On",
                   "nl": "Aan",
-                  "de": "Einschalten"
+                  "de": "Einschalten",
+                  "fr": "Marche",
+                  "it": "Acceso",
+                  "sv": "På",
+                  "no": "På",
+                  "es": "Encendido",
+                  "da": "Til",
+                  "pl": "Wł.",
+                  "ko": "켜기"
                 }
               },
               {
@@ -592,7 +996,15 @@
                 "label": {
                   "en": "Off",
                   "nl": "Uit",
-                  "de": "Ausschalten"
+                  "de": "Ausschalten",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
                 }
               }
             ]
@@ -602,10 +1014,30 @@
       {
         "id": "safety_heating_is",
         "title": {
-          "en": "8°C heating !{{is|isn't}} ..."
+          "en": "8°C heating !{{is|isn't}} ...",
+          "nl": "8°C verwarming !{{is|is niet}} ...",
+          "de": "8°C Heizung !{{ist|ist nicht}} ...",
+          "fr": "Chauffage 8°C !{{est|n'est pas}} ...",
+          "it": "Il riscaldamento a 8°C !{{è|non è}} ...",
+          "sv": "8°C uppvärmning !{{är|är inte}} ...",
+          "no": "8°C oppvarming !{{er|er ikke}} ...",
+          "es": "Calefacción a 8°C !{{es|no es}} ...",
+          "da": "8°C opvarmning !{{er|er ikke}} ...",
+          "pl": "Ogrzewanie 8°C !{{jest|nie jest}} ...",
+          "ko": "8°C 난방이 ...!{{임|아님}}"
         },
         "titleFormatted": {
-          "en": "8°C heating !{{is|isn't}} [[mode]]"
+          "en": "8°C heating !{{is|isn't}} [[mode]]",
+          "nl": "8°C verwarming !{{is|is niet}} [[mode]]",
+          "de": "8°C Heizung !{{ist|ist nicht}} [[mode]]",
+          "fr": "Chauffage 8°C !{{est|n'est pas}} [[mode]]",
+          "it": "Il riscaldamento a 8°C !{{è|non è}} [[mode]]",
+          "sv": "8°C uppvärmning !{{är|är inte}} [[mode]]",
+          "no": "8°C oppvarming !{{er|er ikke}} [[mode]]",
+          "es": "Calefacción a 8°C !{{es|no es}} [[mode]]",
+          "da": "8°C opvarmning !{{er|er ikke}} [[mode]]",
+          "pl": "Ogrzewanie 8°C !{{jest|nie jest}} [[mode]]",
+          "ko": "8°C 난방이 [[mode]]!{{임|아님}}"
         },
         "args": [
           {
@@ -622,7 +1054,15 @@
                 "label": {
                   "en": "On",
                   "nl": "Aan",
-                  "de": "Einschalten"
+                  "de": "Einschalten",
+                  "fr": "Marche",
+                  "it": "Acceso",
+                  "sv": "På",
+                  "no": "På",
+                  "es": "Encendido",
+                  "da": "Til",
+                  "pl": "Wł.",
+                  "ko": "켜기"
                 }
               },
               {
@@ -630,7 +1070,15 @@
                 "label": {
                   "en": "Off",
                   "nl": "Uit",
-                  "de": "Ausschalten"
+                  "de": "Ausschalten",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
                 }
               }
             ]
@@ -640,10 +1088,30 @@
       {
         "id": "lights_is",
         "title": {
-          "en": "Lights !{{are|aren't}} ..."
+          "en": "Lights !{{are|aren't}} ...",
+          "nl": "Lichten !{{zijn|zijn niet}} ...",
+          "de": "Licht !{{ist|ist nicht}} ...",
+          "fr": "Les lumières !{{sont|ne sont pas}} ...",
+          "it": "Le luci !{{sono|non sono}} ...",
+          "sv": "Belysning !{{är|är inte}} ...",
+          "no": "Lys !{{er|er ikke}} ...",
+          "es": "Luces !{{están|no están}} ...",
+          "da": "Lys !{{er|er ikke}} ...",
+          "pl": "Światła !{{są|nie są}} ...",
+          "ko": "조명이 ...!{{임|아님}}"
         },
         "titleFormatted": {
-          "en": "Lights !{{are|aren't}} [[mode]]"
+          "en": "Lights !{{are|aren't}} [[mode]]",
+          "nl": "Lichten !{{zijn|zijn niet}} [[mode]]",
+          "de": "Licht !{{ist|ist nicht}} [[mode]]",
+          "fr": "Les lumières !{{sont|ne sont pas}} [[mode]]",
+          "it": "Le luci !{{sono|non sono}} [[mode]]",
+          "sv": "Belysning !{{är|är inte}} [[mode]]",
+          "no": "Lys !{{er|er ikke}} [[mode]]",
+          "es": "Luces !{{están|no están}} [[mode]]",
+          "da": "Lys !{{er|er ikke}} [[mode]]",
+          "pl": "Światła !{{są|nie są}} [[mode]]",
+          "ko": "조명이 [[mode]]!{{임|아님}}"
         },
         "args": [
           {
@@ -660,7 +1128,15 @@
                 "label": {
                   "en": "On",
                   "nl": "Aan",
-                  "de": "Einschalten"
+                  "de": "Einschalten",
+                  "fr": "Marche",
+                  "it": "Acceso",
+                  "sv": "På",
+                  "no": "På",
+                  "es": "Encendido",
+                  "da": "Til",
+                  "pl": "Wł.",
+                  "ko": "켜기"
                 }
               },
               {
@@ -668,7 +1144,15 @@
                 "label": {
                   "en": "Off",
                   "nl": "Uit",
-                  "de": "Ausschalten"
+                  "de": "Ausschalten",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
                 }
               }
             ]
@@ -678,10 +1162,30 @@
       {
         "id": "xfan_mode_is",
         "title": {
-          "en": "X-Fan mode !{{is|isn't}} ..."
+          "en": "X-Fan mode !{{is|isn't}} ...",
+          "nl": "X-Fan modus !{{is|is niet}} ...",
+          "de": "X-Fan-Modus !{{ist|ist nicht}} ...",
+          "fr": "Mode X-Fan !{{est|n'est pas}} ...",
+          "it": "La modalità X-Fan !{{è|non è}} ...",
+          "sv": "X-Fan-läge !{{är|är inte}} ...",
+          "no": "X-Fan-modus !{{er|er ikke}} ...",
+          "es": "Modo X-Fan !{{es|no es}} ...",
+          "da": "X-Fan-tilstand !{{er|er ikke}} ...",
+          "pl": "Tryb X-Fan !{{jest|nie jest}} ...",
+          "ko": "X-Fan 모드가 ...!{{임|아님}}"
         },
         "titleFormatted": {
-          "en": "X-Fan mode !{{is|isn't}} [[mode]]"
+          "en": "X-Fan mode !{{is|isn't}} [[mode]]",
+          "nl": "X-Fan modus !{{is|is niet}} [[mode]]",
+          "de": "X-Fan-Modus !{{ist|ist nicht}} [[mode]]",
+          "fr": "Mode X-Fan !{{est|n'est pas}} [[mode]]",
+          "it": "La modalità X-Fan !{{è|non è}} [[mode]]",
+          "sv": "X-Fan-läge !{{är|är inte}} [[mode]]",
+          "no": "X-Fan-modus !{{er|er ikke}} [[mode]]",
+          "es": "Modo X-Fan !{{es|no es}} [[mode]]",
+          "da": "X-Fan-tilstand !{{er|er ikke}} [[mode]]",
+          "pl": "Tryb X-Fan !{{jest|nie jest}} [[mode]]",
+          "ko": "X-Fan 모드가 [[mode]]!{{임|아님}}"
         },
         "args": [
           {
@@ -698,7 +1202,15 @@
                 "label": {
                   "en": "On",
                   "nl": "Aan",
-                  "de": "Einschalten"
+                  "de": "Einschalten",
+                  "fr": "Marche",
+                  "it": "Acceso",
+                  "sv": "På",
+                  "no": "På",
+                  "es": "Encendido",
+                  "da": "Til",
+                  "pl": "Wł.",
+                  "ko": "켜기"
                 }
               },
               {
@@ -706,7 +1218,15 @@
                 "label": {
                   "en": "Off",
                   "nl": "Uit",
-                  "de": "Ausschalten"
+                  "de": "Ausschalten",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
                 }
               }
             ]
@@ -716,10 +1236,30 @@
       {
         "id": "vertical_swing_is",
         "title": {
-          "en": "Vertical swing !{{is|isn't}} ..."
+          "en": "Vertical swing !{{is|isn't}} ...",
+          "nl": "Verticale swing !{{is|is niet}} ...",
+          "de": "Vertikale Schwenkung !{{ist|ist nicht}} ...",
+          "fr": "Balayage vertical !{{est|n'est pas}} ...",
+          "it": "L'oscillazione verticale !{{è|non è}} ...",
+          "sv": "Vertikal svängning !{{är|är inte}} ...",
+          "no": "Vertikal svinging !{{er|er ikke}} ...",
+          "es": "Oscilación vertical !{{es|no es}} ...",
+          "da": "Lodret svingning !{{er|er ikke}} ...",
+          "pl": "Wahanie pionowe !{{jest|nie jest}} ...",
+          "ko": "수직 스윙이 ...!{{임|아님}}"
         },
         "titleFormatted": {
-          "en": "Vertical swing !{{is|isn't}} [[vertical_swing]]"
+          "en": "Vertical swing !{{is|isn't}} [[vertical_swing]]",
+          "nl": "Verticale swing !{{is|is niet}} [[vertical_swing]]",
+          "de": "Vertikale Schwenkung !{{ist|ist nicht}} [[vertical_swing]]",
+          "fr": "Balayage vertical !{{est|n'est pas}} [[vertical_swing]]",
+          "it": "L'oscillazione verticale !{{è|non è}} [[vertical_swing]]",
+          "sv": "Vertikal svängning !{{är|är inte}} [[vertical_swing]]",
+          "no": "Vertikal svinging !{{er|er ikke}} [[vertical_swing]]",
+          "es": "Oscilación vertical !{{es|no es}} [[vertical_swing]]",
+          "da": "Lodret svingning !{{er|er ikke}} [[vertical_swing]]",
+          "pl": "Wahanie pionowe !{{jest|nie jest}} [[vertical_swing]]",
+          "ko": "수직 스윙이 [[vertical_swing]]!{{임|아님}}"
         },
         "args": [
           {
@@ -736,7 +1276,15 @@
                 "title": {
                   "en": "Disabled",
                   "nl": "Uitgeschakeld",
-                  "de": "Behindert"
+                  "de": "Deaktiviert",
+                  "fr": "Désactivé",
+                  "it": "Disabilitato",
+                  "sv": "Inaktiverad",
+                  "no": "Deaktivert",
+                  "es": "Desactivado",
+                  "da": "Deaktiveret",
+                  "pl": "Wyłączone",
+                  "ko": "비활성화"
                 }
               },
               {
@@ -744,7 +1292,15 @@
                 "title": {
                   "en": "Full range",
                   "nl": "Volledig bereik",
-                  "de": "Vollständige Palette"
+                  "de": "Voller Bereich",
+                  "fr": "Plage complète",
+                  "it": "Gamma completa",
+                  "sv": "Fullt omfång",
+                  "no": "Fullt område",
+                  "es": "Rango completo",
+                  "da": "Fuldt område",
+                  "pl": "Pełny zakres",
+                  "ko": "전체 범위"
                 }
               },
               {
@@ -752,7 +1308,15 @@
                 "title": {
                   "en": "Fixed top",
                   "nl": "Fixed boven",
-                  "de": "Feste Oberseite"
+                  "de": "Oben fixiert",
+                  "fr": "Fixe en haut",
+                  "it": "Fisso in alto",
+                  "sv": "Fast överst",
+                  "no": "Fast øverst",
+                  "es": "Fijo arriba",
+                  "da": "Fast øverst",
+                  "pl": "Stałe na górze",
+                  "ko": "상단 고정"
                 }
               },
               {
@@ -760,7 +1324,15 @@
                 "title": {
                   "en": "Fixed top middle",
                   "nl": "Fixed midden boven",
-                  "de": "Feste obere Mitte"
+                  "de": "Oben-Mitte fixiert",
+                  "fr": "Fixe en haut au milieu",
+                  "it": "Fisso in alto al centro",
+                  "sv": "Fast överst mitten",
+                  "no": "Fast øverst midten",
+                  "es": "Fijo arriba centro",
+                  "da": "Fast øverst midt",
+                  "pl": "Stałe na górze na środku",
+                  "ko": "상단 중앙 고정"
                 }
               },
               {
@@ -768,7 +1340,15 @@
                 "title": {
                   "en": "Fixed middle",
                   "nl": "Fixed midden",
-                  "de": "Feste Mitte"
+                  "de": "Mitte fixiert",
+                  "fr": "Fixe au milieu",
+                  "it": "Fisso al centro",
+                  "sv": "Fast mitten",
+                  "no": "Fast midten",
+                  "es": "Fijo centro",
+                  "da": "Fast midt",
+                  "pl": "Stałe na środku",
+                  "ko": "중앙 고정"
                 }
               },
               {
@@ -776,7 +1356,15 @@
                 "title": {
                   "en": "Fixed middle bottom",
                   "nl": "Fixed midden onder",
-                  "de": "Mittlerer Boden fest"
+                  "de": "Unten-Mitte fixiert",
+                  "fr": "Fixe au milieu en bas",
+                  "it": "Fisso al centro in basso",
+                  "sv": "Fast mitten nederst",
+                  "no": "Fast midten nederst",
+                  "es": "Fijo centro abajo",
+                  "da": "Fast midt nederst",
+                  "pl": "Stałe na środku dolnym",
+                  "ko": "중앙 하단 고정"
                 }
               },
               {
@@ -784,7 +1372,15 @@
                 "title": {
                   "en": "Fixed bottom",
                   "nl": "Fixed onder",
-                  "de": "Feste Unterseite"
+                  "de": "Unten fixiert",
+                  "fr": "Fixe en bas",
+                  "it": "Fisso in basso",
+                  "sv": "Fast nederst",
+                  "no": "Fast nederst",
+                  "es": "Fijo abajo",
+                  "da": "Fast nederst",
+                  "pl": "Stałe na dole",
+                  "ko": "하단 고정"
                 }
               },
               {
@@ -792,7 +1388,15 @@
                 "title": {
                   "en": "Swing bottom",
                   "nl": "Swing onder",
-                  "de": "Swing Unterseite"
+                  "de": "Schwenken unten",
+                  "fr": "Balayage en bas",
+                  "it": "Oscillazione in basso",
+                  "sv": "Sväng nederst",
+                  "no": "Sving nederst",
+                  "es": "Oscilación abajo",
+                  "da": "Sving nederst",
+                  "pl": "Wahanie na dole",
+                  "ko": "하단 스윙"
                 }
               },
               {
@@ -800,7 +1404,15 @@
                 "title": {
                   "en": "Swing middle",
                   "nl": "Swing midden",
-                  "de": "Mitte schwingen"
+                  "de": "Schwenken Mitte",
+                  "fr": "Balayage au milieu",
+                  "it": "Oscillazione al centro",
+                  "sv": "Sväng mitten",
+                  "no": "Sving midten",
+                  "es": "Oscilación centro",
+                  "da": "Sving midt",
+                  "pl": "Wahanie na środku",
+                  "ko": "중앙 스윙"
                 }
               },
               {
@@ -808,7 +1420,15 @@
                 "title": {
                   "en": "Swing top",
                   "nl": "Swing boven",
-                  "de": "Swing Oberseite"
+                  "de": "Schwenken oben",
+                  "fr": "Balayage en haut",
+                  "it": "Oscillazione in alto",
+                  "sv": "Sväng överst",
+                  "no": "Sving øverst",
+                  "es": "Oscilación arriba",
+                  "da": "Sving øverst",
+                  "pl": "Wahanie na górze",
+                  "ko": "상단 스윙"
                 }
               }
             ]
@@ -818,10 +1438,30 @@
       {
         "id": "horizontal_swing_is",
         "title": {
-          "en": "Horizontal swing !{{is|isn't}} ..."
+          "en": "Horizontal swing !{{is|isn't}} ...",
+          "nl": "Horizontale swing !{{is|is niet}} ...",
+          "de": "Horizontale Schwenkung !{{ist|ist nicht}} ...",
+          "fr": "Balayage horizontal !{{est|n'est pas}} ...",
+          "it": "L'oscillazione orizzontale !{{è|non è}} ...",
+          "sv": "Horisontell svängning !{{är|är inte}} ...",
+          "no": "Horisontal svinging !{{er|er ikke}} ...",
+          "es": "Oscilación horizontal !{{es|no es}} ...",
+          "da": "Vandret svingning !{{er|er ikke}} ...",
+          "pl": "Wahanie poziome !{{jest|nie jest}} ...",
+          "ko": "수평 스윙이 ...!{{임|아님}}"
         },
         "titleFormatted": {
-          "en": "Horizontal swing !{{is|isn't}} [[horizontal_swing]]"
+          "en": "Horizontal swing !{{is|isn't}} [[horizontal_swing]]",
+          "nl": "Horizontale swing !{{is|is niet}} [[horizontal_swing]]",
+          "de": "Horizontale Schwenkung !{{ist|ist nicht}} [[horizontal_swing]]",
+          "fr": "Balayage horizontal !{{est|n'est pas}} [[horizontal_swing]]",
+          "it": "L'oscillazione orizzontale !{{è|non è}} [[horizontal_swing]]",
+          "sv": "Horisontell svängning !{{är|är inte}} [[horizontal_swing]]",
+          "no": "Horisontal svinging !{{er|er ikke}} [[horizontal_swing]]",
+          "es": "Oscilación horizontal !{{es|no es}} [[horizontal_swing]]",
+          "da": "Vandret svingning !{{er|er ikke}} [[horizontal_swing]]",
+          "pl": "Wahanie poziome !{{jest|nie jest}} [[horizontal_swing]]",
+          "ko": "수평 스윙이 [[horizontal_swing]]!{{임|아님}}"
         },
         "args": [
           {
@@ -838,7 +1478,15 @@
                 "title": {
                   "en": "Disabled",
                   "nl": "Uitgeschakeld",
-                  "de": "Behindert"
+                  "de": "Deaktiviert",
+                  "fr": "Désactivé",
+                  "it": "Disabilitato",
+                  "sv": "Inaktiverad",
+                  "no": "Deaktivert",
+                  "es": "Desactivado",
+                  "da": "Deaktiveret",
+                  "pl": "Wyłączone",
+                  "ko": "비활성화"
                 }
               },
               {
@@ -846,7 +1494,15 @@
                 "title": {
                   "en": "Full range",
                   "nl": "Volledig bereik",
-                  "de": "Vollständige Palette"
+                  "de": "Voller Bereich",
+                  "fr": "Plage complète",
+                  "it": "Gamma completa",
+                  "sv": "Fullt omfång",
+                  "no": "Fullt område",
+                  "es": "Rango completo",
+                  "da": "Fuldt område",
+                  "pl": "Pełny zakres",
+                  "ko": "전체 범위"
                 }
               },
               {
@@ -854,7 +1510,15 @@
                 "title": {
                   "en": "Fixed left",
                   "nl": "Fixed links",
-                  "de": "Feste Links"
+                  "de": "Links fixiert",
+                  "fr": "Fixe à gauche",
+                  "it": "Fisso a sinistra",
+                  "sv": "Fast vänster",
+                  "no": "Fast venstre",
+                  "es": "Fijo izquierda",
+                  "da": "Fast venstre",
+                  "pl": "Stałe po lewej",
+                  "ko": "왼쪽 고정"
                 }
               },
               {
@@ -862,7 +1526,15 @@
                 "title": {
                   "en": "Fixed top left",
                   "nl": "Fixed midden links",
-                  "de": "Feste obere Links"
+                  "de": "Oben-Links fixiert",
+                  "fr": "Fixe en haut à gauche",
+                  "it": "Fisso in alto a sinistra",
+                  "sv": "Fast överst vänster",
+                  "no": "Fast øverst venstre",
+                  "es": "Fijo arriba izquierda",
+                  "da": "Fast øverst venstre",
+                  "pl": "Stałe na górze po lewej",
+                  "ko": "상단 왼쪽 고정"
                 }
               },
               {
@@ -870,7 +1542,15 @@
                 "title": {
                   "en": "Fixed middle",
                   "nl": "Fixed midden",
-                  "de": "Feste Mitte"
+                  "de": "Mitte fixiert",
+                  "fr": "Fixe au milieu",
+                  "it": "Fisso al centro",
+                  "sv": "Fast mitten",
+                  "no": "Fast midten",
+                  "es": "Fijo centro",
+                  "da": "Fast midt",
+                  "pl": "Stałe na środku",
+                  "ko": "중앙 고정"
                 }
               },
               {
@@ -878,7 +1558,15 @@
                 "title": {
                   "en": "Fixed middle right",
                   "nl": "Fixed midden rechts",
-                  "de": "Mittlerer Boden fest"
+                  "de": "Mitte-Rechts fixiert",
+                  "fr": "Fixe au milieu à droite",
+                  "it": "Fisso al centro a destra",
+                  "sv": "Fast mitten höger",
+                  "no": "Fast midten høyre",
+                  "es": "Fijo centro derecha",
+                  "da": "Fast midt højre",
+                  "pl": "Stałe na środku prawym",
+                  "ko": "중앙 오른쪽 고정"
                 }
               },
               {
@@ -886,7 +1574,15 @@
                 "title": {
                   "en": "Fixed right",
                   "nl": "Fixed rechts",
-                  "de": "Feste Rechts"
+                  "de": "Rechts fixiert",
+                  "fr": "Fixe à droite",
+                  "it": "Fisso a destra",
+                  "sv": "Fast höger",
+                  "no": "Fast høyre",
+                  "es": "Fijo derecha",
+                  "da": "Fast højre",
+                  "pl": "Stałe po prawej",
+                  "ko": "오른쪽 고정"
                 }
               },
               {
@@ -894,7 +1590,15 @@
                 "title": {
                   "en": "Full range",
                   "nl": "Volledig bereik",
-                  "de": "Vollständige Palette"
+                  "de": "Voller Bereich",
+                  "fr": "Plage complète",
+                  "it": "Gamma completa",
+                  "sv": "Fullt omfång",
+                  "no": "Fullt område",
+                  "es": "Rango completo",
+                  "da": "Fuldt område",
+                  "pl": "Pełny zakres",
+                  "ko": "전체 범위"
                 }
               }
             ]
@@ -904,10 +1608,30 @@
       {
         "id": "quiet_mode_is",
         "title": {
-          "en": "Quiet mode !{{is|isn't}} ..."
+          "en": "Quiet mode !{{is|isn't}} ...",
+          "nl": "Stilte modus !{{is|is niet}} ...",
+          "de": "Ruhig-Modus !{{ist|ist nicht}} ...",
+          "fr": "Mode silencieux !{{est|n'est pas}} ...",
+          "it": "La modalità silenziosa !{{è|non è}} ...",
+          "sv": "Tyst läge !{{är|är inte}} ...",
+          "no": "Stillemodus !{{er|er ikke}} ...",
+          "es": "Modo silencioso !{{es|no es}} ...",
+          "da": "Stille tilstand !{{er|er ikke}} ...",
+          "pl": "Tryb cichy !{{jest|nie jest}} ...",
+          "ko": "저소음 모드가 ...!{{임|아님}}"
         },
         "titleFormatted": {
-          "en": "Quiet mode !{{is|isn't}} [[mode]]"
+          "en": "Quiet mode !{{is|isn't}} [[mode]]",
+          "nl": "Stilte modus !{{is|is niet}} [[mode]]",
+          "de": "Ruhig-Modus !{{ist|ist nicht}} [[mode]]",
+          "fr": "Mode silencieux !{{est|n'est pas}} [[mode]]",
+          "it": "La modalità silenziosa !{{è|non è}} [[mode]]",
+          "sv": "Tyst läge !{{är|är inte}} [[mode]]",
+          "no": "Stillemodus !{{er|er ikke}} [[mode]]",
+          "es": "Modo silencioso !{{es|no es}} [[mode]]",
+          "da": "Stille tilstand !{{er|er ikke}} [[mode]]",
+          "pl": "Tryb cichy !{{jest|nie jest}} [[mode]]",
+          "ko": "저소음 모드가 [[mode]]!{{임|아님}}"
         },
         "args": [
           {
@@ -924,7 +1648,15 @@
                 "title": {
                   "en": "Off",
                   "nl": "Uit",
-                  "de": "Aus"
+                  "de": "Aus",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
                 }
               },
               {
@@ -932,7 +1664,15 @@
                 "title": {
                   "en": "Mode 1",
                   "nl": "Mode 1",
-                  "de": "Mode 1"
+                  "de": "Mode 1",
+                  "fr": "Mode 1",
+                  "it": "Mode 1",
+                  "sv": "Mode 1",
+                  "no": "Mode 1",
+                  "es": "Modo 1",
+                  "da": "Mode 1",
+                  "pl": "Mode 1",
+                  "ko": "Mode 1"
                 }
               },
               {
@@ -940,7 +1680,15 @@
                 "title": {
                   "en": "Mode 2",
                   "nl": "Mode 2",
-                  "de": "Mode 2"
+                  "de": "Mode 2",
+                  "fr": "Mode 2",
+                  "it": "Mode 2",
+                  "sv": "Mode 2",
+                  "no": "Mode 2",
+                  "es": "Modo 2",
+                  "da": "Mode 2",
+                  "pl": "Mode 2",
+                  "ko": "Mode 2"
                 }
               },
               {
@@ -948,7 +1696,15 @@
                 "title": {
                   "en": "Mode 3",
                   "nl": "Mode 3",
-                  "de": "Mode 3"
+                  "de": "Mode 3",
+                  "fr": "Mode 3",
+                  "it": "Mode 3",
+                  "sv": "Mode 3",
+                  "no": "Mode 3",
+                  "es": "Modo 3",
+                  "da": "Mode 3",
+                  "pl": "Mode 3",
+                  "ko": "Mode 3"
                 }
               }
             ]
@@ -958,10 +1714,30 @@
       {
         "id": "health_mode_is",
         "title": {
-          "en": "Health mode !{{is|isn't}} ..."
+          "en": "Health mode !{{is|isn't}} ...",
+          "nl": "Gezondheidsmodus !{{is|is niet}} ...",
+          "de": "Gesundheitsmodus !{{ist|ist nicht}} ...",
+          "fr": "Mode santé !{{est|n'est pas}} ...",
+          "it": "La modalità salute !{{è|non è}} ...",
+          "sv": "Hälsoläge !{{är|är inte}} ...",
+          "no": "Helsemodus !{{er|er ikke}} ...",
+          "es": "Modo salud !{{es|no es}} ...",
+          "da": "Sundhedstilstand !{{er|er ikke}} ...",
+          "pl": "Tryb zdrowotny !{{jest|nie jest}} ...",
+          "ko": "건강 모드가 ...!{{임|아님}}"
         },
         "titleFormatted": {
-          "en": "Health mode !{{is|isn't}} [[mode]]"
+          "en": "Health mode !{{is|isn't}} [[mode]]",
+          "nl": "Gezondheidsmodus !{{is|is niet}} [[mode]]",
+          "de": "Gesundheitsmodus !{{ist|ist nicht}} [[mode]]",
+          "fr": "Mode santé !{{est|n'est pas}} [[mode]]",
+          "it": "La modalità salute !{{è|non è}} [[mode]]",
+          "sv": "Hälsoläge !{{är|är inte}} [[mode]]",
+          "no": "Helsemodus !{{er|er ikke}} [[mode]]",
+          "es": "Modo salud !{{es|no es}} [[mode]]",
+          "da": "Sundhedstilstand !{{er|er ikke}} [[mode]]",
+          "pl": "Tryb zdrowotny !{{jest|nie jest}} [[mode]]",
+          "ko": "건강 모드가 [[mode]]!{{임|아님}}"
         },
         "args": [
           {
@@ -978,7 +1754,15 @@
                 "label": {
                   "en": "On",
                   "nl": "Aan",
-                  "de": "Einschalten"
+                  "de": "Einschalten",
+                  "fr": "Marche",
+                  "it": "Acceso",
+                  "sv": "På",
+                  "no": "På",
+                  "es": "Encendido",
+                  "da": "Til",
+                  "pl": "Wł.",
+                  "ko": "켜기"
                 }
               },
               {
@@ -986,7 +1770,15 @@
                 "label": {
                   "en": "Off",
                   "nl": "Uit",
-                  "de": "Ausschalten"
+                  "de": "Ausschalten",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
                 }
               }
             ]
@@ -996,10 +1788,30 @@
       {
         "id": "power_save_mode_is",
         "title": {
-          "en": "Power save mode !{{is|isn't}} ..."
+          "en": "Power save mode !{{is|isn't}} ...",
+          "nl": "Energiebesparende modus !{{is|is niet}} ...",
+          "de": "Energiesparmodus !{{ist|ist nicht}} ...",
+          "fr": "Mode économie d'énergie !{{est|n'est pas}} ...",
+          "it": "La modalità risparmio energetico !{{è|non è}} ...",
+          "sv": "Energisparläge !{{är|är inte}} ...",
+          "no": "Strømsparemodus !{{er|er ikke}} ...",
+          "es": "Modo de ahorro de energía !{{es|no es}} ...",
+          "da": "Strømsparetilstand !{{er|er ikke}} ...",
+          "pl": "Tryb oszczędzania energii !{{jest|nie jest}} ...",
+          "ko": "절전 모드가 ...!{{임|아님}}"
         },
         "titleFormatted": {
-          "en": "Power save mode !{{is|isn't}} [[mode]]"
+          "en": "Power save mode !{{is|isn't}} [[mode]]",
+          "nl": "Energiebesparende modus !{{is|is niet}} [[mode]]",
+          "de": "Energiesparmodus !{{ist|ist nicht}} [[mode]]",
+          "fr": "Mode économie d'énergie !{{est|n'est pas}} [[mode]]",
+          "it": "La modalità risparmio energetico !{{è|non è}} [[mode]]",
+          "sv": "Energisparläge !{{är|är inte}} [[mode]]",
+          "no": "Strømsparemodus !{{er|er ikke}} [[mode]]",
+          "es": "Modo de ahorro de energía !{{es|no es}} [[mode]]",
+          "da": "Strømsparetilstand !{{er|er ikke}} [[mode]]",
+          "pl": "Tryb oszczędzania energii !{{jest|nie jest}} [[mode]]",
+          "ko": "절전 모드가 [[mode]]!{{임|아님}}"
         },
         "args": [
           {
@@ -1016,7 +1828,15 @@
                 "label": {
                   "en": "On",
                   "nl": "Aan",
-                  "de": "Einschalten"
+                  "de": "Einschalten",
+                  "fr": "Marche",
+                  "it": "Acceso",
+                  "sv": "På",
+                  "no": "På",
+                  "es": "Encendido",
+                  "da": "Til",
+                  "pl": "Wł.",
+                  "ko": "켜기"
                 }
               },
               {
@@ -1024,7 +1844,15 @@
                 "label": {
                   "en": "Off",
                   "nl": "Uit",
-                  "de": "Ausschalten"
+                  "de": "Ausschalten",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
                 }
               }
             ]
@@ -1034,10 +1862,30 @@
       {
         "id": "sleep_mode_is",
         "title": {
-          "en": "Sleep mode !{{is|isn't}} ..."
+          "en": "Sleep mode !{{is|isn't}} ...",
+          "nl": "Slaapmodus !{{is|is niet}} ...",
+          "de": "Schlafmodus !{{ist|ist nicht}} ...",
+          "fr": "Mode sommeil !{{est|n'est pas}} ...",
+          "it": "La modalità notte !{{è|non è}} ...",
+          "sv": "Viloläge !{{är|är inte}} ...",
+          "no": "Sovemodus !{{er|er ikke}} ...",
+          "es": "Modo de reposo !{{es|no es}} ...",
+          "da": "Dvaletilstand !{{er|er ikke}} ...",
+          "pl": "Tryb uśpienia !{{jest|nie jest}} ...",
+          "ko": "취침 모드가 ...!{{임|아님}}"
         },
         "titleFormatted": {
-          "en": "Sleep mode !{{is|isn't}} [[mode]]"
+          "en": "Sleep mode !{{is|isn't}} [[mode]]",
+          "nl": "Slaapmodus !{{is|is niet}} [[mode]]",
+          "de": "Schlafmodus !{{ist|ist nicht}} [[mode]]",
+          "fr": "Mode sommeil !{{est|n'est pas}} [[mode]]",
+          "it": "La modalità notte !{{è|non è}} [[mode]]",
+          "sv": "Viloläge !{{är|är inte}} [[mode]]",
+          "no": "Sovemodus !{{er|er ikke}} [[mode]]",
+          "es": "Modo de reposo !{{es|no es}} [[mode]]",
+          "da": "Dvaletilstand !{{er|er ikke}} [[mode]]",
+          "pl": "Tryb uśpienia !{{jest|nie jest}} [[mode]]",
+          "ko": "취침 모드가 [[mode]]!{{임|아님}}"
         },
         "args": [
           {
@@ -1054,7 +1902,15 @@
                 "label": {
                   "en": "On",
                   "nl": "Aan",
-                  "de": "Einschalten"
+                  "de": "Einschalten",
+                  "fr": "Marche",
+                  "it": "Acceso",
+                  "sv": "På",
+                  "no": "På",
+                  "es": "Encendido",
+                  "da": "Til",
+                  "pl": "Wł.",
+                  "ko": "켜기"
                 }
               },
               {
@@ -1062,7 +1918,15 @@
                 "label": {
                   "en": "Off",
                   "nl": "Uit",
-                  "de": "Ausschalten"
+                  "de": "Ausschalten",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
                 }
               }
             ]
@@ -1072,10 +1936,30 @@
       {
         "id": "fresh_air_mode_is",
         "title": {
-          "en": "Fresh air mode !{{is|isn't}} ..."
+          "en": "Fresh air mode !{{is|isn't}} ...",
+          "nl": "Verse lucht modus !{{is|is niet}} ...",
+          "de": "Frischluftmodus !{{ist|ist nicht}} ...",
+          "fr": "Mode air frais !{{est|n'est pas}} ...",
+          "it": "La modalità aria fresca !{{è|non è}} ...",
+          "sv": "Friskluftsläge !{{är|är inte}} ...",
+          "no": "Friskluftmodus !{{er|er ikke}} ...",
+          "es": "Modo de aire fresco !{{es|no es}} ...",
+          "da": "Friskluftstilstand !{{er|er ikke}} ...",
+          "pl": "Tryb świeżego powietrza !{{jest|nie jest}} ...",
+          "ko": "환기 모드가 ...!{{임|아님}}"
         },
         "titleFormatted": {
-          "en": "Fresh air mode !{{is|isn't}} [[mode]]"
+          "en": "Fresh air mode !{{is|isn't}} [[mode]]",
+          "nl": "Verse lucht modus !{{is|is niet}} [[mode]]",
+          "de": "Frischluftmodus !{{ist|ist nicht}} [[mode]]",
+          "fr": "Mode air frais !{{est|n'est pas}} [[mode]]",
+          "it": "La modalità aria fresca !{{è|non è}} [[mode]]",
+          "sv": "Friskluftsläge !{{är|är inte}} [[mode]]",
+          "no": "Friskluftmodus !{{er|er ikke}} [[mode]]",
+          "es": "Modo de aire fresco !{{es|no es}} [[mode]]",
+          "da": "Friskluftstilstand !{{er|er ikke}} [[mode]]",
+          "pl": "Tryb świeżego powietrza !{{jest|nie jest}} [[mode]]",
+          "ko": "환기 모드가 [[mode]]!{{임|아님}}"
         },
         "args": [
           {
@@ -1092,7 +1976,15 @@
                 "title": {
                   "en": "Off",
                   "nl": "Uit",
-                  "de": "Aus"
+                  "de": "Aus",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
                 }
               },
               {
@@ -1100,7 +1992,15 @@
                 "title": {
                   "en": "Inside",
                   "nl": "Binnen",
-                  "de": "Innen"
+                  "de": "Innen",
+                  "fr": "Intérieur",
+                  "it": "Interno",
+                  "sv": "Inne",
+                  "no": "Inne",
+                  "es": "Interior",
+                  "da": "Indendørs",
+                  "pl": "Wewnątrz",
+                  "ko": "내부"
                 }
               },
               {
@@ -1108,7 +2008,15 @@
                 "title": {
                   "en": "Outside",
                   "nl": "Buiten",
-                  "de": "Außen"
+                  "de": "Außen",
+                  "fr": "Extérieur",
+                  "it": "Esterno",
+                  "sv": "Ute",
+                  "no": "Ute",
+                  "es": "Exterior",
+                  "da": "Udendørs",
+                  "pl": "Na zewnątrz",
+                  "ko": "외부"
                 }
               },
               {
@@ -1116,7 +2024,15 @@
                 "title": {
                   "en": "Mode 3",
                   "nl": "Mode 3",
-                  "de": "Mode 3"
+                  "de": "Mode 3",
+                  "fr": "Mode 3",
+                  "it": "Mode 3",
+                  "sv": "Mode 3",
+                  "no": "Mode 3",
+                  "es": "Modo 3",
+                  "da": "Mode 3",
+                  "pl": "Mode 3",
+                  "ko": "Mode 3"
                 }
               }
             ]
@@ -1131,12 +2047,28 @@
         "title": {
           "en": "Set HVAC mode",
           "nl": "Stel de HVAC-modus in",
-          "de": "Stellen Sie der HVAC modus ein"
+          "de": "HVAC-Modus einstellen",
+          "fr": "Régler le mode HVAC",
+          "it": "Imposta la modalità HVAC",
+          "sv": "Ställ in HVAC-läge",
+          "no": "Still inn HVAC-modus",
+          "es": "Establecer modo HVAC",
+          "da": "Indstil HVAC-tilstand",
+          "pl": "Ustaw tryb HVAC",
+          "ko": "HVAC 모드 설정"
         },
         "titleFormatted": {
           "en": "Set HVAC mode to [[mode]]",
           "nl": "Stel de HVAC-modus in op [[mode]]",
-          "de": "Stellen Sie der HVAC modus auf [[mode]] ein"
+          "de": "HVAC-Modus auf [[mode]] einstellen",
+          "fr": "Régler le mode HVAC sur [[mode]]",
+          "it": "Imposta la modalità HVAC su [[mode]]",
+          "sv": "Ställ in HVAC-läge till [[mode]]",
+          "no": "Still inn HVAC-modus til [[mode]]",
+          "es": "Establecer modo HVAC en [[mode]]",
+          "da": "Indstil HVAC-tilstand til [[mode]]",
+          "pl": "Ustaw tryb HVAC na [[mode]]",
+          "ko": "HVAC 모드를 [[mode]](으)로 설정"
         },
         "args": [
           {
@@ -1153,7 +2085,15 @@
                 "label": {
                   "en": "Auto",
                   "nl": "Automatisch",
-                  "de": "Automatisch"
+                  "de": "Automatisch",
+                  "fr": "Automatique",
+                  "it": "Automatico",
+                  "sv": "Automatiskt",
+                  "no": "Automatisk",
+                  "es": "Automático",
+                  "da": "Automatisk",
+                  "pl": "Automatyczny",
+                  "ko": "자동"
                 }
               },
               {
@@ -1161,7 +2101,15 @@
                 "label": {
                   "en": "Cool",
                   "nl": "Koelen",
-                  "de": "Kühlen"
+                  "de": "Kühlen",
+                  "fr": "Refroidissement",
+                  "it": "Raffreddamento",
+                  "sv": "Kyla",
+                  "no": "Kjøling",
+                  "es": "Enfriar",
+                  "da": "Køl",
+                  "pl": "Chłodzenie",
+                  "ko": "냉방"
                 }
               },
               {
@@ -1169,7 +2117,15 @@
                 "label": {
                   "en": "Heat",
                   "nl": "Verwarmen",
-                  "de": "Heizen"
+                  "de": "Heizen",
+                  "fr": "Chauffage",
+                  "it": "Riscaldamento",
+                  "sv": "Värme",
+                  "no": "Oppvarming",
+                  "es": "Calentar",
+                  "da": "Varme",
+                  "pl": "Ogrzewanie",
+                  "ko": "난방"
                 }
               },
               {
@@ -1177,15 +2133,31 @@
                 "label": {
                   "en": "Dry",
                   "nl": "Ontvochtigen",
-                  "de": "Trocken"
+                  "de": "Trocken",
+                  "fr": "Déshumidification",
+                  "it": "Deumidificazione",
+                  "sv": "Avfuktning",
+                  "no": "Avfukting",
+                  "es": "Deshumidificar",
+                  "da": "Affugtning",
+                  "pl": "Osuszanie",
+                  "ko": "제습"
                 }
               },
               {
                 "id": "fan_only",
                 "label": {
                   "en": "Fan Only",
-                  "nl": "Alleen fans",
-                  "de": "Nur Fan"
+                  "nl": "Alleen ventileren",
+                  "de": "Nur Lüften",
+                  "fr": "Ventilation seule",
+                  "it": "Solo ventilazione",
+                  "sv": "Endast fläkt",
+                  "no": "Kun vifte",
+                  "es": "Solo ventilador",
+                  "da": "Kun ventilator",
+                  "pl": "Tylko wentylator",
+                  "ko": "송풍"
                 }
               },
               {
@@ -1193,7 +2165,15 @@
                 "title": {
                   "en": "Off",
                   "nl": "Uit",
-                  "de": "Aus"
+                  "de": "Aus",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
                 }
               }
             ]
@@ -1205,12 +2185,28 @@
         "title": {
           "en": "Set fan speed",
           "nl": "Ventilatorsnelheid instellen",
-          "de": "Gebläsedrehzahl einstellen"
+          "de": "Gebläsedrehzahl einstellen",
+          "fr": "Régler la vitesse du ventilateur",
+          "it": "Imposta la velocità della ventola",
+          "sv": "Ställ in fläkthastighet",
+          "no": "Still inn viftehastighet",
+          "es": "Establecer velocidad del ventilador",
+          "da": "Indstil ventilatorhastighed",
+          "pl": "Ustaw prędkość wentylatora",
+          "ko": "팬 속도 설정"
         },
         "titleFormatted": {
           "en": "Set fan speed to [[speed]]",
           "nl": "Ventilatorsnelheid instellen op [[speed]]",
-          "de": "Gebläsedrehzahl auf [[speed]] einstellen"
+          "de": "Gebläsedrehzahl auf [[speed]] einstellen",
+          "fr": "Régler la vitesse du ventilateur sur [[speed]]",
+          "it": "Imposta la velocità della ventola su [[speed]]",
+          "sv": "Ställ in fläkthastighet till [[speed]]",
+          "no": "Still inn viftehastighet til [[speed]]",
+          "es": "Establecer velocidad del ventilador en [[speed]]",
+          "da": "Indstil ventilatorhastighed til [[speed]]",
+          "pl": "Ustaw prędkość wentylatora na [[speed]]",
+          "ko": "팬 속도를 [[speed]](으)로 설정"
         },
         "args": [
           {
@@ -1227,7 +2223,15 @@
                 "label": {
                   "en": "Auto",
                   "nl": "Automatisch",
-                  "de": "Automatisch"
+                  "de": "Automatisch",
+                  "fr": "Automatique",
+                  "it": "Automatico",
+                  "sv": "Automatiskt",
+                  "no": "Automatisk",
+                  "es": "Automático",
+                  "da": "Automatisk",
+                  "pl": "Automatyczny",
+                  "ko": "자동"
                 }
               },
               {
@@ -1235,7 +2239,15 @@
                 "label": {
                   "en": "Low",
                   "nl": "Laag",
-                  "de": "Niedrig"
+                  "de": "Niedrig",
+                  "fr": "Faible",
+                  "it": "Bassa",
+                  "sv": "Låg",
+                  "no": "Lav",
+                  "es": "Bajo",
+                  "da": "Lav",
+                  "pl": "Niska",
+                  "ko": "낮음"
                 }
               },
               {
@@ -1243,7 +2255,15 @@
                 "label": {
                   "en": "Medium Low",
                   "nl": "Gemiddeld Laag",
-                  "de": "Mittel Niedrig"
+                  "de": "Mittel Niedrig",
+                  "fr": "Moyen faible",
+                  "it": "Medio-bassa",
+                  "sv": "Medellåg",
+                  "no": "Middels lav",
+                  "es": "Medio bajo",
+                  "da": "Mellem lav",
+                  "pl": "Średnio niska",
+                  "ko": "중간 낮음"
                 }
               },
               {
@@ -1251,7 +2271,15 @@
                 "label": {
                   "en": "Medium",
                   "nl": "Gemiddeld",
-                  "de": "Mittel"
+                  "de": "Mittel",
+                  "fr": "Moyen",
+                  "it": "Media",
+                  "sv": "Medel",
+                  "no": "Middels",
+                  "es": "Medio",
+                  "da": "Mellem",
+                  "pl": "Średnia",
+                  "ko": "중간"
                 }
               },
               {
@@ -1259,7 +2287,15 @@
                 "label": {
                   "en": "Medium High",
                   "nl": "Gemiddeld hoog",
-                  "de": "Mittel hoch"
+                  "de": "Mittel hoch",
+                  "fr": "Moyen élevé",
+                  "it": "Medio-alta",
+                  "sv": "Medelhög",
+                  "no": "Middels høy",
+                  "es": "Medio alto",
+                  "da": "Mellem høj",
+                  "pl": "Średnio wysoka",
+                  "ko": "중간 높음"
                 }
               },
               {
@@ -1267,7 +2303,15 @@
                 "label": {
                   "en": "High",
                   "nl": "Hoog",
-                  "de": "Hoch"
+                  "de": "Hoch",
+                  "fr": "Élevé",
+                  "it": "Alta",
+                  "sv": "Hög",
+                  "no": "Høy",
+                  "es": "Alto",
+                  "da": "Høj",
+                  "pl": "Wysoka",
+                  "ko": "높음"
                 }
               }
             ]
@@ -1279,12 +2323,28 @@
         "title": {
           "en": "Set turbo mode",
           "nl": "Stel de turbomodus in",
-          "de": "Stellen Sie den Turbo-Modus ein"
+          "de": "Turbo-Modus einstellen",
+          "fr": "Régler le mode turbo",
+          "it": "Imposta la modalità turbo",
+          "sv": "Ställ in turboläge",
+          "no": "Still inn turbomodus",
+          "es": "Establecer modo turbo",
+          "da": "Indstil turbotilstand",
+          "pl": "Ustaw tryb turbo",
+          "ko": "터보 모드 설정"
         },
         "titleFormatted": {
           "en": "Set turbo mode to [[mode]]",
           "nl": "Stel de turbomodus in op [[mode]]",
-          "de": "Stellen Sie den Turbo-Modus auf [[mode]] ein"
+          "de": "Turbo-Modus auf [[mode]] einstellen",
+          "fr": "Régler le mode turbo sur [[mode]]",
+          "it": "Imposta la modalità turbo su [[mode]]",
+          "sv": "Ställ in turboläge till [[mode]]",
+          "no": "Still inn turbomodus til [[mode]]",
+          "es": "Establecer modo turbo en [[mode]]",
+          "da": "Indstil turbotilstand til [[mode]]",
+          "pl": "Ustaw tryb turbo na [[mode]]",
+          "ko": "터보 모드를 [[mode]](으)로 설정"
         },
         "args": [
           {
@@ -1301,7 +2361,15 @@
                 "label": {
                   "en": "On",
                   "nl": "Aan",
-                  "de": "Einschalten"
+                  "de": "Einschalten",
+                  "fr": "Marche",
+                  "it": "Acceso",
+                  "sv": "På",
+                  "no": "På",
+                  "es": "Encendido",
+                  "da": "Til",
+                  "pl": "Wł.",
+                  "ko": "켜기"
                 }
               },
               {
@@ -1309,7 +2377,15 @@
                 "label": {
                   "en": "Off",
                   "nl": "Uit",
-                  "de": "Ausschalten"
+                  "de": "Ausschalten",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
                 }
               }
             ]
@@ -1321,12 +2397,28 @@
         "title": {
           "en": "Set 8°C heating",
           "nl": "Stel 8°C verwarming in",
-          "de": "8°C Heizung einstellen"
+          "de": "8°C Heizung einstellen",
+          "fr": "Régler le chauffage 8°C",
+          "it": "Imposta il riscaldamento a 8°C",
+          "sv": "Ställ in 8°C uppvärmning",
+          "no": "Still inn 8°C oppvarming",
+          "es": "Establecer calefacción a 8°C",
+          "da": "Indstil 8°C opvarmning",
+          "pl": "Ustaw ogrzewanie 8°C",
+          "ko": "8°C 난방 설정"
         },
         "titleFormatted": {
           "en": "Set 8°C heating to [[mode]]",
           "nl": "Stel 8°C verwarming in op [[mode]]",
-          "de": "8°C Heizung auf [[mode]] einstellen"
+          "de": "8°C Heizung auf [[mode]] einstellen",
+          "fr": "Régler le chauffage 8°C sur [[mode]]",
+          "it": "Imposta il riscaldamento a 8°C su [[mode]]",
+          "sv": "Ställ in 8°C uppvärmning till [[mode]]",
+          "no": "Still inn 8°C oppvarming til [[mode]]",
+          "es": "Establecer calefacción a 8°C en [[mode]]",
+          "da": "Indstil 8°C opvarmning til [[mode]]",
+          "pl": "Ustaw ogrzewanie 8°C na [[mode]]",
+          "ko": "8°C 난방을 [[mode]](으)로 설정"
         },
         "args": [
           {
@@ -1343,7 +2435,15 @@
                 "label": {
                   "en": "On",
                   "nl": "Aan",
-                  "de": "Einschalten"
+                  "de": "Einschalten",
+                  "fr": "Marche",
+                  "it": "Acceso",
+                  "sv": "På",
+                  "no": "På",
+                  "es": "Encendido",
+                  "da": "Til",
+                  "pl": "Wł.",
+                  "ko": "켜기"
                 }
               },
               {
@@ -1351,7 +2451,15 @@
                 "label": {
                   "en": "Off",
                   "nl": "Uit",
-                  "de": "Ausschalten"
+                  "de": "Ausschalten",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
                 }
               }
             ]
@@ -1363,12 +2471,28 @@
         "title": {
           "en": "Set lights",
           "nl": "Lichten instellen",
-          "de": "Lichter einstellen"
+          "de": "Lichter einstellen",
+          "fr": "Régler l'éclairage",
+          "it": "Imposta le luci",
+          "sv": "Ställ in belysning",
+          "no": "Still inn lys",
+          "es": "Establecer luces",
+          "da": "Indstil lys",
+          "pl": "Ustaw światła",
+          "ko": "조명 설정"
         },
         "titleFormatted": {
           "en": "Set lights to [[mode]]",
           "nl": "Lichten instellen op [[mode]]",
-          "de": "Lichter auf [[mode]] einstellen"
+          "de": "Lichter auf [[mode]] einstellen",
+          "fr": "Régler l'éclairage sur [[mode]]",
+          "it": "Imposta le luci su [[mode]]",
+          "sv": "Ställ in belysning till [[mode]]",
+          "no": "Still inn lys til [[mode]]",
+          "es": "Establecer luces en [[mode]]",
+          "da": "Indstil lys til [[mode]]",
+          "pl": "Ustaw światła na [[mode]]",
+          "ko": "조명을 [[mode]](으)로 설정"
         },
         "args": [
           {
@@ -1385,7 +2509,15 @@
                 "label": {
                   "en": "On",
                   "nl": "Aan",
-                  "de": "Einschalten"
+                  "de": "Einschalten",
+                  "fr": "Marche",
+                  "it": "Acceso",
+                  "sv": "På",
+                  "no": "På",
+                  "es": "Encendido",
+                  "da": "Til",
+                  "pl": "Wł.",
+                  "ko": "켜기"
                 }
               },
               {
@@ -1393,7 +2525,15 @@
                 "label": {
                   "en": "Off",
                   "nl": "Uit",
-                  "de": "Ausschalten"
+                  "de": "Ausschalten",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
                 }
               }
             ]
@@ -1405,12 +2545,28 @@
         "title": {
           "en": "Set X-Fan mode",
           "nl": "Stel de X-Fan modus in",
-          "de": "Stellen Sie den X-Fan modus ein"
+          "de": "X-Fan-Modus einstellen",
+          "fr": "Régler le mode X-Fan",
+          "it": "Imposta la modalità X-Fan",
+          "sv": "Ställ in X-Fan-läge",
+          "no": "Still inn X-Fan-modus",
+          "es": "Establecer modo X-Fan",
+          "da": "Indstil X-Fan-tilstand",
+          "pl": "Ustaw tryb X-Fan",
+          "ko": "X-Fan 모드 설정"
         },
         "titleFormatted": {
           "en": "Set X-Fan mode to [[mode]]",
           "nl": "Stel de X-Fan modus in op [[mode]]",
-          "de": "Stellen Sie den X-Fan modus auf [[mode]] ein"
+          "de": "X-Fan-Modus auf [[mode]] einstellen",
+          "fr": "Régler le mode X-Fan sur [[mode]]",
+          "it": "Imposta la modalità X-Fan su [[mode]]",
+          "sv": "Ställ in X-Fan-läge till [[mode]]",
+          "no": "Still inn X-Fan-modus til [[mode]]",
+          "es": "Establecer modo X-Fan en [[mode]]",
+          "da": "Indstil X-Fan-tilstand til [[mode]]",
+          "pl": "Ustaw tryb X-Fan na [[mode]]",
+          "ko": "X-Fan 모드를 [[mode]](으)로 설정"
         },
         "args": [
           {
@@ -1427,7 +2583,15 @@
                 "label": {
                   "en": "On",
                   "nl": "Aan",
-                  "de": "Einschalten"
+                  "de": "Einschalten",
+                  "fr": "Marche",
+                  "it": "Acceso",
+                  "sv": "På",
+                  "no": "På",
+                  "es": "Encendido",
+                  "da": "Til",
+                  "pl": "Wł.",
+                  "ko": "켜기"
                 }
               },
               {
@@ -1435,7 +2599,15 @@
                 "label": {
                   "en": "Off",
                   "nl": "Uit",
-                  "de": "Ausschalten"
+                  "de": "Ausschalten",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
                 }
               }
             ]
@@ -1447,12 +2619,28 @@
         "title": {
           "en": "Set vertical swing",
           "nl": "Verticale swing instellen",
-          "de": "Vertikale Schaukel einstellen"
+          "de": "Vertikale Schwenkung einstellen",
+          "fr": "Régler le balayage vertical",
+          "it": "Imposta l'oscillazione verticale",
+          "sv": "Ställ in vertikal svängning",
+          "no": "Still inn vertikal svinging",
+          "es": "Establecer oscilación vertical",
+          "da": "Indstil lodret svingning",
+          "pl": "Ustaw wahanie pionowe",
+          "ko": "수직 스윙 설정"
         },
         "titleFormatted": {
           "en": "Set vertical swing to [[vertical_swing]]",
           "nl": "Verticale swing instellen op [[vertical_swing]]",
-          "de": "Vertikale Schaukel auf [[vertical_swing]] einstellen"
+          "de": "Vertikale Schwenkung auf [[vertical_swing]] einstellen",
+          "fr": "Régler le balayage vertical sur [[vertical_swing]]",
+          "it": "Imposta l'oscillazione verticale su [[vertical_swing]]",
+          "sv": "Ställ in vertikal svängning till [[vertical_swing]]",
+          "no": "Still inn vertikal svinging til [[vertical_swing]]",
+          "es": "Establecer oscilación vertical en [[vertical_swing]]",
+          "da": "Indstil lodret svingning til [[vertical_swing]]",
+          "pl": "Ustaw wahanie pionowe na [[vertical_swing]]",
+          "ko": "수직 스윙을 [[vertical_swing]](으)로 설정"
         },
         "args": [
           {
@@ -1469,7 +2657,15 @@
                 "title": {
                   "en": "Disabled",
                   "nl": "Uitgeschakeld",
-                  "de": "Behindert"
+                  "de": "Deaktiviert",
+                  "fr": "Désactivé",
+                  "it": "Disabilitato",
+                  "sv": "Inaktiverad",
+                  "no": "Deaktivert",
+                  "es": "Desactivado",
+                  "da": "Deaktiveret",
+                  "pl": "Wyłączone",
+                  "ko": "비활성화"
                 }
               },
               {
@@ -1477,7 +2673,15 @@
                 "title": {
                   "en": "Full range",
                   "nl": "Volledig bereik",
-                  "de": "Vollständige Palette"
+                  "de": "Voller Bereich",
+                  "fr": "Plage complète",
+                  "it": "Gamma completa",
+                  "sv": "Fullt omfång",
+                  "no": "Fullt område",
+                  "es": "Rango completo",
+                  "da": "Fuldt område",
+                  "pl": "Pełny zakres",
+                  "ko": "전체 범위"
                 }
               },
               {
@@ -1485,7 +2689,15 @@
                 "title": {
                   "en": "Fixed top",
                   "nl": "Fixed boven",
-                  "de": "Feste Oberseite"
+                  "de": "Oben fixiert",
+                  "fr": "Fixe en haut",
+                  "it": "Fisso in alto",
+                  "sv": "Fast överst",
+                  "no": "Fast øverst",
+                  "es": "Fijo arriba",
+                  "da": "Fast øverst",
+                  "pl": "Stałe na górze",
+                  "ko": "상단 고정"
                 }
               },
               {
@@ -1493,7 +2705,15 @@
                 "title": {
                   "en": "Fixed top middle",
                   "nl": "Fixed midden boven",
-                  "de": "Feste obere Mitte"
+                  "de": "Oben-Mitte fixiert",
+                  "fr": "Fixe en haut au milieu",
+                  "it": "Fisso in alto al centro",
+                  "sv": "Fast överst mitten",
+                  "no": "Fast øverst midten",
+                  "es": "Fijo arriba centro",
+                  "da": "Fast øverst midt",
+                  "pl": "Stałe na górze na środku",
+                  "ko": "상단 중앙 고정"
                 }
               },
               {
@@ -1501,7 +2721,15 @@
                 "title": {
                   "en": "Fixed middle",
                   "nl": "Fixed midden",
-                  "de": "Feste Mitte"
+                  "de": "Mitte fixiert",
+                  "fr": "Fixe au milieu",
+                  "it": "Fisso al centro",
+                  "sv": "Fast mitten",
+                  "no": "Fast midten",
+                  "es": "Fijo centro",
+                  "da": "Fast midt",
+                  "pl": "Stałe na środku",
+                  "ko": "중앙 고정"
                 }
               },
               {
@@ -1509,7 +2737,15 @@
                 "title": {
                   "en": "Fixed middle bottom",
                   "nl": "Fixed midden onder",
-                  "de": "Mittlerer Boden fest"
+                  "de": "Unten-Mitte fixiert",
+                  "fr": "Fixe au milieu en bas",
+                  "it": "Fisso al centro in basso",
+                  "sv": "Fast mitten nederst",
+                  "no": "Fast midten nederst",
+                  "es": "Fijo centro abajo",
+                  "da": "Fast midt nederst",
+                  "pl": "Stałe na środku dolnym",
+                  "ko": "중앙 하단 고정"
                 }
               },
               {
@@ -1517,7 +2753,15 @@
                 "title": {
                   "en": "Fixed bottom",
                   "nl": "Fixed onder",
-                  "de": "Feste Unterseite"
+                  "de": "Unten fixiert",
+                  "fr": "Fixe en bas",
+                  "it": "Fisso in basso",
+                  "sv": "Fast nederst",
+                  "no": "Fast nederst",
+                  "es": "Fijo abajo",
+                  "da": "Fast nederst",
+                  "pl": "Stałe na dole",
+                  "ko": "하단 고정"
                 }
               },
               {
@@ -1525,7 +2769,15 @@
                 "title": {
                   "en": "Swing bottom",
                   "nl": "Swing onder",
-                  "de": "Swing Unterseite"
+                  "de": "Schwenken unten",
+                  "fr": "Balayage en bas",
+                  "it": "Oscillazione in basso",
+                  "sv": "Sväng nederst",
+                  "no": "Sving nederst",
+                  "es": "Oscilación abajo",
+                  "da": "Sving nederst",
+                  "pl": "Wahanie na dole",
+                  "ko": "하단 스윙"
                 }
               },
               {
@@ -1533,7 +2785,15 @@
                 "title": {
                   "en": "Swing middle",
                   "nl": "Swing midden",
-                  "de": "Mitte schwingen"
+                  "de": "Schwenken Mitte",
+                  "fr": "Balayage au milieu",
+                  "it": "Oscillazione al centro",
+                  "sv": "Sväng mitten",
+                  "no": "Sving midten",
+                  "es": "Oscilación centro",
+                  "da": "Sving midt",
+                  "pl": "Wahanie na środku",
+                  "ko": "중앙 스윙"
                 }
               },
               {
@@ -1541,7 +2801,15 @@
                 "title": {
                   "en": "Swing top",
                   "nl": "Swing boven",
-                  "de": "Swing Oberseite"
+                  "de": "Schwenken oben",
+                  "fr": "Balayage en haut",
+                  "it": "Oscillazione in alto",
+                  "sv": "Sväng överst",
+                  "no": "Sving øverst",
+                  "es": "Oscilación arriba",
+                  "da": "Sving øverst",
+                  "pl": "Wahanie na górze",
+                  "ko": "상단 스윙"
                 }
               }
             ]
@@ -1553,12 +2821,28 @@
         "title": {
           "en": "Set horizontal swing",
           "nl": "Horizontale swing instellen",
-          "de": "Horizontales Schaukel einstellen"
+          "de": "Horizontale Schwenkung einstellen",
+          "fr": "Régler le balayage horizontal",
+          "it": "Imposta l'oscillazione orizzontale",
+          "sv": "Ställ in horisontell svängning",
+          "no": "Still inn horisontal svinging",
+          "es": "Establecer oscilación horizontal",
+          "da": "Indstil vandret svingning",
+          "pl": "Ustaw wahanie poziome",
+          "ko": "수평 스윙 설정"
         },
         "titleFormatted": {
           "en": "Set horizontal swing to [[horizontal_swing]]",
           "nl": "Horizontale swing instellen op [[horizontal_swing]]",
-          "de": "Horizontales Schaukel auf [[horizontal_swing]] einstellen"
+          "de": "Horizontale Schwenkung auf [[horizontal_swing]] einstellen",
+          "fr": "Régler le balayage horizontal sur [[horizontal_swing]]",
+          "it": "Imposta l'oscillazione orizzontale su [[horizontal_swing]]",
+          "sv": "Ställ in horisontell svängning till [[horizontal_swing]]",
+          "no": "Still inn horisontal svinging til [[horizontal_swing]]",
+          "es": "Establecer oscilación horizontal en [[horizontal_swing]]",
+          "da": "Indstil vandret svingning til [[horizontal_swing]]",
+          "pl": "Ustaw wahanie poziome na [[horizontal_swing]]",
+          "ko": "수평 스윙을 [[horizontal_swing]](으)로 설정"
         },
         "args": [
           {
@@ -1575,7 +2859,15 @@
                 "title": {
                   "en": "Disabled",
                   "nl": "Uitgeschakeld",
-                  "de": "Behindert"
+                  "de": "Deaktiviert",
+                  "fr": "Désactivé",
+                  "it": "Disabilitato",
+                  "sv": "Inaktiverad",
+                  "no": "Deaktivert",
+                  "es": "Desactivado",
+                  "da": "Deaktiveret",
+                  "pl": "Wyłączone",
+                  "ko": "비활성화"
                 }
               },
               {
@@ -1583,7 +2875,15 @@
                 "title": {
                   "en": "Full range",
                   "nl": "Volledig bereik",
-                  "de": "Vollständige Palette"
+                  "de": "Voller Bereich",
+                  "fr": "Plage complète",
+                  "it": "Gamma completa",
+                  "sv": "Fullt omfång",
+                  "no": "Fullt område",
+                  "es": "Rango completo",
+                  "da": "Fuldt område",
+                  "pl": "Pełny zakres",
+                  "ko": "전체 범위"
                 }
               },
               {
@@ -1591,7 +2891,15 @@
                 "title": {
                   "en": "Fixed left",
                   "nl": "Fixed links",
-                  "de": "Feste Links"
+                  "de": "Links fixiert",
+                  "fr": "Fixe à gauche",
+                  "it": "Fisso a sinistra",
+                  "sv": "Fast vänster",
+                  "no": "Fast venstre",
+                  "es": "Fijo izquierda",
+                  "da": "Fast venstre",
+                  "pl": "Stałe po lewej",
+                  "ko": "왼쪽 고정"
                 }
               },
               {
@@ -1599,7 +2907,15 @@
                 "title": {
                   "en": "Fixed top left",
                   "nl": "Fixed midden links",
-                  "de": "Feste obere Links"
+                  "de": "Oben-Links fixiert",
+                  "fr": "Fixe en haut à gauche",
+                  "it": "Fisso in alto a sinistra",
+                  "sv": "Fast överst vänster",
+                  "no": "Fast øverst venstre",
+                  "es": "Fijo arriba izquierda",
+                  "da": "Fast øverst venstre",
+                  "pl": "Stałe na górze po lewej",
+                  "ko": "상단 왼쪽 고정"
                 }
               },
               {
@@ -1607,7 +2923,15 @@
                 "title": {
                   "en": "Fixed middle",
                   "nl": "Fixed midden",
-                  "de": "Feste Mitte"
+                  "de": "Mitte fixiert",
+                  "fr": "Fixe au milieu",
+                  "it": "Fisso al centro",
+                  "sv": "Fast mitten",
+                  "no": "Fast midten",
+                  "es": "Fijo centro",
+                  "da": "Fast midt",
+                  "pl": "Stałe na środku",
+                  "ko": "중앙 고정"
                 }
               },
               {
@@ -1615,7 +2939,15 @@
                 "title": {
                   "en": "Fixed middle right",
                   "nl": "Fixed midden rechts",
-                  "de": "Mittlerer Boden fest"
+                  "de": "Mitte-Rechts fixiert",
+                  "fr": "Fixe au milieu à droite",
+                  "it": "Fisso al centro a destra",
+                  "sv": "Fast mitten höger",
+                  "no": "Fast midten høyre",
+                  "es": "Fijo centro derecha",
+                  "da": "Fast midt højre",
+                  "pl": "Stałe na środku prawym",
+                  "ko": "중앙 오른쪽 고정"
                 }
               },
               {
@@ -1623,7 +2955,15 @@
                 "title": {
                   "en": "Fixed right",
                   "nl": "Fixed rechts",
-                  "de": "Feste Rechts"
+                  "de": "Rechts fixiert",
+                  "fr": "Fixe à droite",
+                  "it": "Fisso a destra",
+                  "sv": "Fast höger",
+                  "no": "Fast høyre",
+                  "es": "Fijo derecha",
+                  "da": "Fast højre",
+                  "pl": "Stałe po prawej",
+                  "ko": "오른쪽 고정"
                 }
               },
               {
@@ -1631,7 +2971,15 @@
                 "title": {
                   "en": "Full range",
                   "nl": "Volledig bereik",
-                  "de": "Vollständige Palette"
+                  "de": "Voller Bereich",
+                  "fr": "Plage complète",
+                  "it": "Gamma completa",
+                  "sv": "Fullt omfång",
+                  "no": "Fullt område",
+                  "es": "Rango completo",
+                  "da": "Fuldt område",
+                  "pl": "Pełny zakres",
+                  "ko": "전체 범위"
                 }
               }
             ]
@@ -1643,12 +2991,28 @@
         "title": {
           "en": "Set quiet mode",
           "nl": "Stel de quiet-modus in",
-          "de": "Stellen Sie der quiet modus ein"
+          "de": "Ruhig-Modus einstellen",
+          "fr": "Régler le mode silencieux",
+          "it": "Imposta la modalità silenziosa",
+          "sv": "Ställ in tyst läge",
+          "no": "Still inn stillemodus",
+          "es": "Establecer modo silencioso",
+          "da": "Indstil stille tilstand",
+          "pl": "Ustaw tryb cichy",
+          "ko": "저소음 모드 설정"
         },
         "titleFormatted": {
           "en": "Set quiet mode to [[mode]]",
           "nl": "Stel de quiet-modus in op [[mode]]",
-          "de": "Stellen Sie der quiet modus auf [[mode]] ein"
+          "de": "Ruhig-Modus auf [[mode]] einstellen",
+          "fr": "Régler le mode silencieux sur [[mode]]",
+          "it": "Imposta la modalità silenziosa su [[mode]]",
+          "sv": "Ställ in tyst läge till [[mode]]",
+          "no": "Still inn stillemodus til [[mode]]",
+          "es": "Establecer modo silencioso en [[mode]]",
+          "da": "Indstil stille tilstand til [[mode]]",
+          "pl": "Ustaw tryb cichy na [[mode]]",
+          "ko": "저소음 모드를 [[mode]](으)로 설정"
         },
         "args": [
           {
@@ -1665,7 +3029,15 @@
                 "title": {
                   "en": "Off",
                   "nl": "Uit",
-                  "de": "Aus"
+                  "de": "Aus",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
                 }
               },
               {
@@ -1673,7 +3045,15 @@
                 "title": {
                   "en": "Mode 1",
                   "nl": "Mode 1",
-                  "de": "Mode 1"
+                  "de": "Mode 1",
+                  "fr": "Mode 1",
+                  "it": "Mode 1",
+                  "sv": "Mode 1",
+                  "no": "Mode 1",
+                  "es": "Modo 1",
+                  "da": "Mode 1",
+                  "pl": "Mode 1",
+                  "ko": "Mode 1"
                 }
               },
               {
@@ -1681,7 +3061,15 @@
                 "title": {
                   "en": "Mode 2",
                   "nl": "Mode 2",
-                  "de": "Mode 2"
+                  "de": "Mode 2",
+                  "fr": "Mode 2",
+                  "it": "Mode 2",
+                  "sv": "Mode 2",
+                  "no": "Mode 2",
+                  "es": "Modo 2",
+                  "da": "Mode 2",
+                  "pl": "Mode 2",
+                  "ko": "Mode 2"
                 }
               },
               {
@@ -1689,7 +3077,15 @@
                 "title": {
                   "en": "Mode 3",
                   "nl": "Mode 3",
-                  "de": "Mode 3"
+                  "de": "Mode 3",
+                  "fr": "Mode 3",
+                  "it": "Mode 3",
+                  "sv": "Mode 3",
+                  "no": "Mode 3",
+                  "es": "Modo 3",
+                  "da": "Mode 3",
+                  "pl": "Mode 3",
+                  "ko": "Mode 3"
                 }
               }
             ]
@@ -1701,12 +3097,28 @@
         "title": {
           "en": "Set power save mode",
           "nl": "Stel de energiebesparende modus in",
-          "de": "Stellen Sie den Energiesparmodus ein"
+          "de": "Energiesparmodus einstellen",
+          "fr": "Régler le mode économie d'énergie",
+          "it": "Imposta la modalità risparmio energetico",
+          "sv": "Ställ in energisparläge",
+          "no": "Still inn strømsparemodus",
+          "es": "Establecer modo de ahorro de energía",
+          "da": "Indstil strømsparetilstand",
+          "pl": "Ustaw tryb oszczędzania energii",
+          "ko": "절전 모드 설정"
         },
         "titleFormatted": {
           "en": "Set power save mode to [[mode]]",
           "nl": "Stel de energiebesparende modus in op [[mode]]",
-          "de": "Stellen Sie den Energiesparmodus auf [[mode]] ein"
+          "de": "Energiesparmodus auf [[mode]] einstellen",
+          "fr": "Régler le mode économie d'énergie sur [[mode]]",
+          "it": "Imposta la modalità risparmio energetico su [[mode]]",
+          "sv": "Ställ in energisparläge till [[mode]]",
+          "no": "Still inn strømsparemodus til [[mode]]",
+          "es": "Establecer modo de ahorro de energía en [[mode]]",
+          "da": "Indstil strømsparetilstand til [[mode]]",
+          "pl": "Ustaw tryb oszczędzania energii na [[mode]]",
+          "ko": "절전 모드를 [[mode]](으)로 설정"
         },
         "args": [
           {
@@ -1723,7 +3135,15 @@
                 "label": {
                   "en": "On",
                   "nl": "Aan",
-                  "de": "Einschalten"
+                  "de": "Einschalten",
+                  "fr": "Marche",
+                  "it": "Acceso",
+                  "sv": "På",
+                  "no": "På",
+                  "es": "Encendido",
+                  "da": "Til",
+                  "pl": "Wł.",
+                  "ko": "켜기"
                 }
               },
               {
@@ -1731,7 +3151,15 @@
                 "label": {
                   "en": "Off",
                   "nl": "Uit",
-                  "de": "Ausschalten"
+                  "de": "Ausschalten",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
                 }
               }
             ]
@@ -1743,12 +3171,28 @@
         "title": {
           "en": "Set sleep mode",
           "nl": "Stel de slaapmodus in",
-          "de": "Stellen Sie den Schlafmodus ein"
+          "de": "Schlafmodus einstellen",
+          "fr": "Régler le mode sommeil",
+          "it": "Imposta la modalità notte",
+          "sv": "Ställ in viloläge",
+          "no": "Still inn sovemodus",
+          "es": "Establecer modo de reposo",
+          "da": "Indstil dvaletilstand",
+          "pl": "Ustaw tryb uśpienia",
+          "ko": "취침 모드 설정"
         },
         "titleFormatted": {
           "en": "Set sleep mode to [[mode]]",
           "nl": "Stel de slaapmodus in op [[mode]]",
-          "de": "Stellen Sie den Schlafmodus auf [[mode]] ein"
+          "de": "Schlafmodus auf [[mode]] einstellen",
+          "fr": "Régler le mode sommeil sur [[mode]]",
+          "it": "Imposta la modalità notte su [[mode]]",
+          "sv": "Ställ in viloläge till [[mode]]",
+          "no": "Still inn sovemodus til [[mode]]",
+          "es": "Establecer modo de reposo en [[mode]]",
+          "da": "Indstil dvaletilstand til [[mode]]",
+          "pl": "Ustaw tryb uśpienia na [[mode]]",
+          "ko": "취침 모드를 [[mode]](으)로 설정"
         },
         "args": [
           {
@@ -1765,7 +3209,15 @@
                 "label": {
                   "en": "On",
                   "nl": "Aan",
-                  "de": "Einschalten"
+                  "de": "Einschalten",
+                  "fr": "Marche",
+                  "it": "Acceso",
+                  "sv": "På",
+                  "no": "På",
+                  "es": "Encendido",
+                  "da": "Til",
+                  "pl": "Wł.",
+                  "ko": "켜기"
                 }
               },
               {
@@ -1773,7 +3225,15 @@
                 "label": {
                   "en": "Off",
                   "nl": "Uit",
-                  "de": "Ausschalten"
+                  "de": "Ausschalten",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
                 }
               }
             ]
@@ -1785,12 +3245,28 @@
         "title": {
           "en": "Set fresh air mode",
           "nl": "Stel de verse lucht modus in",
-          "de": "Stellen Sie den Frischluftmodus ein"
+          "de": "Frischluftmodus einstellen",
+          "fr": "Régler le mode air frais",
+          "it": "Imposta la modalità aria fresca",
+          "sv": "Ställ in friskluftsläge",
+          "no": "Still inn friskluftmodus",
+          "es": "Establecer modo de aire fresco",
+          "da": "Indstil friskluftstilstand",
+          "pl": "Ustaw tryb świeżego powietrza",
+          "ko": "환기 모드 설정"
         },
         "titleFormatted": {
           "en": "Set fresh air mode to [[mode]]",
           "nl": "Stel de verse lucht modus in op [[mode]]",
-          "de": "Stellen Sie den Frischluftmodus auf [[mode]] ein"
+          "de": "Frischluftmodus auf [[mode]] einstellen",
+          "fr": "Régler le mode air frais sur [[mode]]",
+          "it": "Imposta la modalità aria fresca su [[mode]]",
+          "sv": "Ställ in friskluftsläge till [[mode]]",
+          "no": "Still inn friskluftmodus til [[mode]]",
+          "es": "Establecer modo de aire fresco en [[mode]]",
+          "da": "Indstil friskluftstilstand til [[mode]]",
+          "pl": "Ustaw tryb świeżego powietrza na [[mode]]",
+          "ko": "환기 모드를 [[mode]](으)로 설정"
         },
         "args": [
           {
@@ -1807,7 +3283,15 @@
                 "title": {
                   "en": "Off",
                   "nl": "Uit",
-                  "de": "Aus"
+                  "de": "Aus",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
                 }
               },
               {
@@ -1815,7 +3299,15 @@
                 "title": {
                   "en": "Inside",
                   "nl": "Binnen",
-                  "de": "Innen"
+                  "de": "Innen",
+                  "fr": "Intérieur",
+                  "it": "Interno",
+                  "sv": "Inne",
+                  "no": "Inne",
+                  "es": "Interior",
+                  "da": "Indendørs",
+                  "pl": "Wewnątrz",
+                  "ko": "내부"
                 }
               },
               {
@@ -1823,7 +3315,15 @@
                 "title": {
                   "en": "Outside",
                   "nl": "Buiten",
-                  "de": "Außen"
+                  "de": "Außen",
+                  "fr": "Extérieur",
+                  "it": "Esterno",
+                  "sv": "Ute",
+                  "no": "Ute",
+                  "es": "Exterior",
+                  "da": "Udendørs",
+                  "pl": "Na zewnątrz",
+                  "ko": "외부"
                 }
               },
               {
@@ -1831,7 +3331,15 @@
                 "title": {
                   "en": "Mode 3",
                   "nl": "Mode 3",
-                  "de": "Mode 3"
+                  "de": "Mode 3",
+                  "fr": "Mode 3",
+                  "it": "Mode 3",
+                  "sv": "Mode 3",
+                  "no": "Mode 3",
+                  "es": "Modo 3",
+                  "da": "Mode 3",
+                  "pl": "Mode 3",
+                  "ko": "Mode 3"
                 }
               }
             ]
@@ -1843,12 +3351,28 @@
         "title": {
           "en": "Set health mode",
           "nl": "Stel de gezondheidsmodus in",
-          "de": "Stellen Sie den Gesundheitsmodus ein"
+          "de": "Gesundheitsmodus einstellen",
+          "fr": "Régler le mode santé",
+          "it": "Imposta la modalità salute",
+          "sv": "Ställ in hälsoläge",
+          "no": "Still inn helsemodus",
+          "es": "Establecer modo salud",
+          "da": "Indstil sundhedstilstand",
+          "pl": "Ustaw tryb zdrowotny",
+          "ko": "건강 모드 설정"
         },
         "titleFormatted": {
           "en": "Set health mode to [[mode]]",
           "nl": "Stel de gezondheidsmodus in op [[mode]]",
-          "de": "Stellen Sie den Gesundheitsmodus auf [[mode]] ein"
+          "de": "Gesundheitsmodus auf [[mode]] einstellen",
+          "fr": "Régler le mode santé sur [[mode]]",
+          "it": "Imposta la modalità salute su [[mode]]",
+          "sv": "Ställ in hälsoläge till [[mode]]",
+          "no": "Still inn helsemodus til [[mode]]",
+          "es": "Establecer modo salud en [[mode]]",
+          "da": "Indstil sundhedstilstand til [[mode]]",
+          "pl": "Ustaw tryb zdrowotny na [[mode]]",
+          "ko": "건강 모드를 [[mode]](으)로 설정"
         },
         "args": [
           {
@@ -1865,7 +3389,15 @@
                 "label": {
                   "en": "On",
                   "nl": "Aan",
-                  "de": "Einschalten"
+                  "de": "Einschalten",
+                  "fr": "Marche",
+                  "it": "Acceso",
+                  "sv": "På",
+                  "no": "På",
+                  "es": "Encendido",
+                  "da": "Til",
+                  "pl": "Wł.",
+                  "ko": "켜기"
                 }
               },
               {
@@ -1873,7 +3405,15 @@
                 "label": {
                   "en": "Off",
                   "nl": "Uit",
-                  "de": "Ausschalten"
+                  "de": "Ausschalten",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
                 }
               }
             ]
@@ -1885,7 +3425,17 @@
   "drivers": [
     {
       "name": {
-        "en": "EWPE Smart HVACs"
+        "en": "EWPE Smart HVACs",
+        "nl": "EWPE Smart airco's",
+        "de": "EWPE Smart Klimaanlagen",
+        "fr": "Climatiseurs EWPE Smart",
+        "it": "Condizionatori EWPE Smart",
+        "sv": "EWPE Smart-luftkonditioneringar",
+        "no": "EWPE Smart klimaanlegg",
+        "es": "Aires acondicionados EWPE Smart",
+        "da": "EWPE Smart HVAC'er",
+        "pl": "Klimatyzatory EWPE Smart",
+        "ko": "EWPE Smart 에어컨"
       },
       "class": "airconditioning",
       "capabilities": [
@@ -1919,7 +3469,15 @@
               "title": {
                 "en": "Auto",
                 "nl": "Automatisch",
-                "de": "Automatisch"
+                "de": "Automatisch",
+                "fr": "Automatique",
+                "it": "Automatico",
+                "sv": "Automatiskt",
+                "no": "Automatisk",
+                "es": "Automático",
+                "da": "Automatisk",
+                "pl": "Automatyczny",
+                "ko": "자동"
               }
             },
             {
@@ -1927,7 +3485,15 @@
               "title": {
                 "en": "Cool",
                 "nl": "Koelen",
-                "de": "Kühlen"
+                "de": "Kühlen",
+                "fr": "Refroidissement",
+                "it": "Raffreddamento",
+                "sv": "Kyla",
+                "no": "Kjøling",
+                "es": "Enfriar",
+                "da": "Køl",
+                "pl": "Chłodzenie",
+                "ko": "냉방"
               }
             },
             {
@@ -1935,7 +3501,15 @@
               "title": {
                 "en": "Heat",
                 "nl": "Verwarmen",
-                "de": "Heizen"
+                "de": "Heizen",
+                "fr": "Chauffage",
+                "it": "Riscaldamento",
+                "sv": "Värme",
+                "no": "Oppvarming",
+                "es": "Calentar",
+                "da": "Varme",
+                "pl": "Ogrzewanie",
+                "ko": "난방"
               }
             },
             {
@@ -1943,15 +3517,31 @@
               "title": {
                 "en": "Dry",
                 "nl": "Ontvochtigen",
-                "de": "Trocken"
+                "de": "Trocken",
+                "fr": "Déshumidification",
+                "it": "Deumidificazione",
+                "sv": "Avfuktning",
+                "no": "Avfukting",
+                "es": "Deshumidificar",
+                "da": "Affugtning",
+                "pl": "Osuszanie",
+                "ko": "제습"
               }
             },
             {
               "id": "fan_only",
               "title": {
                 "en": "Fan Only",
-                "nl": "Alleen fans",
-                "de": "Nur Fan"
+                "nl": "Alleen ventileren",
+                "de": "Nur Lüften",
+                "fr": "Ventilation seule",
+                "it": "Solo ventilazione",
+                "sv": "Endast fläkt",
+                "no": "Kun vifte",
+                "es": "Solo ventilador",
+                "da": "Kun ventilator",
+                "pl": "Tylko wentylator",
+                "ko": "송풍"
               }
             },
             {
@@ -1959,7 +3549,15 @@
               "title": {
                 "en": "Off",
                 "nl": "Uit",
-                "de": "Aus"
+                "de": "Aus",
+                "fr": "Arrêt",
+                "it": "Spento",
+                "sv": "Av",
+                "no": "Av",
+                "es": "Apagado",
+                "da": "Fra",
+                "pl": "Wył.",
+                "ko": "끄기"
               }
             }
           ]
@@ -1994,17 +3592,47 @@
         {
           "type": "group",
           "label": {
-            "en": "Network"
+            "en": "Network",
+            "nl": "Netwerk",
+            "de": "Netzwerk",
+            "fr": "Réseau",
+            "it": "Rete",
+            "sv": "Nätverk",
+            "no": "Nettverk",
+            "es": "Red",
+            "da": "Netværk",
+            "pl": "Sieć",
+            "ko": "네트워크"
           },
           "children": [
             {
               "id": "static_ip",
               "type": "text",
               "label": {
-                "en": "Static IP Address"
+                "en": "Static IP Address",
+                "nl": "Statisch IP-adres",
+                "de": "Statische IP-Adresse",
+                "fr": "Adresse IP statique",
+                "it": "Indirizzo IP statico",
+                "sv": "Statisk IP-adress",
+                "no": "Statisk IP-adresse",
+                "es": "Dirección IP estática",
+                "da": "Statisk IP-adresse",
+                "pl": "Statyczny adres IP",
+                "ko": "고정 IP 주소"
               },
               "hint": {
-                "en": "Leave empty to use auto-discovery. Set to force a direct connection to a specific IP address."
+                "en": "Leave empty to use auto-discovery. Set to force a direct connection to a specific IP address.",
+                "nl": "Laat leeg om automatische detectie te gebruiken. Stel in om een directe verbinding met een specifiek IP-adres te forceren.",
+                "de": "Leer lassen, um die automatische Erkennung zu verwenden. Festlegen, um eine direkte Verbindung zu einer bestimmten IP-Adresse zu erzwingen.",
+                "fr": "Laissez vide pour utiliser la détection automatique. Définissez une valeur pour forcer une connexion directe à une adresse IP spécifique.",
+                "it": "Lascia vuoto per usare il rilevamento automatico. Imposta per forzare una connessione diretta a un indirizzo IP specifico.",
+                "sv": "Lämna tomt för att använda automatisk identifiering. Ange för att tvinga fram en direkt anslutning till en specifik IP-adress.",
+                "no": "La stå tomt for å bruke automatisk oppdagelse. Angi for å tvinge en direkte tilkobling til en bestemt IP-adresse.",
+                "es": "Deja vacío para usar la detección automática. Configúralo para forzar una conexión directa a una dirección IP específica.",
+                "da": "Lad feltet være tomt for at bruge automatisk registrering. Angiv en værdi for at gennemtvinge en direkte forbindelse til en bestemt IP-adresse.",
+                "pl": "Pozostaw puste, aby użyć automatycznego wykrywania. Ustaw, aby wymusić bezpośrednie połączenie z określonym adresem IP.",
+                "ko": "자동 검색을 사용하려면 비워 두세요. 특정 IP 주소로 직접 연결을 강제하려면 설정하세요."
               },
               "value": ""
             }
@@ -2024,12 +3652,28 @@
       "title": {
         "en": "Fan speed",
         "nl": "Ventilator snelheid",
-        "de": "Lüftergeschwindigkeit"
+        "de": "Lüftergeschwindigkeit",
+        "fr": "Vitesse du ventilateur",
+        "it": "Velocità della ventola",
+        "sv": "Fläkthastighet",
+        "no": "Viftehastighet",
+        "es": "Velocidad del ventilador",
+        "da": "Ventilatorhastighed",
+        "pl": "Prędkość wentylatora",
+        "ko": "팬 속도"
       },
       "desc": {
         "en": "Speed of the HVAC's fan",
         "nl": "Snelheid van de HVAC-ventilator",
-        "de": "Drehzahl der HVAC"
+        "de": "Drehzahl der HVAC",
+        "fr": "Vitesse du ventilateur du HVAC",
+        "it": "Velocità della ventola del condizionatore",
+        "sv": "Hastighet på HVAC:ns fläkt",
+        "no": "Hastigheten til klimaanleggets vifte",
+        "es": "Velocidad del ventilador del HVAC",
+        "da": "Hastigheden på HVAC'ens ventilator",
+        "pl": "Prędkość wentylatora klimatyzatora",
+        "ko": "HVAC 팬의 속도"
       },
       "values": [
         {
@@ -2037,7 +3681,15 @@
           "title": {
             "en": "Auto",
             "nl": "Automatisch",
-            "de": "Automatisch"
+            "de": "Automatisch",
+            "fr": "Automatique",
+            "it": "Automatico",
+            "sv": "Automatiskt",
+            "no": "Automatisk",
+            "es": "Automático",
+            "da": "Automatisk",
+            "pl": "Automatyczny",
+            "ko": "자동"
           }
         },
         {
@@ -2045,7 +3697,15 @@
           "title": {
             "en": "Low",
             "nl": "Laag",
-            "de": "Niedrig"
+            "de": "Niedrig",
+            "fr": "Faible",
+            "it": "Bassa",
+            "sv": "Låg",
+            "no": "Lav",
+            "es": "Bajo",
+            "da": "Lav",
+            "pl": "Niska",
+            "ko": "낮음"
           }
         },
         {
@@ -2053,7 +3713,15 @@
           "title": {
             "en": "Medium Low",
             "nl": "Gemiddeld Laag",
-            "de": "Mittel Niedrig"
+            "de": "Mittel Niedrig",
+            "fr": "Moyen faible",
+            "it": "Medio-bassa",
+            "sv": "Medellåg",
+            "no": "Middels lav",
+            "es": "Medio bajo",
+            "da": "Mellem lav",
+            "pl": "Średnio niska",
+            "ko": "중간 낮음"
           }
         },
         {
@@ -2061,7 +3729,15 @@
           "title": {
             "en": "Medium",
             "nl": "Gemiddeld",
-            "de": "Mittel"
+            "de": "Mittel",
+            "fr": "Moyen",
+            "it": "Media",
+            "sv": "Medel",
+            "no": "Middels",
+            "es": "Medio",
+            "da": "Mellem",
+            "pl": "Średnia",
+            "ko": "중간"
           }
         },
         {
@@ -2069,7 +3745,15 @@
           "title": {
             "en": "Medium High",
             "nl": "Gemiddeld hoog",
-            "de": "Mittel hoch"
+            "de": "Mittel hoch",
+            "fr": "Moyen élevé",
+            "it": "Medio-alta",
+            "sv": "Medelhög",
+            "no": "Middels høy",
+            "es": "Medio alto",
+            "da": "Mellem høj",
+            "pl": "Średnio wysoka",
+            "ko": "중간 높음"
           }
         },
         {
@@ -2077,7 +3761,15 @@
           "title": {
             "en": "High",
             "nl": "Hoog",
-            "de": "Hoch"
+            "de": "Hoch",
+            "fr": "Élevé",
+            "it": "Alta",
+            "sv": "Hög",
+            "no": "Høy",
+            "es": "Alto",
+            "da": "Høj",
+            "pl": "Wysoka",
+            "ko": "높음"
           }
         }
       ],
@@ -2090,12 +3782,28 @@
       "title": {
         "en": "Fresh air mode",
         "nl": "Verse lucht modus",
-        "de": "Frischluftmodus"
+        "de": "Frischluftmodus",
+        "fr": "Mode air frais",
+        "it": "Modalità aria fresca",
+        "sv": "Friskluftsläge",
+        "no": "Friskluftmodus",
+        "es": "Modo de aire fresco",
+        "da": "Friskluftstilstand",
+        "pl": "Tryb świeżego powietrza",
+        "ko": "환기 모드"
       },
       "desc": {
         "en": "Fresh air valve mode of the HVAC",
         "nl": "Verse luchtklep modus van de HVAC",
-        "de": "Frischluftventil-Modus der Klimaanlage"
+        "de": "Frischluftventil-Modus der Klimaanlage",
+        "fr": "Mode de la vanne d'air frais du HVAC",
+        "it": "Modalità della valvola dell'aria fresca del condizionatore",
+        "sv": "Friskluftsventilläge för HVAC:n",
+        "no": "Friskluftventilmodus for klimaanlegget",
+        "es": "Modo de válvula de aire fresco del HVAC",
+        "da": "Friskluftventiltilstand for HVAC'en",
+        "pl": "Tryb zaworu świeżego powietrza klimatyzatora",
+        "ko": "HVAC의 환기 밸브 모드"
       },
       "values": [
         {
@@ -2103,7 +3811,15 @@
           "title": {
             "en": "Off",
             "nl": "Uit",
-            "de": "Aus"
+            "de": "Aus",
+            "fr": "Arrêt",
+            "it": "Spento",
+            "sv": "Av",
+            "no": "Av",
+            "es": "Apagado",
+            "da": "Fra",
+            "pl": "Wył.",
+            "ko": "끄기"
           }
         },
         {
@@ -2111,7 +3827,15 @@
           "title": {
             "en": "Inside",
             "nl": "Binnen",
-            "de": "Innen"
+            "de": "Innen",
+            "fr": "Intérieur",
+            "it": "Interno",
+            "sv": "Inne",
+            "no": "Inne",
+            "es": "Interior",
+            "da": "Indendørs",
+            "pl": "Wewnątrz",
+            "ko": "내부"
           }
         },
         {
@@ -2119,7 +3843,15 @@
           "title": {
             "en": "Outside",
             "nl": "Buiten",
-            "de": "Außen"
+            "de": "Außen",
+            "fr": "Extérieur",
+            "it": "Esterno",
+            "sv": "Ute",
+            "no": "Ute",
+            "es": "Exterior",
+            "da": "Udendørs",
+            "pl": "Na zewnątrz",
+            "ko": "외부"
           }
         },
         {
@@ -2127,7 +3859,15 @@
           "title": {
             "en": "Mode 3",
             "nl": "Mode 3",
-            "de": "Mode 3"
+            "de": "Mode 3",
+            "fr": "Mode 3",
+            "it": "Mode 3",
+            "sv": "Mode 3",
+            "no": "Mode 3",
+            "es": "Modo 3",
+            "da": "Mode 3",
+            "pl": "Mode 3",
+            "ko": "Mode 3"
           }
         }
       ],
@@ -2140,12 +3880,28 @@
       "title": {
         "en": "Health mode",
         "nl": "Gezondheidsmodus",
-        "de": "Gesundheitsmodus"
+        "de": "Gesundheitsmodus",
+        "fr": "Mode santé",
+        "it": "Modalità salute",
+        "sv": "Hälsoläge",
+        "no": "Helsemodus",
+        "es": "Modo salud",
+        "da": "Sundhedstilstand",
+        "pl": "Tryb zdrowotny",
+        "ko": "건강 모드"
       },
       "desc": {
         "en": "Cold plasma / ionizer air purification mode of the HVAC",
         "nl": "Koud plasma / ionisator luchtreinigingsmodus van de HVAC",
-        "de": "Kaltplasma- / Ionisator-Luftreinigungsmodus der Klimaanlage"
+        "de": "Kaltplasma- / Ionisator-Luftreinigungsmodus der Klimaanlage",
+        "fr": "Mode de purification de l'air par plasma froid / ioniseur du HVAC",
+        "it": "Modalità di purificazione dell'aria a plasma freddo / ionizzatore del condizionatore",
+        "sv": "Kallplasma-/jonisatorluftreningsläge för HVAC:n",
+        "no": "Kaldplasma-/ionisator-luftrensemodus for klimaanlegget",
+        "es": "Modo de purificación del aire por plasma frío / ionizador del HVAC",
+        "da": "Koldplasma-/ionisator-luftrensningstilstand for HVAC'en",
+        "pl": "Tryb oczyszczania powietrza zimną plazmą / jonizatorem klimatyzatora",
+        "ko": "HVAC의 콜드 플라즈마 / 이온화 공기 청정 모드"
       },
       "getable": true,
       "setable": true,
@@ -2156,12 +3912,28 @@
       "title": {
         "en": "Horizontal swing",
         "nl": "Horizontale swing",
-        "de": "Horizontales Schaukel"
+        "de": "Horizontales Schaukel",
+        "fr": "Balayage horizontal",
+        "it": "Oscillazione orizzontale",
+        "sv": "Horisontell svängning",
+        "no": "Horisontal svinging",
+        "es": "Oscilación horizontal",
+        "da": "Vandret svingning",
+        "pl": "Wahanie poziome",
+        "ko": "수평 스윙"
       },
       "desc": {
         "en": "Position of the fan swing",
         "nl": "Positie van de fan swing",
-        "de": "Position der fan swing"
+        "de": "Position der fan swing",
+        "fr": "Position du balayage du ventilateur",
+        "it": "Posizione dell'oscillazione della ventola",
+        "sv": "Position för fläktsvängningen",
+        "no": "Posisjon for viftesvingingen",
+        "es": "Posición de la oscilación del ventilador",
+        "da": "Position for ventilatorsvingningen",
+        "pl": "Pozycja wahania wentylatora",
+        "ko": "팬 스윙의 위치"
       },
       "values": [
         {
@@ -2169,7 +3941,15 @@
           "title": {
             "en": "Disabled",
             "nl": "Uitgeschakeld",
-            "de": "Behindert"
+            "de": "Behindert",
+            "fr": "Désactivé",
+            "it": "Disabilitato",
+            "sv": "Inaktiverad",
+            "no": "Deaktivert",
+            "es": "Desactivado",
+            "da": "Deaktiveret",
+            "pl": "Wyłączone",
+            "ko": "비활성화"
           }
         },
         {
@@ -2177,7 +3957,15 @@
           "title": {
             "en": "Full range",
             "nl": "Volledig bereik",
-            "de": "Vollständige Palette"
+            "de": "Vollständige Palette",
+            "fr": "Plage complète",
+            "it": "Gamma completa",
+            "sv": "Fullt omfång",
+            "no": "Fullt område",
+            "es": "Rango completo",
+            "da": "Fuldt område",
+            "pl": "Pełny zakres",
+            "ko": "전체 범위"
           }
         },
         {
@@ -2185,7 +3973,15 @@
           "title": {
             "en": "Fixed left",
             "nl": "Fixed links",
-            "de": "Feste Links"
+            "de": "Feste Links",
+            "fr": "Fixe à gauche",
+            "it": "Fisso a sinistra",
+            "sv": "Fast vänster",
+            "no": "Fast venstre",
+            "es": "Fijo izquierda",
+            "da": "Fast venstre",
+            "pl": "Stałe po lewej",
+            "ko": "왼쪽 고정"
           }
         },
         {
@@ -2193,7 +3989,15 @@
           "title": {
             "en": "Fixed top left",
             "nl": "Fixed midden links",
-            "de": "Feste obere Links"
+            "de": "Feste obere Links",
+            "fr": "Fixe en haut à gauche",
+            "it": "Fisso in alto a sinistra",
+            "sv": "Fast överst vänster",
+            "no": "Fast øverst venstre",
+            "es": "Fijo arriba izquierda",
+            "da": "Fast øverst venstre",
+            "pl": "Stałe na górze po lewej",
+            "ko": "상단 왼쪽 고정"
           }
         },
         {
@@ -2201,7 +4005,15 @@
           "title": {
             "en": "Fixed middle",
             "nl": "Fixed midden",
-            "de": "Feste Mitte"
+            "de": "Feste Mitte",
+            "fr": "Fixe au milieu",
+            "it": "Fisso al centro",
+            "sv": "Fast mitten",
+            "no": "Fast midten",
+            "es": "Fijo centro",
+            "da": "Fast midt",
+            "pl": "Stałe na środku",
+            "ko": "중앙 고정"
           }
         },
         {
@@ -2209,7 +4021,15 @@
           "title": {
             "en": "Fixed middle right",
             "nl": "Fixed midden rechts",
-            "de": "Mittlerer Boden fest"
+            "de": "Mittlerer Boden fest",
+            "fr": "Fixe au milieu à droite",
+            "it": "Fisso al centro a destra",
+            "sv": "Fast mitten höger",
+            "no": "Fast midten høyre",
+            "es": "Fijo centro derecha",
+            "da": "Fast midt højre",
+            "pl": "Stałe na środku prawym",
+            "ko": "중앙 오른쪽 고정"
           }
         },
         {
@@ -2217,7 +4037,15 @@
           "title": {
             "en": "Fixed right",
             "nl": "Fixed rechts",
-            "de": "Feste Rechts"
+            "de": "Feste Rechts",
+            "fr": "Fixe à droite",
+            "it": "Fisso a destra",
+            "sv": "Fast höger",
+            "no": "Fast høyre",
+            "es": "Fijo derecha",
+            "da": "Fast højre",
+            "pl": "Stałe po prawej",
+            "ko": "오른쪽 고정"
           }
         },
         {
@@ -2225,7 +4053,15 @@
           "title": {
             "en": "Full range",
             "nl": "Volledig bereik",
-            "de": "Vollständige Palette"
+            "de": "Vollständige Palette",
+            "fr": "Plage complète",
+            "it": "Gamma completa",
+            "sv": "Fullt omfång",
+            "no": "Fullt område",
+            "es": "Rango completo",
+            "da": "Fuldt område",
+            "pl": "Pełny zakres",
+            "ko": "전체 범위"
           }
         }
       ],
@@ -2238,12 +4074,28 @@
       "title": {
         "en": "Lights mode",
         "nl": "Lichten modus",
-        "de": "Lichtmodus"
+        "de": "Lichtmodus",
+        "fr": "Mode éclairage",
+        "it": "Modalità luci",
+        "sv": "Belysningsläge",
+        "no": "Lysmodus",
+        "es": "Modo de luces",
+        "da": "Lystilstand",
+        "pl": "Tryb świateł",
+        "ko": "조명 모드"
       },
       "desc": {
         "en": "Lights mode on the HVAC panel",
         "nl": "Lichten modus op het airconditioner paneel",
-        "de": "Lichtmodus auf dem Klimaanlage-Panel"
+        "de": "Lichtmodus auf dem Klimaanlage-Panel",
+        "fr": "Mode éclairage sur le panneau du HVAC",
+        "it": "Modalità luci sul pannello del condizionatore",
+        "sv": "Belysningsläge på HVAC-panelen",
+        "no": "Lysmodus på klimaanleggets panel",
+        "es": "Modo de luces en el panel del HVAC",
+        "da": "Lystilstand på HVAC-panelet",
+        "pl": "Tryb świateł na panelu klimatyzatora",
+        "ko": "HVAC 패널의 조명 모드"
       },
       "getable": true,
       "setable": true,
@@ -2254,12 +4106,28 @@
       "title": {
         "en": "Power save mode",
         "nl": "Energiebesparende modus",
-        "de": "Energiesparmodus"
+        "de": "Energiesparmodus",
+        "fr": "Mode économie d'énergie",
+        "it": "Modalità risparmio energetico",
+        "sv": "Energisparläge",
+        "no": "Strømsparemodus",
+        "es": "Modo de ahorro de energía",
+        "da": "Strømsparetilstand",
+        "pl": "Tryb oszczędzania energii",
+        "ko": "절전 모드"
       },
       "desc": {
         "en": "Power saving mode of the HVAC",
         "nl": "Energiebesparende modus van de HVAC",
-        "de": "Energiesparmodus der Klimaanlage"
+        "de": "Energiesparmodus der Klimaanlage",
+        "fr": "Mode économie d'énergie du HVAC",
+        "it": "Modalità di risparmio energetico del condizionatore",
+        "sv": "Energisparläge för HVAC:n",
+        "no": "Strømsparemodus for klimaanlegget",
+        "es": "Modo de ahorro de energía del HVAC",
+        "da": "Strømbesparende tilstand for HVAC'en",
+        "pl": "Tryb oszczędzania energii klimatyzatora",
+        "ko": "HVAC의 절전 모드"
       },
       "getable": true,
       "setable": true,
@@ -2270,12 +4138,28 @@
       "title": {
         "en": "Quiet mode",
         "nl": "Stilte modus",
-        "de": "Ruhig-Modus"
+        "de": "Ruhig-Modus",
+        "fr": "Mode silencieux",
+        "it": "Modalità silenziosa",
+        "sv": "Tyst läge",
+        "no": "Stillemodus",
+        "es": "Modo silencioso",
+        "da": "Stille tilstand",
+        "pl": "Tryb cichy",
+        "ko": "저소음 모드"
       },
       "desc": {
         "en": "Mode of quiet",
         "nl": "Modus van stilte",
-        "de": "Modus der Ruhig"
+        "de": "Modus der Ruhig",
+        "fr": "Mode silencieux",
+        "it": "Modalità silenziosa",
+        "sv": "Läge för tystnad",
+        "no": "Modus for stillhet",
+        "es": "Modo de silencio",
+        "da": "Tilstand for stilhed",
+        "pl": "Tryb ciszy",
+        "ko": "저소음 모드"
       },
       "values": [
         {
@@ -2283,7 +4167,15 @@
           "title": {
             "en": "Off",
             "nl": "Uit",
-            "de": "Aus"
+            "de": "Aus",
+            "fr": "Arrêt",
+            "it": "Spento",
+            "sv": "Av",
+            "no": "Av",
+            "es": "Apagado",
+            "da": "Fra",
+            "pl": "Wył.",
+            "ko": "끄기"
           }
         },
         {
@@ -2291,7 +4183,15 @@
           "title": {
             "en": "Mode 1",
             "nl": "Mode 1",
-            "de": "Mode 1"
+            "de": "Mode 1",
+            "fr": "Mode 1",
+            "it": "Mode 1",
+            "sv": "Mode 1",
+            "no": "Mode 1",
+            "es": "Modo 1",
+            "da": "Mode 1",
+            "pl": "Mode 1",
+            "ko": "Mode 1"
           }
         },
         {
@@ -2299,7 +4199,15 @@
           "title": {
             "en": "Mode 2",
             "nl": "Mode 2",
-            "de": "Mode 2"
+            "de": "Mode 2",
+            "fr": "Mode 2",
+            "it": "Mode 2",
+            "sv": "Mode 2",
+            "no": "Mode 2",
+            "es": "Modo 2",
+            "da": "Mode 2",
+            "pl": "Mode 2",
+            "ko": "Mode 2"
           }
         },
         {
@@ -2307,7 +4215,15 @@
           "title": {
             "en": "Mode 3",
             "nl": "Mode 3",
-            "de": "Mode 3"
+            "de": "Mode 3",
+            "fr": "Mode 3",
+            "it": "Mode 3",
+            "sv": "Mode 3",
+            "no": "Mode 3",
+            "es": "Modo 3",
+            "da": "Mode 3",
+            "pl": "Mode 3",
+            "ko": "Mode 3"
           }
         }
       ],
@@ -2320,12 +4236,28 @@
       "title": {
         "en": "8°C heating",
         "nl": "8°C verwarming",
-        "de": "8°C Heizung"
+        "de": "8°C Heizung",
+        "fr": "Chauffage 8°C",
+        "it": "Riscaldamento a 8°C",
+        "sv": "8°C uppvärmning",
+        "no": "8°C oppvarming",
+        "es": "Calefacción a 8°C",
+        "da": "8°C opvarmning",
+        "pl": "Ogrzewanie 8°C",
+        "ko": "8°C 난방"
       },
       "desc": {
         "en": "The air conditioner keeps the room temperature at 8°C to prevent freezing",
         "nl": "De airconditioner houdt de kamertemperatuur op 8°C om bevriezing te voorkomen.",
-        "de": "Die Klimaanlage hält die Raumtemperatur auf 8°C, um ein Einfrieren zu verhindern."
+        "de": "Die Klimaanlage hält die Raumtemperatur auf 8°C, um ein Einfrieren zu verhindern.",
+        "fr": "Le climatiseur maintient la température de la pièce à 8°C pour éviter le gel",
+        "it": "Il condizionatore mantiene la temperatura ambiente a 8°C per prevenire il congelamento",
+        "sv": "Luftkonditioneringen håller rumstemperaturen på 8°C för att förhindra frysning",
+        "no": "Klimaanlegget holder romtemperaturen på 8°C for å hindre frysing.",
+        "es": "El aire acondicionado mantiene la temperatura de la habitación a 8°C para evitar la congelación",
+        "da": "Airconditionanlægget holder rumtemperaturen på 8°C for at forhindre frost.",
+        "pl": "Klimatyzator utrzymuje temperaturę w pomieszczeniu na poziomie 8°C, aby zapobiec zamarzaniu",
+        "ko": "에어컨이 동결을 방지하기 위해 실내 온도를 8°C로 유지합니다"
       },
       "getable": true,
       "setable": true,
@@ -2336,12 +4268,28 @@
       "title": {
         "en": "Sleep mode",
         "nl": "Slaapmodus",
-        "de": "Schlafmodus"
+        "de": "Schlafmodus",
+        "fr": "Mode sommeil",
+        "it": "Modalità notte",
+        "sv": "Viloläge",
+        "no": "Sovemodus",
+        "es": "Modo de reposo",
+        "da": "Dvaletilstand",
+        "pl": "Tryb uśpienia",
+        "ko": "취침 모드"
       },
       "desc": {
         "en": "Sleep mode gradually changes the temperature in Cool, Heat and Dry mode",
         "nl": "Slaapmodus verandert geleidelijk de temperatuur in de modi Koelen, Verwarmen en Ontvochtigen",
-        "de": "Der Schlafmodus ändert die Temperatur schrittweise in den Modi Kühlen, Heizen und Trocknen"
+        "de": "Der Schlafmodus ändert die Temperatur schrittweise in den Modi Kühlen, Heizen und Trocknen",
+        "fr": "Le mode sommeil modifie progressivement la température en mode Refroidissement, Chauffage et Déshumidification",
+        "it": "La modalità notte cambia gradualmente la temperatura nelle modalità Raffreddamento, Riscaldamento e Deumidificazione",
+        "sv": "Viloläget ändrar temperaturen gradvis i lägena Kyla, Värme och Avfuktning",
+        "no": "Sovemodus endrer temperaturen gradvis i modusene Kjøling, Oppvarming og Avfukting",
+        "es": "El modo de reposo cambia gradualmente la temperatura en los modos Enfriar, Calentar y Deshumidificar",
+        "da": "Dvaletilstand ændrer gradvist temperaturen i tilstandene Køl, Varme og Affugtning",
+        "pl": "Tryb uśpienia stopniowo zmienia temperaturę w trybie chłodzenia, ogrzewania i osuszania",
+        "ko": "취침 모드는 냉방, 난방 및 제습 모드에서 온도를 점진적으로 변경합니다"
       },
       "getable": true,
       "setable": true,
@@ -2352,12 +4300,28 @@
       "title": {
         "en": "Turbo mode",
         "nl": "Turbo modus",
-        "de": "Turbo Modus"
+        "de": "Turbo Modus",
+        "fr": "Mode turbo",
+        "it": "Modalità turbo",
+        "sv": "Turboläge",
+        "no": "Turbomodus",
+        "es": "Modo turbo",
+        "da": "Turbotilstand",
+        "pl": "Tryb turbo",
+        "ko": "터보 모드"
       },
       "desc": {
         "en": "Turbo mode of the HVAC's fan",
         "nl": "Turbomodus van de ventilator van de HVAC",
-        "de": "Turbomodus des Lüfters der Klimaanlage"
+        "de": "Turbomodus des Lüfters der Klimaanlage",
+        "fr": "Mode turbo du ventilateur du HVAC",
+        "it": "Modalità turbo della ventola del condizionatore",
+        "sv": "Turboläge för HVAC:ns fläkt",
+        "no": "Turbomodus for klimaanleggets vifte",
+        "es": "Modo turbo del ventilador del HVAC",
+        "da": "Turbotilstand for HVAC'ens ventilator",
+        "pl": "Tryb turbo wentylatora klimatyzatora",
+        "ko": "HVAC 팬의 터보 모드"
       },
       "getable": true,
       "setable": true,
@@ -2368,12 +4332,28 @@
       "title": {
         "en": "Vertical swing",
         "nl": "Verticale swing",
-        "de": "Vertikale Schaukel"
+        "de": "Vertikale Schaukel",
+        "fr": "Balayage vertical",
+        "it": "Oscillazione verticale",
+        "sv": "Vertikal svängning",
+        "no": "Vertikal svinging",
+        "es": "Oscilación vertical",
+        "da": "Lodret svingning",
+        "pl": "Wahanie pionowe",
+        "ko": "수직 스윙"
       },
       "desc": {
         "en": "Position of the fan swing",
         "nl": "Positie van de fan swing",
-        "de": "Position der fan swing"
+        "de": "Position der fan swing",
+        "fr": "Position du balayage du ventilateur",
+        "it": "Posizione dell'oscillazione della ventola",
+        "sv": "Position för fläktsvängningen",
+        "no": "Posisjon for viftesvingingen",
+        "es": "Posición de la oscilación del ventilador",
+        "da": "Position for ventilatorsvingningen",
+        "pl": "Pozycja wahania wentylatora",
+        "ko": "팬 스윙의 위치"
       },
       "values": [
         {
@@ -2381,7 +4361,15 @@
           "title": {
             "en": "Disabled",
             "nl": "Uitgeschakeld",
-            "de": "Behindert"
+            "de": "Behindert",
+            "fr": "Désactivé",
+            "it": "Disabilitato",
+            "sv": "Inaktiverad",
+            "no": "Deaktivert",
+            "es": "Desactivado",
+            "da": "Deaktiveret",
+            "pl": "Wyłączone",
+            "ko": "비활성화"
           }
         },
         {
@@ -2389,7 +4377,15 @@
           "title": {
             "en": "Full range",
             "nl": "Volledig bereik",
-            "de": "Vollständige Palette"
+            "de": "Vollständige Palette",
+            "fr": "Plage complète",
+            "it": "Gamma completa",
+            "sv": "Fullt omfång",
+            "no": "Fullt område",
+            "es": "Rango completo",
+            "da": "Fuldt område",
+            "pl": "Pełny zakres",
+            "ko": "전체 범위"
           }
         },
         {
@@ -2397,7 +4393,15 @@
           "title": {
             "en": "Fixed top",
             "nl": "Fixed boven",
-            "de": "Feste Oberseite"
+            "de": "Feste Oberseite",
+            "fr": "Fixe en haut",
+            "it": "Fisso in alto",
+            "sv": "Fast överst",
+            "no": "Fast øverst",
+            "es": "Fijo arriba",
+            "da": "Fast øverst",
+            "pl": "Stałe na górze",
+            "ko": "상단 고정"
           }
         },
         {
@@ -2405,7 +4409,15 @@
           "title": {
             "en": "Fixed top middle",
             "nl": "Fixed midden boven",
-            "de": "Feste obere Mitte"
+            "de": "Feste obere Mitte",
+            "fr": "Fixe en haut au milieu",
+            "it": "Fisso in alto al centro",
+            "sv": "Fast överst mitten",
+            "no": "Fast øverst midten",
+            "es": "Fijo arriba centro",
+            "da": "Fast øverst midt",
+            "pl": "Stałe na górze na środku",
+            "ko": "상단 중앙 고정"
           }
         },
         {
@@ -2413,7 +4425,15 @@
           "title": {
             "en": "Fixed middle",
             "nl": "Fixed midden",
-            "de": "Feste Mitte"
+            "de": "Feste Mitte",
+            "fr": "Fixe au milieu",
+            "it": "Fisso al centro",
+            "sv": "Fast mitten",
+            "no": "Fast midten",
+            "es": "Fijo centro",
+            "da": "Fast midt",
+            "pl": "Stałe na środku",
+            "ko": "중앙 고정"
           }
         },
         {
@@ -2421,7 +4441,15 @@
           "title": {
             "en": "Fixed middle bottom",
             "nl": "Fixed midden onder",
-            "de": "Mittlerer Boden fest"
+            "de": "Mittlerer Boden fest",
+            "fr": "Fixe au milieu en bas",
+            "it": "Fisso al centro in basso",
+            "sv": "Fast mitten nederst",
+            "no": "Fast midten nederst",
+            "es": "Fijo centro abajo",
+            "da": "Fast midt nederst",
+            "pl": "Stałe na środku dolnym",
+            "ko": "중앙 하단 고정"
           }
         },
         {
@@ -2429,7 +4457,15 @@
           "title": {
             "en": "Fixed bottom",
             "nl": "Fixed onder",
-            "de": "Feste Unterseite"
+            "de": "Feste Unterseite",
+            "fr": "Fixe en bas",
+            "it": "Fisso in basso",
+            "sv": "Fast nederst",
+            "no": "Fast nederst",
+            "es": "Fijo abajo",
+            "da": "Fast nederst",
+            "pl": "Stałe na dole",
+            "ko": "하단 고정"
           }
         },
         {
@@ -2437,7 +4473,15 @@
           "title": {
             "en": "Swing bottom",
             "nl": "Swing onder",
-            "de": "Swing Unterseite"
+            "de": "Swing Unterseite",
+            "fr": "Balayage en bas",
+            "it": "Oscillazione in basso",
+            "sv": "Sväng nederst",
+            "no": "Sving nederst",
+            "es": "Oscilación abajo",
+            "da": "Sving nederst",
+            "pl": "Wahanie na dole",
+            "ko": "하단 스윙"
           }
         },
         {
@@ -2445,7 +4489,15 @@
           "title": {
             "en": "Swing middle",
             "nl": "Swing midden",
-            "de": "Mitte schwingen"
+            "de": "Mitte schwingen",
+            "fr": "Balayage au milieu",
+            "it": "Oscillazione al centro",
+            "sv": "Sväng mitten",
+            "no": "Sving midten",
+            "es": "Oscilación centro",
+            "da": "Sving midt",
+            "pl": "Wahanie na środku",
+            "ko": "중앙 스윙"
           }
         },
         {
@@ -2453,7 +4505,15 @@
           "title": {
             "en": "Swing top",
             "nl": "Swing boven",
-            "de": "Swing Oberseite"
+            "de": "Swing Oberseite",
+            "fr": "Balayage en haut",
+            "it": "Oscillazione in alto",
+            "sv": "Sväng överst",
+            "no": "Sving øverst",
+            "es": "Oscilación arriba",
+            "da": "Sving øverst",
+            "pl": "Wahanie na górze",
+            "ko": "상단 스윙"
           }
         }
       ],
@@ -2466,12 +4526,28 @@
       "title": {
         "en": "X-Fan mode",
         "nl": "X-Fan modus",
-        "de": "X-Fan Modus"
+        "de": "X-Fan Modus",
+        "fr": "Mode X-Fan",
+        "it": "Modalità X-Fan",
+        "sv": "X-Fan-läge",
+        "no": "X-Fan-modus",
+        "es": "Modo X-Fan",
+        "da": "X-Fan-tilstand",
+        "pl": "Tryb X-Fan",
+        "ko": "X-Fan 모드"
       },
       "desc": {
         "en": "X-Fan mode of the HVAC's fan",
         "nl": "X-Fan modus van de ventilator van de HVAC",
-        "de": "X-Fan modus des Lüfters der Klimaanlage"
+        "de": "X-Fan modus des Lüfters der Klimaanlage",
+        "fr": "Mode X-Fan du ventilateur du HVAC",
+        "it": "Modalità X-Fan della ventola del condizionatore",
+        "sv": "X-Fan-läge för HVAC:ns fläkt",
+        "no": "X-Fan-modus for klimaanleggets vifte",
+        "es": "Modo X-Fan del ventilador del HVAC",
+        "da": "X-Fan-tilstand for HVAC'ens ventilator",
+        "pl": "Tryb X-Fan wentylatora klimatyzatora",
+        "ko": "HVAC 팬의 X-Fan 모드"
       },
       "getable": true,
       "setable": true,

@@ -3,12 +3,28 @@
   "title": {
     "en": "Health mode",
     "nl": "Gezondheidsmodus",
-    "de": "Gesundheitsmodus"
+    "de": "Gesundheitsmodus",
+    "fr": "Mode santé",
+    "it": "Modalità salute",
+    "sv": "Hälsoläge",
+    "no": "Helsemodus",
+    "es": "Modo salud",
+    "da": "Sundhedstilstand",
+    "pl": "Tryb zdrowotny",
+    "ko": "건강 모드"
   },
   "desc": {
     "en": "Cold plasma / ionizer air purification mode of the HVAC",
     "nl": "Koud plasma / ionisator luchtreinigingsmodus van de HVAC",
-    "de": "Kaltplasma- / Ionisator-Luftreinigungsmodus der Klimaanlage"
+    "de": "Kaltplasma- / Ionisator-Luftreinigungsmodus der Klimaanlage",
+    "fr": "Mode de purification de l'air par plasma froid / ioniseur du HVAC",
+    "it": "Modalità di purificazione dell'aria a plasma freddo / ionizzatore del condizionatore",
+    "sv": "Kallplasma-/jonisatorluftreningsläge för HVAC:n",
+    "no": "Kaldplasma-/ionisator-luftrensemodus for klimaanlegget",
+    "es": "Modo de purificación del aire por plasma frío / ionizador del HVAC",
+    "da": "Koldplasma-/ionisator-luftrensningstilstand for HVAC'en",
+    "pl": "Tryb oczyszczania powietrza zimną plazmą / jonizatorem klimatyzatora",
+    "ko": "HVAC의 콜드 플라즈마 / 이온화 공기 청정 모드"
   },
   "getable": true,
   "setable": true,
