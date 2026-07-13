@@ -118,18 +118,49 @@ describe('GreeHVACDevice._findDevices()', () => {
         expect(device._staticIpSetting).toBe('192.168.1.51');
     });
 
-    test('rejects an invalid static IP and does not reconnect', () => {
+    test('rejects an invalid static IP and does not reconnect', async () => {
         device.reconnect = jest.fn();
         device.homey = { __: jest.fn((key) => key) };
 
-        expect(() => device.onSettings({
+        await expect(device.onSettings({
             oldSettings: { static_ip: '' },
             newSettings: { static_ip: 'not-an-ip' },
             changedKeys: ['static_ip'],
-        })).toThrow('error.invalid_static_ip');
+        })).rejects.toThrow('error.invalid_static_ip');
 
         expect(device.reconnect).not.toHaveBeenCalled();
         expect(device._staticIpSetting).toBeUndefined();
+    });
+
+    test('applies the target temperature range when the minimum setting changes', async () => {
+        device.reconnect = jest.fn();
+        device.setCapabilityOptions = jest.fn(() => Promise.resolve());
+
+        await device.onSettings({
+            oldSettings: { min_target_temperature: 16 },
+            newSettings: { min_target_temperature: 8 },
+            changedKeys: ['min_target_temperature'],
+        });
+
+        expect(device.reconnect).not.toHaveBeenCalled();
+        expect(device.setCapabilityOptions).toHaveBeenCalledWith('target_temperature', {
+            min: 8,
+            max: 30,
+            step: 1,
+        });
+    });
+
+    test('falls back to the default minimum target temperature when the setting is unset', async () => {
+        device.getSetting = jest.fn(() => undefined);
+        device.setCapabilityOptions = jest.fn(() => Promise.resolve());
+
+        await device._applyTargetTemperatureRange();
+
+        expect(device.setCapabilityOptions).toHaveBeenCalledWith('target_temperature', {
+            min: 16,
+            max: 30,
+            step: 1,
+        });
     });
 
     test('find devices trims whitespace around the static IP setting', () => {

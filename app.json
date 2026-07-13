@@ -3637,6 +3637,61 @@
               "value": ""
             }
           ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Temperature",
+            "nl": "Temperatuur",
+            "de": "Temperatur",
+            "fr": "Température",
+            "it": "Temperatura",
+            "sv": "Temperatur",
+            "no": "Temperatur",
+            "es": "Temperatura",
+            "da": "Temperatur",
+            "pl": "Temperatura",
+            "ko": "온도"
+          },
+          "children": [
+            {
+              "id": "min_target_temperature",
+              "type": "number",
+              "label": {
+                "en": "Minimum target temperature",
+                "nl": "Minimale doeltemperatuur",
+                "de": "Minimale Zieltemperatur",
+                "fr": "Température cible minimale",
+                "it": "Temperatura target minima",
+                "sv": "Lägsta måltemperatur",
+                "no": "Laveste måltemperatur",
+                "es": "Temperatura objetivo mínima",
+                "da": "Laveste måltemperatur",
+                "pl": "Minimalna temperatura docelowa",
+                "ko": "최저 목표 온도"
+              },
+              "hint": {
+                "en": "The lowest temperature you can set for this device. Some heat pumps support down to 8 °C.",
+                "nl": "De laagste temperatuur die je voor dit apparaat kunt instellen. Sommige warmtepompen ondersteunen tot 8 °C.",
+                "de": "Die niedrigste Temperatur, die du für dieses Gerät einstellen kannst. Einige Wärmepumpen unterstützen bis zu 8 °C.",
+                "fr": "La température la plus basse que vous pouvez définir pour cet appareil. Certaines pompes à chaleur descendent jusqu'à 8 °C.",
+                "it": "La temperatura più bassa impostabile per questo dispositivo. Alcune pompe di calore arrivano fino a 8 °C.",
+                "sv": "Den lägsta temperaturen du kan ställa in för den här enheten. Vissa värmepumpar stöder ned till 8 °C.",
+                "no": "Den laveste temperaturen du kan angi for denne enheten. Noen varmepumper støtter ned til 8 °C.",
+                "es": "La temperatura más baja que puedes configurar para este dispositivo. Algunas bombas de calor admiten hasta 8 °C.",
+                "da": "Den laveste temperatur, du kan indstille for denne enhed. Nogle varmepumper understøtter ned til 8 °C.",
+                "pl": "Najniższa temperatura, jaką możesz ustawić dla tego urządzenia. Niektóre pompy ciepła obsługują nawet 8 °C.",
+                "ko": "이 기기에 설정할 수 있는 최저 온도입니다. 일부 히트펌프는 8 °C까지 지원합니다."
+              },
+              "value": 16,
+              "min": 8,
+              "max": 30,
+              "step": 1,
+              "units": {
+                "en": "°C"
+              }
+            }
+          ]
         }
       ],
       "images": {
