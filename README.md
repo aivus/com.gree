@@ -8,7 +8,7 @@ This app adds support of Gree compatible HVACs to Homey.
 ## Donation
 This app is an Open Source Software developed in free time by one developer.
 
-If you want to thank the author of this app you can use [GitHub Sponsors](https://github.com/aivus/com.gree?sponsor=1) or [Patreon](https://patreon.com/aivus)
+If you want to thank the author of this app you can use [GitHub Sponsors](https://github.com/aivus/com.gree?sponsor=1), [PayPal](https://www.paypal.me/iantypenko) or [Patreon](https://patreon.com/aivus)
 
 ## Supported Wi-Fi HVACs
 * Gree
