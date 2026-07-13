@@ -3,12 +3,28 @@
   "title": {
     "en": "Turbo mode",
     "nl": "Turbo modus",
-    "de": "Turbo Modus"
+    "de": "Turbo Modus",
+    "fr": "Mode turbo",
+    "it": "Modalità turbo",
+    "sv": "Turboläge",
+    "no": "Turbomodus",
+    "es": "Modo turbo",
+    "da": "Turbotilstand",
+    "pl": "Tryb turbo",
+    "ko": "터보 모드"
   },
   "desc": {
     "en": "Turbo mode of the HVAC's fan",
     "nl": "Turbomodus van de ventilator van de HVAC",
-    "de": "Turbomodus des Lüfters der Klimaanlage"
+    "de": "Turbomodus des Lüfters der Klimaanlage",
+    "fr": "Mode turbo du ventilateur du HVAC",
+    "it": "Modalità turbo della ventola del condizionatore",
+    "sv": "Turboläge för HVAC:ns fläkt",
+    "no": "Turbomodus for klimaanleggets vifte",
+    "es": "Modo turbo del ventilador del HVAC",
+    "da": "Turbotilstand for HVAC'ens ventilator",
+    "pl": "Tryb turbo wentylatora klimatyzatora",
+    "ko": "HVAC 팬의 터보 모드"
   },
   "getable": true,
   "setable": true,

@@ -1,0 +1,21 @@
+{
+    "pair": {
+        "intro": {
+            "p1": "Avant de continuer, tu dois connecter le HVAC à ton réseau WiFi actuel.",
+            "p2": "Cela peut se faire à l'aide d'une application classique du fabricant comme <i>EWPE Smart</i> ou en suivant les instructions CLI du README de l'application (utilisateurs avancés)",
+            "static_ip_link": "Mon appareil a une adresse IP statique →"
+        },
+        "static_ip": {
+            "description": "Saisis l'adresse IP statique de ton appareil HVAC. L'appareil doit être accessible sur ton réseau.",
+            "label": "Adresse IP",
+            "skip_scan": "Ignorer le scan UDP (à utiliser lorsque l'UDP est bloqué)",
+            "name_label": "Nom de l'appareil (optionnel)",
+            "button": "Rechercher l'appareil",
+            "error_no_response": "Aucune réponse de l'appareil. Vérifie l'adresse IP et assure-toi que l'appareil est accessible."
+        }
+    },
+    "error": {
+        "offline": "Ton HVAC est passé hors ligne. Tentative de reconnexion...",
+        "invalid_static_ip": "Adresse IP invalide. Saisis une adresse IPv4 valide ou laisse le champ vide pour utiliser la détection automatique."
+    }
+}

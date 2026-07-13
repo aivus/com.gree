@@ -3,12 +3,28 @@
   "title": {
     "en": "Horizontal swing",
     "nl": "Horizontale swing",
-    "de": "Horizontales Schaukel"
+    "de": "Horizontales Schaukel",
+    "fr": "Balayage horizontal",
+    "it": "Oscillazione orizzontale",
+    "sv": "Horisontell svängning",
+    "no": "Horisontal svinging",
+    "es": "Oscilación horizontal",
+    "da": "Vandret svingning",
+    "pl": "Wahanie poziome",
+    "ko": "수평 스윙"
   },
   "desc": {
     "en": "Position of the fan swing",
     "nl": "Positie van de fan swing",
-    "de": "Position der fan swing"
+    "de": "Position der fan swing",
+    "fr": "Position du balayage du ventilateur",
+    "it": "Posizione dell'oscillazione della ventola",
+    "sv": "Position för fläktsvängningen",
+    "no": "Posisjon for viftesvingingen",
+    "es": "Posición de la oscilación del ventilador",
+    "da": "Position for ventilatorsvingningen",
+    "pl": "Pozycja wahania wentylatora",
+    "ko": "팬 스윙의 위치"
   },
   "values": [
     {
@@ -16,7 +32,15 @@
       "title": {
         "en": "Disabled",
         "nl": "Uitgeschakeld",
-        "de": "Behindert"
+        "de": "Behindert",
+        "fr": "Désactivé",
+        "it": "Disabilitato",
+        "sv": "Inaktiverad",
+        "no": "Deaktivert",
+        "es": "Desactivado",
+        "da": "Deaktiveret",
+        "pl": "Wyłączone",
+        "ko": "비활성화"
       }
     },
     {
@@ -24,7 +48,15 @@
       "title": {
         "en": "Full range",
         "nl": "Volledig bereik",
-        "de": "Vollständige Palette"
+        "de": "Vollständige Palette",
+        "fr": "Plage complète",
+        "it": "Gamma completa",
+        "sv": "Fullt omfång",
+        "no": "Fullt område",
+        "es": "Rango completo",
+        "da": "Fuldt område",
+        "pl": "Pełny zakres",
+        "ko": "전체 범위"
       }
     },
     {
@@ -32,7 +64,15 @@
       "title": {
         "en": "Fixed left",
         "nl": "Fixed links",
-        "de": "Feste Links"
+        "de": "Feste Links",
+        "fr": "Fixe à gauche",
+        "it": "Fisso a sinistra",
+        "sv": "Fast vänster",
+        "no": "Fast venstre",
+        "es": "Fijo izquierda",
+        "da": "Fast venstre",
+        "pl": "Stałe po lewej",
+        "ko": "왼쪽 고정"
       }
     },
     {
@@ -40,7 +80,15 @@
       "title": {
         "en": "Fixed top left",
         "nl": "Fixed midden links",
-        "de": "Feste obere Links"
+        "de": "Feste obere Links",
+        "fr": "Fixe en haut à gauche",
+        "it": "Fisso in alto a sinistra",
+        "sv": "Fast överst vänster",
+        "no": "Fast øverst venstre",
+        "es": "Fijo arriba izquierda",
+        "da": "Fast øverst venstre",
+        "pl": "Stałe na górze po lewej",
+        "ko": "상단 왼쪽 고정"
       }
     },
     {
@@ -48,7 +96,15 @@
       "title": {
         "en": "Fixed middle",
         "nl": "Fixed midden",
-        "de": "Feste Mitte"
+        "de": "Feste Mitte",
+        "fr": "Fixe au milieu",
+        "it": "Fisso al centro",
+        "sv": "Fast mitten",
+        "no": "Fast midten",
+        "es": "Fijo centro",
+        "da": "Fast midt",
+        "pl": "Stałe na środku",
+        "ko": "중앙 고정"
       }
     },
     {
@@ -56,7 +112,15 @@
       "title": {
         "en": "Fixed middle right",
         "nl": "Fixed midden rechts",
-        "de": "Mittlerer Boden fest"
+        "de": "Mittlerer Boden fest",
+        "fr": "Fixe au milieu à droite",
+        "it": "Fisso al centro a destra",
+        "sv": "Fast mitten höger",
+        "no": "Fast midten høyre",
+        "es": "Fijo centro derecha",
+        "da": "Fast midt højre",
+        "pl": "Stałe na środku prawym",
+        "ko": "중앙 오른쪽 고정"
       }
     },
     {
@@ -64,7 +128,15 @@
       "title": {
         "en": "Fixed right",
         "nl": "Fixed rechts",
-        "de": "Feste Rechts"
+        "de": "Feste Rechts",
+        "fr": "Fixe à droite",
+        "it": "Fisso a destra",
+        "sv": "Fast höger",
+        "no": "Fast høyre",
+        "es": "Fijo derecha",
+        "da": "Fast højre",
+        "pl": "Stałe po prawej",
+        "ko": "오른쪽 고정"
       }
     },
     {
@@ -72,7 +144,15 @@
       "title": {
         "en": "Full range",
         "nl": "Volledig bereik",
-        "de": "Vollständige Palette"
+        "de": "Vollständige Palette",
+        "fr": "Plage complète",
+        "it": "Gamma completa",
+        "sv": "Fullt omfång",
+        "no": "Fullt område",
+        "es": "Rango completo",
+        "da": "Fuldt område",
+        "pl": "Pełny zakres",
+        "ko": "전체 범위"
       }
     }
   ],

@@ -3,12 +3,28 @@
   "title": {
     "en": "Power save mode",
     "nl": "Energiebesparende modus",
-    "de": "Energiesparmodus"
+    "de": "Energiesparmodus",
+    "fr": "Mode économie d'énergie",
+    "it": "Modalità risparmio energetico",
+    "sv": "Energisparläge",
+    "no": "Strømsparemodus",
+    "es": "Modo de ahorro de energía",
+    "da": "Strømsparetilstand",
+    "pl": "Tryb oszczędzania energii",
+    "ko": "절전 모드"
   },
   "desc": {
     "en": "Power saving mode of the HVAC",
     "nl": "Energiebesparende modus van de HVAC",
-    "de": "Energiesparmodus der Klimaanlage"
+    "de": "Energiesparmodus der Klimaanlage",
+    "fr": "Mode économie d'énergie du HVAC",
+    "it": "Modalità di risparmio energetico del condizionatore",
+    "sv": "Energisparläge för HVAC:n",
+    "no": "Strømsparemodus for klimaanlegget",
+    "es": "Modo de ahorro de energía del HVAC",
+    "da": "Strømbesparende tilstand for HVAC'en",
+    "pl": "Tryb oszczędzania energii klimatyzatora",
+    "ko": "HVAC의 절전 모드"
   },
   "getable": true,
   "setable": true,

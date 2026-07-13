@@ -5,12 +5,28 @@
   "sdk": 3,
   "brandColor": "#ff732e",
   "name": {
-    "en": "Gree"
+    "en": "Gree",
+    "fr": "Gree",
+    "it": "Gree",
+    "sv": "Gree",
+    "no": "Gree",
+    "es": "Gree",
+    "da": "Gree",
+    "pl": "Gree",
+    "ko": "Gree"
   },
   "description": {
     "en": "Control your Gree and other EWPE Smart compatible HVAC devices",
     "nl": "Bedien uw Gree en andere EWPE Smart-compatibele HVAC-apparaten",
-    "de": "Steuern Sie Ihre Gree und andere EWPE Smart-kompatible HLK-Geräte"
+    "de": "Steuern Sie Ihre Gree und andere EWPE Smart-kompatible HLK-Geräte",
+    "fr": "Contrôlez vos appareils HVAC Gree et autres compatibles EWPE Smart",
+    "it": "Controlla i tuoi dispositivi Gree e altri condizionatori compatibili con EWPE Smart",
+    "sv": "Styr dina Gree och andra EWPE Smart-kompatibla HVAC-enheter",
+    "no": "Styr dine Gree og andre EWPE Smart-kompatible klimaanlegg",
+    "es": "Controla tus dispositivos HVAC Gree y otros compatibles con EWPE Smart",
+    "da": "Styr dine Gree- og andre EWPE Smart-kompatible HVAC-enheder",
+    "pl": "Steruj urządzeniami Gree i innymi klimatyzatorami zgodnymi z EWPE Smart",
+    "ko": "Gree 및 기타 EWPE Smart 호환 HVAC 기기를 제어하세요"
   },
   "category": [
     "climate"

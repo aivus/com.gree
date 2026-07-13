@@ -1,47 +1,36 @@
 Deze app voegt ondersteuning van Gree-compatibele HVAC's toe aan Homey.
 
 Ondersteunde Wi-Fi HVAC's:
-* Gree
-* Argo
-* Cooper & Hunter
-* Daitsu
-* Tosot
-* Wilfa
-* Innova
-* Tadiran
-* Copmax
-* Syen
-* Trane
-* Proklima
-* Heiwa
-* Ekokai
-* Lessar
-* Altech
+• Gree
+• Argo
+• Cooper & Hunter
+• Daitsu
+• Tosot
+• Wilfa
+• Innova
+• Tadiran
+• Copmax
+• Syen
+• Trane
+• Proklima
+• Heiwa
+• Ekokai
+• Lessar
+• Altech
 
-Als je hebt vastgesteld dat je HVAC werkt met deze app en je ziet het merk hierboven niet terug, maak dan a.u.b. een ticket aan zodat we de ondersteuning voor dit merk kunnen vermelden.
+Als je hebt vastgesteld dat je HVAC werkt met deze app en je het merk hierboven niet terugziet, maak dan a.u.b. een ticket aan zodat we de ondersteuning voor dit merk kunnen vermelden.
 
-* Deze app is getest met de volgende apparaten:
-Cooper & Hunter Alpha CH-S18FTXE
+Deze app is getest met het volgende apparaat: Cooper & Hunter Alpha CH-S18FTXE.
 
-Opmerkingen
-* Ventilator snelheid
-** De "Medium Laag" en "Medium Hoog" ventilator snelheden zijn niet beschikbaar voor HVAC's met 3 snelheden zoals de Argo Milo Plus
 
-* X-Fan
-** De "X-Fan" modus kan automatisch door het apparaat worden uitgeschakeld wanneer de HVAC-modus wordt omgeschakeld naar Droog of Koel.
-** Dit betekent dat je het handmatig moet inschakelen wanneer je de de HVAC-modus wijzigt naar Droog of Koel en het wil blijven gebruiken.
+OPMERKINGEN
 
-* Verticale zwaai
-** "Uitgeschakeld"/"Standaard" positie betekent dat de verticale zwaai wordt gestopt en op de huidige positie blijft staan.
+Ventilatorsnelheid
+• De "Medium Laag" en "Medium Hoog" ventilatorsnelheden zijn niet beschikbaar voor HVAC's met 3 snelheden, zoals de Argo Milo Plus.
 
-* Gezondheidsmodus
-** "Gezondheidsmodus" (ook bekend als "Koud plasma") schakelt de ionisator-luchtreinigingsfunctie in op ondersteunde HVAC's.
+X-Fan
+• De "X-Fan" modus kan automatisch door het apparaat worden uitgeschakeld wanneer de HVAC-modus wordt omgeschakeld naar Droog of Koel.
+• Dit betekent dat je het handmatig moet inschakelen wanneer je de HVAC-modus wijzigt naar Droog of Koel en je het wilt blijven gebruiken.
 
-* Energiebesparende modus
-** "Energiebesparende modus" vermindert het energieverbruik van de HVAC.
-
-* Slaapmodus
-** "Slaapmodus" verandert geleidelijk de temperatuur in de modi Koelen, Verwarmen en Ontvochtigen voor een comfortabele slaap.
-
-* Verse lucht modus
-** "Verse lucht modus" bedient de verse luchtklep (ventilatie) op HVAC's die hiermee zijn uitgerust.
+Verticale zwaai
+• "Uitgeschakeld"/"Standaard" positie betekent dat de verticale zwaai wordt gestopt en op de huidige positie blijft staan.

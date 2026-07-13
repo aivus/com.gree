@@ -3,12 +3,28 @@
   "title": {
     "en": "Lights mode",
     "nl": "Lichten modus",
-    "de": "Lichtmodus"
+    "de": "Lichtmodus",
+    "fr": "Mode éclairage",
+    "it": "Modalità luci",
+    "sv": "Belysningsläge",
+    "no": "Lysmodus",
+    "es": "Modo de luces",
+    "da": "Lystilstand",
+    "pl": "Tryb świateł",
+    "ko": "조명 모드"
   },
   "desc": {
     "en": "Lights mode on the HVAC panel",
     "nl": "Lichten modus op het airconditioner paneel",
-    "de": "Lichtmodus auf dem Klimaanlage-Panel"
+    "de": "Lichtmodus auf dem Klimaanlage-Panel",
+    "fr": "Mode éclairage sur le panneau du HVAC",
+    "it": "Modalità luci sul pannello del condizionatore",
+    "sv": "Belysningsläge på HVAC-panelen",
+    "no": "Lysmodus på klimaanleggets panel",
+    "es": "Modo de luces en el panel del HVAC",
+    "da": "Lystilstand på HVAC-panelet",
+    "pl": "Tryb świateł na panelu klimatyzatora",
+    "ko": "HVAC 패널의 조명 모드"
   },
   "getable": true,
   "setable": true,

@@ -3,12 +3,28 @@
   "title": {
     "en": "Fresh air mode",
     "nl": "Verse lucht modus",
-    "de": "Frischluftmodus"
+    "de": "Frischluftmodus",
+    "fr": "Mode air frais",
+    "it": "Modalità aria fresca",
+    "sv": "Friskluftsläge",
+    "no": "Friskluftmodus",
+    "es": "Modo de aire fresco",
+    "da": "Friskluftstilstand",
+    "pl": "Tryb świeżego powietrza",
+    "ko": "환기 모드"
   },
   "desc": {
     "en": "Fresh air valve mode of the HVAC",
     "nl": "Verse luchtklep modus van de HVAC",
-    "de": "Frischluftventil-Modus der Klimaanlage"
+    "de": "Frischluftventil-Modus der Klimaanlage",
+    "fr": "Mode de la vanne d'air frais du HVAC",
+    "it": "Modalità della valvola dell'aria fresca del condizionatore",
+    "sv": "Friskluftsventilläge för HVAC:n",
+    "no": "Friskluftventilmodus for klimaanlegget",
+    "es": "Modo de válvula de aire fresco del HVAC",
+    "da": "Friskluftventiltilstand for HVAC'en",
+    "pl": "Tryb zaworu świeżego powietrza klimatyzatora",
+    "ko": "HVAC의 환기 밸브 모드"
   },
   "values": [
     {
@@ -16,7 +32,15 @@
       "title": {
         "en": "Off",
         "nl": "Uit",
-        "de": "Aus"
+        "de": "Aus",
+        "fr": "Arrêt",
+        "it": "Spento",
+        "sv": "Av",
+        "no": "Av",
+        "es": "Apagado",
+        "da": "Fra",
+        "pl": "Wył.",
+        "ko": "끄기"
       }
     },
     {
@@ -24,7 +48,15 @@
       "title": {
         "en": "Inside",
         "nl": "Binnen",
-        "de": "Innen"
+        "de": "Innen",
+        "fr": "Intérieur",
+        "it": "Interno",
+        "sv": "Inne",
+        "no": "Inne",
+        "es": "Interior",
+        "da": "Indendørs",
+        "pl": "Wewnątrz",
+        "ko": "내부"
       }
     },
     {
@@ -32,7 +64,15 @@
       "title": {
         "en": "Outside",
         "nl": "Buiten",
-        "de": "Außen"
+        "de": "Außen",
+        "fr": "Extérieur",
+        "it": "Esterno",
+        "sv": "Ute",
+        "no": "Ute",
+        "es": "Exterior",
+        "da": "Udendørs",
+        "pl": "Na zewnątrz",
+        "ko": "외부"
       }
     },
     {
@@ -40,7 +80,15 @@
       "title": {
         "en": "Mode 3",
         "nl": "Mode 3",
-        "de": "Mode 3"
+        "de": "Mode 3",
+        "fr": "Mode 3",
+        "it": "Mode 3",
+        "sv": "Mode 3",
+        "no": "Mode 3",
+        "es": "Modo 3",
+        "da": "Mode 3",
+        "pl": "Mode 3",
+        "ko": "Mode 3"
       }
     }
   ],

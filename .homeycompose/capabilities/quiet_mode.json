@@ -3,12 +3,28 @@
   "title": {
     "en": "Quiet mode",
     "nl": "Stilte modus",
-    "de": "Ruhig-Modus"
+    "de": "Ruhig-Modus",
+    "fr": "Mode silencieux",
+    "it": "Modalità silenziosa",
+    "sv": "Tyst läge",
+    "no": "Stillemodus",
+    "es": "Modo silencioso",
+    "da": "Stille tilstand",
+    "pl": "Tryb cichy",
+    "ko": "저소음 모드"
   },
   "desc": {
     "en": "Mode of quiet",
     "nl": "Modus van stilte",
-    "de": "Modus der Ruhig"
+    "de": "Modus der Ruhig",
+    "fr": "Mode silencieux",
+    "it": "Modalità silenziosa",
+    "sv": "Läge för tystnad",
+    "no": "Modus for stillhet",
+    "es": "Modo de silencio",
+    "da": "Tilstand for stilhed",
+    "pl": "Tryb ciszy",
+    "ko": "저소음 모드"
   },
   "values": [
     {
@@ -16,7 +32,15 @@
       "title": {
         "en": "Off",
         "nl": "Uit",
-        "de": "Aus"
+        "de": "Aus",
+        "fr": "Arrêt",
+        "it": "Spento",
+        "sv": "Av",
+        "no": "Av",
+        "es": "Apagado",
+        "da": "Fra",
+        "pl": "Wył.",
+        "ko": "끄기"
       }
     },
     {
@@ -24,7 +48,15 @@
       "title": {
         "en": "Mode 1",
         "nl": "Mode 1",
-        "de": "Mode 1"
+        "de": "Mode 1",
+        "fr": "Mode 1",
+        "it": "Mode 1",
+        "sv": "Mode 1",
+        "no": "Mode 1",
+        "es": "Modo 1",
+        "da": "Mode 1",
+        "pl": "Mode 1",
+        "ko": "Mode 1"
       }
     },
     {
@@ -32,7 +64,15 @@
       "title": {
         "en": "Mode 2",
         "nl": "Mode 2",
-        "de": "Mode 2"
+        "de": "Mode 2",
+        "fr": "Mode 2",
+        "it": "Mode 2",
+        "sv": "Mode 2",
+        "no": "Mode 2",
+        "es": "Modo 2",
+        "da": "Mode 2",
+        "pl": "Mode 2",
+        "ko": "Mode 2"
       }
     },
     {
@@ -40,7 +80,15 @@
       "title": {
         "en": "Mode 3",
         "nl": "Mode 3",
-        "de": "Mode 3"
+        "de": "Mode 3",
+        "fr": "Mode 3",
+        "it": "Mode 3",
+        "sv": "Mode 3",
+        "no": "Mode 3",
+        "es": "Modo 3",
+        "da": "Mode 3",
+        "pl": "Mode 3",
+        "ko": "Mode 3"
       }
     }
   ],

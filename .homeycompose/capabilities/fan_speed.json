@@ -3,12 +3,28 @@
   "title": {
     "en": "Fan speed",
     "nl": "Ventilator snelheid",
-    "de": "Lüftergeschwindigkeit"
+    "de": "Lüftergeschwindigkeit",
+    "fr": "Vitesse du ventilateur",
+    "it": "Velocità della ventola",
+    "sv": "Fläkthastighet",
+    "no": "Viftehastighet",
+    "es": "Velocidad del ventilador",
+    "da": "Ventilatorhastighed",
+    "pl": "Prędkość wentylatora",
+    "ko": "팬 속도"
   },
   "desc": {
     "en": "Speed of the HVAC's fan",
     "nl": "Snelheid van de HVAC-ventilator",
-    "de": "Drehzahl der HVAC"
+    "de": "Drehzahl der HVAC",
+    "fr": "Vitesse du ventilateur du HVAC",
+    "it": "Velocità della ventola del condizionatore",
+    "sv": "Hastighet på HVAC:ns fläkt",
+    "no": "Hastigheten til klimaanleggets vifte",
+    "es": "Velocidad del ventilador del HVAC",
+    "da": "Hastigheden på HVAC'ens ventilator",
+    "pl": "Prędkość wentylatora klimatyzatora",
+    "ko": "HVAC 팬의 속도"
   },
   "values": [
     {
@@ -16,7 +32,15 @@
       "title": {
         "en": "Auto",
         "nl": "Automatisch",
-        "de": "Automatisch"
+        "de": "Automatisch",
+        "fr": "Automatique",
+        "it": "Automatico",
+        "sv": "Automatiskt",
+        "no": "Automatisk",
+        "es": "Automático",
+        "da": "Automatisk",
+        "pl": "Automatyczny",
+        "ko": "자동"
       }
     },
     {
@@ -24,7 +48,15 @@
       "title": {
         "en": "Low",
         "nl": "Laag",
-        "de": "Niedrig"
+        "de": "Niedrig",
+        "fr": "Faible",
+        "it": "Bassa",
+        "sv": "Låg",
+        "no": "Lav",
+        "es": "Bajo",
+        "da": "Lav",
+        "pl": "Niska",
+        "ko": "낮음"
       }
     },
     {
@@ -32,7 +64,15 @@
       "title": {
         "en": "Medium Low",
         "nl": "Gemiddeld Laag",
-        "de": "Mittel Niedrig"
+        "de": "Mittel Niedrig",
+        "fr": "Moyen faible",
+        "it": "Medio-bassa",
+        "sv": "Medellåg",
+        "no": "Middels lav",
+        "es": "Medio bajo",
+        "da": "Mellem lav",
+        "pl": "Średnio niska",
+        "ko": "중간 낮음"
       }
     },
     {
@@ -40,7 +80,15 @@
       "title": {
         "en": "Medium",
         "nl": "Gemiddeld",
-        "de": "Mittel"
+        "de": "Mittel",
+        "fr": "Moyen",
+        "it": "Media",
+        "sv": "Medel",
+        "no": "Middels",
+        "es": "Medio",
+        "da": "Mellem",
+        "pl": "Średnia",
+        "ko": "중간"
       }
     },
     {
@@ -48,7 +96,15 @@
       "title": {
         "en": "Medium High",
         "nl": "Gemiddeld hoog",
-        "de": "Mittel hoch"
+        "de": "Mittel hoch",
+        "fr": "Moyen élevé",
+        "it": "Medio-alta",
+        "sv": "Medelhög",
+        "no": "Middels høy",
+        "es": "Medio alto",
+        "da": "Mellem høj",
+        "pl": "Średnio wysoka",
+        "ko": "중간 높음"
       }
     },
     {
@@ -56,7 +112,15 @@
       "title": {
         "en": "High",
         "nl": "Hoog",
-        "de": "Hoch"
+        "de": "Hoch",
+        "fr": "Élevé",
+        "it": "Alta",
+        "sv": "Hög",
+        "no": "Høy",
+        "es": "Alto",
+        "da": "Høj",
+        "pl": "Wysoka",
+        "ko": "높음"
       }
     }
   ],

@@ -1,0 +1,21 @@
+{
+    "pair": {
+        "intro": {
+            "p1": "Prima di continuare devi collegare il condizionatore alla tua attuale rete WiFi.",
+            "p2": "Puoi farlo utilizzando la normale applicazione del produttore come <i>EWPE Smart</i> o tramite le istruzioni da riga di comando presenti nel README dell'app (utenti esperti)",
+            "static_ip_link": "Il mio dispositivo ha un indirizzo IP statico →"
+        },
+        "static_ip": {
+            "description": "Inserisci l'indirizzo IP statico del tuo condizionatore. Il dispositivo deve essere raggiungibile sulla tua rete.",
+            "label": "Indirizzo IP",
+            "skip_scan": "Salta la scansione UDP (usa quando UDP è bloccato)",
+            "name_label": "Nome del dispositivo (opzionale)",
+            "button": "Trova dispositivo",
+            "error_no_response": "Nessuna risposta dal dispositivo. Controlla l'indirizzo IP e assicurati che il dispositivo sia raggiungibile."
+        }
+    },
+    "error": {
+        "offline": "Il tuo condizionatore è andato offline. Tentativo di riconnessione in corso...",
+        "invalid_static_ip": "Indirizzo IP non valido. Inserisci un indirizzo IPv4 valido o lascia vuoto il campo per usare il rilevamento automatico."
+    }
+}

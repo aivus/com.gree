@@ -1,46 +1,36 @@
 This app adds support of Gree compatible HVACs to Homey.
 
 Supported Wi-Fi HVACs:
-* Gree
-* Argo
-* Cooper & Hunter
-* Daitsu
-* Tosot
-* Wilfa
-* Innova
-* Tadiran
-* Copmax
-* Syen
-* Trane
-* Proklima
-* Heiwa
-* Ekokai
-* Lessar
-* Altech
+• Gree
+• Argo
+• Cooper & Hunter
+• Daitsu
+• Tosot
+• Wilfa
+• Innova
+• Tadiran
+• Copmax
+• Syen
+• Trane
+• Proklima
+• Heiwa
+• Ekokai
+• Lessar
+• Altech
 
-If you found that your HVAC works and brand is not mentioned above please create an issue to add this brand as compatible
+If you found that your HVAC works and the brand is not mentioned above, please create an issue to add this brand as compatible.
 
-* This app is tested using Cooper & Hunter Alpha CH-S18FTXE
+This app is tested using Cooper & Hunter Alpha CH-S18FTXE.
 
-Notes
-* Fan speed
-** "Medium Low" and "Medium High" speed modes are not available for 3-speed HVACs
 
-* X-Fan
-** "X-Fan" mode might be turned off automatically by AC in case of switching HVAC mode from Dry and Cool.
-** That means you need to turn it on manually when switch to Dry/Cool mode if you want to use it.
+NOTES
 
-* Vertical swing
-** "Disabled"/"Default" position means that vertical swing will be stopped and left on the current position.
+Fan speed
+• "Medium Low" and "Medium High" speed modes are not available for 3-speed HVACs.
 
-* Health mode
-** "Health mode" (also known as "Cold plasma") enables the ionizer air purification feature on supported HVACs.
+X-Fan
+• "X-Fan" mode might be turned off automatically by the AC when switching HVAC mode from Dry and Cool.
+• That means you need to turn it on manually when switching to Dry/Cool mode if you want to use it.
 
-* Power save mode
-** "Power save mode" reduces the energy consumption of the HVAC.
-
-* Sleep mode
-** "Sleep mode" gradually changes the temperature in Cool, Heat and Dry mode for a comfortable sleep.
-
-* Fresh air mode
-** "Fresh air mode" controls the fresh air valve (ventilation) on HVACs equipped with it.
+Vertical swing
+• "Disabled"/"Default" position means that vertical swing will be stopped and left in the current position.
