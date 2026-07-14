@@ -17,5 +17,13 @@
     "error": {
         "offline": "Din HVAC har kopplats från. Försöker återansluta...",
         "invalid_static_ip": "Ogiltig IP-adress. Ange en giltig IPv4-adress eller lämna fältet tomt för att använda automatisk identifiering."
+    },
+    "deprecated": {
+        "notification": "Du använder ett föråldrat Gree-flödeskort (__card__). Det kommer att tas bort i en framtida uppdatering — byt till Homeys inbyggda flödeskort för termostatläge.",
+        "cards": {
+            "hvac_mode_changed": "HVAC-läge ändrat",
+            "hvac_mode_is": "HVAC-läge är …",
+            "set_hvac_mode": "Ställ in HVAC-läge"
+        }
     }
 }

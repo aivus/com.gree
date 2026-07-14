@@ -17,5 +17,13 @@
     "error": {
         "offline": "Twój klimatyzator przeszedł w tryb offline. Próba ponownego połączenia...",
         "invalid_static_ip": "Nieprawidłowy adres IP. Wprowadź prawidłowy adres IPv4 lub pozostaw pole puste, aby użyć automatycznego wykrywania."
+    },
+    "deprecated": {
+        "notification": "Używasz przestarzałej karty przepływu Gree (__card__). Zostanie ona usunięta w przyszłej aktualizacji — przełącz się na wbudowane karty przepływu trybu termostatu w Homey.",
+        "cards": {
+            "hvac_mode_changed": "Zmieniono tryb HVAC",
+            "hvac_mode_is": "Tryb HVAC jest …",
+            "set_hvac_mode": "Ustaw tryb HVAC"
+        }
     }
 }

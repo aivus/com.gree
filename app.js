@@ -16,9 +16,22 @@ class GreeHVAC extends Homey.App {
         });
         this.log('Gree HVAC app is up and running...');
 
+        // Track which deprecated flow cards we already warned about this session
+        this._deprecatedFlowCardsNotified = new Set();
+
+        // Notify users when their flows still use a deprecated flow card.
+        // The run listener is executed for every flow that uses the card, so
+        // this only fires for users who actually rely on it.
+        this.homey.flow.getDeviceTriggerCard('hvac_mode_changed')
+            .registerRunListener(() => {
+                this._notifyDeprecatedFlowCard('hvac_mode_changed').catch(this.error);
+                return true;
+            });
+
         // Register conditions for flows
         this.homey.flow.getConditionCard('hvac_mode_is')
             .registerRunListener((args, state) => {
+                this._notifyDeprecatedFlowCard('hvac_mode_is').catch(this.error);
                 const hvacMode = args.device.getCapabilityValue('thermostat_mode');
                 args.device.log('[condition]', '[current hvac mode]', hvacMode);
                 return args.mode === hvacMode;
@@ -111,6 +124,7 @@ class GreeHVAC extends Homey.App {
         // Register actions for flows
         this.homey.flow.getActionCard('set_hvac_mode')
             .registerRunListener((args, state) => {
+                this._notifyDeprecatedFlowCard('set_hvac_mode').catch(this.error);
                 return args.device.setCapabilityValue('thermostat_mode', args.mode)
                     .then(() => {
                         return args.device.triggerCapabilityListener('thermostat_mode', args.mode, {});
@@ -211,6 +225,29 @@ class GreeHVAC extends Homey.App {
                         return args.device.triggerCapabilityListener('fresh_air_mode', args.mode, {});
                     });
             });
+    }
+
+    /**
+     * Create a Homey timeline notification warning that a deprecated flow card
+     * is still in use. Shown once per card per app session.
+     *
+     * @param {string} cardId Deprecated flow card id
+     */
+    async _notifyDeprecatedFlowCard(cardId) {
+        if (this._deprecatedFlowCardsNotified.has(cardId)) {
+            return;
+        }
+        this._deprecatedFlowCardsNotified.add(cardId);
+
+        try {
+            await this.homey.notifications.createNotification({
+                excerpt: this.homey.__('deprecated.notification', {
+                    card: this.homey.__(`deprecated.cards.${cardId}`),
+                }),
+            });
+        } catch (err) {
+            this.error('Failed to create deprecated flow card notification', err);
+        }
     }
 
 }
