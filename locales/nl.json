@@ -2,7 +2,7 @@
     "pair": {
         "intro": {
             "p1": "Voordat je verder gaat, moet je de Airco verbinden met je huidige WiFi-netwerk.",
-            "p2": "Dit kan je doen met behulp van een app van de fabrikant zoals <i>EWPE Smart</i> of via de CLI zoals beschreven in de README van de app (geavanceerde gebruikers)",
+            "p2": "Dit kan je doen met behulp van een app van de fabrikant zoals <i>EWPE Smart</i>.",
             "static_ip_link": "Mijn apparaat heeft een statisch IP-adres →"
         },
         "static_ip": {

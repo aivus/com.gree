@@ -2,7 +2,7 @@
     "pair": {
         "intro": {
             "p1": "Zanim przejdziesz dalej, musisz połączyć klimatyzator z bieżącą siecią WiFi.",
-            "p2": "Można to zrobić za pomocą standardowej aplikacji producenta, takiej jak <i>EWPE Smart</i>, lub za pomocą instrukcji CLI z pliku README aplikacji (użytkownicy zaawansowani)",
+            "p2": "Można to zrobić za pomocą standardowej aplikacji producenta, takiej jak <i>EWPE Smart</i>.",
             "static_ip_link": "Moje urządzenie ma statyczny adres IP →"
         },
         "static_ip": {
