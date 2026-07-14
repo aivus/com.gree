@@ -17,5 +17,13 @@
     "error": {
         "offline": "Ton HVAC est passé hors ligne. Tentative de reconnexion...",
         "invalid_static_ip": "Adresse IP invalide. Saisis une adresse IPv4 valide ou laisse le champ vide pour utiliser la détection automatique."
+    },
+    "deprecated": {
+        "notification": "Vous utilisez une carte de flux Gree obsolète (__card__). Elle sera supprimée dans une future mise à jour — veuillez passer aux cartes de flux du mode thermostat intégrées à Homey.",
+        "cards": {
+            "hvac_mode_changed": "Mode HVAC modifié",
+            "hvac_mode_is": "Mode HVAC est …",
+            "set_hvac_mode": "Régler le mode HVAC"
+        }
     }
 }

@@ -17,5 +17,13 @@
     "error": {
         "offline": "Il tuo condizionatore è andato offline. Tentativo di riconnessione in corso...",
         "invalid_static_ip": "Indirizzo IP non valido. Inserisci un indirizzo IPv4 valido o lascia vuoto il campo per usare il rilevamento automatico."
+    },
+    "deprecated": {
+        "notification": "Stai usando una scheda di flusso Gree obsoleta (__card__). Verrà rimossa in un futuro aggiornamento — passa alle schede di flusso della modalità termostato integrate in Homey.",
+        "cards": {
+            "hvac_mode_changed": "Modalità HVAC cambiata",
+            "hvac_mode_is": "La modalità HVAC è …",
+            "set_hvac_mode": "Imposta la modalità HVAC"
+        }
     }
 }

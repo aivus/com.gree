@@ -88,6 +88,31 @@ class GreeHVACDevice extends Homey.Device {
     }
 
     /**
+     * Fire the deprecated `hvac_mode_changed` trigger and, when the card is
+     * actually used in a Flow, warn the user that it is deprecated.
+     *
+     * The card has no arguments, so Homey never invokes a run listener for it.
+     * Usage is instead detected with getArgumentValues(), which resolves to one
+     * entry per Flow that references the card for this device.
+     *
+     * @param {string} hvacMode
+     * @returns {Promise<void>}
+     * @private
+     */
+    async _triggerHvacModeChanged(hvacMode) {
+        await this._flowTriggerHvacModeChanged.trigger(this, { hvac_mode: hvacMode });
+
+        try {
+            const usages = await this._flowTriggerHvacModeChanged.getArgumentValues(this);
+            if (usages.length > 0) {
+                await this.homey.app._notifyDeprecatedFlowCard('hvac_mode_changed');
+            }
+        } catch (err) {
+            this.error('Failed to check deprecated hvac_mode_changed flow card usage', err);
+        }
+    }
+
+    /**
      * Device was removed from Homey. Cleanup, remove all listeners, disconnect from the HVAC
      */
     onDeleted() {
@@ -498,7 +523,7 @@ class GreeHVACDevice extends Homey.Device {
 
                 this.setCapabilityValue('thermostat_mode', thermostatValue).then(() => {
                     this.log('[update properties]', '[thermostat_mode]', thermostatValue);
-                    return this._flowTriggerHvacModeChanged.trigger(this, { hvac_mode: thermostatValue });
+                    return this._triggerHvacModeChanged(thermostatValue);
                 }).catch(this.error);
             }
 
@@ -541,7 +566,7 @@ class GreeHVACDevice extends Homey.Device {
 
                 this.setCapabilityValue('thermostat_mode', thermostatValue).then(() => {
                     this.log('[update properties]', '[thermostat_mode]', thermostatValue);
-                    return this._flowTriggerHvacModeChanged.trigger(this, { hvac_mode: thermostatValue });
+                    return this._triggerHvacModeChanged(thermostatValue);
                 }).catch(this.error);
             }
         }

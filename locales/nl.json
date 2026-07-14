@@ -17,5 +17,13 @@
     "error": {
         "offline": "Je Airco is offline gegaan. Aan het proberen opnieuw te verbinden...",
         "invalid_static_ip": "Ongeldig IP-adres. Voer een geldig IPv4-adres in of laat het veld leeg om automatische detectie te gebruiken."
+    },
+    "deprecated": {
+        "notification": "Je gebruikt een verouderde Gree-flowkaart (__card__). Deze wordt in een toekomstige update verwijderd — schakel over naar de ingebouwde thermostaatmodus-flowkaarten van Homey.",
+        "cards": {
+            "hvac_mode_changed": "HVAC modus veranderd",
+            "hvac_mode_is": "HVAC modus is …",
+            "set_hvac_mode": "Stel de HVAC-modus in"
+        }
     }
 }
