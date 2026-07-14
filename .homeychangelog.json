@@ -518,5 +518,18 @@
     "da": "Tilføjet en konfigurerbar indstilling for laveste måltemperatur (ned til 8 °C for understøttede varmepumper)",
     "pl": "Dodano konfigurowalne ustawienie minimalnej temperatury docelowej (do 8 °C dla obsługiwanych pomp ciepła)",
     "ko": "설정 가능한 최저 목표 온도 설정 추가 (지원되는 히트펌프의 경우 최저 8 °C)"
+  },
+  "1.1.1": {
+    "en": "Show a notification when a Flow uses a deprecated Gree HVAC-mode card, recommending Homey's built-in thermostat mode flow cards instead",
+    "nl": "Toon een melding wanneer een Flow een verouderde Gree HVAC-modus-kaart gebruikt en raad de ingebouwde thermostaatmodus-flowkaarten van Homey aan",
+    "de": "Benachrichtigung anzeigen, wenn ein Flow eine veraltete Gree-HVAC-Modus-Karte verwendet, und stattdessen die integrierten Thermostatmodus-Flow-Karten von Homey empfehlen",
+    "fr": "Afficher une notification lorsqu'un Flow utilise une carte de mode HVAC Gree obsolète et recommander les cartes de flux du mode thermostat intégrées à Homey",
+    "it": "Mostra una notifica quando un Flow usa una scheda della modalità HVAC di Gree obsoleta, consigliando le schede di flusso della modalità termostato integrate in Homey",
+    "sv": "Visa en avisering när ett Flow använder ett föråldrat Gree HVAC-lägeskort och rekommendera Homeys inbyggda flödeskort för termostatläge",
+    "no": "Vis et varsel når en Flow bruker et utdatert Gree HVAC-modus-kort, og anbefal Homeys innebygde flytkort for termostatmodus",
+    "es": "Muestra una notificación cuando un Flow usa una tarjeta de modo HVAC de Gree obsoleta y recomienda las tarjetas de flujo del modo termostato integradas en Homey",
+    "da": "Vis en notifikation, når et Flow bruger et forældet Gree HVAC-tilstandskort, og anbefal Homeys indbyggede flowkort til termostattilstand",
+    "pl": "Wyświetl powiadomienie, gdy Flow używa przestarzałej karty trybu HVAC Gree, i zalecaj wbudowane karty przepływu trybu termostatu w Homey",
+    "ko": "Flow가 더 이상 사용되지 않는 Gree HVAC 모드 카드를 사용할 때 알림을 표시하고 Homey의 기본 온도 조절기 모드 플로우 카드를 권장합니다"
   }
 }
