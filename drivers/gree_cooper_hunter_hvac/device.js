@@ -21,6 +21,12 @@ const CONNECT_TIMEOUT = 5000;
 // the connection is dropped and discovery is restarted (ms)
 const NO_RESPONSE_RECONNECT_TIMEOUT = 60 * 1000;
 
+// Bounds for the target_temperature capability. The minimum is user-configurable
+// via the "min_target_temperature" device setting (some heat pumps support 8 °C).
+const TARGET_TEMPERATURE_MAX = 30;
+const TARGET_TEMPERATURE_STEP = 1;
+const DEFAULT_MIN_TARGET_TEMPERATURE = 16;
+
 class GreeHVACDevice extends Homey.Device {
 
     /**
@@ -74,6 +80,7 @@ class GreeHVACDevice extends Homey.Device {
 
         await this._executeCapabilityMigrations();
         await this._executeDeviceClassMigration();
+        await this._applyTargetTemperatureRange();
         this._registerCapabilityListeners();
 
         this._markOffline();
@@ -114,22 +121,40 @@ class GreeHVACDevice extends Homey.Device {
         this._tryToDisconnect();
     }
 
-    onSettings({ oldSettings, newSettings, changedKeys }) {
-        if (!changedKeys.includes('static_ip')) {
-            return;
+    async onSettings({ oldSettings, newSettings, changedKeys }) {
+        if (changedKeys.includes('static_ip') && oldSettings.static_ip !== newSettings.static_ip) {
+            if (newSettings.static_ip && !isValidIpv4(newSettings.static_ip)) {
+                throw new Error(this.homey.__('error.invalid_static_ip'));
+            }
+
+            this.log('[settings]', 'Static IP changed. Reconnecting.');
+            this._staticIpSetting = newSettings.static_ip;
+            this.reconnect();
         }
 
-        if (oldSettings.static_ip === newSettings.static_ip) {
-            return;
+        if (changedKeys.includes('min_target_temperature')) {
+            this.log('[settings]', 'Minimum target temperature changed:', newSettings.min_target_temperature);
+            await this._applyTargetTemperatureRange(newSettings.min_target_temperature);
         }
+    }
 
-        if (newSettings.static_ip && !isValidIpv4(newSettings.static_ip)) {
-            throw new Error(this.homey.__('error.invalid_static_ip'));
-        }
+    /**
+     * Apply the target_temperature capability range. The minimum is taken from the
+     * "min_target_temperature" device setting so users can set lower temperatures
+     * (e.g. 8 °C for frost protection). Max and step remain constant.
+     *
+     * @param {number} [min] Explicit minimum (e.g. from onSettings' newSettings);
+     *                       falls back to the persisted setting when omitted.
+     * @private
+     */
+    async _applyTargetTemperatureRange(min) {
+        const minTemperature = min ?? this.getSetting('min_target_temperature') ?? DEFAULT_MIN_TARGET_TEMPERATURE;
 
-        this.log('[settings]', 'Static IP changed. Reconnecting.');
-        this._staticIpSetting = newSettings.static_ip;
-        this.reconnect();
+        await this.setCapabilityOptions('target_temperature', {
+            min: minTemperature,
+            max: TARGET_TEMPERATURE_MAX,
+            step: TARGET_TEMPERATURE_STEP,
+        });
     }
 
     /**
