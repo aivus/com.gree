@@ -52,35 +52,28 @@ describe('GreeHVAC app deprecated flow card notifications', () => {
         await app.onInit();
     });
 
-    test('registers a run listener for the deprecated hvac_mode_changed trigger', () => {
-        expect(app.homey.flow.getDeviceTriggerCard).toHaveBeenCalledWith('hvac_mode_changed');
-        expect(typeof runListeners.hvac_mode_changed).toBe('function');
+    test('does not register a run listener for the argument-less deprecated trigger', () => {
+        // The `hvac_mode_changed` trigger has no arguments, so Homey never
+        // invokes a run listener for it. Detection happens in the device via
+        // getArgumentValues() instead, so the app must not rely on a listener.
+        expect(runListeners.hvac_mode_changed).toBeUndefined();
     });
 
-    test('the trigger run listener returns true and notifies once', async () => {
-        expect(runListeners.hvac_mode_changed()).toBe(true);
-        // The notification is fire-and-forget, allow the microtask to resolve.
-        await Promise.resolve();
+    test('_notifyDeprecatedFlowCard shows a localised notification and reports to Sentry', async () => {
+        await app._notifyDeprecatedFlowCard('hvac_mode_changed');
 
         expect(createNotification).toHaveBeenCalledTimes(1);
         expect(createNotification).toHaveBeenCalledWith({
             excerpt: 'deprecated.notification:deprecated.cards.hvac_mode_changed',
         });
-    });
-
-    test('reports deprecated card usage to Sentry', async () => {
-        runListeners.hvac_mode_changed();
-        await Promise.resolve();
-
         expect(captureMessage).toHaveBeenCalledTimes(1);
         expect(captureMessage).toHaveBeenCalledWith('Deprecated flow card used: hvac_mode_changed');
     });
 
-    test('does not notify again for the same card within a session', async () => {
-        runListeners.hvac_mode_changed();
-        runListeners.hvac_mode_changed();
-        runListeners.hvac_mode_changed();
-        await Promise.resolve();
+    test('_notifyDeprecatedFlowCard only notifies once per card within a session', async () => {
+        await app._notifyDeprecatedFlowCard('hvac_mode_changed');
+        await app._notifyDeprecatedFlowCard('hvac_mode_changed');
+        await app._notifyDeprecatedFlowCard('hvac_mode_changed');
 
         expect(createNotification).toHaveBeenCalledTimes(1);
         expect(captureMessage).toHaveBeenCalledTimes(1);
@@ -119,7 +112,10 @@ describe('GreeHVAC app deprecated flow card notifications', () => {
     test('a failing notification does not throw out of the run listener', async () => {
         createNotification.mockRejectedValueOnce(new Error('boom'));
 
-        expect(() => runListeners.hvac_mode_changed()).not.toThrow();
+        expect(() => runListeners.hvac_mode_is({
+            device: { log: jest.fn(), getCapabilityValue: jest.fn(() => 'cool') },
+            mode: 'cool',
+        }, {})).not.toThrow();
         await Promise.resolve();
         await Promise.resolve();
 

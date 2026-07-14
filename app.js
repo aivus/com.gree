@@ -19,14 +19,12 @@ class GreeHVAC extends Homey.App {
         // Track which deprecated flow cards we already warned about this session
         this._deprecatedFlowCardsNotified = new Set();
 
-        // Notify users when their flows still use a deprecated flow card.
-        // The run listener is executed for every flow that uses the card, so
-        // this only fires for users who actually rely on it.
-        this.homey.flow.getDeviceTriggerCard('hvac_mode_changed')
-            .registerRunListener(() => {
-                this._notifyDeprecatedFlowCard('hvac_mode_changed').catch(this.error);
-                return true;
-            });
+        // Notify users when their flows still use a deprecated flow card. For
+        // condition and action cards this happens straight from their run
+        // listeners below. The deprecated `hvac_mode_changed` trigger has no
+        // arguments, so Homey never invokes a run listener for it; usage is
+        // instead detected via getArgumentValues() when the trigger fires (see
+        // GreeHVACDevice._triggerHvacModeChanged).
 
         // Register conditions for flows
         this.homey.flow.getConditionCard('hvac_mode_is')
@@ -239,6 +237,8 @@ class GreeHVAC extends Homey.App {
             return;
         }
         this._deprecatedFlowCardsNotified.add(cardId);
+
+        this.log(`Deprecated flow card used: ${cardId}`);
 
         // Report usage to Sentry so we can track which app versions/Homeys
         // still rely on deprecated cards. captureMessage de-duplicates equal
