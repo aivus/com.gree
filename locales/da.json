@@ -2,7 +2,7 @@
     "pair": {
         "intro": {
             "p1": "Før du fortsætter, skal du forbinde HVAC'en til dit nuværende WiFi-netværk.",
-            "p2": "Det kan gøres med en almindelig producentapp som <i>EWPE Smart</i> eller via CLI-instruktionen fra appens README (avancerede brugere)",
+            "p2": "Det kan gøres med en almindelig producentapp som <i>EWPE Smart</i>.",
             "static_ip_link": "Min enhed har en statisk IP-adresse →"
         },
         "static_ip": {

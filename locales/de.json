@@ -2,7 +2,7 @@
     "pair": {
         "intro": {
             "p1": "Bevor du fortfährst, musst du die Klimaanlage mit deinem aktuellen WLAN-Netzwerk verbinden.",
-            "p2": "Dies kann mit einer üblichen Hersteller-App wie <i>EWPE Smart</i> erfolgen oder über die CLI-Anleitung aus der README der App (für fortgeschrittene Benutzer)",
+            "p2": "Dies kann mit einer üblichen Hersteller-App wie <i>EWPE Smart</i> erfolgen.",
             "static_ip_link": "Mein Gerät hat eine statische IP-Adresse →"
         },
         "static_ip": {

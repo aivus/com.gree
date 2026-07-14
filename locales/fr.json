@@ -2,7 +2,7 @@
     "pair": {
         "intro": {
             "p1": "Avant de continuer, tu dois connecter le HVAC à ton réseau WiFi actuel.",
-            "p2": "Cela peut se faire à l'aide d'une application classique du fabricant comme <i>EWPE Smart</i> ou en suivant les instructions CLI du README de l'application (utilisateurs avancés)",
+            "p2": "Cela peut se faire à l'aide d'une application classique du fabricant comme <i>EWPE Smart</i>.",
             "static_ip_link": "Mon appareil a une adresse IP statique →"
         },
         "static_ip": {

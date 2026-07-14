@@ -2,7 +2,7 @@
     "pair": {
         "intro": {
             "p1": "Prima di continuare devi collegare il condizionatore alla tua attuale rete WiFi.",
-            "p2": "Puoi farlo utilizzando la normale applicazione del produttore come <i>EWPE Smart</i> o tramite le istruzioni da riga di comando presenti nel README dell'app (utenti esperti)",
+            "p2": "Puoi farlo utilizzando la normale applicazione del produttore come <i>EWPE Smart</i>.",
             "static_ip_link": "Il mio dispositivo ha un indirizzo IP statico →"
         },
         "static_ip": {

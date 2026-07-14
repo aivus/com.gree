@@ -2,7 +2,7 @@
     "pair": {
         "intro": {
             "p1": "Før du fortsetter må du koble klimaanlegget til ditt nåværende WiFi-nettverk.",
-            "p2": "Dette kan gjøres med en vanlig produsentapp som <i>EWPE Smart</i> eller ved hjelp av CLI-instruksjonene i appens README (avanserte brukere)",
+            "p2": "Dette kan gjøres med en vanlig produsentapp som <i>EWPE Smart</i>.",
             "static_ip_link": "Enheten min har en statisk IP-adresse →"
         },
         "static_ip": {
