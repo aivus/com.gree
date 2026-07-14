@@ -505,5 +505,18 @@
     "da": "Tilføjet understøttelse af tilstandene \"Power save\", \"Sleep\" og \"Fresh air\"",
     "pl": "Dodano obsługę trybów \"Power save\", \"Sleep\" i \"Fresh air\"",
     "ko": "\"Power save\", \"Sleep\" 및 \"Fresh air\" 모드 지원 추가"
+  },
+  "1.1.0": {
+    "en": "Add a configurable minimum target temperature setting (down to 8 °C for supported heat pumps)",
+    "nl": "Instelbare minimale doeltemperatuur toegevoegd (tot 8 °C voor ondersteunde warmtepompen)",
+    "de": "Einstellbare minimale Zieltemperatur hinzugefügt (bis zu 8 °C für unterstützte Wärmepumpen)",
+    "fr": "Ajout d'un réglage de température cible minimale configurable (jusqu'à 8 °C pour les pompes à chaleur prises en charge)",
+    "it": "Aggiunta un'impostazione configurabile della temperatura minima desiderata (fino a 8 °C per le pompe di calore supportate)",
+    "sv": "Lade till en konfigurerbar inställning för lägsta måltemperatur (ner till 8 °C för värmepumpar som stöds)",
+    "no": "La til en konfigurerbar innstilling for laveste måltemperatur (ned til 8 °C for støttede varmepumper)",
+    "es": "Se añade un ajuste configurable de temperatura objetivo mínima (hasta 8 °C en las bombas de calor compatibles)",
+    "da": "Tilføjet en konfigurerbar indstilling for laveste måltemperatur (ned til 8 °C for understøttede varmepumper)",
+    "pl": "Dodano konfigurowalne ustawienie minimalnej temperatury docelowej (do 8 °C dla obsługiwanych pomp ciepła)",
+    "ko": "설정 가능한 최저 목표 온도 설정 추가 (지원되는 히트펌프의 경우 최저 8 °C)"
   }
 }
