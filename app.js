@@ -229,7 +229,8 @@ class GreeHVAC extends Homey.App {
 
     /**
      * Create a Homey timeline notification warning that a deprecated flow card
-     * is still in use. Shown once per card per app session.
+     * is still in use, and report the usage to Sentry. Both happen once per
+     * card per app session.
      *
      * @param {string} cardId Deprecated flow card id
      */
@@ -238,6 +239,13 @@ class GreeHVAC extends Homey.App {
             return;
         }
         this._deprecatedFlowCardsNotified.add(cardId);
+
+        // Report usage to Sentry so we can track which app versions/Homeys
+        // still rely on deprecated cards. captureMessage de-duplicates equal
+        // messages per session, and the card id is part of the message so each
+        // deprecated card groups into its own Sentry issue.
+        this.homeyLog.captureMessage(`Deprecated flow card used: ${cardId}`)
+            .catch(this.error);
 
         try {
             await this.homey.notifications.createNotification({

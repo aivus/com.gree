@@ -5,6 +5,7 @@ describe('GreeHVAC app deprecated flow card notifications', () => {
     let app;
     let runListeners;
     let createNotification;
+    let captureMessage;
 
     function makeCard(id) {
         return {
@@ -19,6 +20,7 @@ describe('GreeHVAC app deprecated flow card notifications', () => {
 
         runListeners = {};
         createNotification = jest.fn().mockResolvedValue();
+        captureMessage = jest.fn().mockResolvedValue();
 
         jest.doMock('homey', () => ({
             App: class App {
@@ -28,7 +30,9 @@ describe('GreeHVAC app deprecated flow card notifications', () => {
             manifest: { version: '0.0.0-test' },
         }));
 
-        jest.doMock('homey-log', () => ({ Log: jest.fn() }));
+        jest.doMock('homey-log', () => ({
+            Log: jest.fn().mockImplementation(() => ({ captureMessage })),
+        }));
 
         GreeHVAC = require('../app');
 
@@ -64,6 +68,14 @@ describe('GreeHVAC app deprecated flow card notifications', () => {
         });
     });
 
+    test('reports deprecated card usage to Sentry', async () => {
+        runListeners.hvac_mode_changed();
+        await Promise.resolve();
+
+        expect(captureMessage).toHaveBeenCalledTimes(1);
+        expect(captureMessage).toHaveBeenCalledWith('Deprecated flow card used: hvac_mode_changed');
+    });
+
     test('does not notify again for the same card within a session', async () => {
         runListeners.hvac_mode_changed();
         runListeners.hvac_mode_changed();
@@ -71,6 +83,7 @@ describe('GreeHVAC app deprecated flow card notifications', () => {
         await Promise.resolve();
 
         expect(createNotification).toHaveBeenCalledTimes(1);
+        expect(captureMessage).toHaveBeenCalledTimes(1);
     });
 
     test('the deprecated condition notifies once and preserves its result', async () => {
