@@ -17,13 +17,5 @@
     "error": {
         "offline": "HVAC가 오프라인 상태가 되었습니다. 다시 연결하는 중...",
         "invalid_static_ip": "잘못된 IP 주소입니다. 유효한 IPv4 주소를 입력하거나 자동 검색을 사용하려면 필드를 비워 두세요."
-    },
-    "deprecated": {
-        "notification": "더 이상 사용되지 않는 Gree 플로우 카드(__card__)를 사용하고 있습니다. 향후 업데이트에서 제거될 예정이니 Homey의 기본 온도 조절기 모드 플로우 카드로 전환하세요.",
-        "cards": {
-            "hvac_mode_changed": "HVAC 모드 변경됨",
-            "hvac_mode_is": "HVAC 모드가 …",
-            "set_hvac_mode": "HVAC 모드 설정"
-        }
     }
 }

@@ -17,13 +17,5 @@
     "error": {
         "offline": "Klimaanlegget ditt ble frakoblet. Prøver å koble til på nytt...",
         "invalid_static_ip": "Ugyldig IP-adresse. Angi en gyldig IPv4-adresse eller la feltet stå tomt for å bruke automatisk oppdagelse."
-    },
-    "deprecated": {
-        "notification": "Du bruker et utdatert Gree-flytkort (__card__). Det vil bli fjernet i en fremtidig oppdatering — bytt til Homeys innebygde flytkort for termostatmodus.",
-        "cards": {
-            "hvac_mode_changed": "HVAC-modus endret",
-            "hvac_mode_is": "HVAC-modus er …",
-            "set_hvac_mode": "Still inn HVAC-modus"
-        }
     }
 }

@@ -65,7 +65,6 @@ class GreeHVACDevice extends Homey.Device {
         this.log('Gree device has been inited');
 
         this._flowTriggerHvacFanSpeedChanged = this.homey.flow.getDeviceTriggerCard('fan_speed_changed');
-        this._flowTriggerHvacModeChanged = this.homey.flow.getDeviceTriggerCard('hvac_mode_changed');
         this._flowTriggerTurboModeChanged = this.homey.flow.getDeviceTriggerCard('turbo_mode_changed');
         this._flowTriggerSafetyHeatingChanged = this.homey.flow.getDeviceTriggerCard('safety_heating_changed');
         this._flowTriggerHvacLightsChanged = this.homey.flow.getDeviceTriggerCard('lights_changed');
@@ -85,31 +84,6 @@ class GreeHVACDevice extends Homey.Device {
 
         this._markOffline();
         this._startLookingForDevice();
-    }
-
-    /**
-     * Fire the deprecated `hvac_mode_changed` trigger and, when the card is
-     * actually used in a Flow, warn the user that it is deprecated.
-     *
-     * The card has no arguments, so Homey never invokes a run listener for it.
-     * Usage is instead detected with getArgumentValues(), which resolves to one
-     * entry per Flow that references the card for this device.
-     *
-     * @param {string} hvacMode
-     * @returns {Promise<void>}
-     * @private
-     */
-    async _triggerHvacModeChanged(hvacMode) {
-        await this._flowTriggerHvacModeChanged.trigger(this, { hvac_mode: hvacMode });
-
-        try {
-            const usages = await this._flowTriggerHvacModeChanged.getArgumentValues(this);
-            if (usages.length > 0) {
-                await this.homey.app._notifyDeprecatedFlowCard('hvac_mode_changed');
-            }
-        } catch (err) {
-            this.error('Failed to check deprecated hvac_mode_changed flow card usage', err);
-        }
     }
 
     /**
@@ -523,7 +497,6 @@ class GreeHVACDevice extends Homey.Device {
 
                 this.setCapabilityValue('thermostat_mode', thermostatValue).then(() => {
                     this.log('[update properties]', '[thermostat_mode]', thermostatValue);
-                    return this._triggerHvacModeChanged(thermostatValue);
                 }).catch(this.error);
             }
 
@@ -566,7 +539,6 @@ class GreeHVACDevice extends Homey.Device {
 
                 this.setCapabilityValue('thermostat_mode', thermostatValue).then(() => {
                     this.log('[update properties]', '[thermostat_mode]', thermostatValue);
-                    return this._triggerHvacModeChanged(thermostatValue);
                 }).catch(this.error);
             }
         }

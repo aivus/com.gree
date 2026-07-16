@@ -16,25 +16,7 @@ class GreeHVAC extends Homey.App {
         });
         this.log('Gree HVAC app is up and running...');
 
-        // Track which deprecated flow cards we already warned about this session
-        this._deprecatedFlowCardsNotified = new Set();
-
-        // Notify users when their flows still use a deprecated flow card. For
-        // condition and action cards this happens straight from their run
-        // listeners below. The deprecated `hvac_mode_changed` trigger has no
-        // arguments, so Homey never invokes a run listener for it; usage is
-        // instead detected via getArgumentValues() when the trigger fires (see
-        // GreeHVACDevice._triggerHvacModeChanged).
-
         // Register conditions for flows
-        this.homey.flow.getConditionCard('hvac_mode_is')
-            .registerRunListener((args, state) => {
-                this._notifyDeprecatedFlowCard('hvac_mode_is').catch(this.error);
-                const hvacMode = args.device.getCapabilityValue('thermostat_mode');
-                args.device.log('[condition]', '[current hvac mode]', hvacMode);
-                return args.mode === hvacMode;
-            });
-
         this.homey.flow.getConditionCard('fan_speed_is')
             .registerRunListener((args, state) => {
                 const fanSpeed = args.device.getCapabilityValue('fan_speed');
@@ -120,15 +102,6 @@ class GreeHVAC extends Homey.App {
             });
 
         // Register actions for flows
-        this.homey.flow.getActionCard('set_hvac_mode')
-            .registerRunListener((args, state) => {
-                this._notifyDeprecatedFlowCard('set_hvac_mode').catch(this.error);
-                return args.device.setCapabilityValue('thermostat_mode', args.mode)
-                    .then(() => {
-                        return args.device.triggerCapabilityListener('thermostat_mode', args.mode, {});
-                    });
-            });
-
         this.homey.flow.getActionCard('set_fan_speed')
             .registerRunListener((args, state) => {
                 return args.device.setCapabilityValue('fan_speed', args.speed)
@@ -223,39 +196,6 @@ class GreeHVAC extends Homey.App {
                         return args.device.triggerCapabilityListener('fresh_air_mode', args.mode, {});
                     });
             });
-    }
-
-    /**
-     * Create a Homey timeline notification warning that a deprecated flow card
-     * is still in use, and report the usage to Sentry. Both happen once per
-     * card per app session.
-     *
-     * @param {string} cardId Deprecated flow card id
-     */
-    async _notifyDeprecatedFlowCard(cardId) {
-        if (this._deprecatedFlowCardsNotified.has(cardId)) {
-            return;
-        }
-        this._deprecatedFlowCardsNotified.add(cardId);
-
-        this.log(`Deprecated flow card used: ${cardId}`);
-
-        // Report usage to Sentry so we can track which app versions/Homeys
-        // still rely on deprecated cards. captureMessage de-duplicates equal
-        // messages per session, and the card id is part of the message so each
-        // deprecated card groups into its own Sentry issue.
-        this.homeyLog.captureMessage(`Deprecated flow card used: ${cardId}`)
-            .catch(this.error);
-
-        try {
-            await this.homey.notifications.createNotification({
-                excerpt: this.homey.__('deprecated.notification', {
-                    card: this.homey.__(`deprecated.cards.${cardId}`),
-                }),
-            });
-        } catch (err) {
-            this.error('Failed to create deprecated flow card notification', err);
-        }
     }
 
 }
