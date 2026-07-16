@@ -17,13 +17,5 @@
     "error": {
         "offline": "Tu HVAC se ha desconectado. Intentando reconectar...",
         "invalid_static_ip": "Dirección IP no válida. Introduce una dirección IPv4 válida o deja el campo vacío para usar la detección automática."
-    },
-    "deprecated": {
-        "notification": "Estás usando una tarjeta de flujo de Gree obsoleta (__card__). Se eliminará en una futura actualización; cambia a las tarjetas de flujo del modo termostato integradas en Homey.",
-        "cards": {
-            "hvac_mode_changed": "Modo HVAC cambiado",
-            "hvac_mode_is": "Modo HVAC es …",
-            "set_hvac_mode": "Establecer modo HVAC"
-        }
     }
 }

@@ -17,13 +17,5 @@
     "error": {
         "offline": "Deine Klimaanlage ist offline gegangen. Es wird versucht, die Verbindung wiederherzustellen...",
         "invalid_static_ip": "Ungültige IP-Adresse. Gib eine gültige IPv4-Adresse ein oder lass das Feld leer, um die automatische Erkennung zu verwenden."
-    },
-    "deprecated": {
-        "notification": "Sie verwenden eine veraltete Gree-Flow-Karte (__card__). Sie wird in einem zukünftigen Update entfernt – bitte wechseln Sie zu den integrierten Thermostatmodus-Flow-Karten von Homey.",
-        "cards": {
-            "hvac_mode_changed": "HVAC-Modus geändert",
-            "hvac_mode_is": "HVAC-Modus ist …",
-            "set_hvac_mode": "HVAC-Modus einstellen"
-        }
     }
 }
