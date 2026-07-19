@@ -337,17 +337,17 @@
             "ko": "폴링 시간 초과"
           },
           "hint": {
-            "en": "How long to wait for a status reply before the HVAC is treated as not responding. Increase it for slow or distant devices. Default: 3000 ms.",
-            "nl": "Hoe lang op een statusantwoord wordt gewacht voordat de HVAC als niet-reagerend wordt beschouwd. Verhoog dit voor trage of veraf gelegen apparaten. Standaard: 3000 ms.",
-            "de": "Wie lange auf eine Statusantwort gewartet wird, bevor die Klimaanlage als nicht reagierend gilt. Erhöhe den Wert für langsame oder weit entfernte Geräte. Standard: 3000 ms.",
-            "fr": "Durée d'attente d'une réponse d'état avant de considérer le climatiseur comme ne répondant pas. Augmentez-la pour les appareils lents ou éloignés. Par défaut : 3000 ms.",
-            "it": "Per quanto tempo attendere una risposta di stato prima di considerare il condizionatore non responsivo. Aumentalo per dispositivi lenti o distanti. Predefinito: 3000 ms.",
-            "sv": "Hur länge appen väntar på ett statussvar innan HVAC:en anses inte svara. Öka värdet för långsamma eller avlägsna enheter. Standard: 3000 ms.",
-            "no": "Hvor lenge appen venter på et statussvar før klimaanlegget regnes som at det ikke svarer. Øk verdien for trege eller fjerne enheter. Standard: 3000 ms.",
-            "es": "Cuánto tiempo se espera una respuesta de estado antes de considerar que el HVAC no responde. Auméntalo para dispositivos lentos o lejanos. Predeterminado: 3000 ms.",
-            "da": "Hvor længe der ventes på et statussvar, før HVAC'en betragtes som ikke-svarende. Forøg værdien for langsomme eller fjerne enheder. Standard: 3000 ms.",
-            "pl": "Jak długo czekać na odpowiedź o stanie, zanim klimatyzator zostanie uznany za nieodpowiadający. Zwiększ dla wolnych lub odległych urządzeń. Domyślnie: 3000 ms.",
-            "ko": "HVAC를 응답 없음으로 간주하기 전에 상태 응답을 기다리는 시간입니다. 느리거나 멀리 있는 기기의 경우 값을 늘리세요. 기본값: 3000 ms."
+            "en": "How long to wait for a status reply before the HVAC is treated as not responding. Increase it for slow or distant devices. Must stay below the polling interval. Default: 3000 ms.",
+            "nl": "Hoe lang op een statusantwoord wordt gewacht voordat de HVAC als niet-reagerend wordt beschouwd. Verhoog dit voor trage of veraf gelegen apparaten. Moet lager blijven dan het pollinginterval. Standaard: 3000 ms.",
+            "de": "Wie lange auf eine Statusantwort gewartet wird, bevor die Klimaanlage als nicht reagierend gilt. Erhöhe den Wert für langsame oder weit entfernte Geräte. Muss unter dem Abfrageintervall bleiben. Standard: 3000 ms.",
+            "fr": "Durée d'attente d'une réponse d'état avant de considérer le climatiseur comme ne répondant pas. Augmentez-la pour les appareils lents ou éloignés. Doit rester inférieur à l'intervalle d'interrogation. Par défaut : 3000 ms.",
+            "it": "Per quanto tempo attendere una risposta di stato prima di considerare il condizionatore non responsivo. Aumentalo per dispositivi lenti o distanti. Deve restare inferiore all'intervallo di polling. Predefinito: 3000 ms.",
+            "sv": "Hur länge appen väntar på ett statussvar innan HVAC:en anses inte svara. Öka värdet för långsamma eller avlägsna enheter. Måste hållas under pollningsintervallet. Standard: 3000 ms.",
+            "no": "Hvor lenge appen venter på et statussvar før klimaanlegget regnes som at det ikke svarer. Øk verdien for trege eller fjerne enheter. Må holdes under pollingintervallet. Standard: 3000 ms.",
+            "es": "Cuánto tiempo se espera una respuesta de estado antes de considerar que el HVAC no responde. Auméntalo para dispositivos lentos o lejanos. Debe mantenerse por debajo del intervalo de sondeo. Predeterminado: 3000 ms.",
+            "da": "Hvor længe der ventes på et statussvar, før HVAC'en betragtes som ikke-svarende. Forøg værdien for langsomme eller fjerne enheder. Skal holdes under pollinginterval. Standard: 3000 ms.",
+            "pl": "Jak długo czekać na odpowiedź o stanie, zanim klimatyzator zostanie uznany za nieodpowiadający. Zwiększ dla wolnych lub odległych urządzeń. Musi pozostać poniżej interwału odpytywania. Domyślnie: 3000 ms.",
+            "ko": "HVAC를 응답 없음으로 간주하기 전에 상태 응답을 기다리는 시간입니다. 느리거나 멀리 있는 기기의 경우 값을 늘리세요. 폴링 간격보다 작아야 합니다. 기본값: 3000 ms."
           },
           "value": 3000,
           "min": 500,

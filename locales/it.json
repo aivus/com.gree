@@ -17,7 +17,8 @@
     "error": {
         "offline": "Il tuo condizionatore è andato offline. Tentativo di riconnessione in corso...",
         "not_connected": "Il condizionatore non è connesso. La modifica non è stata applicata.",
-        "invalid_static_ip": "Indirizzo IP non valido. Inserisci un indirizzo IPv4 valido o lascia vuoto il campo per usare il rilevamento automatico."
+        "invalid_static_ip": "Indirizzo IP non valido. Inserisci un indirizzo IPv4 valido o lascia vuoto il campo per usare il rilevamento automatico.",
+        "polling_timeout_too_high": "Il timeout di polling deve essere inferiore all'intervallo di polling."
     },
     "deprecated": {
         "notification": "Stai usando una scheda di flusso Gree obsoleta (__card__). Verrà rimossa in un futuro aggiornamento — passa alle schede di flusso della modalità termostato integrate in Homey.",

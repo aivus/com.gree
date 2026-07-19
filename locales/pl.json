@@ -17,7 +17,8 @@
     "error": {
         "offline": "Twój klimatyzator przeszedł w tryb offline. Próba ponownego połączenia...",
         "not_connected": "Klimatyzator nie jest połączony. Nie można zastosować zmiany.",
-        "invalid_static_ip": "Nieprawidłowy adres IP. Wprowadź prawidłowy adres IPv4 lub pozostaw pole puste, aby użyć automatycznego wykrywania."
+        "invalid_static_ip": "Nieprawidłowy adres IP. Wprowadź prawidłowy adres IPv4 lub pozostaw pole puste, aby użyć automatycznego wykrywania.",
+        "polling_timeout_too_high": "Limit czasu odpytywania musi być niższy niż interwał odpytywania."
     },
     "deprecated": {
         "notification": "Używasz przestarzałej karty przepływu Gree (__card__). Zostanie ona usunięta w przyszłej aktualizacji — przełącz się na wbudowane karty przepływu trybu termostatu w Homey.",

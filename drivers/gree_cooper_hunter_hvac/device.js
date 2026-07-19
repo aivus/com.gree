@@ -174,6 +174,19 @@ class GreeHVACDevice extends Homey.Device {
     }
 
     async onSettings({ oldSettings, newSettings, changedKeys }) {
+        // Validate before applying anything: the client sends a status request
+        // every polling_interval and gives up after polling_timeout, so the
+        // timeout must stay below the interval or requests overlap and the
+        // no-response detection becomes unreliable.
+        if (changedKeys.includes(SETTING.POLLING_INTERVAL) || changedKeys.includes(SETTING.POLLING_TIMEOUT)) {
+            const interval = newSettings[SETTING.POLLING_INTERVAL] ?? DEFAULT_POLLING_INTERVAL;
+            const timeout = newSettings[SETTING.POLLING_TIMEOUT] ?? DEFAULT_POLLING_TIMEOUT;
+
+            if (timeout >= interval) {
+                throw new Error(this.homey.__('error.polling_timeout_too_high'));
+            }
+        }
+
         if (changedKeys.includes(SETTING.STATIC_IP) && oldSettings[SETTING.STATIC_IP] !== newSettings[SETTING.STATIC_IP]) {
             if (newSettings[SETTING.STATIC_IP] && !isValidIpv4(newSettings[SETTING.STATIC_IP])) {
                 throw new Error(this.homey.__('error.invalid_static_ip'));

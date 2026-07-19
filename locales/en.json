@@ -17,7 +17,8 @@
     "error": {
         "offline": "Your HVAC went offline. Trying to reconnect...",
         "not_connected": "The HVAC is not connected. The change could not be applied.",
-        "invalid_static_ip": "Invalid IP address. Enter a valid IPv4 address or leave the field empty to use auto-discovery."
+        "invalid_static_ip": "Invalid IP address. Enter a valid IPv4 address or leave the field empty to use auto-discovery.",
+        "polling_timeout_too_high": "Polling timeout must be lower than the polling interval."
     },
     "deprecated": {
         "notification": "You are using a deprecated Gree flow card (__card__). It will be removed in a future update — please switch to Homey's built-in thermostat mode flow cards.",

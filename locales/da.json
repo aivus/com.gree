@@ -17,7 +17,8 @@
     "error": {
         "offline": "Din HVAC gik offline. Forsøger at genoprette forbindelsen...",
         "not_connected": "HVAC er ikke tilsluttet. Ændringen kunne ikke anvendes.",
-        "invalid_static_ip": "Ugyldig IP-adresse. Indtast en gyldig IPv4-adresse, eller lad feltet være tomt for at bruge automatisk registrering."
+        "invalid_static_ip": "Ugyldig IP-adresse. Indtast en gyldig IPv4-adresse, eller lad feltet være tomt for at bruge automatisk registrering.",
+        "polling_timeout_too_high": "Polling-timeout skal være lavere end pollinginterval."
     },
     "deprecated": {
         "notification": "Du bruger et forældet Gree-flowkort (__card__). Det vil blive fjernet i en fremtidig opdatering — skift til Homeys indbyggede flowkort til termostattilstand.",

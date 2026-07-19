@@ -104,14 +104,55 @@ describe('GreeHVACDevice configurable timeouts', () => {
     describe('onSettings', () => {
         beforeEach(() => {
             device.getSetting = jest.fn(() => undefined);
+            device.homey = { __: jest.fn((key) => key) };
+        });
+
+        test('rejects a polling timeout that is not below the polling interval', async () => {
+            device._client = {};
+
+            await expect(device.onSettings({
+                oldSettings: { polling_interval: 3500, polling_timeout: 3000 },
+                newSettings: { polling_interval: 3500, polling_timeout: 3500 },
+                changedKeys: ['polling_timeout'],
+            })).rejects.toThrow('error.polling_timeout_too_high');
+
+            expect(device.reconnect).not.toHaveBeenCalled();
+        });
+
+        test('rejects lowering the polling interval to or below the polling timeout', async () => {
+            device._client = {};
+
+            await expect(device.onSettings({
+                oldSettings: { polling_interval: 3500, polling_timeout: 3000 },
+                newSettings: { polling_interval: 2000, polling_timeout: 3000 },
+                changedKeys: ['polling_interval'],
+            })).rejects.toThrow('error.polling_timeout_too_high');
+
+            expect(device.reconnect).not.toHaveBeenCalled();
+        });
+
+        test('accepts a polling timeout below the polling interval', async () => {
+            device._client = {};
+
+            await device.onSettings({
+                oldSettings: { polling_interval: 3500, polling_timeout: 3000 },
+                newSettings: { polling_interval: 3500, polling_timeout: 3400 },
+                changedKeys: ['polling_timeout'],
+            });
+
+            expect(device.reconnect).toHaveBeenCalledTimes(1);
         });
 
         const expectReconnectOnChange = async (key) => {
             device._client = {};
 
+            // A full, internally-valid set (polling_timeout < polling_interval)
+            // so the change under test is what drives the reconnect.
+            const base = { polling_interval: 9000, polling_timeout: 3000, connect_timeout: 5000 };
+
             await device.onSettings({
-                oldSettings: { [key]: 3000 },
-                newSettings: { [key]: 8000 },
+                oldSettings: { ...base, [key]: 1000 },
+                newSettings: base,
                 changedKeys: [key],
             });
 
