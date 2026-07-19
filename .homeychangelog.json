@@ -532,30 +532,17 @@
     "pl": "Wyświetl powiadomienie, gdy Flow używa przestarzałej karty trybu HVAC Gree, i zalecaj wbudowane karty przepływu trybu termostatu w Homey",
     "ko": "Flow가 더 이상 사용되지 않는 Gree HVAC 모드 카드를 사용할 때 알림을 표시하고 Homey의 기본 온도 조절기 모드 플로우 카드를 권장합니다"
   },
-  "1.1.2": {
-    "en": "Revert a control change and show a notification when the HVAC is offline, instead of silently pretending it was applied",
-    "nl": "Een bedieningswijziging terugdraaien en een melding tonen wanneer de airco offline is, in plaats van stilzwijgend te doen alsof deze is toegepast",
-    "de": "Eine Steuerungsänderung zurücksetzen und eine Benachrichtigung anzeigen, wenn die Klimaanlage offline ist, statt stillschweigend vorzugeben, sie sei übernommen worden",
-    "fr": "Annuler une modification de commande et afficher une notification lorsque le HVAC est hors ligne, au lieu de prétendre en silence qu'elle a été appliquée",
-    "it": "Annulla una modifica di controllo e mostra una notifica quando il condizionatore è offline, invece di far finta in silenzio che sia stata applicata",
-    "sv": "Ångra en kontrolländring och visa en avisering när HVAC är offline, i stället för att i tysthet låtsas att den tillämpades",
-    "no": "Angre en kontrollendring og vis et varsel når klimaanlegget er frakoblet, i stedet for stille å late som om den ble utført",
-    "es": "Revierte un cambio de control y muestra una notificación cuando el HVAC está desconectado, en lugar de fingir en silencio que se aplicó",
-    "da": "Fortryd en betjeningsændring og vis en notifikation, når HVAC er offline, i stedet for i stilhed at lade som om den blev anvendt",
-    "pl": "Cofnij zmianę sterowania i wyświetl powiadomienie, gdy klimatyzator jest offline, zamiast po cichu udawać, że została zastosowana",
-    "ko": "HVAC가 오프라인일 때 변경이 적용된 것처럼 조용히 처리하지 않고, 제어 변경을 되돌리고 알림을 표시합니다"
-  },
   "1.2.0": {
-    "en": "Add per-device connection timeout settings so slow HVACs are no longer shown as disconnected",
-    "nl": "Instellingen voor verbindingstime-outs per apparaat toegevoegd, zodat trage airco's niet langer als niet-verbonden worden weergegeven",
-    "de": "Einstellungen für Verbindungs-Timeouts pro Gerät hinzugefügt, damit langsame Klimaanlagen nicht mehr als getrennt angezeigt werden",
-    "fr": "Ajout de réglages de délai de connexion par appareil pour que les climatiseurs lents ne soient plus affichés comme déconnectés",
-    "it": "Aggiunte impostazioni di timeout della connessione per dispositivo, così i condizionatori lenti non vengono più mostrati come disconnessi",
-    "sv": "Lade till inställningar för anslutningstimeout per enhet så att långsamma HVAC:er inte längre visas som frånkopplade",
-    "no": "La til innstillinger for tilkoblingstidsavbrudd per enhet slik at trege klimaanlegg ikke lenger vises som frakoblet",
-    "es": "Se añaden ajustes de tiempo de espera de conexión por dispositivo para que los HVAC lentos ya no aparezcan como desconectados",
-    "da": "Tilføjet indstillinger for forbindelsestimeout pr. enhed, så langsomme HVAC'er ikke længere vises som afbrudt",
-    "pl": "Dodano ustawienia limitu czasu połączenia dla poszczególnych urządzeń, aby wolne klimatyzatory nie były już pokazywane jako odłączone",
-    "ko": "기기별 연결 시간 초과 설정을 추가하여 느린 HVAC가 더 이상 연결 끊김으로 표시되지 않도록 했습니다"
+    "en": "Revert a control change and show a notification when the HVAC is offline, instead of silently pretending it was applied\r\nAdd per-device connection timeout settings so slow HVACs are no longer shown as disconnected",
+    "nl": "Een bedieningswijziging terugdraaien en een melding tonen wanneer de airco offline is, in plaats van stilzwijgend te doen alsof deze is toegepast\r\nInstellingen voor verbindingstime-outs per apparaat toegevoegd, zodat trage airco's niet langer als niet-verbonden worden weergegeven",
+    "de": "Eine Steuerungsänderung zurücksetzen und eine Benachrichtigung anzeigen, wenn die Klimaanlage offline ist, statt stillschweigend vorzugeben, sie sei übernommen worden\r\nEinstellungen für Verbindungs-Timeouts pro Gerät hinzugefügt, damit langsame Klimaanlagen nicht mehr als getrennt angezeigt werden",
+    "fr": "Annuler une modification de commande et afficher une notification lorsque le HVAC est hors ligne, au lieu de prétendre en silence qu'elle a été appliquée\r\nAjout de réglages de délai de connexion par appareil pour que les climatiseurs lents ne soient plus affichés comme déconnectés",
+    "it": "Annulla una modifica di controllo e mostra una notifica quando il condizionatore è offline, invece di far finta in silenzio che sia stata applicata\r\nAggiunte impostazioni di timeout della connessione per dispositivo, così i condizionatori lenti non vengono più mostrati come disconnessi",
+    "sv": "Ångra en kontrolländring och visa en avisering när HVAC är offline, i stället för att i tysthet låtsas att den tillämpades\r\nLade till inställningar för anslutningstimeout per enhet så att långsamma HVAC:er inte längre visas som frånkopplade",
+    "no": "Angre en kontrollendring og vis et varsel når klimaanlegget er frakoblet, i stedet for stille å late som om den ble utført\r\nLa til innstillinger for tilkoblingstidsavbrudd per enhet slik at trege klimaanlegg ikke lenger vises som frakoblet",
+    "es": "Revierte un cambio de control y muestra una notificación cuando el HVAC está desconectado, en lugar de fingir en silencio que se aplicó\r\nSe añaden ajustes de tiempo de espera de conexión por dispositivo para que los HVAC lentos ya no aparezcan como desconectados",
+    "da": "Fortryd en betjeningsændring og vis en notifikation, når HVAC er offline, i stedet for i stilhed at lade som om den blev anvendt\r\nTilføjet indstillinger for forbindelsestimeout pr. enhed, så langsomme HVAC'er ikke længere vises som afbrudt",
+    "pl": "Cofnij zmianę sterowania i wyświetl powiadomienie, gdy klimatyzator jest offline, zamiast po cichu udawać, że została zastosowana\r\nDodano ustawienia limitu czasu połączenia dla poszczególnych urządzeń, aby wolne klimatyzatory nie były już pokazywane jako odłączone",
+    "ko": "HVAC가 오프라인일 때 변경이 적용된 것처럼 조용히 처리하지 않고, 제어 변경을 되돌리고 알림을 표시합니다\r\n기기별 연결 시간 초과 설정을 추가하여 느린 HVAC가 더 이상 연결 끊김으로 표시되지 않도록 했습니다"
   }
 }
