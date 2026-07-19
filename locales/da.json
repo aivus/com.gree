@@ -16,6 +16,7 @@
     },
     "error": {
         "offline": "Din HVAC gik offline. Forsøger at genoprette forbindelsen...",
+        "not_connected": "HVAC er ikke tilsluttet. Ændringen kunne ikke anvendes.",
         "invalid_static_ip": "Ugyldig IP-adresse. Indtast en gyldig IPv4-adresse, eller lad feltet være tomt for at bruge automatisk registrering."
     },
     "deprecated": {

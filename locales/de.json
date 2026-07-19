@@ -16,6 +16,7 @@
     },
     "error": {
         "offline": "Deine Klimaanlage ist offline gegangen. Es wird versucht, die Verbindung wiederherzustellen...",
+        "not_connected": "Die Klimaanlage ist nicht verbunden. Die Änderung konnte nicht angewendet werden.",
         "invalid_static_ip": "Ungültige IP-Adresse. Gib eine gültige IPv4-Adresse ein oder lass das Feld leer, um die automatische Erkennung zu verwenden."
     },
     "deprecated": {

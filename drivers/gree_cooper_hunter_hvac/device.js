@@ -266,10 +266,10 @@ class GreeHVACDevice extends Homey.Device {
      * @private
      */
     _registerCapabilityListeners() {
-        this.registerCapabilityListener('onoff', (value) => {
+        this.registerCapabilityListener('onoff', async (value) => {
             const rawValue = value ? HVAC.VALUE.power.on : HVAC.VALUE.power.off;
             this.log('[power mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this._setClientProperty(HVAC.PROPERTY.power, rawValue);
+            await this._setClientProperty(HVAC.PROPERTY.power, rawValue);
 
             if (rawValue === HVAC.VALUE.power.off) {
                 // Set Thermostat mode to Off.
@@ -283,173 +283,132 @@ class GreeHVACDevice extends Homey.Device {
                     this.setCapabilityValue('thermostat_mode', HVAC.VALUE.mode[mode]).catch(this.error);
                 }
             }
-
-            return Promise.resolve();
         });
 
-        this.registerCapabilityListener('target_temperature', (value) => {
+        this.registerCapabilityListener('target_temperature', async (value) => {
             this.log('[temperature change]', `Value: ${value}`);
-            this._setClientProperty(HVAC.PROPERTY.temperature, value);
-
-            return Promise.resolve();
+            await this._setClientProperty(HVAC.PROPERTY.temperature, value);
         });
 
-        this.registerCapabilityListener('thermostat_mode', (value) => {
+        this.registerCapabilityListener('thermostat_mode', async (value) => {
             if (value === 'off') {
                 this.log('[power mode change]', `Value: ${value}`);
-                this._setClientProperty(HVAC.PROPERTY.power, HVAC.VALUE.power.off);
+                await this._setClientProperty(HVAC.PROPERTY.power, HVAC.VALUE.power.off);
                 this.setCapabilityValue('onoff', false).catch(this.error);
             } else {
                 const rawValue = HVAC.VALUE.mode[value];
                 if (rawValue === undefined) {
-                    return Promise.reject(new Error(`Unknown thermostat_mode value: ${JSON.stringify(value)}`));
+                    throw new Error(`Unknown thermostat_mode value: ${JSON.stringify(value)}`);
                 }
                 this.log('[thermostat_mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-                this._setClientProperty(HVAC.PROPERTY.mode, rawValue);
+                await this._setClientProperty(HVAC.PROPERTY.mode, rawValue);
 
                 // Turn on if needed.
                 const properties = this._getCurrentClientProperties();
                 if (properties[HVAC.PROPERTY.power] === HVAC.VALUE.power.off) {
+                    await this._setClientProperty(HVAC.PROPERTY.power, HVAC.VALUE.power.on);
                     this.setCapabilityValue('onoff', true).catch(this.error);
-                    this._setClientProperty(HVAC.PROPERTY.power, HVAC.VALUE.power.on);
                 }
             }
-
-            return Promise.resolve();
         });
 
-        this.registerCapabilityListener('fan_speed', (value) => {
+        this.registerCapabilityListener('fan_speed', async (value) => {
             const rawValue = HVAC.VALUE.fanSpeed[value];
             if (rawValue === undefined) {
-                return Promise.reject(new Error(`Unknown fan speed value: ${JSON.stringify(value)}`));
+                throw new Error(`Unknown fan speed value: ${JSON.stringify(value)}`);
             }
             this.log('[fan speed change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            if (this._setClientProperty(HVAC.PROPERTY.fanSpeed, rawValue)) {
-                this._flowTriggerHvacFanSpeedChanged.trigger(this, { fan_speed: value });
-            }
-
-            return Promise.resolve();
+            await this._setClientProperty(HVAC.PROPERTY.fanSpeed, rawValue);
+            this._flowTriggerHvacFanSpeedChanged.trigger(this, { fan_speed: value });
         });
 
-        this.registerCapabilityListener('turbo_mode', (value) => {
+        this.registerCapabilityListener('turbo_mode', async (value) => {
             const rawValue = value ? HVAC.VALUE.turbo.on : HVAC.VALUE.turbo.off;
             this.log('[turbo mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            if (this._setClientProperty(HVAC.PROPERTY.turbo, rawValue)) {
-                this._flowTriggerTurboModeChanged.trigger(this, { turbo_mode: value });
-            }
-
-            return Promise.resolve();
+            await this._setClientProperty(HVAC.PROPERTY.turbo, rawValue);
+            this._flowTriggerTurboModeChanged.trigger(this, { turbo_mode: value });
         });
 
-        this.registerCapabilityListener('safety_heating', (value) => {
+        this.registerCapabilityListener('safety_heating', async (value) => {
             const rawValue = value ? HVAC.VALUE.safetyHeating.on : HVAC.VALUE.safetyHeating.off;
             this.log('[safety heating change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            if (this._setClientProperty(HVAC.PROPERTY.safetyHeating, rawValue)) {
-                this._flowTriggerSafetyHeatingChanged.trigger(this, { safety_heating: value });
-            }
-
-            return Promise.resolve();
+            await this._setClientProperty(HVAC.PROPERTY.safetyHeating, rawValue);
+            this._flowTriggerSafetyHeatingChanged.trigger(this, { safety_heating: value });
         });
 
-        this.registerCapabilityListener('lights', (value) => {
+        this.registerCapabilityListener('lights', async (value) => {
             const rawValue = value ? HVAC.VALUE.lights.on : HVAC.VALUE.lights.off;
             this.log('[lights change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            if (this._setClientProperty(HVAC.PROPERTY.lights, rawValue)) {
-                this._flowTriggerHvacLightsChanged.trigger(this, { lights: value });
-            }
-
-            return Promise.resolve();
+            await this._setClientProperty(HVAC.PROPERTY.lights, rawValue);
+            this._flowTriggerHvacLightsChanged.trigger(this, { lights: value });
         });
 
-        this.registerCapabilityListener('xfan_mode', (value) => {
+        this.registerCapabilityListener('xfan_mode', async (value) => {
             const rawValue = value ? HVAC.VALUE.blow.on : HVAC.VALUE.blow.off;
             this.log('[xfan mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            if (this._setClientProperty(HVAC.PROPERTY.blow, rawValue)) {
-                this._flowTriggerXFanModeChanged.trigger(this, { xfan_mode: value });
-            }
-
-            return Promise.resolve();
+            await this._setClientProperty(HVAC.PROPERTY.blow, rawValue);
+            this._flowTriggerXFanModeChanged.trigger(this, { xfan_mode: value });
         });
 
-        this.registerCapabilityListener('vertical_swing', (value) => {
+        this.registerCapabilityListener('vertical_swing', async (value) => {
             const rawValue = HVAC.VALUE.swingVert[value];
             if (rawValue === undefined) {
-                return Promise.reject(new Error(`Unknown vertical swing value: ${JSON.stringify(value)}`));
+                throw new Error(`Unknown vertical swing value: ${JSON.stringify(value)}`);
             }
             this.log('[vertical swing change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            if (this._setClientProperty(HVAC.PROPERTY.swingVert, rawValue)) {
-                this._flowTriggerVerticalSwingChanged.trigger(this, { vertical_swing: value });
-            }
-
-            return Promise.resolve();
+            await this._setClientProperty(HVAC.PROPERTY.swingVert, rawValue);
+            this._flowTriggerVerticalSwingChanged.trigger(this, { vertical_swing: value });
         });
 
-        this.registerCapabilityListener('horizontal_swing', (value) => {
+        this.registerCapabilityListener('horizontal_swing', async (value) => {
             const rawValue = HVAC.VALUE.swingHor[value];
             if (rawValue === undefined) {
-                return Promise.reject(new Error(`Unknown horizontal swing value: ${JSON.stringify(value)}`));
+                throw new Error(`Unknown horizontal swing value: ${JSON.stringify(value)}`);
             }
             this.log('[horizontal swing change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            if (this._setClientProperty(HVAC.PROPERTY.swingHor, rawValue)) {
-                this._flowTriggerHorizontalSwingChanged.trigger(this, { horizontal_swing: value });
-            }
-
-            return Promise.resolve();
+            await this._setClientProperty(HVAC.PROPERTY.swingHor, rawValue);
+            this._flowTriggerHorizontalSwingChanged.trigger(this, { horizontal_swing: value });
         });
 
-        this.registerCapabilityListener('quiet_mode', (value) => {
+        this.registerCapabilityListener('quiet_mode', async (value) => {
             const rawValue = HVAC.VALUE.quiet[value];
             if (rawValue === undefined) {
-                return Promise.reject(new Error(`Unknown quiet mode value: ${JSON.stringify(value)}`));
+                throw new Error(`Unknown quiet mode value: ${JSON.stringify(value)}`);
             }
             this.log('[quiet mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            if (this._setClientProperty(HVAC.PROPERTY.quiet, rawValue)) {
-                this._flowTriggerQuietModeChanged.trigger(this, { quiet_mode: value });
-            }
-
-            return Promise.resolve();
+            await this._setClientProperty(HVAC.PROPERTY.quiet, rawValue);
+            this._flowTriggerQuietModeChanged.trigger(this, { quiet_mode: value });
         });
 
-        this.registerCapabilityListener('health_mode', (value) => {
+        this.registerCapabilityListener('health_mode', async (value) => {
             const rawValue = value ? HVAC.VALUE.health.on : HVAC.VALUE.health.off;
             this.log('[health mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            this._setClientProperty(HVAC.PROPERTY.health, rawValue);
+            await this._setClientProperty(HVAC.PROPERTY.health, rawValue);
             this._flowTriggerHealthModeChanged.trigger(this, { health_mode: value });
-
-            return Promise.resolve();
         });
 
-        this.registerCapabilityListener('power_save_mode', (value) => {
+        this.registerCapabilityListener('power_save_mode', async (value) => {
             const rawValue = value ? HVAC.VALUE.powerSave.on : HVAC.VALUE.powerSave.off;
             this.log('[power save mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            if (this._setClientProperty(HVAC.PROPERTY.powerSave, rawValue)) {
-                this._flowTriggerPowerSaveModeChanged.trigger(this, { power_save_mode: value });
-            }
-
-            return Promise.resolve();
+            await this._setClientProperty(HVAC.PROPERTY.powerSave, rawValue);
+            this._flowTriggerPowerSaveModeChanged.trigger(this, { power_save_mode: value });
         });
 
-        this.registerCapabilityListener('sleep_mode', (value) => {
+        this.registerCapabilityListener('sleep_mode', async (value) => {
             const rawValue = value ? HVAC.VALUE.sleep.on : HVAC.VALUE.sleep.off;
             this.log('[sleep mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            if (this._setClientProperty(HVAC.PROPERTY.sleep, rawValue)) {
-                this._flowTriggerSleepModeChanged.trigger(this, { sleep_mode: value });
-            }
-
-            return Promise.resolve();
+            await this._setClientProperty(HVAC.PROPERTY.sleep, rawValue);
+            this._flowTriggerSleepModeChanged.trigger(this, { sleep_mode: value });
         });
 
-        this.registerCapabilityListener('fresh_air_mode', (value) => {
+        this.registerCapabilityListener('fresh_air_mode', async (value) => {
             const rawValue = HVAC.VALUE.air[value];
             if (rawValue === undefined) {
-                return Promise.reject(new Error(`Unknown fresh air mode value: ${JSON.stringify(value)}`));
+                throw new Error(`Unknown fresh air mode value: ${JSON.stringify(value)}`);
             }
             this.log('[fresh air mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
-            if (this._setClientProperty(HVAC.PROPERTY.air, rawValue)) {
-                this._flowTriggerFreshAirModeChanged.trigger(this, { fresh_air_mode: value });
-            }
-
-            return Promise.resolve();
+            await this._setClientProperty(HVAC.PROPERTY.air, rawValue);
+            this._flowTriggerFreshAirModeChanged.trigger(this, { fresh_air_mode: value });
         });
     }
 
@@ -1030,21 +989,32 @@ class GreeHVACDevice extends Homey.Device {
     }
 
     /**
-     * Set value for the specific property of the HVAC _client
+     * Set value for the specific property of the HVAC _client.
+     *
+     * Rejects when the command could not be delivered to the HVAC — either
+     * because the client is not connected, or because the underlying
+     * `setProperty` call fails (e.g. the socket is gone while the client
+     * object still exists during a reconnect, yielding ClientNotConnectedError).
+     * Capability listeners propagate this rejection so Homey reverts the
+     * capability to its previous value.
      *
      * @param property
      * @param value
-     * @returns {boolean} true when the command was sent to the HVAC
+     * @returns {Promise<void>} resolves once the command was sent to the HVAC
      * @private
      */
-    _setClientProperty(property, value) {
+    async _setClientProperty(property, value) {
         if (!this._client) {
             this.log('[set property]', `Skip setting "${property}". Client is not connected`);
-            return false;
+            throw new Error(this.homey.__('error.not_connected'));
         }
 
-        this._client.setProperty(property, value);
-        return true;
+        try {
+            await this._client.setProperty(property, value);
+        } catch (err) {
+            this.log('[set property]', `Failed to set "${property}":`, err.message);
+            throw new Error(this.homey.__('error.not_connected'));
+        }
     }
 
     reconnect() {

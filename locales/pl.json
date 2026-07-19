@@ -16,6 +16,7 @@
     },
     "error": {
         "offline": "Twój klimatyzator przeszedł w tryb offline. Próba ponownego połączenia...",
+        "not_connected": "Klimatyzator nie jest połączony. Nie można zastosować zmiany.",
         "invalid_static_ip": "Nieprawidłowy adres IP. Wprowadź prawidłowy adres IPv4 lub pozostaw pole puste, aby użyć automatycznego wykrywania."
     },
     "deprecated": {
