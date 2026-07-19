@@ -16,6 +16,7 @@
     },
     "error": {
         "offline": "Il tuo condizionatore è andato offline. Tentativo di riconnessione in corso...",
+        "not_connected": "Il condizionatore non è connesso. La modifica non è stata applicata.",
         "invalid_static_ip": "Indirizzo IP non valido. Inserisci un indirizzo IPv4 valido o lascia vuoto il campo per usare il rilevamento automatico."
     },
     "deprecated": {

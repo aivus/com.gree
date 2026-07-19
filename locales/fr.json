@@ -16,6 +16,7 @@
     },
     "error": {
         "offline": "Ton HVAC est passé hors ligne. Tentative de reconnexion...",
+        "not_connected": "Le HVAC n’est pas connecté. La modification n’a pas pu être appliquée.",
         "invalid_static_ip": "Adresse IP invalide. Saisis une adresse IPv4 valide ou laisse le champ vide pour utiliser la détection automatique."
     },
     "deprecated": {

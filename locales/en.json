@@ -16,6 +16,7 @@
     },
     "error": {
         "offline": "Your HVAC went offline. Trying to reconnect...",
+        "not_connected": "The HVAC is not connected. The change could not be applied.",
         "invalid_static_ip": "Invalid IP address. Enter a valid IPv4 address or leave the field empty to use auto-discovery."
     },
     "deprecated": {

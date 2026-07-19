@@ -60,11 +60,11 @@ describe('GreeHVACDevice power_save_mode listener', () => {
         expect(device._flowTriggerPowerSaveModeChanged.trigger).toHaveBeenCalledWith(device, { power_save_mode: false });
     });
 
-    test('does not trigger the flow when the client is not connected', async () => {
-        device._setClientProperty.mockReturnValue(false);
+    test('rejects and does not trigger the flow when the command fails', async () => {
+        device._setClientProperty.mockRejectedValue(new Error('error.not_connected'));
         device._registerCapabilityListeners();
 
-        await capabilityListeners.power_save_mode(true);
+        await expect(capabilityListeners.power_save_mode(true)).rejects.toThrow('error.not_connected');
 
         expect(device._flowTriggerPowerSaveModeChanged.trigger).not.toHaveBeenCalled();
     });

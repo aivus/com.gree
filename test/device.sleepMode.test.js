@@ -60,11 +60,11 @@ describe('GreeHVACDevice sleep_mode listener', () => {
         expect(device._flowTriggerSleepModeChanged.trigger).toHaveBeenCalledWith(device, { sleep_mode: false });
     });
 
-    test('does not trigger the flow when the client is not connected', async () => {
-        device._setClientProperty.mockReturnValue(false);
+    test('rejects and does not trigger the flow when the command fails', async () => {
+        device._setClientProperty.mockRejectedValue(new Error('error.not_connected'));
         device._registerCapabilityListeners();
 
-        await capabilityListeners.sleep_mode(true);
+        await expect(capabilityListeners.sleep_mode(true)).rejects.toThrow('error.not_connected');
 
         expect(device._flowTriggerSleepModeChanged.trigger).not.toHaveBeenCalled();
     });

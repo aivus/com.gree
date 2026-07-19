@@ -34,6 +34,7 @@ describe('GreeHVACDevice flow triggers from capability listeners', () => {
             capabilityListeners[capability] = listener;
         });
         device.log = jest.fn();
+        device.homey = { __: jest.fn((key) => key) };
         device._flowTriggerHvacFanSpeedChanged = { trigger: jest.fn() };
         device._flowTriggerTurboModeChanged = { trigger: jest.fn() };
 
@@ -41,7 +42,7 @@ describe('GreeHVACDevice flow triggers from capability listeners', () => {
     });
 
     test('fires the trigger when the command is sent to the HVAC', async () => {
-        device._client = { setProperty: jest.fn() };
+        device._client = { setProperty: jest.fn().mockResolvedValue() };
 
         await capabilityListeners.fan_speed('low');
 
@@ -50,18 +51,18 @@ describe('GreeHVACDevice flow triggers from capability listeners', () => {
             .toHaveBeenCalledWith(device, { fan_speed: 'low' });
     });
 
-    test('does not fire the trigger when the client is not connected', async () => {
+    test('rejects and does not fire the trigger when the client is not connected', async () => {
         device._client = null;
 
-        await capabilityListeners.fan_speed('low');
-        await capabilityListeners.turbo_mode(true);
+        await expect(capabilityListeners.fan_speed('low')).rejects.toThrow('error.not_connected');
+        await expect(capabilityListeners.turbo_mode(true)).rejects.toThrow('error.not_connected');
 
         expect(device._flowTriggerHvacFanSpeedChanged.trigger).not.toHaveBeenCalled();
         expect(device._flowTriggerTurboModeChanged.trigger).not.toHaveBeenCalled();
     });
 
     test('rejects an unknown fan speed value without sending the command or firing the trigger', async () => {
-        device._client = { setProperty: jest.fn() };
+        device._client = { setProperty: jest.fn().mockResolvedValue() };
 
         await expect(capabilityListeners.fan_speed(null))
             .rejects.toThrow('Unknown fan speed value: null');

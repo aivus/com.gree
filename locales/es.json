@@ -16,6 +16,7 @@
     },
     "error": {
         "offline": "Tu HVAC se ha desconectado. Intentando reconectar...",
+        "not_connected": "El HVAC no está conectado. No se pudo aplicar el cambio.",
         "invalid_static_ip": "Dirección IP no válida. Introduce una dirección IPv4 válida o deja el campo vacío para usar la detección automática."
     },
     "deprecated": {

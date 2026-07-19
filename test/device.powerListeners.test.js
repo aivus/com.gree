@@ -34,6 +34,7 @@ describe('GreeHVACDevice onoff/thermostat_mode listeners', () => {
             capabilityListeners[capability] = listener;
         });
         device.setCapabilityValue = jest.fn().mockResolvedValue();
+        device.homey = { __: jest.fn((key) => key) };
         device.log = jest.fn();
         device.error = jest.fn();
 
@@ -45,28 +46,30 @@ describe('GreeHVACDevice onoff/thermostat_mode listeners', () => {
             device._client = null;
         });
 
-        test('turning on does not throw', async () => {
-            await expect(capabilityListeners.onoff(true)).resolves.toBeUndefined();
+        test('turning on rejects so Homey reverts the capability', async () => {
+            await expect(capabilityListeners.onoff(true)).rejects.toThrow('error.not_connected');
 
-            // No known mode to restore, so thermostat_mode should stay untouched
-            expect(device.setCapabilityValue).not.toHaveBeenCalledWith('thermostat_mode', expect.anything());
+            // The command was not delivered, so no secondary state is written
+            expect(device.setCapabilityValue).not.toHaveBeenCalled();
         });
 
-        test('turning off does not throw and sets thermostat_mode to off', async () => {
-            await expect(capabilityListeners.onoff(false)).resolves.toBeUndefined();
+        test('turning off rejects and does not write thermostat_mode', async () => {
+            await expect(capabilityListeners.onoff(false)).rejects.toThrow('error.not_connected');
 
-            expect(device.setCapabilityValue).toHaveBeenCalledWith('thermostat_mode', 'off');
+            expect(device.setCapabilityValue).not.toHaveBeenCalled();
         });
 
-        test('changing thermostat_mode does not throw', async () => {
-            await expect(capabilityListeners.thermostat_mode('cool')).resolves.toBeUndefined();
+        test('changing thermostat_mode rejects', async () => {
+            await expect(capabilityListeners.thermostat_mode('cool')).rejects.toThrow('error.not_connected');
+
+            expect(device.setCapabilityValue).not.toHaveBeenCalled();
         });
     });
 
     describe('when the client is connected', () => {
         beforeEach(() => {
             device._client = {
-                setProperty: jest.fn(),
+                setProperty: jest.fn().mockResolvedValue(),
                 _properties: { Pow: 0, Mod: 1 },
                 _transformer: {
                     fromVendor: jest.fn(() => ({ power: 'off', mode: 'cool' })),
@@ -87,6 +90,39 @@ describe('GreeHVACDevice onoff/thermostat_mode listeners', () => {
             expect(device._client.setProperty).toHaveBeenCalledWith('mode', 'heat');
             expect(device._client.setProperty).toHaveBeenCalledWith('power', 'on');
             expect(device.setCapabilityValue).toHaveBeenCalledWith('onoff', true);
+        });
+    });
+
+    describe('when the client socket is gone but the client still exists', () => {
+        let unhandledRejection;
+
+        beforeEach(() => {
+            unhandledRejection = jest.fn();
+            process.on('unhandledRejection', unhandledRejection);
+
+            device._client = {
+                setProperty: jest.fn().mockRejectedValue(new Error('Client is not connected to the HVAC')),
+                _properties: {},
+                _transformer: {
+                    fromVendor: jest.fn(() => ({})),
+                },
+            };
+        });
+
+        afterEach(() => {
+            process.removeListener('unhandledRejection', unhandledRejection);
+        });
+
+        test('turning on rejects (so Homey reverts) without an unhandled rejection', async () => {
+            await expect(capabilityListeners.onoff(true)).rejects.toThrow('error.not_connected');
+
+            expect(device._client.setProperty).toHaveBeenCalledWith('power', 'on');
+            // The command failed, so thermostat_mode must not be written optimistically
+            expect(device.setCapabilityValue).not.toHaveBeenCalled();
+
+            // Let any pending microtasks settle and confirm nothing escaped unhandled.
+            await Promise.resolve();
+            expect(unhandledRejection).not.toHaveBeenCalled();
         });
     });
 });
