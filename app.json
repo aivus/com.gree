@@ -3696,17 +3696,30 @@
         {
           "type": "group",
           "label": {
-            "en": "Connection",
-            "nl": "Verbinding",
-            "de": "Verbindung",
-            "fr": "Connexion",
-            "it": "Connessione",
-            "sv": "Anslutning",
-            "no": "Tilkobling",
-            "es": "Conexión",
-            "da": "Forbindelse",
-            "pl": "Połączenie",
-            "ko": "연결"
+            "en": "Connection (advanced)",
+            "nl": "Verbinding (geavanceerd)",
+            "de": "Verbindung (erweitert)",
+            "fr": "Connexion (avancé)",
+            "it": "Connessione (avanzato)",
+            "sv": "Anslutning (avancerat)",
+            "no": "Tilkobling (avansert)",
+            "es": "Conexión (avanzado)",
+            "da": "Forbindelse (avanceret)",
+            "pl": "Połączenie (zaawansowane)",
+            "ko": "연결 (고급)"
+          },
+          "hint": {
+            "en": "Advanced settings. The defaults work for most devices — only change them if your HVAC is often shown as disconnected.",
+            "nl": "Geavanceerde instellingen. De standaardwaarden werken voor de meeste apparaten — wijzig ze alleen als je HVAC vaak als niet-verbonden wordt weergegeven.",
+            "de": "Erweiterte Einstellungen. Die Standardwerte funktionieren für die meisten Geräte — ändere sie nur, wenn deine Klimaanlage oft als getrennt angezeigt wird.",
+            "fr": "Réglages avancés. Les valeurs par défaut conviennent à la plupart des appareils — ne les modifiez que si votre climatiseur est souvent affiché comme déconnecté.",
+            "it": "Impostazioni avanzate. I valori predefiniti vanno bene per la maggior parte dei dispositivi — modificale solo se il condizionatore viene spesso mostrato come disconnesso.",
+            "sv": "Avancerade inställningar. Standardvärdena fungerar för de flesta enheter — ändra dem bara om din HVAC ofta visas som frånkopplad.",
+            "no": "Avanserte innstillinger. Standardverdiene fungerer for de fleste enheter — endre dem bare hvis klimaanlegget ofte vises som frakoblet.",
+            "es": "Ajustes avanzados. Los valores predeterminados funcionan para la mayoría de los dispositivos — cámbialos solo si tu HVAC aparece a menudo como desconectado.",
+            "da": "Avancerede indstillinger. Standardværdierne fungerer for de fleste enheder — ret dem kun, hvis din HVAC ofte vises som afbrudt.",
+            "pl": "Ustawienia zaawansowane. Wartości domyślne działają dla większości urządzeń — zmień je tylko, jeśli Twój klimatyzator jest często pokazywany jako odłączony.",
+            "ko": "고급 설정입니다. 기본값은 대부분의 기기에서 작동합니다 — HVAC가 자주 연결 끊김으로 표시되는 경우에만 변경하세요."
           },
           "children": [
             {
