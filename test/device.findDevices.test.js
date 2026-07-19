@@ -115,7 +115,7 @@ describe('GreeHVACDevice._findDevices()', () => {
 
         expect(device.reconnect).toHaveBeenCalledTimes(1);
         expect(device.reconnect).toHaveBeenCalledWith();
-        expect(device._staticIpSetting).toBe('192.168.1.51');
+        expect(device._pendingSettings.static_ip).toBe('192.168.1.51');
     });
 
     test('rejects an invalid static IP and does not reconnect', async () => {
@@ -129,7 +129,7 @@ describe('GreeHVACDevice._findDevices()', () => {
         })).rejects.toThrow('error.invalid_static_ip');
 
         expect(device.reconnect).not.toHaveBeenCalled();
-        expect(device._staticIpSetting).toBeUndefined();
+        expect(device._pendingSettings.static_ip).toBeUndefined();
     });
 
     test('applies the target temperature range when the minimum setting changes', async () => {
@@ -206,7 +206,7 @@ describe('GreeHVACDevice._findDevices()', () => {
 
         expect(device.reconnect).toHaveBeenCalledTimes(1);
         expect(device.reconnect).toHaveBeenCalledWith();
-        expect(device._staticIpSetting).toBe('');
+        expect(device._pendingSettings.static_ip).toBe('');
     });
 
     test('reconnect starts lookup', () => {
@@ -224,7 +224,7 @@ describe('GreeHVACDevice._findDevices()', () => {
 
     test('find devices uses pending empty static IP setting instead of old stored setting', () => {
         device.getSetting = jest.fn(() => '192.168.1.50');
-        device._staticIpSetting = '';
+        device._pendingSettings.static_ip = '';
         mockFinder.hvacs = [
             { message: { mac: 'aabb' }, remoteInfo: { address: '10.0.0.5' } },
         ];

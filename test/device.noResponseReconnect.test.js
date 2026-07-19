@@ -31,6 +31,7 @@ describe('GreeHVACDevice reconnect on prolonged no response', () => {
         };
         device.log = jest.fn();
         device.getAvailable = jest.fn(() => true);
+        device.getSetting = jest.fn(() => undefined);
         device._markOffline = jest.fn();
         device.reconnect = jest.fn();
     });

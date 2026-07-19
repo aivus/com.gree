@@ -8,18 +8,39 @@ const { compareBoolProperties, isValidIpv4 } = require('../../utils');
 // Interval between trying to found HVAC in network (ms)
 const LOOKING_FOR_DEVICE_TIME_INTERVAL = 5000;
 
+// Defaults for the user-configurable connection timeouts (ms). Each has a
+// matching device setting (see driver.compose.json "Connection" group); the
+// constant is used as a fallback for devices whose setting is not stored yet.
+
 // Interval between polling status from HVAC (ms)
-const POLLING_INTERVAL = 3500;
+const DEFAULT_POLLING_INTERVAL = 3500;
 
 // Timeout for response from the HVAC during polling process (ms)
-const POLLING_TIMEOUT = 3000;
+const DEFAULT_POLLING_TIMEOUT = 3000;
 
 // Timeout of the connection to the HVAC (ms)
-const CONNECT_TIMEOUT = 5000;
+const DEFAULT_CONNECT_TIMEOUT = 5000;
 
 // Time without any response from the HVAC after which
 // the connection is dropped and discovery is restarted (ms)
-const NO_RESPONSE_RECONNECT_TIMEOUT = 60 * 1000;
+const DEFAULT_NO_RESPONSE_RECONNECT_TIMEOUT = 60 * 1000;
+
+// Device setting ids (see driver.compose.json).
+const SETTING = {
+    STATIC_IP: 'static_ip',
+    MIN_TARGET_TEMPERATURE: 'min_target_temperature',
+    POLLING_INTERVAL: 'polling_interval',
+    POLLING_TIMEOUT: 'polling_timeout',
+    CONNECT_TIMEOUT: 'connect_timeout',
+    NO_RESPONSE_RECONNECT_TIMEOUT: 'no_response_reconnect_timeout',
+};
+
+// Settings that are only read when the HVAC client is constructed and therefore
+// require a reconnect to take effect.
+const CLIENT_TIMEOUT_SETTINGS = [SETTING.POLLING_INTERVAL, SETTING.POLLING_TIMEOUT, SETTING.CONNECT_TIMEOUT];
+
+// All user-configurable timeout settings (ms).
+const TIMEOUT_SETTINGS = [...CLIENT_TIMEOUT_SETTINGS, SETTING.NO_RESPONSE_RECONNECT_TIMEOUT];
 
 // Bounds for the target_temperature capability. The minimum is user-configurable
 // via the "min_target_temperature" device setting (some heat pumps support 8 °C).
@@ -54,12 +75,18 @@ class GreeHVACDevice extends Homey.Device {
     _noResponseReconnectTimeoutRef = null;
 
     /**
-     * Current static IP setting value, including pending updates from onSettings.
+     * Setting values pending from onSettings, keyed by setting id.
      *
-     * @type {string|undefined}
+     * onSettings runs before Homey persists the new settings but can trigger a
+     * synchronous reconnect; the new values are mirrored here so reads via
+     * _getSetting() pick them up instead of the stale getSetting() value.
+     * onSettings is the only place settings change, so this never diverges from
+     * the persisted state.
+     *
+     * @type {Object}
      * @private
      */
-    _staticIpSetting = undefined;
+    _pendingSettings = {};
 
     async onInit() {
         this.log('Gree device has been inited');
@@ -147,19 +174,36 @@ class GreeHVACDevice extends Homey.Device {
     }
 
     async onSettings({ oldSettings, newSettings, changedKeys }) {
-        if (changedKeys.includes('static_ip') && oldSettings.static_ip !== newSettings.static_ip) {
-            if (newSettings.static_ip && !isValidIpv4(newSettings.static_ip)) {
+        if (changedKeys.includes(SETTING.STATIC_IP) && oldSettings[SETTING.STATIC_IP] !== newSettings[SETTING.STATIC_IP]) {
+            if (newSettings[SETTING.STATIC_IP] && !isValidIpv4(newSettings[SETTING.STATIC_IP])) {
                 throw new Error(this.homey.__('error.invalid_static_ip'));
             }
 
             this.log('[settings]', 'Static IP changed. Reconnecting.');
-            this._staticIpSetting = newSettings.static_ip;
+            this._pendingSettings[SETTING.STATIC_IP] = newSettings[SETTING.STATIC_IP];
             this.reconnect();
         }
 
-        if (changedKeys.includes('min_target_temperature')) {
-            this.log('[settings]', 'Minimum target temperature changed:', newSettings.min_target_temperature);
-            await this._applyTargetTemperatureRange(newSettings.min_target_temperature);
+        if (changedKeys.includes(SETTING.MIN_TARGET_TEMPERATURE)) {
+            this.log('[settings]', 'Minimum target temperature changed:', newSettings[SETTING.MIN_TARGET_TEMPERATURE]);
+            await this._applyTargetTemperatureRange(newSettings[SETTING.MIN_TARGET_TEMPERATURE]);
+        }
+
+        // Mirror pending timeout values so the synchronous reconnect below (and
+        // the next no-response schedule) picks up the new values before Homey
+        // has persisted them.
+        const changedTimeouts = TIMEOUT_SETTINGS.filter((key) => changedKeys.includes(key));
+        changedTimeouts.forEach((key) => {
+            this._pendingSettings[key] = newSettings[key];
+        });
+
+        // The client-facing timeouts are only read when the HVAC client is
+        // constructed, so a reconnect is needed to rebuild it with the new
+        // values. The "no_response_reconnect_timeout" is read live on each
+        // schedule and needs no reconnect.
+        if (this._client && changedTimeouts.some((key) => CLIENT_TIMEOUT_SETTINGS.includes(key))) {
+            this.log('[settings]', 'Connection timeout changed. Reconnecting.');
+            this.reconnect();
         }
     }
 
@@ -173,7 +217,7 @@ class GreeHVACDevice extends Homey.Device {
      * @private
      */
     async _applyTargetTemperatureRange(min) {
-        const minTemperature = min ?? this.getSetting('min_target_temperature') ?? DEFAULT_MIN_TARGET_TEMPERATURE;
+        const minTemperature = min ?? this.getSetting(SETTING.MIN_TARGET_TEMPERATURE) ?? DEFAULT_MIN_TARGET_TEMPERATURE;
 
         await this.setCapabilityOptions('target_temperature', {
             min: minTemperature,
@@ -239,12 +283,31 @@ class GreeHVACDevice extends Homey.Device {
         this._client = new HVAC.Client({
             logLevel: 'debug',
             host,
-            pollingInterval: POLLING_INTERVAL,
-            pollingTimeout: POLLING_TIMEOUT,
-            connectTimeout: CONNECT_TIMEOUT,
+            pollingInterval: this._getSetting(SETTING.POLLING_INTERVAL, DEFAULT_POLLING_INTERVAL),
+            pollingTimeout: this._getSetting(SETTING.POLLING_TIMEOUT, DEFAULT_POLLING_TIMEOUT),
+            connectTimeout: this._getSetting(SETTING.CONNECT_TIMEOUT, DEFAULT_CONNECT_TIMEOUT),
         });
 
         this._registerClientListeners();
+    }
+
+    /**
+     * Read a device setting, preferring a value pending from onSettings over the
+     * persisted one (see _pendingSettings). Falls back to the given default when
+     * the resolved value is null/undefined, e.g. for devices paired before the
+     * setting existed.
+     *
+     * @param {string} id Setting id
+     * @param {*} [fallback] Value to use when the setting is null/undefined
+     * @returns {*}
+     * @private
+     */
+    _getSetting(id, fallback) {
+        const value = id in this._pendingSettings
+            ? this._pendingSettings[id]
+            : this.getSetting(id);
+
+        return value ?? fallback;
     }
 
     /**
@@ -663,11 +726,13 @@ class GreeHVACDevice extends Homey.Device {
             return;
         }
 
+        const timeout = this._getSetting(SETTING.NO_RESPONSE_RECONNECT_TIMEOUT, DEFAULT_NO_RESPONSE_RECONNECT_TIMEOUT);
+
         this._noResponseReconnectTimeoutRef = this.homey.setTimeout(() => {
             this._noResponseReconnectTimeoutRef = null;
             this.log('[no response]', 'No response for too long. Reconnecting');
             this.reconnect();
-        }, NO_RESPONSE_RECONNECT_TIMEOUT);
+        }, timeout);
     }
 
     /**
@@ -802,16 +867,13 @@ class GreeHVACDevice extends Homey.Device {
     }
 
     /**
-     * Get static IP from the latest settings state.
-     * onSettings runs before Homey stores new settings, so pending values are cached locally.
+     * Get static IP from the latest settings state (pending value included).
      *
      * @returns {string}
      * @private
      */
     _getStaticIpSetting() {
-        const value = this._staticIpSetting !== undefined
-            ? this._staticIpSetting
-            : this.getSetting('static_ip');
+        const value = this._getSetting(SETTING.STATIC_IP);
 
         // The user may have entered the IP with surrounding whitespace
         return typeof value === 'string' ? value.trim() : value;
