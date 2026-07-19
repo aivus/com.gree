@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
-  "id": "com.gree",
-  "version": "1.1.2",
+  "id": "com.gree.test",
+  "version": "1.2.0",
   "compatibility": ">=12.0.1",
   "sdk": 3,
   "brandColor": "#ff732e",
@@ -3689,6 +3689,168 @@
               "step": 1,
               "units": {
                 "en": "°C"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Connection (advanced)",
+            "nl": "Verbinding (geavanceerd)",
+            "de": "Verbindung (erweitert)",
+            "fr": "Connexion (avancé)",
+            "it": "Connessione (avanzato)",
+            "sv": "Anslutning (avancerat)",
+            "no": "Tilkobling (avansert)",
+            "es": "Conexión (avanzado)",
+            "da": "Forbindelse (avanceret)",
+            "pl": "Połączenie (zaawansowane)",
+            "ko": "연결 (고급)"
+          },
+          "children": [
+            {
+              "id": "polling_interval",
+              "type": "number",
+              "label": {
+                "en": "Polling interval",
+                "nl": "Pollinginterval",
+                "de": "Abfrageintervall",
+                "fr": "Intervalle d'interrogation",
+                "it": "Intervallo di polling",
+                "sv": "Pollningsintervall",
+                "no": "Pollingintervall",
+                "es": "Intervalo de sondeo",
+                "da": "Pollinginterval",
+                "pl": "Interwał odpytywania",
+                "ko": "폴링 간격"
+              },
+              "hint": {
+                "en": "How often the app asks the HVAC for its current status. Increase it if the device is often shown as disconnected. Default: 3500 ms.",
+                "nl": "Hoe vaak de app de huidige status van de HVAC opvraagt. Verhoog dit als het apparaat vaak als niet-verbonden wordt weergegeven. Standaard: 3500 ms.",
+                "de": "Wie oft die App den aktuellen Status der Klimaanlage abfragt. Erhöhe den Wert, wenn das Gerät oft als getrennt angezeigt wird. Standard: 3500 ms.",
+                "fr": "Fréquence à laquelle l'application demande l'état actuel du climatiseur. Augmentez-la si l'appareil est souvent affiché comme déconnecté. Par défaut : 3500 ms.",
+                "it": "Con quale frequenza l'app richiede lo stato attuale del condizionatore. Aumentalo se il dispositivo viene spesso mostrato come disconnesso. Predefinito: 3500 ms.",
+                "sv": "Hur ofta appen frågar HVAC:en om dess aktuella status. Öka värdet om enheten ofta visas som frånkopplad. Standard: 3500 ms.",
+                "no": "Hvor ofte appen spør klimaanlegget om gjeldende status. Øk verdien hvis enheten ofte vises som frakoblet. Standard: 3500 ms.",
+                "es": "Con qué frecuencia la app solicita el estado actual del HVAC. Auméntalo si el dispositivo aparece a menudo como desconectado. Predeterminado: 3500 ms.",
+                "da": "Hvor ofte appen beder HVAC'en om dens aktuelle status. Forøg værdien, hvis enheden ofte vises som afbrudt. Standard: 3500 ms.",
+                "pl": "Jak często aplikacja odpytuje klimatyzator o bieżący stan. Zwiększ tę wartość, jeśli urządzenie często pokazywane jest jako odłączone. Domyślnie: 3500 ms.",
+                "ko": "앱이 HVAC에 현재 상태를 요청하는 빈도입니다. 기기가 자주 연결 끊김으로 표시되면 값을 늘리세요. 기본값: 3500 ms."
+              },
+              "value": 3500,
+              "min": 1000,
+              "step": 100,
+              "units": {
+                "en": "ms"
+              }
+            },
+            {
+              "id": "polling_timeout",
+              "type": "number",
+              "label": {
+                "en": "Polling timeout",
+                "nl": "Pollingtime-out",
+                "de": "Abfrage-Timeout",
+                "fr": "Délai d'interrogation",
+                "it": "Timeout di polling",
+                "sv": "Pollningstimeout",
+                "no": "Polling-tidsavbrudd",
+                "es": "Tiempo de espera de sondeo",
+                "da": "Polling-timeout",
+                "pl": "Limit czasu odpytywania",
+                "ko": "폴링 시간 초과"
+              },
+              "hint": {
+                "en": "How long to wait for a status reply before the HVAC is treated as not responding. Increase it for slow or distant devices. Must stay below the polling interval. Default: 3000 ms.",
+                "nl": "Hoe lang op een statusantwoord wordt gewacht voordat de HVAC als niet-reagerend wordt beschouwd. Verhoog dit voor trage of veraf gelegen apparaten. Moet lager blijven dan het pollinginterval. Standaard: 3000 ms.",
+                "de": "Wie lange auf eine Statusantwort gewartet wird, bevor die Klimaanlage als nicht reagierend gilt. Erhöhe den Wert für langsame oder weit entfernte Geräte. Muss unter dem Abfrageintervall bleiben. Standard: 3000 ms.",
+                "fr": "Durée d'attente d'une réponse d'état avant de considérer le climatiseur comme ne répondant pas. Augmentez-la pour les appareils lents ou éloignés. Doit rester inférieur à l'intervalle d'interrogation. Par défaut : 3000 ms.",
+                "it": "Per quanto tempo attendere una risposta di stato prima di considerare il condizionatore non responsivo. Aumentalo per dispositivi lenti o distanti. Deve restare inferiore all'intervallo di polling. Predefinito: 3000 ms.",
+                "sv": "Hur länge appen väntar på ett statussvar innan HVAC:en anses inte svara. Öka värdet för långsamma eller avlägsna enheter. Måste hållas under pollningsintervallet. Standard: 3000 ms.",
+                "no": "Hvor lenge appen venter på et statussvar før klimaanlegget regnes som at det ikke svarer. Øk verdien for trege eller fjerne enheter. Må holdes under pollingintervallet. Standard: 3000 ms.",
+                "es": "Cuánto tiempo se espera una respuesta de estado antes de considerar que el HVAC no responde. Auméntalo para dispositivos lentos o lejanos. Debe mantenerse por debajo del intervalo de sondeo. Predeterminado: 3000 ms.",
+                "da": "Hvor længe der ventes på et statussvar, før HVAC'en betragtes som ikke-svarende. Forøg værdien for langsomme eller fjerne enheder. Skal holdes under pollinginterval. Standard: 3000 ms.",
+                "pl": "Jak długo czekać na odpowiedź o stanie, zanim klimatyzator zostanie uznany za nieodpowiadający. Zwiększ dla wolnych lub odległych urządzeń. Musi pozostać poniżej interwału odpytywania. Domyślnie: 3000 ms.",
+                "ko": "HVAC를 응답 없음으로 간주하기 전에 상태 응답을 기다리는 시간입니다. 느리거나 멀리 있는 기기의 경우 값을 늘리세요. 폴링 간격보다 작아야 합니다. 기본값: 3000 ms."
+              },
+              "value": 3000,
+              "min": 500,
+              "step": 100,
+              "units": {
+                "en": "ms"
+              }
+            },
+            {
+              "id": "connect_timeout",
+              "type": "number",
+              "label": {
+                "en": "Connection timeout",
+                "nl": "Verbindingstime-out",
+                "de": "Verbindungs-Timeout",
+                "fr": "Délai de connexion",
+                "it": "Timeout di connessione",
+                "sv": "Anslutningstimeout",
+                "no": "Tilkoblingstidsavbrudd",
+                "es": "Tiempo de espera de conexión",
+                "da": "Forbindelsestimeout",
+                "pl": "Limit czasu połączenia",
+                "ko": "연결 시간 초과"
+              },
+              "hint": {
+                "en": "How long to wait when establishing a connection to the HVAC before retrying. Default: 5000 ms.",
+                "nl": "Hoe lang wordt gewacht bij het tot stand brengen van een verbinding met de HVAC voordat opnieuw wordt geprobeerd. Standaard: 5000 ms.",
+                "de": "Wie lange beim Aufbau einer Verbindung zur Klimaanlage gewartet wird, bevor ein neuer Versuch erfolgt. Standard: 5000 ms.",
+                "fr": "Durée d'attente lors de l'établissement d'une connexion au climatiseur avant de réessayer. Par défaut : 5000 ms.",
+                "it": "Per quanto tempo attendere durante l'instaurazione di una connessione al condizionatore prima di riprovare. Predefinito: 5000 ms.",
+                "sv": "Hur länge appen väntar när en anslutning till HVAC:en upprättas innan den försöker igen. Standard: 5000 ms.",
+                "no": "Hvor lenge appen venter når en tilkobling til klimaanlegget opprettes før den prøver igjen. Standard: 5000 ms.",
+                "es": "Cuánto tiempo se espera al establecer una conexión con el HVAC antes de reintentar. Predeterminado: 5000 ms.",
+                "da": "Hvor længe der ventes ved oprettelse af en forbindelse til HVAC'en, før der forsøges igen. Standard: 5000 ms.",
+                "pl": "Jak długo czekać podczas nawiązywania połączenia z klimatyzatorem przed ponowną próbą. Domyślnie: 5000 ms.",
+                "ko": "HVAC에 연결을 설정할 때 다시 시도하기 전에 기다리는 시간입니다. 기본값: 5000 ms."
+              },
+              "value": 5000,
+              "min": 1000,
+              "step": 100,
+              "units": {
+                "en": "ms"
+              }
+            },
+            {
+              "id": "no_response_reconnect_timeout",
+              "type": "number",
+              "label": {
+                "en": "Reconnect after no response",
+                "nl": "Opnieuw verbinden na geen reactie",
+                "de": "Erneut verbinden nach keiner Antwort",
+                "fr": "Reconnexion après absence de réponse",
+                "it": "Riconnessione dopo nessuna risposta",
+                "sv": "Återanslut efter uteblivet svar",
+                "no": "Koble til på nytt etter manglende svar",
+                "es": "Reconectar tras falta de respuesta",
+                "da": "Genopret forbindelse efter manglende svar",
+                "pl": "Ponowne łączenie po braku odpowiedzi",
+                "ko": "응답 없을 때 재연결"
+              },
+              "hint": {
+                "en": "How long the HVAC may stay unresponsive before the app drops the connection and restarts discovery (helps recover when the device changes its IP address). Default: 60000 ms.",
+                "nl": "Hoe lang de HVAC niet mag reageren voordat de app de verbinding verbreekt en de detectie herstart (helpt bij herstel wanneer het apparaat zijn IP-adres wijzigt). Standaard: 60000 ms.",
+                "de": "Wie lange die Klimaanlage nicht reagieren darf, bevor die App die Verbindung trennt und die Erkennung neu startet (hilft bei der Wiederherstellung, wenn das Gerät seine IP-Adresse ändert). Standard: 60000 ms.",
+                "fr": "Durée pendant laquelle le climatiseur peut rester sans réponse avant que l'application ne coupe la connexion et relance la détection (utile lorsque l'appareil change d'adresse IP). Par défaut : 60000 ms.",
+                "it": "Per quanto tempo il condizionatore può restare non responsivo prima che l'app interrompa la connessione e riavvii il rilevamento (aiuta il ripristino quando il dispositivo cambia indirizzo IP). Predefinito: 60000 ms.",
+                "sv": "Hur länge HVAC:en får vara oåtkomlig innan appen bryter anslutningen och startar om identifieringen (hjälper till att återställa när enheten byter IP-adress). Standard: 60000 ms.",
+                "no": "Hvor lenge klimaanlegget kan være uten respons før appen bryter tilkoblingen og starter oppdagelsen på nytt (hjelper med gjenoppretting når enheten endrer IP-adresse). Standard: 60000 ms.",
+                "es": "Cuánto tiempo puede el HVAC permanecer sin responder antes de que la app corte la conexión y reinicie la detección (ayuda a recuperarse cuando el dispositivo cambia su dirección IP). Predeterminado: 60000 ms.",
+                "da": "Hvor længe HVAC'en må være uden svar, før appen afbryder forbindelsen og genstarter registreringen (hjælper med at genoprette, når enheden ændrer sin IP-adresse). Standard: 60000 ms.",
+                "pl": "Jak długo klimatyzator może nie odpowiadać, zanim aplikacja rozłączy połączenie i ponownie uruchomi wykrywanie (pomaga w odzyskiwaniu, gdy urządzenie zmienia adres IP). Domyślnie: 60000 ms.",
+                "ko": "HVAC가 응답하지 않는 상태로 있을 수 있는 시간으로, 이후 앱이 연결을 끊고 검색을 다시 시작합니다(기기가 IP 주소를 변경할 때 복구에 도움). 기본값: 60000 ms."
+              },
+              "value": 60000,
+              "min": 10000,
+              "step": 1000,
+              "units": {
+                "en": "ms"
               }
             }
           ]

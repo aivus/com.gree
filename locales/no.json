@@ -17,7 +17,8 @@
     "error": {
         "offline": "Klimaanlegget ditt ble frakoblet. Prøver å koble til på nytt...",
         "not_connected": "Klimaanlegget er ikke tilkoblet. Endringen kunne ikke utføres.",
-        "invalid_static_ip": "Ugyldig IP-adresse. Angi en gyldig IPv4-adresse eller la feltet stå tomt for å bruke automatisk oppdagelse."
+        "invalid_static_ip": "Ugyldig IP-adresse. Angi en gyldig IPv4-adresse eller la feltet stå tomt for å bruke automatisk oppdagelse.",
+        "polling_timeout_too_high": "Polling-tidsavbruddet må være lavere enn pollingintervallet."
     },
     "deprecated": {
         "notification": "Du bruker et utdatert Gree-flytkort (__card__). Det vil bli fjernet i en fremtidig oppdatering — bytt til Homeys innebygde flytkort for termostatmodus.",
