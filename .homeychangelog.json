@@ -531,5 +531,18 @@
     "da": "Vis en notifikation, når et Flow bruger et forældet Gree HVAC-tilstandskort, og anbefal Homeys indbyggede flowkort til termostattilstand",
     "pl": "Wyświetl powiadomienie, gdy Flow używa przestarzałej karty trybu HVAC Gree, i zalecaj wbudowane karty przepływu trybu termostatu w Homey",
     "ko": "Flow가 더 이상 사용되지 않는 Gree HVAC 모드 카드를 사용할 때 알림을 표시하고 Homey의 기본 온도 조절기 모드 플로우 카드를 권장합니다"
+  },
+  "1.1.2": {
+    "en": "Revert a control change and show a notification when the HVAC is offline, instead of silently pretending it was applied",
+    "nl": "Een bedieningswijziging terugdraaien en een melding tonen wanneer de airco offline is, in plaats van stilzwijgend te doen alsof deze is toegepast",
+    "de": "Eine Steuerungsänderung zurücksetzen und eine Benachrichtigung anzeigen, wenn die Klimaanlage offline ist, statt stillschweigend vorzugeben, sie sei übernommen worden",
+    "fr": "Annuler une modification de commande et afficher une notification lorsque le HVAC est hors ligne, au lieu de prétendre en silence qu'elle a été appliquée",
+    "it": "Annulla una modifica di controllo e mostra una notifica quando il condizionatore è offline, invece di far finta in silenzio che sia stata applicata",
+    "sv": "Ångra en kontrolländring och visa en avisering när HVAC är offline, i stället för att i tysthet låtsas att den tillämpades",
+    "no": "Angre en kontrollendring og vis et varsel når klimaanlegget er frakoblet, i stedet for stille å late som om den ble utført",
+    "es": "Revierte un cambio de control y muestra una notificación cuando el HVAC está desconectado, en lugar de fingir en silencio que se aplicó",
+    "da": "Fortryd en betjeningsændring og vis en notifikation, når HVAC er offline, i stedet for i stilhed at lade som om den blev anvendt",
+    "pl": "Cofnij zmianę sterowania i wyświetl powiadomienie, gdy klimatyzator jest offline, zamiast po cichu udawać, że została zastosowana",
+    "ko": "HVAC가 오프라인일 때 변경이 적용된 것처럼 조용히 처리하지 않고, 제어 변경을 되돌리고 알림을 표시합니다"
   }
 }
