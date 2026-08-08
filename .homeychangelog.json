@@ -544,5 +544,18 @@
     "da": "Fortryd en betjeningsændring og vis en notifikation, når HVAC er offline, i stedet for i stilhed at lade som om den blev anvendt\r\nTilføjet indstillinger for forbindelsestimeout pr. enhed, så langsomme HVAC'er ikke længere vises som afbrudt",
     "pl": "Cofnij zmianę sterowania i wyświetl powiadomienie, gdy klimatyzator jest offline, zamiast po cichu udawać, że została zastosowana\r\nDodano ustawienia limitu czasu połączenia dla poszczególnych urządzeń, aby wolne klimatyzatory nie były już pokazywane jako odłączone",
     "ko": "HVAC가 오프라인일 때 변경이 적용된 것처럼 조용히 처리하지 않고, 제어 변경을 되돌리고 알림을 표시합니다\r\n기기별 연결 시간 초과 설정을 추가하여 느린 HVAC가 더 이상 연결 끊김으로 표시되지 않도록 했습니다"
+  },
+  "1.2.1": {
+    "en": "Stop an endless loop of failed reconnect attempts that could keep running after an HVAC was disconnected or removed",
+    "nl": "Een eindeloze reeks mislukte herverbindingspogingen gestopt die kon blijven doorlopen nadat een airco was losgekoppeld of verwijderd",
+    "de": "Eine endlose Folge fehlgeschlagener Verbindungsversuche beendet, die nach dem Trennen oder Entfernen einer Klimaanlage weiterlaufen konnte",
+    "fr": "Arrêt d'une boucle sans fin de tentatives de reconnexion échouées qui pouvait continuer après la déconnexion ou la suppression d'un HVAC",
+    "it": "Interrotto un ciclo infinito di tentativi di riconnessione falliti che poteva continuare dopo la disconnessione o la rimozione di un condizionatore",
+    "sv": "Stoppade en oändlig slinga av misslyckade återanslutningsförsök som kunde fortsätta efter att en HVAC kopplats från eller tagits bort",
+    "no": "Stoppet en endeløs rekke mislykkede gjenoppkoblingsforsøk som kunne fortsette etter at et klimaanlegg ble frakoblet eller fjernet",
+    "es": "Se detiene un bucle interminable de intentos de reconexión fallidos que podía seguir ejecutándose tras desconectar o eliminar un HVAC",
+    "da": "Stoppet en uendelig række mislykkede genforbindelsesforsøg, der kunne fortsætte, efter at en HVAC var afbrudt eller fjernet",
+    "pl": "Zatrzymano nieskończoną pętlę nieudanych prób ponownego połączenia, która mogła trwać po odłączeniu lub usunięciu klimatyzatora",
+    "ko": "HVAC의 연결이 끊기거나 기기가 삭제된 뒤에도 계속되던 재연결 실패 반복을 중단했습니다"
   }
 }
