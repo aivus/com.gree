@@ -34,6 +34,7 @@ describe('GreeHVACDevice cleanup on removal and app shutdown', () => {
 
     function setupResources() {
         const client = {
+            on: jest.fn(),
             removeAllListeners: jest.fn(),
             disconnect: jest.fn().mockResolvedValue(),
         };

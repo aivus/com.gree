@@ -871,11 +871,28 @@ class GreeHVACDevice extends Homey.Device {
      */
     _tryToDisconnect() {
         if (this._client) {
-            this._client.removeAllListeners();
+            const client = this._client;
+            this._client = null;
+
+            client.removeAllListeners();
+
+            // The client can outlive disconnect(): its reconnect timer is
+            // rescheduled from _initialize()'s catch block, and a timer whose
+            // reference got overwritten by a concurrent reconnect is never
+            // cleared by disconnect(). Such an orphan keeps firing every
+            // connectTimeout, fails with ClientNotConnectedError because the
+            // socket is gone, and reschedules itself forever. Each iteration
+            // emits 'error'; on an emitter without listeners Node throws that
+            // error from inside a .catch() callback, turning it into an
+            // unhandled rejection (Sentry GREE-HOMEY-8). Keep a sink attached
+            // so a dropped client can only ever be noise in the log.
+            client.on('error', (err) => {
+                this.log('[disconnect]', 'Error from an already disconnected client:', err);
+            });
+
             // disconnect() rejects when the client has no active socket
             // (e.g. in the middle of its own reconnect cycle)
-            this._client.disconnect().catch(this.error);
-            this._client = null;
+            client.disconnect().catch(this.error);
         }
     }
 
