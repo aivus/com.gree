@@ -23,6 +23,18 @@ Hvis du har oppdaget at klimaanlegget ditt fungerer og merket ikke er nevnt oven
 Denne appen er testet med Cooper & Hunter Alpha CH-S18FTXE.
 
 
+TILKOBLINGSMÅTER
+
+Denne appen tilbyr to enhetstyper. Legg til hvert klimaanlegg via én av dem, ikke begge.
+
+EWPE Smart klimaanlegg (lokalt nettverk)
+• Standardvalget. Kommuniserer direkte med klimaanlegget over Wi-Fi-nettverket, oppdateres i løpet av sekunder og krever ingen konto. Bruk dette når det fungerer.
+
+Gree Cloud klimaanlegg (Gree-konto)
+• Styrer klimaanlegget via Grees servere med Gree-kontoen din. Langsommere (statusen hentes omtrent én gang i minuttet) og avhengig av at Gree-skyen er tilgjengelig, men det fungerer der den lokale protokollen ikke gjør det: for eksempel når klimaanlegget er på et annet nettverk eller VLAN, når UDP er blokkert, eller med nyere fastvare og enheter som bare virker via skyen og aldri svarer på lokal oppdagelse.
+• Gree tillater bare én aktiv innlogging per konto. Når Homey logger inn, blir Gree+ / EWPE Smart-appen på telefonen logget ut og kan advare om at noen andre kjenner passordet ditt. Vil du fortsette å bruke mobilappen, oppretter du en ny Gree-konto, inviterer den som familiemedlem til hjemmet ditt i Gree+-appen og logger inn Homey med den kontoen.
+• E-postadressen og passordet ditt lagres på Homey slik at den kan logge inn på nytt selv, og brukes bare til å kommunisere med Grees servere. Sky-API-et er ikke publisert av Gree, så det kan endres eller slutte å virke uten varsel.
+
 MERKNADER
 
 Viftehastighet

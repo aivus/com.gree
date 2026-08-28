@@ -23,6 +23,18 @@ Hvis du har konstateret, at din HVAC virker, og mærket ikke er nævnt ovenfor, 
 Denne app er testet med Cooper & Hunter Alpha CH-S18FTXE.
 
 
+FORBINDELSESMÅDER
+
+Denne app tilbyder to enhedstyper. Tilføj hvert anlæg via én af dem, ikke begge.
+
+EWPE Smart HVAC'er (lokalt netværk)
+• Standardvalget. Kommunikerer direkte med anlægget over dit Wi-Fi-netværk, opdateres inden for sekunder og kræver ingen konto. Brug denne, når den virker.
+
+Gree Cloud HVAC'er (Gree-konto)
+• Styrer anlægget via Grees servere med din Gree-konto. Langsommere (status hentes omkring én gang i minuttet) og afhængig af, at Gree-skyen kan nås, men det virker, hvor den lokale protokol ikke gør: for eksempel når anlægget er på et andet netværk eller VLAN, når UDP er blokeret, eller med nyere firmware og enheder, der kun virker via skyen og aldrig svarer på lokal registrering.
+• Gree tillader kun ét aktivt login pr. konto. Når Homey logger ind, bliver Gree+ / EWPE Smart-appen på telefonen logget ud og advarer måske om, at nogen andre kender din adgangskode. Vil du blive ved med at bruge telefonappen, så opret en ekstra Gree-konto, inviter den som familiemedlem til dit hjem i Gree+-appen, og log Homey ind med den konto.
+• Din e-mailadresse og adgangskode gemmes på din Homey, så den selv kan logge ind igen, og bruges kun til at kommunikere med Grees servere. Sky-API'et er ikke offentliggjort af Gree, så det kan ændre sig eller holde op med at virke uden varsel.
+
 BEMÆRKNINGER
 
 Ventilatorhastighed
