@@ -6,6 +6,7 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 
 const LOCAL_DRIVER = 'gree_cooper_hunter_hvac';
+const CLOUD_DRIVER = 'gree_cloud_hvac';
 
 // Flow cards are part of the app's public contract: a card id that changes or
 // disappears breaks every user Flow referencing it. Pin the full set.
@@ -130,6 +131,18 @@ describe('flow cards in the generated app.json', () => {
     it('offers every card to the local driver', () => {
         const offenders = allCards()
             .filter(([, card]) => !driverIdsFromFilter(card.args[0].filter).includes(LOCAL_DRIVER))
+            .map(([type, card]) => `${type}/${card.id}`);
+
+        expect(offenders).toEqual([]);
+    });
+
+    // Both drivers expose the same capabilities, so a Flow should be able to
+    // pick either kind of device for the same card. Homey's filter syntax
+    // expresses that by listing driver ids separated by a pipe.
+    it('offers every current card to the cloud driver too', () => {
+        const offenders = allCards()
+            .filter(([, card]) => !DEPRECATED_CARD_IDS.includes(card.id))
+            .filter(([, card]) => !driverIdsFromFilter(card.args[0].filter).includes(CLOUD_DRIVER))
             .map(([type, card]) => `${type}/${card.id}`);
 
         expect(offenders).toEqual([]);

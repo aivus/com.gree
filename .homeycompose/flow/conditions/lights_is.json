@@ -30,7 +30,7 @@
     {
       "type": "device",
       "name": "device",
-      "filter": "driver_id=gree_cooper_hunter_hvac"
+      "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
     },
     {
       "name": "mode",
