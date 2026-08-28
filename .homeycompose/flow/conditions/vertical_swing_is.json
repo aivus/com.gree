@@ -1,0 +1,202 @@
+{
+  "id": "vertical_swing_is",
+  "title": {
+    "en": "Vertical swing !{{is|isn't}} ...",
+    "nl": "Verticale swing !{{is|is niet}} ...",
+    "de": "Vertikale Schwenkung !{{ist|ist nicht}} ...",
+    "fr": "Balayage vertical !{{est|n'est pas}} ...",
+    "it": "L'oscillazione verticale !{{è|non è}} ...",
+    "sv": "Vertikal svängning !{{är|är inte}} ...",
+    "no": "Vertikal svinging !{{er|er ikke}} ...",
+    "es": "Oscilación vertical !{{es|no es}} ...",
+    "da": "Lodret svingning !{{er|er ikke}} ...",
+    "pl": "Wahanie pionowe !{{jest|nie jest}} ...",
+    "ko": "수직 스윙이 ...!{{임|아님}}"
+  },
+  "titleFormatted": {
+    "en": "Vertical swing !{{is|isn't}} [[vertical_swing]]",
+    "nl": "Verticale swing !{{is|is niet}} [[vertical_swing]]",
+    "de": "Vertikale Schwenkung !{{ist|ist nicht}} [[vertical_swing]]",
+    "fr": "Balayage vertical !{{est|n'est pas}} [[vertical_swing]]",
+    "it": "L'oscillazione verticale !{{è|non è}} [[vertical_swing]]",
+    "sv": "Vertikal svängning !{{är|är inte}} [[vertical_swing]]",
+    "no": "Vertikal svinging !{{er|er ikke}} [[vertical_swing]]",
+    "es": "Oscilación vertical !{{es|no es}} [[vertical_swing]]",
+    "da": "Lodret svingning !{{er|er ikke}} [[vertical_swing]]",
+    "pl": "Wahanie pionowe !{{jest|nie jest}} [[vertical_swing]]",
+    "ko": "수직 스윙이 [[vertical_swing]]!{{임|아님}}"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac"
+    },
+    {
+      "name": "vertical_swing",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "default",
+          "title": {
+            "en": "Disabled",
+            "nl": "Uitgeschakeld",
+            "de": "Deaktiviert",
+            "fr": "Désactivé",
+            "it": "Disabilitato",
+            "sv": "Inaktiverad",
+            "no": "Deaktivert",
+            "es": "Desactivado",
+            "da": "Deaktiveret",
+            "pl": "Wyłączone",
+            "ko": "비활성화"
+          }
+        },
+        {
+          "id": "full",
+          "title": {
+            "en": "Full range",
+            "nl": "Volledig bereik",
+            "de": "Voller Bereich",
+            "fr": "Plage complète",
+            "it": "Gamma completa",
+            "sv": "Fullt omfång",
+            "no": "Fullt område",
+            "es": "Rango completo",
+            "da": "Fuldt område",
+            "pl": "Pełny zakres",
+            "ko": "전체 범위"
+          }
+        },
+        {
+          "id": "fixedTop",
+          "title": {
+            "en": "Fixed top",
+            "nl": "Fixed boven",
+            "de": "Oben fixiert",
+            "fr": "Fixe en haut",
+            "it": "Fisso in alto",
+            "sv": "Fast överst",
+            "no": "Fast øverst",
+            "es": "Fijo arriba",
+            "da": "Fast øverst",
+            "pl": "Stałe na górze",
+            "ko": "상단 고정"
+          }
+        },
+        {
+          "id": "fixedMidTop",
+          "title": {
+            "en": "Fixed top middle",
+            "nl": "Fixed midden boven",
+            "de": "Oben-Mitte fixiert",
+            "fr": "Fixe en haut au milieu",
+            "it": "Fisso in alto al centro",
+            "sv": "Fast överst mitten",
+            "no": "Fast øverst midten",
+            "es": "Fijo arriba centro",
+            "da": "Fast øverst midt",
+            "pl": "Stałe na górze na środku",
+            "ko": "상단 중앙 고정"
+          }
+        },
+        {
+          "id": "fixedMid",
+          "title": {
+            "en": "Fixed middle",
+            "nl": "Fixed midden",
+            "de": "Mitte fixiert",
+            "fr": "Fixe au milieu",
+            "it": "Fisso al centro",
+            "sv": "Fast mitten",
+            "no": "Fast midten",
+            "es": "Fijo centro",
+            "da": "Fast midt",
+            "pl": "Stałe na środku",
+            "ko": "중앙 고정"
+          }
+        },
+        {
+          "id": "fixedMidBottom",
+          "title": {
+            "en": "Fixed middle bottom",
+            "nl": "Fixed midden onder",
+            "de": "Unten-Mitte fixiert",
+            "fr": "Fixe au milieu en bas",
+            "it": "Fisso al centro in basso",
+            "sv": "Fast mitten nederst",
+            "no": "Fast midten nederst",
+            "es": "Fijo centro abajo",
+            "da": "Fast midt nederst",
+            "pl": "Stałe na środku dolnym",
+            "ko": "중앙 하단 고정"
+          }
+        },
+        {
+          "id": "fixedBottom",
+          "title": {
+            "en": "Fixed bottom",
+            "nl": "Fixed onder",
+            "de": "Unten fixiert",
+            "fr": "Fixe en bas",
+            "it": "Fisso in basso",
+            "sv": "Fast nederst",
+            "no": "Fast nederst",
+            "es": "Fijo abajo",
+            "da": "Fast nederst",
+            "pl": "Stałe na dole",
+            "ko": "하단 고정"
+          }
+        },
+        {
+          "id": "swingBottom",
+          "title": {
+            "en": "Swing bottom",
+            "nl": "Swing onder",
+            "de": "Schwenken unten",
+            "fr": "Balayage en bas",
+            "it": "Oscillazione in basso",
+            "sv": "Sväng nederst",
+            "no": "Sving nederst",
+            "es": "Oscilación abajo",
+            "da": "Sving nederst",
+            "pl": "Wahanie na dole",
+            "ko": "하단 스윙"
+          }
+        },
+        {
+          "id": "swingMid",
+          "title": {
+            "en": "Swing middle",
+            "nl": "Swing midden",
+            "de": "Schwenken Mitte",
+            "fr": "Balayage au milieu",
+            "it": "Oscillazione al centro",
+            "sv": "Sväng mitten",
+            "no": "Sving midten",
+            "es": "Oscilación centro",
+            "da": "Sving midt",
+            "pl": "Wahanie na środku",
+            "ko": "중앙 스윙"
+          }
+        },
+        {
+          "id": "swingTop",
+          "title": {
+            "en": "Swing top",
+            "nl": "Swing boven",
+            "de": "Schwenken oben",
+            "fr": "Balayage en haut",
+            "it": "Oscillazione in alto",
+            "sv": "Sväng överst",
+            "no": "Sving øverst",
+            "es": "Oscilación arriba",
+            "da": "Sving øverst",
+            "pl": "Wahanie na górze",
+            "ko": "상단 스윙"
+          }
+        }
+      ]
+    }
+  ]
+}

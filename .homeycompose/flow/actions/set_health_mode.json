@@ -1,0 +1,74 @@
+{
+  "id": "set_health_mode",
+  "title": {
+    "en": "Set health mode",
+    "nl": "Stel de gezondheidsmodus in",
+    "de": "Gesundheitsmodus einstellen",
+    "fr": "Régler le mode santé",
+    "it": "Imposta la modalità salute",
+    "sv": "Ställ in hälsoläge",
+    "no": "Still inn helsemodus",
+    "es": "Establecer modo salud",
+    "da": "Indstil sundhedstilstand",
+    "pl": "Ustaw tryb zdrowotny",
+    "ko": "건강 모드 설정"
+  },
+  "titleFormatted": {
+    "en": "Set health mode to [[mode]]",
+    "nl": "Stel de gezondheidsmodus in op [[mode]]",
+    "de": "Gesundheitsmodus auf [[mode]] einstellen",
+    "fr": "Régler le mode santé sur [[mode]]",
+    "it": "Imposta la modalità salute su [[mode]]",
+    "sv": "Ställ in hälsoläge till [[mode]]",
+    "no": "Still inn helsemodus til [[mode]]",
+    "es": "Establecer modo salud en [[mode]]",
+    "da": "Indstil sundhedstilstand til [[mode]]",
+    "pl": "Ustaw tryb zdrowotny na [[mode]]",
+    "ko": "건강 모드를 [[mode]](으)로 설정"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac"
+    },
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "on",
+          "label": {
+            "en": "On",
+            "nl": "Aan",
+            "de": "Einschalten",
+            "fr": "Marche",
+            "it": "Acceso",
+            "sv": "På",
+            "no": "På",
+            "es": "Encendido",
+            "da": "Til",
+            "pl": "Wł.",
+            "ko": "켜기"
+          }
+        },
+        {
+          "id": "off",
+          "label": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Ausschalten",
+            "fr": "Arrêt",
+            "it": "Spento",
+            "sv": "Av",
+            "no": "Av",
+            "es": "Apagado",
+            "da": "Fra",
+            "pl": "Wył.",
+            "ko": "끄기"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "id": "lights_is",
+  "title": {
+    "en": "Lights !{{are|aren't}} ...",
+    "nl": "Lichten !{{zijn|zijn niet}} ...",
+    "de": "Licht !{{ist|ist nicht}} ...",
+    "fr": "Les lumières !{{sont|ne sont pas}} ...",
+    "it": "Le luci !{{sono|non sono}} ...",
+    "sv": "Belysning !{{är|är inte}} ...",
+    "no": "Lys !{{er|er ikke}} ...",
+    "es": "Luces !{{están|no están}} ...",
+    "da": "Lys !{{er|er ikke}} ...",
+    "pl": "Światła !{{są|nie są}} ...",
+    "ko": "조명이 ...!{{임|아님}}"
+  },
+  "titleFormatted": {
+    "en": "Lights !{{are|aren't}} [[mode]]",
+    "nl": "Lichten !{{zijn|zijn niet}} [[mode]]",
+    "de": "Licht !{{ist|ist nicht}} [[mode]]",
+    "fr": "Les lumières !{{sont|ne sont pas}} [[mode]]",
+    "it": "Le luci !{{sono|non sono}} [[mode]]",
+    "sv": "Belysning !{{är|är inte}} [[mode]]",
+    "no": "Lys !{{er|er ikke}} [[mode]]",
+    "es": "Luces !{{están|no están}} [[mode]]",
+    "da": "Lys !{{er|er ikke}} [[mode]]",
+    "pl": "Światła !{{są|nie są}} [[mode]]",
+    "ko": "조명이 [[mode]]!{{임|아님}}"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac"
+    },
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "on",
+          "label": {
+            "en": "On",
+            "nl": "Aan",
+            "de": "Einschalten",
+            "fr": "Marche",
+            "it": "Acceso",
+            "sv": "På",
+            "no": "På",
+            "es": "Encendido",
+            "da": "Til",
+            "pl": "Wł.",
+            "ko": "켜기"
+          }
+        },
+        {
+          "id": "off",
+          "label": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Ausschalten",
+            "fr": "Arrêt",
+            "it": "Spento",
+            "sv": "Av",
+            "no": "Av",
+            "es": "Apagado",
+            "da": "Fra",
+            "pl": "Wył.",
+            "ko": "끄기"
+          }
+        }
+      ]
+    }
+  ]
+}

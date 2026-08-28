@@ -1,0 +1,43 @@
+{
+  "id": "fresh_air_mode_changed",
+  "title": {
+    "en": "Fresh air mode changed",
+    "nl": "Verse lucht modus veranderd",
+    "de": "Frischluftmodus geändert",
+    "fr": "Mode air frais modifié",
+    "it": "Modalità aria fresca cambiata",
+    "sv": "Friskluftsläge ändrat",
+    "no": "Friskluftmodus endret",
+    "es": "Modo de aire fresco cambiado",
+    "da": "Friskluftstilstand ændret",
+    "pl": "Zmieniono tryb świeżego powietrza",
+    "ko": "환기 모드 변경됨"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "fresh_air_mode",
+      "type": "string",
+      "title": {
+        "en": "Fresh air mode",
+        "nl": "Verse lucht modus",
+        "de": "Frischluftmodus",
+        "fr": "Mode air frais",
+        "it": "Modalità aria fresca",
+        "sv": "Friskluftsläge",
+        "no": "Friskluftmodus",
+        "es": "Modo de aire fresco",
+        "da": "Friskluftstilstand",
+        "pl": "Tryb świeżego powietrza",
+        "ko": "환기 모드"
+      },
+      "example": "off"
+    }
+  ]
+}

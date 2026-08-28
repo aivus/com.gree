@@ -1,0 +1,74 @@
+{
+  "id": "set_turbo_mode",
+  "title": {
+    "en": "Set turbo mode",
+    "nl": "Stel de turbomodus in",
+    "de": "Turbo-Modus einstellen",
+    "fr": "Régler le mode turbo",
+    "it": "Imposta la modalità turbo",
+    "sv": "Ställ in turboläge",
+    "no": "Still inn turbomodus",
+    "es": "Establecer modo turbo",
+    "da": "Indstil turbotilstand",
+    "pl": "Ustaw tryb turbo",
+    "ko": "터보 모드 설정"
+  },
+  "titleFormatted": {
+    "en": "Set turbo mode to [[mode]]",
+    "nl": "Stel de turbomodus in op [[mode]]",
+    "de": "Turbo-Modus auf [[mode]] einstellen",
+    "fr": "Régler le mode turbo sur [[mode]]",
+    "it": "Imposta la modalità turbo su [[mode]]",
+    "sv": "Ställ in turboläge till [[mode]]",
+    "no": "Still inn turbomodus til [[mode]]",
+    "es": "Establecer modo turbo en [[mode]]",
+    "da": "Indstil turbotilstand til [[mode]]",
+    "pl": "Ustaw tryb turbo na [[mode]]",
+    "ko": "터보 모드를 [[mode]](으)로 설정"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac"
+    },
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "on",
+          "label": {
+            "en": "On",
+            "nl": "Aan",
+            "de": "Einschalten",
+            "fr": "Marche",
+            "it": "Acceso",
+            "sv": "På",
+            "no": "På",
+            "es": "Encendido",
+            "da": "Til",
+            "pl": "Wł.",
+            "ko": "켜기"
+          }
+        },
+        {
+          "id": "off",
+          "label": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Ausschalten",
+            "fr": "Arrêt",
+            "it": "Spento",
+            "sv": "Av",
+            "no": "Av",
+            "es": "Apagado",
+            "da": "Fra",
+            "pl": "Wył.",
+            "ko": "끄기"
+          }
+        }
+      ]
+    }
+  ]
+}

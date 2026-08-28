@@ -1,0 +1,74 @@
+{
+  "id": "safety_heating_is",
+  "title": {
+    "en": "8°C heating !{{is|isn't}} ...",
+    "nl": "8°C verwarming !{{is|is niet}} ...",
+    "de": "8°C Heizung !{{ist|ist nicht}} ...",
+    "fr": "Chauffage 8°C !{{est|n'est pas}} ...",
+    "it": "Il riscaldamento a 8°C !{{è|non è}} ...",
+    "sv": "8°C uppvärmning !{{är|är inte}} ...",
+    "no": "8°C oppvarming !{{er|er ikke}} ...",
+    "es": "Calefacción a 8°C !{{es|no es}} ...",
+    "da": "8°C opvarmning !{{er|er ikke}} ...",
+    "pl": "Ogrzewanie 8°C !{{jest|nie jest}} ...",
+    "ko": "8°C 난방이 ...!{{임|아님}}"
+  },
+  "titleFormatted": {
+    "en": "8°C heating !{{is|isn't}} [[mode]]",
+    "nl": "8°C verwarming !{{is|is niet}} [[mode]]",
+    "de": "8°C Heizung !{{ist|ist nicht}} [[mode]]",
+    "fr": "Chauffage 8°C !{{est|n'est pas}} [[mode]]",
+    "it": "Il riscaldamento a 8°C !{{è|non è}} [[mode]]",
+    "sv": "8°C uppvärmning !{{är|är inte}} [[mode]]",
+    "no": "8°C oppvarming !{{er|er ikke}} [[mode]]",
+    "es": "Calefacción a 8°C !{{es|no es}} [[mode]]",
+    "da": "8°C opvarmning !{{er|er ikke}} [[mode]]",
+    "pl": "Ogrzewanie 8°C !{{jest|nie jest}} [[mode]]",
+    "ko": "8°C 난방이 [[mode]]!{{임|아님}}"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac"
+    },
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "on",
+          "label": {
+            "en": "On",
+            "nl": "Aan",
+            "de": "Einschalten",
+            "fr": "Marche",
+            "it": "Acceso",
+            "sv": "På",
+            "no": "På",
+            "es": "Encendido",
+            "da": "Til",
+            "pl": "Wł.",
+            "ko": "켜기"
+          }
+        },
+        {
+          "id": "off",
+          "label": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Ausschalten",
+            "fr": "Arrêt",
+            "it": "Spento",
+            "sv": "Av",
+            "no": "Av",
+            "es": "Apagado",
+            "da": "Fra",
+            "pl": "Wył.",
+            "ko": "끄기"
+          }
+        }
+      ]
+    }
+  ]
+}

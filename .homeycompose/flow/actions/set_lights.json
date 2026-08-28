@@ -1,0 +1,74 @@
+{
+  "id": "set_lights",
+  "title": {
+    "en": "Set lights",
+    "nl": "Lichten instellen",
+    "de": "Lichter einstellen",
+    "fr": "Régler l'éclairage",
+    "it": "Imposta le luci",
+    "sv": "Ställ in belysning",
+    "no": "Still inn lys",
+    "es": "Establecer luces",
+    "da": "Indstil lys",
+    "pl": "Ustaw światła",
+    "ko": "조명 설정"
+  },
+  "titleFormatted": {
+    "en": "Set lights to [[mode]]",
+    "nl": "Lichten instellen op [[mode]]",
+    "de": "Lichter auf [[mode]] einstellen",
+    "fr": "Régler l'éclairage sur [[mode]]",
+    "it": "Imposta le luci su [[mode]]",
+    "sv": "Ställ in belysning till [[mode]]",
+    "no": "Still inn lys til [[mode]]",
+    "es": "Establecer luces en [[mode]]",
+    "da": "Indstil lys til [[mode]]",
+    "pl": "Ustaw światła na [[mode]]",
+    "ko": "조명을 [[mode]](으)로 설정"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac"
+    },
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "on",
+          "label": {
+            "en": "On",
+            "nl": "Aan",
+            "de": "Einschalten",
+            "fr": "Marche",
+            "it": "Acceso",
+            "sv": "På",
+            "no": "På",
+            "es": "Encendido",
+            "da": "Til",
+            "pl": "Wł.",
+            "ko": "켜기"
+          }
+        },
+        {
+          "id": "off",
+          "label": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Ausschalten",
+            "fr": "Arrêt",
+            "it": "Spento",
+            "sv": "Av",
+            "no": "Av",
+            "es": "Apagado",
+            "da": "Fra",
+            "pl": "Wył.",
+            "ko": "끄기"
+          }
+        }
+      ]
+    }
+  ]
+}

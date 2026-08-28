@@ -1,0 +1,106 @@
+{
+  "id": "set_fresh_air_mode",
+  "title": {
+    "en": "Set fresh air mode",
+    "nl": "Stel de verse lucht modus in",
+    "de": "Frischluftmodus einstellen",
+    "fr": "Régler le mode air frais",
+    "it": "Imposta la modalità aria fresca",
+    "sv": "Ställ in friskluftsläge",
+    "no": "Still inn friskluftmodus",
+    "es": "Establecer modo de aire fresco",
+    "da": "Indstil friskluftstilstand",
+    "pl": "Ustaw tryb świeżego powietrza",
+    "ko": "환기 모드 설정"
+  },
+  "titleFormatted": {
+    "en": "Set fresh air mode to [[mode]]",
+    "nl": "Stel de verse lucht modus in op [[mode]]",
+    "de": "Frischluftmodus auf [[mode]] einstellen",
+    "fr": "Régler le mode air frais sur [[mode]]",
+    "it": "Imposta la modalità aria fresca su [[mode]]",
+    "sv": "Ställ in friskluftsläge till [[mode]]",
+    "no": "Still inn friskluftmodus til [[mode]]",
+    "es": "Establecer modo de aire fresco en [[mode]]",
+    "da": "Indstil friskluftstilstand til [[mode]]",
+    "pl": "Ustaw tryb świeżego powietrza na [[mode]]",
+    "ko": "환기 모드를 [[mode]](으)로 설정"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac"
+    },
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "off",
+          "title": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Aus",
+            "fr": "Arrêt",
+            "it": "Spento",
+            "sv": "Av",
+            "no": "Av",
+            "es": "Apagado",
+            "da": "Fra",
+            "pl": "Wył.",
+            "ko": "끄기"
+          }
+        },
+        {
+          "id": "inside",
+          "title": {
+            "en": "Inside",
+            "nl": "Binnen",
+            "de": "Innen",
+            "fr": "Intérieur",
+            "it": "Interno",
+            "sv": "Inne",
+            "no": "Inne",
+            "es": "Interior",
+            "da": "Indendørs",
+            "pl": "Wewnątrz",
+            "ko": "내부"
+          }
+        },
+        {
+          "id": "outside",
+          "title": {
+            "en": "Outside",
+            "nl": "Buiten",
+            "de": "Außen",
+            "fr": "Extérieur",
+            "it": "Esterno",
+            "sv": "Ute",
+            "no": "Ute",
+            "es": "Exterior",
+            "da": "Udendørs",
+            "pl": "Na zewnątrz",
+            "ko": "외부"
+          }
+        },
+        {
+          "id": "mode3",
+          "title": {
+            "en": "Mode 3",
+            "nl": "Mode 3",
+            "de": "Mode 3",
+            "fr": "Mode 3",
+            "it": "Mode 3",
+            "sv": "Mode 3",
+            "no": "Mode 3",
+            "es": "Modo 3",
+            "da": "Mode 3",
+            "pl": "Mode 3",
+            "ko": "Mode 3"
+          }
+        }
+      ]
+    }
+  ]
+}

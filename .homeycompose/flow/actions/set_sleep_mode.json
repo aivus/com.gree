@@ -1,0 +1,74 @@
+{
+  "id": "set_sleep_mode",
+  "title": {
+    "en": "Set sleep mode",
+    "nl": "Stel de slaapmodus in",
+    "de": "Schlafmodus einstellen",
+    "fr": "Régler le mode sommeil",
+    "it": "Imposta la modalità notte",
+    "sv": "Ställ in viloläge",
+    "no": "Still inn sovemodus",
+    "es": "Establecer modo de reposo",
+    "da": "Indstil dvaletilstand",
+    "pl": "Ustaw tryb uśpienia",
+    "ko": "취침 모드 설정"
+  },
+  "titleFormatted": {
+    "en": "Set sleep mode to [[mode]]",
+    "nl": "Stel de slaapmodus in op [[mode]]",
+    "de": "Schlafmodus auf [[mode]] einstellen",
+    "fr": "Régler le mode sommeil sur [[mode]]",
+    "it": "Imposta la modalità notte su [[mode]]",
+    "sv": "Ställ in viloläge till [[mode]]",
+    "no": "Still inn sovemodus til [[mode]]",
+    "es": "Establecer modo de reposo en [[mode]]",
+    "da": "Indstil dvaletilstand til [[mode]]",
+    "pl": "Ustaw tryb uśpienia na [[mode]]",
+    "ko": "취침 모드를 [[mode]](으)로 설정"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac"
+    },
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "on",
+          "label": {
+            "en": "On",
+            "nl": "Aan",
+            "de": "Einschalten",
+            "fr": "Marche",
+            "it": "Acceso",
+            "sv": "På",
+            "no": "På",
+            "es": "Encendido",
+            "da": "Til",
+            "pl": "Wł.",
+            "ko": "켜기"
+          }
+        },
+        {
+          "id": "off",
+          "label": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Ausschalten",
+            "fr": "Arrêt",
+            "it": "Spento",
+            "sv": "Av",
+            "no": "Av",
+            "es": "Apagado",
+            "da": "Fra",
+            "pl": "Wył.",
+            "ko": "끄기"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "id": "sleep_mode_is",
+  "title": {
+    "en": "Sleep mode !{{is|isn't}} ...",
+    "nl": "Slaapmodus !{{is|is niet}} ...",
+    "de": "Schlafmodus !{{ist|ist nicht}} ...",
+    "fr": "Mode sommeil !{{est|n'est pas}} ...",
+    "it": "La modalità notte !{{è|non è}} ...",
+    "sv": "Viloläge !{{är|är inte}} ...",
+    "no": "Sovemodus !{{er|er ikke}} ...",
+    "es": "Modo de reposo !{{es|no es}} ...",
+    "da": "Dvaletilstand !{{er|er ikke}} ...",
+    "pl": "Tryb uśpienia !{{jest|nie jest}} ...",
+    "ko": "취침 모드가 ...!{{임|아님}}"
+  },
+  "titleFormatted": {
+    "en": "Sleep mode !{{is|isn't}} [[mode]]",
+    "nl": "Slaapmodus !{{is|is niet}} [[mode]]",
+    "de": "Schlafmodus !{{ist|ist nicht}} [[mode]]",
+    "fr": "Mode sommeil !{{est|n'est pas}} [[mode]]",
+    "it": "La modalità notte !{{è|non è}} [[mode]]",
+    "sv": "Viloläge !{{är|är inte}} [[mode]]",
+    "no": "Sovemodus !{{er|er ikke}} [[mode]]",
+    "es": "Modo de reposo !{{es|no es}} [[mode]]",
+    "da": "Dvaletilstand !{{er|er ikke}} [[mode]]",
+    "pl": "Tryb uśpienia !{{jest|nie jest}} [[mode]]",
+    "ko": "취침 모드가 [[mode]]!{{임|아님}}"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac"
+    },
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "on",
+          "label": {
+            "en": "On",
+            "nl": "Aan",
+            "de": "Einschalten",
+            "fr": "Marche",
+            "it": "Acceso",
+            "sv": "På",
+            "no": "På",
+            "es": "Encendido",
+            "da": "Til",
+            "pl": "Wł.",
+            "ko": "켜기"
+          }
+        },
+        {
+          "id": "off",
+          "label": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Ausschalten",
+            "fr": "Arrêt",
+            "it": "Spento",
+            "sv": "Av",
+            "no": "Av",
+            "es": "Apagado",
+            "da": "Fra",
+            "pl": "Wył.",
+            "ko": "끄기"
+          }
+        }
+      ]
+    }
+  ]
+}

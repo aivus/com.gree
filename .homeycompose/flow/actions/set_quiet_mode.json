@@ -1,0 +1,106 @@
+{
+  "id": "set_quiet_mode",
+  "title": {
+    "en": "Set quiet mode",
+    "nl": "Stel de quiet-modus in",
+    "de": "Ruhig-Modus einstellen",
+    "fr": "Régler le mode silencieux",
+    "it": "Imposta la modalità silenziosa",
+    "sv": "Ställ in tyst läge",
+    "no": "Still inn stillemodus",
+    "es": "Establecer modo silencioso",
+    "da": "Indstil stille tilstand",
+    "pl": "Ustaw tryb cichy",
+    "ko": "저소음 모드 설정"
+  },
+  "titleFormatted": {
+    "en": "Set quiet mode to [[mode]]",
+    "nl": "Stel de quiet-modus in op [[mode]]",
+    "de": "Ruhig-Modus auf [[mode]] einstellen",
+    "fr": "Régler le mode silencieux sur [[mode]]",
+    "it": "Imposta la modalità silenziosa su [[mode]]",
+    "sv": "Ställ in tyst läge till [[mode]]",
+    "no": "Still inn stillemodus til [[mode]]",
+    "es": "Establecer modo silencioso en [[mode]]",
+    "da": "Indstil stille tilstand til [[mode]]",
+    "pl": "Ustaw tryb cichy na [[mode]]",
+    "ko": "저소음 모드를 [[mode]](으)로 설정"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac"
+    },
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "off",
+          "title": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Aus",
+            "fr": "Arrêt",
+            "it": "Spento",
+            "sv": "Av",
+            "no": "Av",
+            "es": "Apagado",
+            "da": "Fra",
+            "pl": "Wył.",
+            "ko": "끄기"
+          }
+        },
+        {
+          "id": "mode1",
+          "title": {
+            "en": "Mode 1",
+            "nl": "Mode 1",
+            "de": "Mode 1",
+            "fr": "Mode 1",
+            "it": "Mode 1",
+            "sv": "Mode 1",
+            "no": "Mode 1",
+            "es": "Modo 1",
+            "da": "Mode 1",
+            "pl": "Mode 1",
+            "ko": "Mode 1"
+          }
+        },
+        {
+          "id": "mode2",
+          "title": {
+            "en": "Mode 2",
+            "nl": "Mode 2",
+            "de": "Mode 2",
+            "fr": "Mode 2",
+            "it": "Mode 2",
+            "sv": "Mode 2",
+            "no": "Mode 2",
+            "es": "Modo 2",
+            "da": "Mode 2",
+            "pl": "Mode 2",
+            "ko": "Mode 2"
+          }
+        },
+        {
+          "id": "mode3",
+          "title": {
+            "en": "Mode 3",
+            "nl": "Mode 3",
+            "de": "Mode 3",
+            "fr": "Mode 3",
+            "it": "Mode 3",
+            "sv": "Mode 3",
+            "no": "Mode 3",
+            "es": "Modo 3",
+            "da": "Mode 3",
+            "pl": "Mode 3",
+            "ko": "Mode 3"
+          }
+        }
+      ]
+    }
+  ]
+}

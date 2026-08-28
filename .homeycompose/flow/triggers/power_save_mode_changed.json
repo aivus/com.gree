@@ -1,0 +1,43 @@
+{
+  "id": "power_save_mode_changed",
+  "title": {
+    "en": "Power save mode changed",
+    "nl": "Energiebesparende modus veranderd",
+    "de": "Energiesparmodus geändert",
+    "fr": "Mode économie d'énergie modifié",
+    "it": "Modalità risparmio energetico cambiata",
+    "sv": "Energisparläge ändrat",
+    "no": "Strømsparemodus endret",
+    "es": "Modo de ahorro de energía cambiado",
+    "da": "Strømsparetilstand ændret",
+    "pl": "Zmieniono tryb oszczędzania energii",
+    "ko": "절전 모드 변경됨"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "power_save_mode",
+      "type": "boolean",
+      "title": {
+        "en": "Power save mode",
+        "nl": "Energiebesparende modus",
+        "de": "Energiesparmodus",
+        "fr": "Mode économie d'énergie",
+        "it": "Modalità risparmio energetico",
+        "sv": "Energisparläge",
+        "no": "Strømsparemodus",
+        "es": "Modo de ahorro de energía",
+        "da": "Strømsparetilstand",
+        "pl": "Tryb oszczędzania energii",
+        "ko": "절전 모드"
+      },
+      "example": "true"
+    }
+  ]
+}

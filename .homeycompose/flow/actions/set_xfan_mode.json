@@ -1,0 +1,74 @@
+{
+  "id": "set_xfan_mode",
+  "title": {
+    "en": "Set X-Fan mode",
+    "nl": "Stel de X-Fan modus in",
+    "de": "X-Fan-Modus einstellen",
+    "fr": "Régler le mode X-Fan",
+    "it": "Imposta la modalità X-Fan",
+    "sv": "Ställ in X-Fan-läge",
+    "no": "Still inn X-Fan-modus",
+    "es": "Establecer modo X-Fan",
+    "da": "Indstil X-Fan-tilstand",
+    "pl": "Ustaw tryb X-Fan",
+    "ko": "X-Fan 모드 설정"
+  },
+  "titleFormatted": {
+    "en": "Set X-Fan mode to [[mode]]",
+    "nl": "Stel de X-Fan modus in op [[mode]]",
+    "de": "X-Fan-Modus auf [[mode]] einstellen",
+    "fr": "Régler le mode X-Fan sur [[mode]]",
+    "it": "Imposta la modalità X-Fan su [[mode]]",
+    "sv": "Ställ in X-Fan-läge till [[mode]]",
+    "no": "Still inn X-Fan-modus til [[mode]]",
+    "es": "Establecer modo X-Fan en [[mode]]",
+    "da": "Indstil X-Fan-tilstand til [[mode]]",
+    "pl": "Ustaw tryb X-Fan na [[mode]]",
+    "ko": "X-Fan 모드를 [[mode]](으)로 설정"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac"
+    },
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "on",
+          "label": {
+            "en": "On",
+            "nl": "Aan",
+            "de": "Einschalten",
+            "fr": "Marche",
+            "it": "Acceso",
+            "sv": "På",
+            "no": "På",
+            "es": "Encendido",
+            "da": "Til",
+            "pl": "Wł.",
+            "ko": "켜기"
+          }
+        },
+        {
+          "id": "off",
+          "label": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Ausschalten",
+            "fr": "Arrêt",
+            "it": "Spento",
+            "sv": "Av",
+            "no": "Av",
+            "es": "Apagado",
+            "da": "Fra",
+            "pl": "Wył.",
+            "ko": "끄기"
+          }
+        }
+      ]
+    }
+  ]
+}

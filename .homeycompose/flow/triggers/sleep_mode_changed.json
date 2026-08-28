@@ -1,0 +1,43 @@
+{
+  "id": "sleep_mode_changed",
+  "title": {
+    "en": "Sleep mode changed",
+    "nl": "Slaapmodus veranderd",
+    "de": "Schlafmodus geändert",
+    "fr": "Mode sommeil modifié",
+    "it": "Modalità notte cambiata",
+    "sv": "Viloläge ändrat",
+    "no": "Sovemodus endret",
+    "es": "Modo de reposo cambiado",
+    "da": "Dvaletilstand ændret",
+    "pl": "Zmieniono tryb uśpienia",
+    "ko": "취침 모드 변경됨"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "sleep_mode",
+      "type": "boolean",
+      "title": {
+        "en": "Sleep mode",
+        "nl": "Slaapmodus",
+        "de": "Schlafmodus",
+        "fr": "Mode sommeil",
+        "it": "Modalità notte",
+        "sv": "Viloläge",
+        "no": "Sovemodus",
+        "es": "Modo de reposo",
+        "da": "Dvaletilstand",
+        "pl": "Tryb uśpienia",
+        "ko": "취침 모드"
+      },
+      "example": "true"
+    }
+  ]
+}

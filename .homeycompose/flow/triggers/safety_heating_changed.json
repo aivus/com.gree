@@ -1,0 +1,43 @@
+{
+  "id": "safety_heating_changed",
+  "title": {
+    "en": "8°C heating changed",
+    "nl": "8°C verwarming veranderd",
+    "de": "8°C Heizung geändert",
+    "fr": "Chauffage 8°C modifié",
+    "it": "Riscaldamento a 8°C cambiato",
+    "sv": "8°C uppvärmning ändrad",
+    "no": "8°C oppvarming endret",
+    "es": "Calefacción a 8°C cambiada",
+    "da": "8°C opvarmning ændret",
+    "pl": "Zmieniono ogrzewanie 8°C",
+    "ko": "8°C 난방 변경됨"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "safety_heating",
+      "type": "boolean",
+      "title": {
+        "en": "8°C heating",
+        "nl": "8°C verwarming",
+        "de": "8°C Heizung",
+        "fr": "Chauffage 8°C",
+        "it": "Riscaldamento a 8°C",
+        "sv": "8°C uppvärmning",
+        "no": "8°C oppvarming",
+        "es": "Calefacción a 8°C",
+        "da": "8°C opvarmning",
+        "pl": "Ogrzewanie 8°C",
+        "ko": "8°C 난방"
+      },
+      "example": "true"
+    }
+  ]
+}
