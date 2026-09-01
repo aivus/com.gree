@@ -12,13 +12,51 @@
             "name_label": "기기 이름(선택 사항)",
             "button": "기기 찾기",
             "error_no_response": "기기에서 응답이 없습니다. IP 주소를 확인하고 기기가 연결 가능한지 확인하세요."
+        },
+        "cloud": {
+            "warning": {
+                "title": "중요: 별도의 Gree 계정을 사용하세요",
+                "p1": "Gree 클라우드는 계정당 하나의 활성 로그인만 허용합니다. Homey가 로그인하면 휴대폰의 Gree+ / EWPE Smart 앱이 로그아웃되며 다른 사람이 비밀번호를 알고 있다는 경고가 표시될 수 있습니다. 이는 정상이며 계정이 침해되었다는 의미는 아닙니다.",
+                "p2": "휴대폰 앱을 계속 사용하려면 두 번째 Gree 계정(예: <i>you+homey@example.com</i>)을 만들고, Gree+ 앱에서 집의 가족 구성원으로 초대한 뒤 여기에서 그 계정으로 로그인하세요.",
+                "p3": "이메일 주소와 비밀번호는 Homey에 저장되며 Gree 서버와 통신하는 데만 사용됩니다.",
+                "button": "이해했습니다, 계속"
+            },
+            "login": {
+                "description": "Gree 계정으로 로그인하세요. 지역은 계정을 만든 지역과 일치해야 합니다. 지역이 틀리면 로그인은 항상 실패합니다.",
+                "region_label": "지역",
+                "email_label": "이메일 주소",
+                "password_label": "비밀번호",
+                "button": "로그인"
+            },
+            "regions": {
+                "australia": "호주",
+                "china": "중국 본토",
+                "east_south_asia": "동남아시아",
+                "europe": "유럽",
+                "india": "인도",
+                "latin_america": "라틴 아메리카",
+                "middle_east": "중동",
+                "north_america": "북아메리카",
+                "russia": "러시아",
+                "south_america": "남아메리카"
+            }
         }
     },
     "error": {
         "offline": "HVAC가 오프라인 상태가 되었습니다. 다시 연결하는 중...",
         "not_connected": "HVAC가 연결되어 있지 않습니다. 변경 사항을 적용할 수 없습니다.",
         "invalid_static_ip": "잘못된 IP 주소입니다. 유효한 IPv4 주소를 입력하거나 자동 검색을 사용하려면 필드를 비워 두세요.",
-        "polling_timeout_too_high": "폴링 시간 초과는 폴링 간격보다 작아야 합니다."
+        "polling_timeout_too_high": "폴링 시간 초과는 폴링 간격보다 작아야 합니다.",
+        "cloud": {
+            "invalid_credentials": "이메일 주소 또는 비밀번호가 잘못되었습니다.",
+            "wrong_region": "로그인에 실패했습니다. 선택한 지역이 Gree 계정의 지역과 일치하는지 확인하세요.",
+            "network": "Gree 클라우드에 연결할 수 없습니다. 인터넷 연결을 확인하고 다시 시도하세요.",
+            "rate_limited": "Gree 클라우드가 일시적으로 요청을 거부하고 있습니다. 몇 분 후에 다시 시도하세요.",
+            "cloud": "Gree 클라우드가 예기치 않은 응답을 반환했습니다. 나중에 다시 시도하세요.",
+            "no_devices": "이 Gree 계정에서 에어컨을 찾을 수 없습니다. 계정이 기기가 있는 집의 구성원인지 확인하세요.",
+            "session_expired": "Gree 클라우드가 이 앱을 로그아웃했습니다. 이 기기를 복구하여 다시 로그인하세요.",
+            "missing_key": "Gree 클라우드가 이 기기의 암호화 키를 제공하지 않았습니다. 기기를 제거한 후 다시 추가하세요."
+        }
     },
     "deprecated": {
         "notification": "더 이상 사용되지 않는 Gree 플로우 카드(__card__)를 사용하고 있습니다. 향후 업데이트에서 제거될 예정이니 Homey의 기본 온도 조절기 모드 플로우 카드로 전환하세요.",
@@ -26,6 +64,13 @@
             "hvac_mode_changed": "HVAC 모드 변경됨",
             "hvac_mode_is": "HVAC 모드가 …",
             "set_hvac_mode": "HVAC 모드 설정"
+        }
+    },
+    "repair": {
+        "cloud": {
+            "description": "이 에어컨과의 연결을 복원하려면 Gree 계정에 다시 로그인하세요.",
+            "button": "로그인",
+            "device_not_found": "이 에어컨은 로그인한 Gree 계정에 더 이상 없습니다."
         }
     }
 }

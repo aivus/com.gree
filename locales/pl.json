@@ -12,13 +12,51 @@
             "name_label": "Nazwa urządzenia (opcjonalnie)",
             "button": "Znajdź urządzenie",
             "error_no_response": "Brak odpowiedzi od urządzenia. Sprawdź adres IP i upewnij się, że urządzenie jest osiągalne."
+        },
+        "cloud": {
+            "warning": {
+                "title": "Ważne: użyj oddzielnego konta Gree",
+                "p1": "Chmura Gree pozwala na tylko jedno aktywne zalogowanie na konto. Gdy Homey się zaloguje, aplikacja Gree+ / EWPE Smart w telefonie zostanie wylogowana i może ostrzec, że ktoś inny zna Twoje hasło. Jest to normalne i nie oznacza, że konto zostało przejęte.",
+                "p2": "Aby dalej korzystać z aplikacji w telefonie, utwórz drugie konto Gree (na przykład <i>ty+homey@example.com</i>), zaproś je w aplikacji Gree+ jako członka rodziny do swojego domu i zaloguj się tutaj tym drugim kontem.",
+                "p3": "Twój adres e-mail i hasło są przechowywane na Homey i służą wyłącznie do komunikacji z serwerami Gree.",
+                "button": "Rozumiem, kontynuuj"
+            },
+            "login": {
+                "description": "Zaloguj się swoim kontem Gree. Region musi być taki sam jak ten, w którym konto zostało utworzone — przy błędnym regionie logowanie zawsze się nie udaje.",
+                "region_label": "Region",
+                "email_label": "Adres e-mail",
+                "password_label": "Hasło",
+                "button": "Zaloguj się"
+            },
+            "regions": {
+                "australia": "Australia",
+                "china": "Chiny kontynentalne",
+                "east_south_asia": "Azja Południowo-Wschodnia",
+                "europe": "Europa",
+                "india": "Indie",
+                "latin_america": "Ameryka Łacińska",
+                "middle_east": "Bliski Wschód",
+                "north_america": "Ameryka Północna",
+                "russia": "Rosja",
+                "south_america": "Ameryka Południowa"
+            }
         }
     },
     "error": {
         "offline": "Twój klimatyzator przeszedł w tryb offline. Próba ponownego połączenia...",
         "not_connected": "Klimatyzator nie jest połączony. Nie można zastosować zmiany.",
         "invalid_static_ip": "Nieprawidłowy adres IP. Wprowadź prawidłowy adres IPv4 lub pozostaw pole puste, aby użyć automatycznego wykrywania.",
-        "polling_timeout_too_high": "Limit czasu odpytywania musi być niższy niż interwał odpytywania."
+        "polling_timeout_too_high": "Limit czasu odpytywania musi być niższy niż interwał odpytywania.",
+        "cloud": {
+            "invalid_credentials": "Nieprawidłowy adres e-mail lub hasło.",
+            "wrong_region": "Logowanie nie powiodło się. Sprawdź, czy wybrany region odpowiada regionowi Twojego konta Gree.",
+            "network": "Nie udało się połączyć z chmurą Gree. Sprawdź połączenie internetowe i spróbuj ponownie.",
+            "rate_limited": "Chmura Gree tymczasowo odrzuca żądania. Odczekaj kilka minut i spróbuj ponownie.",
+            "cloud": "Chmura Gree zwróciła nieoczekiwaną odpowiedź. Spróbuj ponownie później.",
+            "no_devices": "Nie znaleziono klimatyzatorów na tym koncie Gree. Upewnij się, że konto należy do domu, w którym znajdują się urządzenia.",
+            "session_expired": "Chmura Gree wylogowała tę aplikację. Napraw to urządzenie, aby zalogować się ponownie.",
+            "missing_key": "Chmura Gree nie udostępniła klucza szyfrowania dla tego urządzenia. Usuń je i dodaj ponownie."
+        }
     },
     "deprecated": {
         "notification": "Używasz przestarzałej karty przepływu Gree (__card__). Zostanie ona usunięta w przyszłej aktualizacji — przełącz się na wbudowane karty przepływu trybu termostatu w Homey.",
@@ -26,6 +64,13 @@
             "hvac_mode_changed": "Zmieniono tryb HVAC",
             "hvac_mode_is": "Tryb HVAC jest …",
             "set_hvac_mode": "Ustaw tryb HVAC"
+        }
+    },
+    "repair": {
+        "cloud": {
+            "description": "Zaloguj się ponownie na konto Gree, aby przywrócić połączenie z tym klimatyzatorem.",
+            "button": "Zaloguj się",
+            "device_not_found": "Tego klimatyzatora nie ma już na koncie Gree, na które się zalogowano."
         }
     }
 }

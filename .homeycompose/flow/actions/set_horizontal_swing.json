@@ -1,0 +1,170 @@
+{
+  "id": "set_horizontal_swing",
+  "title": {
+    "en": "Set horizontal swing",
+    "nl": "Horizontale swing instellen",
+    "de": "Horizontale Schwenkung einstellen",
+    "fr": "Régler le balayage horizontal",
+    "it": "Imposta l'oscillazione orizzontale",
+    "sv": "Ställ in horisontell svängning",
+    "no": "Still inn horisontal svinging",
+    "es": "Establecer oscilación horizontal",
+    "da": "Indstil vandret svingning",
+    "pl": "Ustaw wahanie poziome",
+    "ko": "수평 스윙 설정"
+  },
+  "titleFormatted": {
+    "en": "Set horizontal swing to [[horizontal_swing]]",
+    "nl": "Horizontale swing instellen op [[horizontal_swing]]",
+    "de": "Horizontale Schwenkung auf [[horizontal_swing]] einstellen",
+    "fr": "Régler le balayage horizontal sur [[horizontal_swing]]",
+    "it": "Imposta l'oscillazione orizzontale su [[horizontal_swing]]",
+    "sv": "Ställ in horisontell svängning till [[horizontal_swing]]",
+    "no": "Still inn horisontal svinging til [[horizontal_swing]]",
+    "es": "Establecer oscilación horizontal en [[horizontal_swing]]",
+    "da": "Indstil vandret svingning til [[horizontal_swing]]",
+    "pl": "Ustaw wahanie poziome na [[horizontal_swing]]",
+    "ko": "수평 스윙을 [[horizontal_swing]](으)로 설정"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+    },
+    {
+      "name": "horizontal_swing",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "default",
+          "title": {
+            "en": "Disabled",
+            "nl": "Uitgeschakeld",
+            "de": "Deaktiviert",
+            "fr": "Désactivé",
+            "it": "Disabilitato",
+            "sv": "Inaktiverad",
+            "no": "Deaktivert",
+            "es": "Desactivado",
+            "da": "Deaktiveret",
+            "pl": "Wyłączone",
+            "ko": "비활성화"
+          }
+        },
+        {
+          "id": "full",
+          "title": {
+            "en": "Full range",
+            "nl": "Volledig bereik",
+            "de": "Voller Bereich",
+            "fr": "Plage complète",
+            "it": "Gamma completa",
+            "sv": "Fullt omfång",
+            "no": "Fullt område",
+            "es": "Rango completo",
+            "da": "Fuldt område",
+            "pl": "Pełny zakres",
+            "ko": "전체 범위"
+          }
+        },
+        {
+          "id": "fixedLeft",
+          "title": {
+            "en": "Fixed left",
+            "nl": "Fixed links",
+            "de": "Links fixiert",
+            "fr": "Fixe à gauche",
+            "it": "Fisso a sinistra",
+            "sv": "Fast vänster",
+            "no": "Fast venstre",
+            "es": "Fijo izquierda",
+            "da": "Fast venstre",
+            "pl": "Stałe po lewej",
+            "ko": "왼쪽 고정"
+          }
+        },
+        {
+          "id": "fixedMidLeft",
+          "title": {
+            "en": "Fixed top left",
+            "nl": "Fixed midden links",
+            "de": "Oben-Links fixiert",
+            "fr": "Fixe en haut à gauche",
+            "it": "Fisso in alto a sinistra",
+            "sv": "Fast överst vänster",
+            "no": "Fast øverst venstre",
+            "es": "Fijo arriba izquierda",
+            "da": "Fast øverst venstre",
+            "pl": "Stałe na górze po lewej",
+            "ko": "상단 왼쪽 고정"
+          }
+        },
+        {
+          "id": "fixedMid",
+          "title": {
+            "en": "Fixed middle",
+            "nl": "Fixed midden",
+            "de": "Mitte fixiert",
+            "fr": "Fixe au milieu",
+            "it": "Fisso al centro",
+            "sv": "Fast mitten",
+            "no": "Fast midten",
+            "es": "Fijo centro",
+            "da": "Fast midt",
+            "pl": "Stałe na środku",
+            "ko": "중앙 고정"
+          }
+        },
+        {
+          "id": "fixedMidRight",
+          "title": {
+            "en": "Fixed middle right",
+            "nl": "Fixed midden rechts",
+            "de": "Mitte-Rechts fixiert",
+            "fr": "Fixe au milieu à droite",
+            "it": "Fisso al centro a destra",
+            "sv": "Fast mitten höger",
+            "no": "Fast midten høyre",
+            "es": "Fijo centro derecha",
+            "da": "Fast midt højre",
+            "pl": "Stałe na środku prawym",
+            "ko": "중앙 오른쪽 고정"
+          }
+        },
+        {
+          "id": "fixedRight",
+          "title": {
+            "en": "Fixed right",
+            "nl": "Fixed rechts",
+            "de": "Rechts fixiert",
+            "fr": "Fixe à droite",
+            "it": "Fisso a destra",
+            "sv": "Fast höger",
+            "no": "Fast høyre",
+            "es": "Fijo derecha",
+            "da": "Fast højre",
+            "pl": "Stałe po prawej",
+            "ko": "오른쪽 고정"
+          }
+        },
+        {
+          "id": "fullAlt",
+          "title": {
+            "en": "Full range",
+            "nl": "Volledig bereik",
+            "de": "Voller Bereich",
+            "fr": "Plage complète",
+            "it": "Gamma completa",
+            "sv": "Fullt omfång",
+            "no": "Fullt område",
+            "es": "Rango completo",
+            "da": "Fuldt område",
+            "pl": "Pełny zakres",
+            "ko": "전체 범위"
+          }
+        }
+      ]
+    }
+  ]
+}
