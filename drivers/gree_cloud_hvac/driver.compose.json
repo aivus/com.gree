@@ -1,0 +1,484 @@
+{
+  "name": {
+    "en": "Gree Cloud HVACs",
+    "nl": "Gree Cloud airco's",
+    "de": "Gree Cloud Klimaanlagen",
+    "fr": "Climatiseurs Gree Cloud",
+    "it": "Condizionatori Gree Cloud",
+    "sv": "Gree Cloud-luftkonditioneringar",
+    "no": "Gree Cloud klimaanlegg",
+    "es": "Aires acondicionados Gree Cloud",
+    "da": "Gree Cloud HVAC'er",
+    "pl": "Klimatyzatory Gree Cloud",
+    "ko": "Gree Cloud 에어컨"
+  },
+  "class": "airconditioning",
+  "capabilities": [
+    "onoff",
+    "measure_temperature",
+    "target_temperature",
+    "thermostat_mode",
+    "fan_speed",
+    "turbo_mode",
+    "safety_heating",
+    "lights",
+    "xfan_mode",
+    "vertical_swing",
+    "horizontal_swing",
+    "quiet_mode",
+    "health_mode",
+    "power_save_mode",
+    "sleep_mode",
+    "fresh_air_mode"
+  ],
+  "capabilitiesOptions": {
+    "target_temperature": {
+      "min": 16,
+      "max": 30,
+      "step": 1
+    },
+    "thermostat_mode": {
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto",
+            "nl": "Automatisch",
+            "de": "Automatisch",
+            "fr": "Automatique",
+            "it": "Automatico",
+            "sv": "Automatiskt",
+            "no": "Automatisk",
+            "es": "Automático",
+            "da": "Automatisk",
+            "pl": "Automatyczny",
+            "ko": "자동"
+          }
+        },
+        {
+          "id": "cool",
+          "title": {
+            "en": "Cool",
+            "nl": "Koelen",
+            "de": "Kühlen",
+            "fr": "Refroidissement",
+            "it": "Raffreddamento",
+            "sv": "Kyla",
+            "no": "Kjøling",
+            "es": "Enfriar",
+            "da": "Køl",
+            "pl": "Chłodzenie",
+            "ko": "냉방"
+          }
+        },
+        {
+          "id": "heat",
+          "title": {
+            "en": "Heat",
+            "nl": "Verwarmen",
+            "de": "Heizen",
+            "fr": "Chauffage",
+            "it": "Riscaldamento",
+            "sv": "Värme",
+            "no": "Oppvarming",
+            "es": "Calentar",
+            "da": "Varme",
+            "pl": "Ogrzewanie",
+            "ko": "난방"
+          }
+        },
+        {
+          "id": "dry",
+          "title": {
+            "en": "Dry",
+            "nl": "Ontvochtigen",
+            "de": "Trocken",
+            "fr": "Déshumidification",
+            "it": "Deumidificazione",
+            "sv": "Avfuktning",
+            "no": "Avfukting",
+            "es": "Deshumidificar",
+            "da": "Affugtning",
+            "pl": "Osuszanie",
+            "ko": "제습"
+          }
+        },
+        {
+          "id": "fan_only",
+          "title": {
+            "en": "Fan Only",
+            "nl": "Alleen ventileren",
+            "de": "Nur Lüften",
+            "fr": "Ventilation seule",
+            "it": "Solo ventilazione",
+            "sv": "Endast fläkt",
+            "no": "Kun vifte",
+            "es": "Solo ventilador",
+            "da": "Kun ventilator",
+            "pl": "Tylko wentylator",
+            "ko": "송풍"
+          }
+        },
+        {
+          "id": "off",
+          "title": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Aus",
+            "fr": "Arrêt",
+            "it": "Spento",
+            "sv": "Av",
+            "no": "Av",
+            "es": "Apagado",
+            "da": "Fra",
+            "pl": "Wył.",
+            "ko": "끄기"
+          }
+        }
+      ]
+    }
+  },
+  "connectivity": [
+    "cloud"
+  ],
+  "pair": [
+    {
+      "id": "account_warning",
+      "navigation": {
+        "next": "login"
+      }
+    },
+    {
+      "id": "login",
+      "navigation": {
+        "next": "list_devices"
+      }
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_my_devices"
+      }
+    },
+    {
+      "id": "add_my_devices",
+      "template": "add_devices"
+    }
+  ],
+  "repair": [
+    {
+      "id": "relogin"
+    }
+  ],
+  "settings": [
+    {
+      "type": "group",
+      "label": {
+        "en": "Gree account",
+        "nl": "Gree-account",
+        "de": "Gree-Konto",
+        "fr": "Compte Gree",
+        "it": "Account Gree",
+        "sv": "Gree-konto",
+        "no": "Gree-konto",
+        "es": "Cuenta Gree",
+        "da": "Gree-konto",
+        "pl": "Konto Gree",
+        "ko": "Gree 계정"
+      },
+      "children": [
+        {
+          "id": "account_email",
+          "type": "label",
+          "label": {
+            "en": "E-mail address",
+            "nl": "E-mailadres",
+            "de": "E-Mail-Adresse",
+            "fr": "Adresse e-mail",
+            "it": "Indirizzo e-mail",
+            "sv": "E-postadress",
+            "no": "E-postadresse",
+            "es": "Dirección de correo electrónico",
+            "da": "E-mailadresse",
+            "pl": "Adres e-mail",
+            "ko": "이메일 주소"
+          },
+          "hint": {
+            "en": "The Gree account this air conditioner is controlled through. Use Repair to sign in with a different account.",
+            "nl": "Het Gree-account waarmee deze airco wordt bediend. Gebruik Repareren om met een ander account in te loggen.",
+            "de": "Das Gree-Konto, über das diese Klimaanlage gesteuert wird. Verwende Reparieren, um dich mit einem anderen Konto anzumelden.",
+            "fr": "Le compte Gree utilisé pour contrôler ce climatiseur. Utilisez Réparer pour vous connecter avec un autre compte.",
+            "it": "L'account Gree con cui viene controllato questo condizionatore. Usa Ripara per accedere con un altro account.",
+            "sv": "Gree-kontot som den här luftkonditioneringen styrs via. Använd Reparera för att logga in med ett annat konto.",
+            "no": "Gree-kontoen dette klimaanlegget styres gjennom. Bruk Reparer for å logge inn med en annen konto.",
+            "es": "La cuenta Gree con la que se controla este aire acondicionado. Usa Reparar para iniciar sesión con otra cuenta.",
+            "da": "Den Gree-konto, som denne HVAC styres gennem. Brug Reparer for at logge ind med en anden konto.",
+            "pl": "Konto Gree, za pomocą którego sterowany jest ten klimatyzator. Użyj funkcji Napraw, aby zalogować się na inne konto.",
+            "ko": "이 에어컨을 제어하는 Gree 계정입니다. 다른 계정으로 로그인하려면 복구를 사용하세요."
+          },
+          "value": ""
+        },
+        {
+          "id": "account_region",
+          "type": "label",
+          "label": {
+            "en": "Region",
+            "nl": "Regio",
+            "de": "Region",
+            "fr": "Région",
+            "it": "Regione",
+            "sv": "Region",
+            "no": "Region",
+            "es": "Región",
+            "da": "Region",
+            "pl": "Region",
+            "ko": "지역"
+          },
+          "value": ""
+        },
+        {
+          "id": "device_mac",
+          "type": "label",
+          "label": {
+            "en": "Device ID",
+            "nl": "Apparaat-ID",
+            "de": "Geräte-ID",
+            "fr": "Identifiant de l'appareil",
+            "it": "ID dispositivo",
+            "sv": "Enhets-ID",
+            "no": "Enhets-ID",
+            "es": "ID del dispositivo",
+            "da": "Enheds-ID",
+            "pl": "Identyfikator urządzenia",
+            "ko": "기기 ID"
+          },
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {
+        "en": "Temperature",
+        "nl": "Temperatuur",
+        "de": "Temperatur",
+        "fr": "Température",
+        "it": "Temperatura",
+        "sv": "Temperatur",
+        "no": "Temperatur",
+        "es": "Temperatura",
+        "da": "Temperatur",
+        "pl": "Temperatura",
+        "ko": "온도"
+      },
+      "children": [
+        {
+          "id": "min_target_temperature",
+          "type": "number",
+          "label": {
+            "en": "Minimum target temperature",
+            "nl": "Minimale doeltemperatuur",
+            "de": "Minimale Zieltemperatur",
+            "fr": "Température cible minimale",
+            "it": "Temperatura target minima",
+            "sv": "Lägsta måltemperatur",
+            "no": "Laveste måltemperatur",
+            "es": "Temperatura objetivo mínima",
+            "da": "Laveste måltemperatur",
+            "pl": "Minimalna temperatura docelowa",
+            "ko": "최저 목표 온도"
+          },
+          "hint": {
+            "en": "The lowest temperature you can set for this device. Some heat pumps support down to 8 °C.",
+            "nl": "De laagste temperatuur die je voor dit apparaat kunt instellen. Sommige warmtepompen ondersteunen tot 8 °C.",
+            "de": "Die niedrigste Temperatur, die du für dieses Gerät einstellen kannst. Einige Wärmepumpen unterstützen bis zu 8 °C.",
+            "fr": "La température la plus basse que vous pouvez définir pour cet appareil. Certaines pompes à chaleur descendent jusqu'à 8 °C.",
+            "it": "La temperatura più bassa impostabile per questo dispositivo. Alcune pompe di calore arrivano fino a 8 °C.",
+            "sv": "Den lägsta temperaturen du kan ställa in för den här enheten. Vissa värmepumpar stöder ned till 8 °C.",
+            "no": "Den laveste temperaturen du kan angi for denne enheten. Noen varmepumper støtter ned til 8 °C.",
+            "es": "La temperatura más baja que puedes configurar para este dispositivo. Algunas bombas de calor admiten hasta 8 °C.",
+            "da": "Den laveste temperatur, du kan indstille for denne enhed. Nogle varmepumper understøtter ned til 8 °C.",
+            "pl": "Najniższa temperatura, jaką możesz ustawić dla tego urządzenia. Niektóre pompy ciepła obsługują nawet 8 °C.",
+            "ko": "이 기기에 설정할 수 있는 최저 온도입니다. 일부 히트펌프는 8 °C까지 지원합니다."
+          },
+          "value": 16,
+          "min": 8,
+          "max": 30,
+          "step": 1,
+          "units": {
+            "en": "°C"
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {
+        "en": "Connection (advanced)",
+        "nl": "Verbinding (geavanceerd)",
+        "de": "Verbindung (erweitert)",
+        "fr": "Connexion (avancé)",
+        "it": "Connessione (avanzato)",
+        "sv": "Anslutning (avancerat)",
+        "no": "Tilkobling (avansert)",
+        "es": "Conexión (avanzado)",
+        "da": "Forbindelse (avanceret)",
+        "pl": "Połączenie (zaawansowane)",
+        "ko": "연결 (고급)"
+      },
+      "children": [
+        {
+          "id": "polling_interval",
+          "type": "number",
+          "label": {
+            "en": "Polling interval",
+            "nl": "Pollinginterval",
+            "de": "Abfrageintervall",
+            "fr": "Intervalle d'interrogation",
+            "it": "Intervallo di polling",
+            "sv": "Pollningsintervall",
+            "no": "Pollingintervall",
+            "es": "Intervalo de sondeo",
+            "da": "Pollinginterval",
+            "pl": "Interwał odpytywania",
+            "ko": "폴링 간격"
+          },
+          "hint": {
+            "en": "How often the app asks the Gree cloud for the current status. The cloud is much slower than a local connection and may start refusing frequent requests. Default: 60000 ms.",
+            "nl": "Hoe vaak de app de huidige status opvraagt bij de Gree-cloud. De cloud is veel langzamer dan een lokale verbinding en kan frequente verzoeken gaan weigeren. Standaard: 60000 ms.",
+            "de": "Wie oft die App den aktuellen Status bei der Gree-Cloud abfragt. Die Cloud ist deutlich langsamer als eine lokale Verbindung und kann häufige Anfragen ablehnen. Standard: 60000 ms.",
+            "fr": "Fréquence à laquelle l'application interroge le cloud Gree sur l'état actuel. Le cloud est bien plus lent qu'une connexion locale et peut refuser des requêtes trop fréquentes. Par défaut : 60000 ms.",
+            "it": "Con quale frequenza l'app richiede lo stato attuale al cloud Gree. Il cloud è molto più lento di una connessione locale e può iniziare a rifiutare richieste frequenti. Predefinito: 60000 ms.",
+            "sv": "Hur ofta appen frågar Gree-molnet om aktuell status. Molnet är mycket långsammare än en lokal anslutning och kan börja neka frekventa förfrågningar. Standard: 60000 ms.",
+            "no": "Hvor ofte appen spør Gree-skyen om gjeldende status. Skyen er mye langsommere enn en lokal tilkobling og kan begynne å avvise hyppige forespørsler. Standard: 60000 ms.",
+            "es": "Con qué frecuencia la app solicita el estado actual a la nube de Gree. La nube es mucho más lenta que una conexión local y puede empezar a rechazar solicitudes frecuentes. Predeterminado: 60000 ms.",
+            "da": "Hvor ofte appen beder Gree-skyen om den aktuelle status. Skyen er meget langsommere end en lokal forbindelse og kan begynde at afvise hyppige forespørgsler. Standard: 60000 ms.",
+            "pl": "Jak często aplikacja odpytuje chmurę Gree o bieżący stan. Chmura jest znacznie wolniejsza niż połączenie lokalne i może zacząć odrzucać częste żądania. Domyślnie: 60000 ms.",
+            "ko": "앱이 Gree 클라우드에 현재 상태를 요청하는 빈도입니다. 클라우드는 로컬 연결보다 훨씬 느리며 잦은 요청을 거부할 수 있습니다. 기본값: 60000 ms."
+          },
+          "value": 60000,
+          "min": 30000,
+          "step": 5000,
+          "units": {
+            "en": "ms"
+          },
+          "max": 900000
+        },
+        {
+          "id": "command_timeout",
+          "type": "number",
+          "label": {
+            "en": "Command timeout",
+            "nl": "Opdrachttime-out",
+            "de": "Befehls-Timeout",
+            "fr": "Délai d'attente des commandes",
+            "it": "Timeout dei comandi",
+            "sv": "Kommandotimeout",
+            "no": "Kommandotidsavbrudd",
+            "es": "Tiempo de espera de comandos",
+            "da": "Kommandotimeout",
+            "pl": "Limit czasu polecenia",
+            "ko": "명령 시간 초과"
+          },
+          "hint": {
+            "en": "How long to wait for the Gree cloud to confirm a command before it is treated as failed. Default: 10000 ms.",
+            "nl": "Hoe lang wordt gewacht tot de Gree-cloud een opdracht bevestigt voordat deze als mislukt wordt beschouwd. Standaard: 10000 ms.",
+            "de": "Wie lange auf die Bestätigung eines Befehls durch die Gree-Cloud gewartet wird, bevor er als fehlgeschlagen gilt. Standard: 10000 ms.",
+            "fr": "Durée d'attente de la confirmation d'une commande par le cloud Gree avant de la considérer comme échouée. Par défaut : 10000 ms.",
+            "it": "Per quanto tempo attendere che il cloud Gree confermi un comando prima di considerarlo fallito. Predefinito: 10000 ms.",
+            "sv": "Hur länge appen väntar på att Gree-molnet bekräftar ett kommando innan det räknas som misslyckat. Standard: 10000 ms.",
+            "no": "Hvor lenge appen venter på at Gree-skyen bekrefter en kommando før den regnes som mislykket. Standard: 10000 ms.",
+            "es": "Cuánto tiempo se espera a que la nube de Gree confirme un comando antes de considerarlo fallido. Predeterminado: 10000 ms.",
+            "da": "Hvor længe der ventes på, at Gree-skyen bekræfter en kommando, før den betragtes som mislykket. Standard: 10000 ms.",
+            "pl": "Jak długo czekać na potwierdzenie polecenia przez chmurę Gree, zanim zostanie uznane za nieudane. Domyślnie: 10000 ms.",
+            "ko": "명령이 실패로 처리되기 전에 Gree 클라우드의 확인을 기다리는 시간입니다. 기본값: 10000 ms."
+          },
+          "value": 10000,
+          "min": 2000,
+          "max": 60000,
+          "step": 1000,
+          "units": {
+            "en": "ms"
+          }
+        },
+        {
+          "id": "connect_timeout",
+          "type": "number",
+          "label": {
+            "en": "Connection timeout",
+            "nl": "Verbindingstime-out",
+            "de": "Verbindungs-Timeout",
+            "fr": "Délai de connexion",
+            "it": "Timeout di connessione",
+            "sv": "Anslutningstimeout",
+            "no": "Tilkoblingstidsavbrudd",
+            "es": "Tiempo de espera de conexión",
+            "da": "Forbindelsestimeout",
+            "pl": "Limit czasu połączenia",
+            "ko": "연결 시간 초과"
+          },
+          "hint": {
+            "en": "How long to wait when connecting to the Gree cloud before retrying. Default: 30000 ms.",
+            "nl": "Hoe lang wordt gewacht bij het verbinden met de Gree-cloud voordat opnieuw wordt geprobeerd. Standaard: 30000 ms.",
+            "de": "Wie lange beim Verbinden mit der Gree-Cloud gewartet wird, bevor ein neuer Versuch erfolgt. Standard: 30000 ms.",
+            "fr": "Durée d'attente lors de la connexion au cloud Gree avant de réessayer. Par défaut : 30000 ms.",
+            "it": "Per quanto tempo attendere durante la connessione al cloud Gree prima di riprovare. Predefinito: 30000 ms.",
+            "sv": "Hur länge appen väntar vid anslutning till Gree-molnet innan den försöker igen. Standard: 30000 ms.",
+            "no": "Hvor lenge appen venter ved tilkobling til Gree-skyen før den prøver igjen. Standard: 30000 ms.",
+            "es": "Cuánto tiempo se espera al conectar con la nube de Gree antes de reintentar. Predeterminado: 30000 ms.",
+            "da": "Hvor længe der ventes ved forbindelse til Gree-skyen, før der forsøges igen. Standard: 30000 ms.",
+            "pl": "Jak długo czekać podczas łączenia z chmurą Gree przed ponowną próbą. Domyślnie: 30000 ms.",
+            "ko": "Gree 클라우드에 연결할 때 다시 시도하기 전에 기다리는 시간입니다. 기본값: 30000 ms."
+          },
+          "value": 30000,
+          "min": 5000,
+          "step": 1000,
+          "units": {
+            "en": "ms"
+          }
+        },
+        {
+          "id": "no_response_reconnect_timeout",
+          "type": "number",
+          "label": {
+            "en": "Reconnect after no response",
+            "nl": "Opnieuw verbinden na geen reactie",
+            "de": "Erneut verbinden nach keiner Antwort",
+            "fr": "Reconnexion après absence de réponse",
+            "it": "Riconnessione dopo nessuna risposta",
+            "sv": "Återanslut efter uteblivet svar",
+            "no": "Koble til på nytt etter manglende svar",
+            "es": "Reconectar tras falta de respuesta",
+            "da": "Genopret forbindelse efter manglende svar",
+            "pl": "Ponowne łączenie po braku odpowiedzi",
+            "ko": "응답 없을 때 재연결"
+          },
+          "hint": {
+            "en": "How long the Gree cloud may stay silent before the app drops the connection and signs in again. Default: 180000 ms.",
+            "nl": "Hoe lang de Gree-cloud stil mag blijven voordat de app de verbinding verbreekt en opnieuw inlogt. Standaard: 180000 ms.",
+            "de": "Wie lange die Gree-Cloud schweigen darf, bevor die App die Verbindung trennt und sich neu anmeldet. Standard: 180000 ms.",
+            "fr": "Durée pendant laquelle le cloud Gree peut rester silencieux avant que l'application ne coupe la connexion et se reconnecte. Par défaut : 180000 ms.",
+            "it": "Per quanto tempo il cloud Gree può restare silenzioso prima che l'app interrompa la connessione e acceda di nuovo. Predefinito: 180000 ms.",
+            "sv": "Hur länge Gree-molnet får vara tyst innan appen bryter anslutningen och loggar in igen. Standard: 180000 ms.",
+            "no": "Hvor lenge Gree-skyen kan være stille før appen bryter tilkoblingen og logger inn på nytt. Standard: 180000 ms.",
+            "es": "Cuánto tiempo puede permanecer en silencio la nube de Gree antes de que la app corte la conexión y vuelva a iniciar sesión. Predeterminado: 180000 ms.",
+            "da": "Hvor længe Gree-skyen må være tavs, før appen afbryder forbindelsen og logger ind igen. Standard: 180000 ms.",
+            "pl": "Jak długo chmura Gree może milczeć, zanim aplikacja rozłączy połączenie i zaloguje się ponownie. Domyślnie: 180000 ms.",
+            "ko": "앱이 연결을 끊고 다시 로그인하기 전에 Gree 클라우드가 응답하지 않을 수 있는 시간입니다. 기본값: 180000 ms."
+          },
+          "value": 180000,
+          "min": 60000,
+          "step": 10000,
+          "units": {
+            "en": "ms"
+          }
+        }
+      ]
+    }
+  ],
+  "images": {
+    "large": "/drivers/gree_cloud_hvac/assets/images/large.png",
+    "small": "/drivers/gree_cloud_hvac/assets/images/small.png"
+  }
+}

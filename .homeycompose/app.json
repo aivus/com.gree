@@ -1,6 +1,6 @@
 {
   "id": "com.gree",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "compatibility": ">=12.0.1",
   "sdk": 3,
   "brandColor": "#ff732e",
@@ -52,7 +52,9 @@
       "Heiwa",
       "Ekokai",
       "Lessar",
-      "Altech"
+      "Altech",
+      "Gree+",
+      "cloud"
     ]
   },
   "permissions": [],

@@ -1,0 +1,43 @@
+{
+  "id": "fan_speed_changed",
+  "title": {
+    "en": "Fan speed changed",
+    "nl": "Ventilator snelheid veranderd",
+    "de": "Lüftergeschwindigkeit geändert",
+    "fr": "Vitesse du ventilateur modifiée",
+    "it": "Velocità della ventola cambiata",
+    "sv": "Fläkthastighet ändrad",
+    "no": "Viftehastighet endret",
+    "es": "Velocidad del ventilador cambiada",
+    "da": "Ventilatorhastighed ændret",
+    "pl": "Zmieniono prędkość wentylatora",
+    "ko": "팬 속도 변경됨"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "fan_speed",
+      "type": "string",
+      "title": {
+        "en": "Fan speed",
+        "nl": "Ventilator snelheid",
+        "de": "Lüftergeschwindigkeit",
+        "fr": "Vitesse du ventilateur",
+        "it": "Velocità della ventola",
+        "sv": "Fläkthastighet",
+        "no": "Viftehastighet",
+        "es": "Velocidad del ventilador",
+        "da": "Ventilatorhastighed",
+        "pl": "Prędkość wentylatora",
+        "ko": "팬 속도"
+      },
+      "example": "low"
+    }
+  ]
+}

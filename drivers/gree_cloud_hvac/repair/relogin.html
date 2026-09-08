@@ -1,0 +1,94 @@
+<div style="max-width: 400px; margin: 0 auto; padding: 16px;">
+  <p data-i18n="repair.cloud.description"></p>
+
+  <form id="form">
+    <label>
+      <span data-i18n="pair.cloud.login.region_label"></span><br />
+      <select id="region" style="width: 100%; margin-top: 8px; margin-bottom: 8px; padding: 6px;" required></select>
+    </label>
+
+    <label>
+      <span data-i18n="pair.cloud.login.email_label"></span><br />
+      <input
+        type="email"
+        id="email"
+        autocomplete="username"
+        style="width: 100%; margin-top: 8px; margin-bottom: 8px; padding: 6px;"
+        required
+      />
+    </label>
+
+    <label>
+      <span data-i18n="pair.cloud.login.password_label"></span><br />
+      <input
+        type="password"
+        id="password"
+        autocomplete="current-password"
+        style="width: 100%; margin-top: 8px; margin-bottom: 8px; padding: 6px;"
+        required
+      />
+    </label>
+
+    <p id="error" style="color: red; display: none;"></p>
+    <button type="submit" style="width: 100%; padding: 8px;" data-i18n="repair.cloud.button"></button>
+  </form>
+</div>
+
+<script>
+  var errorEl = document.getElementById('error');
+
+  function showError(message) {
+    errorEl.textContent = message;
+    errorEl.style.display = 'block';
+  }
+
+  Homey.emit('get_regions', null, function (err, regions) {
+    if (err) {
+      showError(err.message || err);
+      return;
+    }
+
+    var select = document.getElementById('region');
+
+    regions.forEach(function (region) {
+      var option = document.createElement('option');
+      option.value = region.id;
+      option.textContent = region.label;
+      if (region.selected) {
+        option.selected = true;
+      }
+      select.appendChild(option);
+    });
+  });
+
+  // Prefill what we already know; the password is never sent back to the view.
+  Homey.emit('get_account', null, function (err, account) {
+    if (err || !account) {
+      return;
+    }
+
+    document.getElementById('email').value = account.email || '';
+  });
+
+  document.getElementById('form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    errorEl.style.display = 'none';
+
+    Homey.showLoadingOverlay();
+
+    Homey.emit('relogin', {
+      region: document.getElementById('region').value,
+      email: document.getElementById('email').value.trim(),
+      password: document.getElementById('password').value
+    }, function (reloginErr) {
+      Homey.hideLoadingOverlay();
+
+      if (reloginErr) {
+        showError(reloginErr.message || reloginErr);
+        return;
+      }
+
+      Homey.showView('done');
+    });
+  });
+</script>
