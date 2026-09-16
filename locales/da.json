@@ -12,13 +12,51 @@
             "name_label": "Enhedsnavn (valgfrit)",
             "button": "Find enhed",
             "error_no_response": "Intet svar fra enheden. Kontrollér IP-adressen, og sørg for, at enheden kan nås."
+        },
+        "cloud": {
+            "warning": {
+                "title": "Vigtigt: brug en separat Gree-konto",
+                "p1": "Gree-skyen tillader kun én aktiv login pr. konto. Når Homey logger ind, bliver Gree+ / EWPE Smart-appen på din telefon logget ud og advarer måske om, at nogen andre kender din adgangskode. Det er forventet og betyder ikke, at din konto er kompromitteret.",
+                "p2": "Vil du blive ved med at bruge telefonappen, så opret en ekstra Gree-konto (for eksempel <i>dig+homey@example.com</i>), inviter den som familiemedlem til dit hjem i Gree+-appen, og log ind her med den anden konto.",
+                "p3": "Din e-mailadresse og adgangskode gemmes på din Homey og bruges kun til at kommunikere med Grees servere.",
+                "button": "Jeg forstår, fortsæt"
+            },
+            "login": {
+                "description": "Log ind med din Gree-konto. Regionen skal svare til den, kontoen blev oprettet i — med den forkerte region mislykkes login altid.",
+                "region_label": "Region",
+                "email_label": "E-mailadresse",
+                "password_label": "Adgangskode",
+                "button": "Log ind"
+            },
+            "regions": {
+                "australia": "Australien",
+                "china": "Fastlandskina",
+                "east_south_asia": "Sydøstasien",
+                "europe": "Europa",
+                "india": "Indien",
+                "latin_america": "Latinamerika",
+                "middle_east": "Mellemøsten",
+                "north_america": "Nordamerika",
+                "russia": "Rusland",
+                "south_america": "Sydamerika"
+            }
         }
     },
     "error": {
         "offline": "Din HVAC gik offline. Forsøger at genoprette forbindelsen...",
         "not_connected": "HVAC er ikke tilsluttet. Ændringen kunne ikke anvendes.",
         "invalid_static_ip": "Ugyldig IP-adresse. Indtast en gyldig IPv4-adresse, eller lad feltet være tomt for at bruge automatisk registrering.",
-        "polling_timeout_too_high": "Polling-timeout skal være lavere end pollinginterval."
+        "polling_timeout_too_high": "Polling-timeout skal være lavere end pollinginterval.",
+        "cloud": {
+            "invalid_credentials": "Forkert e-mailadresse eller adgangskode.",
+            "wrong_region": "Login mislykkedes. Kontroller, at den valgte region svarer til regionen for din Gree-konto.",
+            "network": "Kunne ikke få forbindelse til Gree-skyen. Kontroller din internetforbindelse og prøv igen.",
+            "rate_limited": "Gree-skyen afviser midlertidigt forespørgsler. Vent et par minutter og prøv igen.",
+            "cloud": "Gree-skyen svarede uventet. Prøv igen senere.",
+            "no_devices": "Der blev ikke fundet nogen HVAC'er på denne Gree-konto. Kontroller, at kontoen er medlem af det hjem, enhederne står i.",
+            "session_expired": "Gree-skyen loggede denne app ud. Reparer enheden for at logge ind igen.",
+            "missing_key": "Gree-skyen leverede ikke en krypteringsnøgle til denne enhed. Fjern den og tilføj den igen."
+        }
     },
     "deprecated": {
         "notification": "Du bruger et forældet Gree-flowkort (__card__). Det vil blive fjernet i en fremtidig opdatering — skift til Homeys indbyggede flowkort til termostattilstand.",
@@ -26,6 +64,13 @@
             "hvac_mode_changed": "HVAC-tilstand ændret",
             "hvac_mode_is": "HVAC-tilstand er …",
             "set_hvac_mode": "Indstil HVAC-tilstand"
+        }
+    },
+    "repair": {
+        "cloud": {
+            "description": "Log ind på din Gree-konto igen for at genoprette forbindelsen til denne HVAC.",
+            "button": "Log ind",
+            "device_not_found": "Denne HVAC findes ikke længere på den Gree-konto, du er logget ind på."
         }
     }
 }

@@ -1,0 +1,139 @@
+{
+  "id": "set_hvac_mode",
+  "deprecated": true,
+  "title": {
+    "en": "Set HVAC mode",
+    "nl": "Stel de HVAC-modus in",
+    "de": "HVAC-Modus einstellen",
+    "fr": "Régler le mode HVAC",
+    "it": "Imposta la modalità HVAC",
+    "sv": "Ställ in HVAC-läge",
+    "no": "Still inn HVAC-modus",
+    "es": "Establecer modo HVAC",
+    "da": "Indstil HVAC-tilstand",
+    "pl": "Ustaw tryb HVAC",
+    "ko": "HVAC 모드 설정"
+  },
+  "titleFormatted": {
+    "en": "Set HVAC mode to [[mode]]",
+    "nl": "Stel de HVAC-modus in op [[mode]]",
+    "de": "HVAC-Modus auf [[mode]] einstellen",
+    "fr": "Régler le mode HVAC sur [[mode]]",
+    "it": "Imposta la modalità HVAC su [[mode]]",
+    "sv": "Ställ in HVAC-läge till [[mode]]",
+    "no": "Still inn HVAC-modus til [[mode]]",
+    "es": "Establecer modo HVAC en [[mode]]",
+    "da": "Indstil HVAC-tilstand til [[mode]]",
+    "pl": "Ustaw tryb HVAC na [[mode]]",
+    "ko": "HVAC 모드를 [[mode]](으)로 설정"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac"
+    },
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "auto",
+          "label": {
+            "en": "Auto",
+            "nl": "Automatisch",
+            "de": "Automatisch",
+            "fr": "Automatique",
+            "it": "Automatico",
+            "sv": "Automatiskt",
+            "no": "Automatisk",
+            "es": "Automático",
+            "da": "Automatisk",
+            "pl": "Automatyczny",
+            "ko": "자동"
+          }
+        },
+        {
+          "id": "cool",
+          "label": {
+            "en": "Cool",
+            "nl": "Koelen",
+            "de": "Kühlen",
+            "fr": "Refroidissement",
+            "it": "Raffreddamento",
+            "sv": "Kyla",
+            "no": "Kjøling",
+            "es": "Enfriar",
+            "da": "Køl",
+            "pl": "Chłodzenie",
+            "ko": "냉방"
+          }
+        },
+        {
+          "id": "heat",
+          "label": {
+            "en": "Heat",
+            "nl": "Verwarmen",
+            "de": "Heizen",
+            "fr": "Chauffage",
+            "it": "Riscaldamento",
+            "sv": "Värme",
+            "no": "Oppvarming",
+            "es": "Calentar",
+            "da": "Varme",
+            "pl": "Ogrzewanie",
+            "ko": "난방"
+          }
+        },
+        {
+          "id": "dry",
+          "label": {
+            "en": "Dry",
+            "nl": "Ontvochtigen",
+            "de": "Trocken",
+            "fr": "Déshumidification",
+            "it": "Deumidificazione",
+            "sv": "Avfuktning",
+            "no": "Avfukting",
+            "es": "Deshumidificar",
+            "da": "Affugtning",
+            "pl": "Osuszanie",
+            "ko": "제습"
+          }
+        },
+        {
+          "id": "fan_only",
+          "label": {
+            "en": "Fan Only",
+            "nl": "Alleen ventileren",
+            "de": "Nur Lüften",
+            "fr": "Ventilation seule",
+            "it": "Solo ventilazione",
+            "sv": "Endast fläkt",
+            "no": "Kun vifte",
+            "es": "Solo ventilador",
+            "da": "Kun ventilator",
+            "pl": "Tylko wentylator",
+            "ko": "송풍"
+          }
+        },
+        {
+          "id": "off",
+          "title": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Aus",
+            "fr": "Arrêt",
+            "it": "Spento",
+            "sv": "Av",
+            "no": "Av",
+            "es": "Apagado",
+            "da": "Fra",
+            "pl": "Wył.",
+            "ko": "끄기"
+          }
+        }
+      ]
+    }
+  ]
+}

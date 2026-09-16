@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.gree",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "compatibility": ">=12.0.1",
   "sdk": 3,
   "brandColor": "#ff732e",
@@ -53,7 +53,9 @@
       "Heiwa",
       "Ekokai",
       "Lessar",
-      "Altech"
+      "Altech",
+      "Gree+",
+      "cloud"
     ]
   },
   "permissions": [],
@@ -117,7 +119,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
           }
         ],
         "tokens": [
@@ -138,6 +140,135 @@
               "ko": "팬 속도"
             },
             "example": "low"
+          }
+        ]
+      },
+      {
+        "id": "fresh_air_mode_changed",
+        "title": {
+          "en": "Fresh air mode changed",
+          "nl": "Verse lucht modus veranderd",
+          "de": "Frischluftmodus geändert",
+          "fr": "Mode air frais modifié",
+          "it": "Modalità aria fresca cambiata",
+          "sv": "Friskluftsläge ändrat",
+          "no": "Friskluftmodus endret",
+          "es": "Modo de aire fresco cambiado",
+          "da": "Friskluftstilstand ændret",
+          "pl": "Zmieniono tryb świeżego powietrza",
+          "ko": "환기 모드 변경됨"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "fresh_air_mode",
+            "type": "string",
+            "title": {
+              "en": "Fresh air mode",
+              "nl": "Verse lucht modus",
+              "de": "Frischluftmodus",
+              "fr": "Mode air frais",
+              "it": "Modalità aria fresca",
+              "sv": "Friskluftsläge",
+              "no": "Friskluftmodus",
+              "es": "Modo de aire fresco",
+              "da": "Friskluftstilstand",
+              "pl": "Tryb świeżego powietrza",
+              "ko": "환기 모드"
+            },
+            "example": "off"
+          }
+        ]
+      },
+      {
+        "id": "health_mode_changed",
+        "title": {
+          "en": "Health mode changed",
+          "nl": "Gezondheidsmodus veranderd",
+          "de": "Gesundheitsmodus geändert",
+          "fr": "Mode santé modifié",
+          "it": "Modalità salute cambiata",
+          "sv": "Hälsoläge ändrat",
+          "no": "Helsemodus endret",
+          "es": "Modo salud cambiado",
+          "da": "Sundhedstilstand ændret",
+          "pl": "Zmieniono tryb zdrowotny",
+          "ko": "건강 모드 변경됨"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "health_mode",
+            "type": "boolean",
+            "title": {
+              "en": "Health mode",
+              "nl": "Gezondheidsmodus",
+              "de": "Gesundheitsmodus",
+              "fr": "Mode santé",
+              "it": "Modalità salute",
+              "sv": "Hälsoläge",
+              "no": "Helsemodus",
+              "es": "Modo salud",
+              "da": "Sundhedstilstand",
+              "pl": "Tryb zdrowotny",
+              "ko": "건강 모드"
+            },
+            "example": "true"
+          }
+        ]
+      },
+      {
+        "id": "horizontal_swing_changed",
+        "title": {
+          "en": "Horizontal swing changed",
+          "nl": "Horizontale swing veranderd",
+          "de": "Horizontale Schwenkung geändert",
+          "fr": "Balayage horizontal modifié",
+          "it": "Oscillazione orizzontale cambiata",
+          "sv": "Horisontell svängning ändrad",
+          "no": "Horisontal svinging endret",
+          "es": "Oscilación horizontal cambiada",
+          "da": "Vandret svingning ændret",
+          "pl": "Zmieniono wahanie poziome",
+          "ko": "수평 스윙 변경됨"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "horizontal_swing",
+            "type": "string",
+            "title": {
+              "en": "Horizontal swing",
+              "nl": "Horizontale swing",
+              "de": "Horizontale Schwenkung",
+              "fr": "Balayage horizontal",
+              "it": "Oscillazione orizzontale",
+              "sv": "Horisontell svängning",
+              "no": "Horisontal svinging",
+              "es": "Oscilación horizontal",
+              "da": "Vandret svingning",
+              "pl": "Wahanie poziome",
+              "ko": "수평 스윙"
+            },
+            "example": "full"
           }
         ]
       },
@@ -186,92 +317,6 @@
         ]
       },
       {
-        "id": "turbo_mode_changed",
-        "title": {
-          "en": "Turbo mode changed",
-          "nl": "Turbo modus veranderd",
-          "de": "Turbo-Modus geändert",
-          "fr": "Mode turbo modifié",
-          "it": "Modalità turbo cambiata",
-          "sv": "Turboläge ändrat",
-          "no": "Turbomodus endret",
-          "es": "Modo turbo cambiado",
-          "da": "Turbotilstand ændret",
-          "pl": "Zmieniono tryb turbo",
-          "ko": "터보 모드 변경됨"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
-          }
-        ],
-        "tokens": [
-          {
-            "name": "turbo_mode",
-            "type": "boolean",
-            "title": {
-              "en": "Turbo mode",
-              "nl": "Turbo modus",
-              "de": "Turbo-Modus",
-              "fr": "Mode turbo",
-              "it": "Modalità turbo",
-              "sv": "Turboläge",
-              "no": "Turbomodus",
-              "es": "Modo turbo",
-              "da": "Turbotilstand",
-              "pl": "Tryb turbo",
-              "ko": "터보 모드"
-            },
-            "example": "true"
-          }
-        ]
-      },
-      {
-        "id": "safety_heating_changed",
-        "title": {
-          "en": "8°C heating changed",
-          "nl": "8°C verwarming veranderd",
-          "de": "8°C Heizung geändert",
-          "fr": "Chauffage 8°C modifié",
-          "it": "Riscaldamento a 8°C cambiato",
-          "sv": "8°C uppvärmning ändrad",
-          "no": "8°C oppvarming endret",
-          "es": "Calefacción a 8°C cambiada",
-          "da": "8°C opvarmning ændret",
-          "pl": "Zmieniono ogrzewanie 8°C",
-          "ko": "8°C 난방 변경됨"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
-          }
-        ],
-        "tokens": [
-          {
-            "name": "safety_heating",
-            "type": "boolean",
-            "title": {
-              "en": "8°C heating",
-              "nl": "8°C verwarming",
-              "de": "8°C Heizung",
-              "fr": "Chauffage 8°C",
-              "it": "Riscaldamento a 8°C",
-              "sv": "8°C uppvärmning",
-              "no": "8°C oppvarming",
-              "es": "Calefacción a 8°C",
-              "da": "8°C opvarmning",
-              "pl": "Ogrzewanie 8°C",
-              "ko": "8°C 난방"
-            },
-            "example": "true"
-          }
-        ]
-      },
-      {
         "id": "lights_changed",
         "title": {
           "en": "Lights changed",
@@ -290,7 +335,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
           }
         ],
         "tokens": [
@@ -315,221 +360,6 @@
         ]
       },
       {
-        "id": "xfan_mode_changed",
-        "title": {
-          "en": "X-Fan mode changed",
-          "nl": "X-Fan modus veranderd",
-          "de": "X-Fan-Modus geändert",
-          "fr": "Mode X-Fan modifié",
-          "it": "Modalità X-Fan cambiata",
-          "sv": "X-Fan-läge ändrat",
-          "no": "X-Fan-modus endret",
-          "es": "Modo X-Fan cambiado",
-          "da": "X-Fan-tilstand ændret",
-          "pl": "Zmieniono tryb X-Fan",
-          "ko": "X-Fan 모드 변경됨"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
-          }
-        ],
-        "tokens": [
-          {
-            "name": "xfan_mode",
-            "type": "boolean",
-            "title": {
-              "en": "X-Fan mode",
-              "nl": "X-Fan modus",
-              "de": "X-Fan-Modus",
-              "fr": "Mode X-Fan",
-              "it": "Modalità X-Fan",
-              "sv": "X-Fan-läge",
-              "no": "X-Fan-modus",
-              "es": "Modo X-Fan",
-              "da": "X-Fan-tilstand",
-              "pl": "Tryb X-Fan",
-              "ko": "X-Fan 모드"
-            },
-            "example": "false"
-          }
-        ]
-      },
-      {
-        "id": "vertical_swing_changed",
-        "title": {
-          "en": "Vertical swing changed",
-          "nl": "Verticale swing veranderd",
-          "de": "Vertikale Schwenkung geändert",
-          "fr": "Balayage vertical modifié",
-          "it": "Oscillazione verticale cambiata",
-          "sv": "Vertikal svängning ändrad",
-          "no": "Vertikal svinging endret",
-          "es": "Oscilación vertical cambiada",
-          "da": "Lodret svingning ændret",
-          "pl": "Zmieniono wahanie pionowe",
-          "ko": "수직 스윙 변경됨"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
-          }
-        ],
-        "tokens": [
-          {
-            "name": "vertical_swing",
-            "type": "string",
-            "title": {
-              "en": "Vertical swing",
-              "nl": "Verticale swing",
-              "de": "Vertikale Schwenkung",
-              "fr": "Balayage vertical",
-              "it": "Oscillazione verticale",
-              "sv": "Vertikal svängning",
-              "no": "Vertikal svinging",
-              "es": "Oscilación vertical",
-              "da": "Lodret svingning",
-              "pl": "Wahanie pionowe",
-              "ko": "수직 스윙"
-            },
-            "example": "full"
-          }
-        ]
-      },
-      {
-        "id": "horizontal_swing_changed",
-        "title": {
-          "en": "Horizontal swing changed",
-          "nl": "Horizontale swing veranderd",
-          "de": "Horizontale Schwenkung geändert",
-          "fr": "Balayage horizontal modifié",
-          "it": "Oscillazione orizzontale cambiata",
-          "sv": "Horisontell svängning ändrad",
-          "no": "Horisontal svinging endret",
-          "es": "Oscilación horizontal cambiada",
-          "da": "Vandret svingning ændret",
-          "pl": "Zmieniono wahanie poziome",
-          "ko": "수평 스윙 변경됨"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
-          }
-        ],
-        "tokens": [
-          {
-            "name": "horizontal_swing",
-            "type": "string",
-            "title": {
-              "en": "Horizontal swing",
-              "nl": "Horizontale swing",
-              "de": "Horizontale Schwenkung",
-              "fr": "Balayage horizontal",
-              "it": "Oscillazione orizzontale",
-              "sv": "Horisontell svängning",
-              "no": "Horisontal svinging",
-              "es": "Oscilación horizontal",
-              "da": "Vandret svingning",
-              "pl": "Wahanie poziome",
-              "ko": "수평 스윙"
-            },
-            "example": "full"
-          }
-        ]
-      },
-      {
-        "id": "quiet_mode_changed",
-        "title": {
-          "en": "Quiet mode changed",
-          "nl": "Stilte modus veranderd",
-          "de": "Ruhig-Modus geändert",
-          "fr": "Mode silencieux modifié",
-          "it": "Modalità silenziosa cambiata",
-          "sv": "Tyst läge ändrat",
-          "no": "Stillemodus endret",
-          "es": "Modo silencioso cambiado",
-          "da": "Stille tilstand ændret",
-          "pl": "Zmieniono tryb cichy",
-          "ko": "저소음 모드 변경됨"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
-          }
-        ],
-        "tokens": [
-          {
-            "name": "quiet_mode",
-            "type": "string",
-            "title": {
-              "en": "Quiet mode",
-              "nl": "Stilte modus",
-              "de": "Ruhig-Modus",
-              "fr": "Mode silencieux",
-              "it": "Modalità silenziosa",
-              "sv": "Tyst läge",
-              "no": "Stillemodus",
-              "es": "Modo silencioso",
-              "da": "Stille tilstand",
-              "pl": "Tryb cichy",
-              "ko": "저소음 모드"
-            },
-            "example": "off"
-          }
-        ]
-      },
-      {
-        "id": "health_mode_changed",
-        "title": {
-          "en": "Health mode changed",
-          "nl": "Gezondheidsmodus veranderd",
-          "de": "Gesundheitsmodus geändert",
-          "fr": "Mode santé modifié",
-          "it": "Modalità salute cambiata",
-          "sv": "Hälsoläge ändrat",
-          "no": "Helsemodus endret",
-          "es": "Modo salud cambiado",
-          "da": "Sundhedstilstand ændret",
-          "pl": "Zmieniono tryb zdrowotny",
-          "ko": "건강 모드 변경됨"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
-          }
-        ],
-        "tokens": [
-          {
-            "name": "health_mode",
-            "type": "boolean",
-            "title": {
-              "en": "Health mode",
-              "nl": "Gezondheidsmodus",
-              "de": "Gesundheitsmodus",
-              "fr": "Mode santé",
-              "it": "Modalità salute",
-              "sv": "Hälsoläge",
-              "no": "Helsemodus",
-              "es": "Modo salud",
-              "da": "Sundhedstilstand",
-              "pl": "Tryb zdrowotny",
-              "ko": "건강 모드"
-            },
-            "example": "true"
-          }
-        ]
-      },
-      {
         "id": "power_save_mode_changed",
         "title": {
           "en": "Power save mode changed",
@@ -548,7 +378,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
           }
         ],
         "tokens": [
@@ -573,6 +403,92 @@
         ]
       },
       {
+        "id": "quiet_mode_changed",
+        "title": {
+          "en": "Quiet mode changed",
+          "nl": "Stilte modus veranderd",
+          "de": "Ruhig-Modus geändert",
+          "fr": "Mode silencieux modifié",
+          "it": "Modalità silenziosa cambiata",
+          "sv": "Tyst läge ändrat",
+          "no": "Stillemodus endret",
+          "es": "Modo silencioso cambiado",
+          "da": "Stille tilstand ændret",
+          "pl": "Zmieniono tryb cichy",
+          "ko": "저소음 모드 변경됨"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "quiet_mode",
+            "type": "string",
+            "title": {
+              "en": "Quiet mode",
+              "nl": "Stilte modus",
+              "de": "Ruhig-Modus",
+              "fr": "Mode silencieux",
+              "it": "Modalità silenziosa",
+              "sv": "Tyst läge",
+              "no": "Stillemodus",
+              "es": "Modo silencioso",
+              "da": "Stille tilstand",
+              "pl": "Tryb cichy",
+              "ko": "저소음 모드"
+            },
+            "example": "off"
+          }
+        ]
+      },
+      {
+        "id": "safety_heating_changed",
+        "title": {
+          "en": "8°C heating changed",
+          "nl": "8°C verwarming veranderd",
+          "de": "8°C Heizung geändert",
+          "fr": "Chauffage 8°C modifié",
+          "it": "Riscaldamento a 8°C cambiato",
+          "sv": "8°C uppvärmning ändrad",
+          "no": "8°C oppvarming endret",
+          "es": "Calefacción a 8°C cambiada",
+          "da": "8°C opvarmning ændret",
+          "pl": "Zmieniono ogrzewanie 8°C",
+          "ko": "8°C 난방 변경됨"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "safety_heating",
+            "type": "boolean",
+            "title": {
+              "en": "8°C heating",
+              "nl": "8°C verwarming",
+              "de": "8°C Heizung",
+              "fr": "Chauffage 8°C",
+              "it": "Riscaldamento a 8°C",
+              "sv": "8°C uppvärmning",
+              "no": "8°C oppvarming",
+              "es": "Calefacción a 8°C",
+              "da": "8°C opvarmning",
+              "pl": "Ogrzewanie 8°C",
+              "ko": "8°C 난방"
+            },
+            "example": "true"
+          }
+        ]
+      },
+      {
         "id": "sleep_mode_changed",
         "title": {
           "en": "Sleep mode changed",
@@ -591,7 +507,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
           }
         ],
         "tokens": [
@@ -616,50 +532,624 @@
         ]
       },
       {
-        "id": "fresh_air_mode_changed",
+        "id": "turbo_mode_changed",
         "title": {
-          "en": "Fresh air mode changed",
-          "nl": "Verse lucht modus veranderd",
-          "de": "Frischluftmodus geändert",
-          "fr": "Mode air frais modifié",
-          "it": "Modalità aria fresca cambiata",
-          "sv": "Friskluftsläge ändrat",
-          "no": "Friskluftmodus endret",
-          "es": "Modo de aire fresco cambiado",
-          "da": "Friskluftstilstand ændret",
-          "pl": "Zmieniono tryb świeżego powietrza",
-          "ko": "환기 모드 변경됨"
+          "en": "Turbo mode changed",
+          "nl": "Turbo modus veranderd",
+          "de": "Turbo-Modus geändert",
+          "fr": "Mode turbo modifié",
+          "it": "Modalità turbo cambiata",
+          "sv": "Turboläge ändrat",
+          "no": "Turbomodus endret",
+          "es": "Modo turbo cambiado",
+          "da": "Turbotilstand ændret",
+          "pl": "Zmieniono tryb turbo",
+          "ko": "터보 모드 변경됨"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
           }
         ],
         "tokens": [
           {
-            "name": "fresh_air_mode",
+            "name": "turbo_mode",
+            "type": "boolean",
+            "title": {
+              "en": "Turbo mode",
+              "nl": "Turbo modus",
+              "de": "Turbo-Modus",
+              "fr": "Mode turbo",
+              "it": "Modalità turbo",
+              "sv": "Turboläge",
+              "no": "Turbomodus",
+              "es": "Modo turbo",
+              "da": "Turbotilstand",
+              "pl": "Tryb turbo",
+              "ko": "터보 모드"
+            },
+            "example": "true"
+          }
+        ]
+      },
+      {
+        "id": "vertical_swing_changed",
+        "title": {
+          "en": "Vertical swing changed",
+          "nl": "Verticale swing veranderd",
+          "de": "Vertikale Schwenkung geändert",
+          "fr": "Balayage vertical modifié",
+          "it": "Oscillazione verticale cambiata",
+          "sv": "Vertikal svängning ändrad",
+          "no": "Vertikal svinging endret",
+          "es": "Oscilación vertical cambiada",
+          "da": "Lodret svingning ændret",
+          "pl": "Zmieniono wahanie pionowe",
+          "ko": "수직 스윙 변경됨"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "vertical_swing",
             "type": "string",
             "title": {
-              "en": "Fresh air mode",
-              "nl": "Verse lucht modus",
-              "de": "Frischluftmodus",
-              "fr": "Mode air frais",
-              "it": "Modalità aria fresca",
-              "sv": "Friskluftsläge",
-              "no": "Friskluftmodus",
-              "es": "Modo de aire fresco",
-              "da": "Friskluftstilstand",
-              "pl": "Tryb świeżego powietrza",
-              "ko": "환기 모드"
+              "en": "Vertical swing",
+              "nl": "Verticale swing",
+              "de": "Vertikale Schwenkung",
+              "fr": "Balayage vertical",
+              "it": "Oscillazione verticale",
+              "sv": "Vertikal svängning",
+              "no": "Vertikal svinging",
+              "es": "Oscilación vertical",
+              "da": "Lodret svingning",
+              "pl": "Wahanie pionowe",
+              "ko": "수직 스윙"
             },
-            "example": "off"
+            "example": "full"
+          }
+        ]
+      },
+      {
+        "id": "xfan_mode_changed",
+        "title": {
+          "en": "X-Fan mode changed",
+          "nl": "X-Fan modus veranderd",
+          "de": "X-Fan-Modus geändert",
+          "fr": "Mode X-Fan modifié",
+          "it": "Modalità X-Fan cambiata",
+          "sv": "X-Fan-läge ändrat",
+          "no": "X-Fan-modus endret",
+          "es": "Modo X-Fan cambiado",
+          "da": "X-Fan-tilstand ændret",
+          "pl": "Zmieniono tryb X-Fan",
+          "ko": "X-Fan 모드 변경됨"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "xfan_mode",
+            "type": "boolean",
+            "title": {
+              "en": "X-Fan mode",
+              "nl": "X-Fan modus",
+              "de": "X-Fan-Modus",
+              "fr": "Mode X-Fan",
+              "it": "Modalità X-Fan",
+              "sv": "X-Fan-läge",
+              "no": "X-Fan-modus",
+              "es": "Modo X-Fan",
+              "da": "X-Fan-tilstand",
+              "pl": "Tryb X-Fan",
+              "ko": "X-Fan 모드"
+            },
+            "example": "false"
           }
         ]
       }
     ],
     "conditions": [
+      {
+        "id": "fan_speed_is",
+        "title": {
+          "en": "Fan speed !{{is|isn't}} ...",
+          "nl": "Ventilator snelheid !{{is|is niet}} ...",
+          "de": "Lüftergeschwindigkeit !{{ist|ist nicht}} ...",
+          "fr": "Vitesse du ventilateur !{{est|n'est pas}} ...",
+          "it": "La velocità della ventola !{{è|non è}} ...",
+          "sv": "Fläkthastighet !{{är|är inte}} ...",
+          "no": "Viftehastighet !{{er|er ikke}} ...",
+          "es": "Velocidad del ventilador !{{es|no es}} ...",
+          "da": "Ventilatorhastighed !{{er|er ikke}} ...",
+          "pl": "Prędkość wentylatora !{{jest|nie jest}} ...",
+          "ko": "팬 속도가 ...!{{임|아님}}"
+        },
+        "titleFormatted": {
+          "en": "Fan speed !{{is|isn't}} [[speed]]",
+          "nl": "Ventilator snelheid !{{is|is niet}} [[speed]]",
+          "de": "Lüftergeschwindigkeit !{{ist|ist nicht}} [[speed]]",
+          "fr": "Vitesse du ventilateur !{{est|n'est pas}} [[speed]]",
+          "it": "La velocità della ventola !{{è|non è}} [[speed]]",
+          "sv": "Fläkthastighet !{{är|är inte}} [[speed]]",
+          "no": "Viftehastighet !{{er|er ikke}} [[speed]]",
+          "es": "Velocidad del ventilador !{{es|no es}} [[speed]]",
+          "da": "Ventilatorhastighed !{{er|er ikke}} [[speed]]",
+          "pl": "Prędkość wentylatora !{{jest|nie jest}} [[speed]]",
+          "ko": "팬 속도가 [[speed]]!{{임|아님}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+          },
+          {
+            "name": "speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "label": {
+                  "en": "Auto",
+                  "nl": "Automatisch",
+                  "de": "Automatisch",
+                  "fr": "Automatique",
+                  "it": "Automatico",
+                  "sv": "Automatiskt",
+                  "no": "Automatisk",
+                  "es": "Automático",
+                  "da": "Automatisk",
+                  "pl": "Automatyczny",
+                  "ko": "자동"
+                }
+              },
+              {
+                "id": "low",
+                "label": {
+                  "en": "Low",
+                  "nl": "Laag",
+                  "de": "Niedrig",
+                  "fr": "Faible",
+                  "it": "Bassa",
+                  "sv": "Låg",
+                  "no": "Lav",
+                  "es": "Bajo",
+                  "da": "Lav",
+                  "pl": "Niska",
+                  "ko": "낮음"
+                }
+              },
+              {
+                "id": "mediumLow",
+                "label": {
+                  "en": "Medium Low",
+                  "nl": "Gemiddeld Laag",
+                  "de": "Mittel Niedrig",
+                  "fr": "Moyen faible",
+                  "it": "Medio-bassa",
+                  "sv": "Medellåg",
+                  "no": "Middels lav",
+                  "es": "Medio bajo",
+                  "da": "Mellem lav",
+                  "pl": "Średnio niska",
+                  "ko": "중간 낮음"
+                }
+              },
+              {
+                "id": "medium",
+                "label": {
+                  "en": "Medium",
+                  "nl": "Gemiddeld",
+                  "de": "Mittel",
+                  "fr": "Moyen",
+                  "it": "Media",
+                  "sv": "Medel",
+                  "no": "Middels",
+                  "es": "Medio",
+                  "da": "Mellem",
+                  "pl": "Średnia",
+                  "ko": "중간"
+                }
+              },
+              {
+                "id": "mediumHigh",
+                "label": {
+                  "en": "Medium High",
+                  "nl": "Gemiddeld hoog",
+                  "de": "Mittel hoch",
+                  "fr": "Moyen élevé",
+                  "it": "Medio-alta",
+                  "sv": "Medelhög",
+                  "no": "Middels høy",
+                  "es": "Medio alto",
+                  "da": "Mellem høj",
+                  "pl": "Średnio wysoka",
+                  "ko": "중간 높음"
+                }
+              },
+              {
+                "id": "high",
+                "label": {
+                  "en": "High",
+                  "nl": "Hoog",
+                  "de": "Hoch",
+                  "fr": "Élevé",
+                  "it": "Alta",
+                  "sv": "Hög",
+                  "no": "Høy",
+                  "es": "Alto",
+                  "da": "Høj",
+                  "pl": "Wysoka",
+                  "ko": "높음"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fresh_air_mode_is",
+        "title": {
+          "en": "Fresh air mode !{{is|isn't}} ...",
+          "nl": "Verse lucht modus !{{is|is niet}} ...",
+          "de": "Frischluftmodus !{{ist|ist nicht}} ...",
+          "fr": "Mode air frais !{{est|n'est pas}} ...",
+          "it": "La modalità aria fresca !{{è|non è}} ...",
+          "sv": "Friskluftsläge !{{är|är inte}} ...",
+          "no": "Friskluftmodus !{{er|er ikke}} ...",
+          "es": "Modo de aire fresco !{{es|no es}} ...",
+          "da": "Friskluftstilstand !{{er|er ikke}} ...",
+          "pl": "Tryb świeżego powietrza !{{jest|nie jest}} ...",
+          "ko": "환기 모드가 ...!{{임|아님}}"
+        },
+        "titleFormatted": {
+          "en": "Fresh air mode !{{is|isn't}} [[mode]]",
+          "nl": "Verse lucht modus !{{is|is niet}} [[mode]]",
+          "de": "Frischluftmodus !{{ist|ist nicht}} [[mode]]",
+          "fr": "Mode air frais !{{est|n'est pas}} [[mode]]",
+          "it": "La modalità aria fresca !{{è|non è}} [[mode]]",
+          "sv": "Friskluftsläge !{{är|är inte}} [[mode]]",
+          "no": "Friskluftmodus !{{er|er ikke}} [[mode]]",
+          "es": "Modo de aire fresco !{{es|no es}} [[mode]]",
+          "da": "Friskluftstilstand !{{er|er ikke}} [[mode]]",
+          "pl": "Tryb świeżego powietrza !{{jest|nie jest}} [[mode]]",
+          "ko": "환기 모드가 [[mode]]!{{임|아님}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Aus",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
+                }
+              },
+              {
+                "id": "inside",
+                "title": {
+                  "en": "Inside",
+                  "nl": "Binnen",
+                  "de": "Innen",
+                  "fr": "Intérieur",
+                  "it": "Interno",
+                  "sv": "Inne",
+                  "no": "Inne",
+                  "es": "Interior",
+                  "da": "Indendørs",
+                  "pl": "Wewnątrz",
+                  "ko": "내부"
+                }
+              },
+              {
+                "id": "outside",
+                "title": {
+                  "en": "Outside",
+                  "nl": "Buiten",
+                  "de": "Außen",
+                  "fr": "Extérieur",
+                  "it": "Esterno",
+                  "sv": "Ute",
+                  "no": "Ute",
+                  "es": "Exterior",
+                  "da": "Udendørs",
+                  "pl": "Na zewnątrz",
+                  "ko": "외부"
+                }
+              },
+              {
+                "id": "mode3",
+                "title": {
+                  "en": "Mode 3",
+                  "nl": "Mode 3",
+                  "de": "Mode 3",
+                  "fr": "Mode 3",
+                  "it": "Mode 3",
+                  "sv": "Mode 3",
+                  "no": "Mode 3",
+                  "es": "Modo 3",
+                  "da": "Mode 3",
+                  "pl": "Mode 3",
+                  "ko": "Mode 3"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "health_mode_is",
+        "title": {
+          "en": "Health mode !{{is|isn't}} ...",
+          "nl": "Gezondheidsmodus !{{is|is niet}} ...",
+          "de": "Gesundheitsmodus !{{ist|ist nicht}} ...",
+          "fr": "Mode santé !{{est|n'est pas}} ...",
+          "it": "La modalità salute !{{è|non è}} ...",
+          "sv": "Hälsoläge !{{är|är inte}} ...",
+          "no": "Helsemodus !{{er|er ikke}} ...",
+          "es": "Modo salud !{{es|no es}} ...",
+          "da": "Sundhedstilstand !{{er|er ikke}} ...",
+          "pl": "Tryb zdrowotny !{{jest|nie jest}} ...",
+          "ko": "건강 모드가 ...!{{임|아님}}"
+        },
+        "titleFormatted": {
+          "en": "Health mode !{{is|isn't}} [[mode]]",
+          "nl": "Gezondheidsmodus !{{is|is niet}} [[mode]]",
+          "de": "Gesundheitsmodus !{{ist|ist nicht}} [[mode]]",
+          "fr": "Mode santé !{{est|n'est pas}} [[mode]]",
+          "it": "La modalità salute !{{è|non è}} [[mode]]",
+          "sv": "Hälsoläge !{{är|är inte}} [[mode]]",
+          "no": "Helsemodus !{{er|er ikke}} [[mode]]",
+          "es": "Modo salud !{{es|no es}} [[mode]]",
+          "da": "Sundhedstilstand !{{er|er ikke}} [[mode]]",
+          "pl": "Tryb zdrowotny !{{jest|nie jest}} [[mode]]",
+          "ko": "건강 모드가 [[mode]]!{{임|아님}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan",
+                  "de": "Einschalten",
+                  "fr": "Marche",
+                  "it": "Acceso",
+                  "sv": "På",
+                  "no": "På",
+                  "es": "Encendido",
+                  "da": "Til",
+                  "pl": "Wł.",
+                  "ko": "켜기"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Ausschalten",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "horizontal_swing_is",
+        "title": {
+          "en": "Horizontal swing !{{is|isn't}} ...",
+          "nl": "Horizontale swing !{{is|is niet}} ...",
+          "de": "Horizontale Schwenkung !{{ist|ist nicht}} ...",
+          "fr": "Balayage horizontal !{{est|n'est pas}} ...",
+          "it": "L'oscillazione orizzontale !{{è|non è}} ...",
+          "sv": "Horisontell svängning !{{är|är inte}} ...",
+          "no": "Horisontal svinging !{{er|er ikke}} ...",
+          "es": "Oscilación horizontal !{{es|no es}} ...",
+          "da": "Vandret svingning !{{er|er ikke}} ...",
+          "pl": "Wahanie poziome !{{jest|nie jest}} ...",
+          "ko": "수평 스윙이 ...!{{임|아님}}"
+        },
+        "titleFormatted": {
+          "en": "Horizontal swing !{{is|isn't}} [[horizontal_swing]]",
+          "nl": "Horizontale swing !{{is|is niet}} [[horizontal_swing]]",
+          "de": "Horizontale Schwenkung !{{ist|ist nicht}} [[horizontal_swing]]",
+          "fr": "Balayage horizontal !{{est|n'est pas}} [[horizontal_swing]]",
+          "it": "L'oscillazione orizzontale !{{è|non è}} [[horizontal_swing]]",
+          "sv": "Horisontell svängning !{{är|är inte}} [[horizontal_swing]]",
+          "no": "Horisontal svinging !{{er|er ikke}} [[horizontal_swing]]",
+          "es": "Oscilación horizontal !{{es|no es}} [[horizontal_swing]]",
+          "da": "Vandret svingning !{{er|er ikke}} [[horizontal_swing]]",
+          "pl": "Wahanie poziome !{{jest|nie jest}} [[horizontal_swing]]",
+          "ko": "수평 스윙이 [[horizontal_swing]]!{{임|아님}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+          },
+          {
+            "name": "horizontal_swing",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "default",
+                "title": {
+                  "en": "Disabled",
+                  "nl": "Uitgeschakeld",
+                  "de": "Deaktiviert",
+                  "fr": "Désactivé",
+                  "it": "Disabilitato",
+                  "sv": "Inaktiverad",
+                  "no": "Deaktivert",
+                  "es": "Desactivado",
+                  "da": "Deaktiveret",
+                  "pl": "Wyłączone",
+                  "ko": "비활성화"
+                }
+              },
+              {
+                "id": "full",
+                "title": {
+                  "en": "Full range",
+                  "nl": "Volledig bereik",
+                  "de": "Voller Bereich",
+                  "fr": "Plage complète",
+                  "it": "Gamma completa",
+                  "sv": "Fullt omfång",
+                  "no": "Fullt område",
+                  "es": "Rango completo",
+                  "da": "Fuldt område",
+                  "pl": "Pełny zakres",
+                  "ko": "전체 범위"
+                }
+              },
+              {
+                "id": "fixedLeft",
+                "title": {
+                  "en": "Fixed left",
+                  "nl": "Fixed links",
+                  "de": "Links fixiert",
+                  "fr": "Fixe à gauche",
+                  "it": "Fisso a sinistra",
+                  "sv": "Fast vänster",
+                  "no": "Fast venstre",
+                  "es": "Fijo izquierda",
+                  "da": "Fast venstre",
+                  "pl": "Stałe po lewej",
+                  "ko": "왼쪽 고정"
+                }
+              },
+              {
+                "id": "fixedMidLeft",
+                "title": {
+                  "en": "Fixed top left",
+                  "nl": "Fixed midden links",
+                  "de": "Oben-Links fixiert",
+                  "fr": "Fixe en haut à gauche",
+                  "it": "Fisso in alto a sinistra",
+                  "sv": "Fast överst vänster",
+                  "no": "Fast øverst venstre",
+                  "es": "Fijo arriba izquierda",
+                  "da": "Fast øverst venstre",
+                  "pl": "Stałe na górze po lewej",
+                  "ko": "상단 왼쪽 고정"
+                }
+              },
+              {
+                "id": "fixedMid",
+                "title": {
+                  "en": "Fixed middle",
+                  "nl": "Fixed midden",
+                  "de": "Mitte fixiert",
+                  "fr": "Fixe au milieu",
+                  "it": "Fisso al centro",
+                  "sv": "Fast mitten",
+                  "no": "Fast midten",
+                  "es": "Fijo centro",
+                  "da": "Fast midt",
+                  "pl": "Stałe na środku",
+                  "ko": "중앙 고정"
+                }
+              },
+              {
+                "id": "fixedMidRight",
+                "title": {
+                  "en": "Fixed middle right",
+                  "nl": "Fixed midden rechts",
+                  "de": "Mitte-Rechts fixiert",
+                  "fr": "Fixe au milieu à droite",
+                  "it": "Fisso al centro a destra",
+                  "sv": "Fast mitten höger",
+                  "no": "Fast midten høyre",
+                  "es": "Fijo centro derecha",
+                  "da": "Fast midt højre",
+                  "pl": "Stałe na środku prawym",
+                  "ko": "중앙 오른쪽 고정"
+                }
+              },
+              {
+                "id": "fixedRight",
+                "title": {
+                  "en": "Fixed right",
+                  "nl": "Fixed rechts",
+                  "de": "Rechts fixiert",
+                  "fr": "Fixe à droite",
+                  "it": "Fisso a destra",
+                  "sv": "Fast höger",
+                  "no": "Fast høyre",
+                  "es": "Fijo derecha",
+                  "da": "Fast højre",
+                  "pl": "Stałe po prawej",
+                  "ko": "오른쪽 고정"
+                }
+              },
+              {
+                "id": "fullAlt",
+                "title": {
+                  "en": "Full range",
+                  "nl": "Volledig bereik",
+                  "de": "Voller Bereich",
+                  "fr": "Plage complète",
+                  "it": "Gamma completa",
+                  "sv": "Fullt omfång",
+                  "no": "Fullt område",
+                  "es": "Rango completo",
+                  "da": "Fuldt område",
+                  "pl": "Pełny zakres",
+                  "ko": "전체 범위"
+                }
+              }
+            ]
+          }
+        ]
+      },
       {
         "id": "hvac_mode_is",
         "deprecated": true,
@@ -800,176 +1290,38 @@
         ]
       },
       {
-        "id": "fan_speed_is",
+        "id": "lights_is",
         "title": {
-          "en": "Fan speed !{{is|isn't}} ...",
-          "nl": "Ventilator snelheid !{{is|is niet}} ...",
-          "de": "Lüftergeschwindigkeit !{{ist|ist nicht}} ...",
-          "fr": "Vitesse du ventilateur !{{est|n'est pas}} ...",
-          "it": "La velocità della ventola !{{è|non è}} ...",
-          "sv": "Fläkthastighet !{{är|är inte}} ...",
-          "no": "Viftehastighet !{{er|er ikke}} ...",
-          "es": "Velocidad del ventilador !{{es|no es}} ...",
-          "da": "Ventilatorhastighed !{{er|er ikke}} ...",
-          "pl": "Prędkość wentylatora !{{jest|nie jest}} ...",
-          "ko": "팬 속도가 ...!{{임|아님}}"
+          "en": "Lights !{{are|aren't}} ...",
+          "nl": "Lichten !{{zijn|zijn niet}} ...",
+          "de": "Licht !{{ist|ist nicht}} ...",
+          "fr": "Les lumières !{{sont|ne sont pas}} ...",
+          "it": "Le luci !{{sono|non sono}} ...",
+          "sv": "Belysning !{{är|är inte}} ...",
+          "no": "Lys !{{er|er ikke}} ...",
+          "es": "Luces !{{están|no están}} ...",
+          "da": "Lys !{{er|er ikke}} ...",
+          "pl": "Światła !{{są|nie są}} ...",
+          "ko": "조명이 ...!{{임|아님}}"
         },
         "titleFormatted": {
-          "en": "Fan speed !{{is|isn't}} [[speed]]",
-          "nl": "Ventilator snelheid !{{is|is niet}} [[speed]]",
-          "de": "Lüftergeschwindigkeit !{{ist|ist nicht}} [[speed]]",
-          "fr": "Vitesse du ventilateur !{{est|n'est pas}} [[speed]]",
-          "it": "La velocità della ventola !{{è|non è}} [[speed]]",
-          "sv": "Fläkthastighet !{{är|är inte}} [[speed]]",
-          "no": "Viftehastighet !{{er|er ikke}} [[speed]]",
-          "es": "Velocidad del ventilador !{{es|no es}} [[speed]]",
-          "da": "Ventilatorhastighed !{{er|er ikke}} [[speed]]",
-          "pl": "Prędkość wentylatora !{{jest|nie jest}} [[speed]]",
-          "ko": "팬 속도가 [[speed]]!{{임|아님}}"
+          "en": "Lights !{{are|aren't}} [[mode]]",
+          "nl": "Lichten !{{zijn|zijn niet}} [[mode]]",
+          "de": "Licht !{{ist|ist nicht}} [[mode]]",
+          "fr": "Les lumières !{{sont|ne sont pas}} [[mode]]",
+          "it": "Le luci !{{sono|non sono}} [[mode]]",
+          "sv": "Belysning !{{är|är inte}} [[mode]]",
+          "no": "Lys !{{er|er ikke}} [[mode]]",
+          "es": "Luces !{{están|no están}} [[mode]]",
+          "da": "Lys !{{er|er ikke}} [[mode]]",
+          "pl": "Światła !{{są|nie są}} [[mode]]",
+          "ko": "조명이 [[mode]]!{{임|아님}}"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
-          },
-          {
-            "name": "speed",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "auto",
-                "label": {
-                  "en": "Auto",
-                  "nl": "Automatisch",
-                  "de": "Automatisch",
-                  "fr": "Automatique",
-                  "it": "Automatico",
-                  "sv": "Automatiskt",
-                  "no": "Automatisk",
-                  "es": "Automático",
-                  "da": "Automatisk",
-                  "pl": "Automatyczny",
-                  "ko": "자동"
-                }
-              },
-              {
-                "id": "low",
-                "label": {
-                  "en": "Low",
-                  "nl": "Laag",
-                  "de": "Niedrig",
-                  "fr": "Faible",
-                  "it": "Bassa",
-                  "sv": "Låg",
-                  "no": "Lav",
-                  "es": "Bajo",
-                  "da": "Lav",
-                  "pl": "Niska",
-                  "ko": "낮음"
-                }
-              },
-              {
-                "id": "mediumLow",
-                "label": {
-                  "en": "Medium Low",
-                  "nl": "Gemiddeld Laag",
-                  "de": "Mittel Niedrig",
-                  "fr": "Moyen faible",
-                  "it": "Medio-bassa",
-                  "sv": "Medellåg",
-                  "no": "Middels lav",
-                  "es": "Medio bajo",
-                  "da": "Mellem lav",
-                  "pl": "Średnio niska",
-                  "ko": "중간 낮음"
-                }
-              },
-              {
-                "id": "medium",
-                "label": {
-                  "en": "Medium",
-                  "nl": "Gemiddeld",
-                  "de": "Mittel",
-                  "fr": "Moyen",
-                  "it": "Media",
-                  "sv": "Medel",
-                  "no": "Middels",
-                  "es": "Medio",
-                  "da": "Mellem",
-                  "pl": "Średnia",
-                  "ko": "중간"
-                }
-              },
-              {
-                "id": "mediumHigh",
-                "label": {
-                  "en": "Medium High",
-                  "nl": "Gemiddeld hoog",
-                  "de": "Mittel hoch",
-                  "fr": "Moyen élevé",
-                  "it": "Medio-alta",
-                  "sv": "Medelhög",
-                  "no": "Middels høy",
-                  "es": "Medio alto",
-                  "da": "Mellem høj",
-                  "pl": "Średnio wysoka",
-                  "ko": "중간 높음"
-                }
-              },
-              {
-                "id": "high",
-                "label": {
-                  "en": "High",
-                  "nl": "Hoog",
-                  "de": "Hoch",
-                  "fr": "Élevé",
-                  "it": "Alta",
-                  "sv": "Hög",
-                  "no": "Høy",
-                  "es": "Alto",
-                  "da": "Høj",
-                  "pl": "Wysoka",
-                  "ko": "높음"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "turbo_mode_is",
-        "title": {
-          "en": "Turbo mode !{{is|isn't}} ...",
-          "nl": "Turbo modus !{{is|is niet}} ...",
-          "de": "Turbo-Modus !{{ist|ist nicht}} ...",
-          "fr": "Mode turbo !{{est|n'est pas}} ...",
-          "it": "La modalità turbo !{{è|non è}} ...",
-          "sv": "Turboläge !{{är|är inte}} ...",
-          "no": "Turbomodus !{{er|er ikke}} ...",
-          "es": "Modo turbo !{{es|no es}} ...",
-          "da": "Turbotilstand !{{er|er ikke}} ...",
-          "pl": "Tryb turbo !{{jest|nie jest}} ...",
-          "ko": "터보 모드가 ...!{{임|아님}}"
-        },
-        "titleFormatted": {
-          "en": "Turbo mode !{{is|isn't}} [[mode]]",
-          "nl": "Turbo modus !{{is|is niet}} [[mode]]",
-          "de": "Turbo-Modus !{{ist|ist nicht}} [[mode]]",
-          "fr": "Mode turbo !{{est|n'est pas}} [[mode]]",
-          "it": "La modalità turbo !{{è|non è}} [[mode]]",
-          "sv": "Turboläge !{{är|är inte}} [[mode]]",
-          "no": "Turbomodus !{{er|er ikke}} [[mode]]",
-          "es": "Modo turbo !{{es|no es}} [[mode]]",
-          "da": "Turbotilstand !{{er|er ikke}} [[mode]]",
-          "pl": "Tryb turbo !{{jest|nie jest}} [[mode]]",
-          "ko": "터보 모드가 [[mode]]!{{임|아님}}"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
           },
           {
             "name": "mode",
@@ -1005,6 +1357,186 @@
                   "da": "Fra",
                   "pl": "Wył.",
                   "ko": "끄기"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "power_save_mode_is",
+        "title": {
+          "en": "Power save mode !{{is|isn't}} ...",
+          "nl": "Energiebesparende modus !{{is|is niet}} ...",
+          "de": "Energiesparmodus !{{ist|ist nicht}} ...",
+          "fr": "Mode économie d'énergie !{{est|n'est pas}} ...",
+          "it": "La modalità risparmio energetico !{{è|non è}} ...",
+          "sv": "Energisparläge !{{är|är inte}} ...",
+          "no": "Strømsparemodus !{{er|er ikke}} ...",
+          "es": "Modo de ahorro de energía !{{es|no es}} ...",
+          "da": "Strømsparetilstand !{{er|er ikke}} ...",
+          "pl": "Tryb oszczędzania energii !{{jest|nie jest}} ...",
+          "ko": "절전 모드가 ...!{{임|아님}}"
+        },
+        "titleFormatted": {
+          "en": "Power save mode !{{is|isn't}} [[mode]]",
+          "nl": "Energiebesparende modus !{{is|is niet}} [[mode]]",
+          "de": "Energiesparmodus !{{ist|ist nicht}} [[mode]]",
+          "fr": "Mode économie d'énergie !{{est|n'est pas}} [[mode]]",
+          "it": "La modalità risparmio energetico !{{è|non è}} [[mode]]",
+          "sv": "Energisparläge !{{är|är inte}} [[mode]]",
+          "no": "Strømsparemodus !{{er|er ikke}} [[mode]]",
+          "es": "Modo de ahorro de energía !{{es|no es}} [[mode]]",
+          "da": "Strømsparetilstand !{{er|er ikke}} [[mode]]",
+          "pl": "Tryb oszczędzania energii !{{jest|nie jest}} [[mode]]",
+          "ko": "절전 모드가 [[mode]]!{{임|아님}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan",
+                  "de": "Einschalten",
+                  "fr": "Marche",
+                  "it": "Acceso",
+                  "sv": "På",
+                  "no": "På",
+                  "es": "Encendido",
+                  "da": "Til",
+                  "pl": "Wł.",
+                  "ko": "켜기"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Ausschalten",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "quiet_mode_is",
+        "title": {
+          "en": "Quiet mode !{{is|isn't}} ...",
+          "nl": "Stilte modus !{{is|is niet}} ...",
+          "de": "Ruhig-Modus !{{ist|ist nicht}} ...",
+          "fr": "Mode silencieux !{{est|n'est pas}} ...",
+          "it": "La modalità silenziosa !{{è|non è}} ...",
+          "sv": "Tyst läge !{{är|är inte}} ...",
+          "no": "Stillemodus !{{er|er ikke}} ...",
+          "es": "Modo silencioso !{{es|no es}} ...",
+          "da": "Stille tilstand !{{er|er ikke}} ...",
+          "pl": "Tryb cichy !{{jest|nie jest}} ...",
+          "ko": "저소음 모드가 ...!{{임|아님}}"
+        },
+        "titleFormatted": {
+          "en": "Quiet mode !{{is|isn't}} [[mode]]",
+          "nl": "Stilte modus !{{is|is niet}} [[mode]]",
+          "de": "Ruhig-Modus !{{ist|ist nicht}} [[mode]]",
+          "fr": "Mode silencieux !{{est|n'est pas}} [[mode]]",
+          "it": "La modalità silenziosa !{{è|non è}} [[mode]]",
+          "sv": "Tyst läge !{{är|är inte}} [[mode]]",
+          "no": "Stillemodus !{{er|er ikke}} [[mode]]",
+          "es": "Modo silencioso !{{es|no es}} [[mode]]",
+          "da": "Stille tilstand !{{er|er ikke}} [[mode]]",
+          "pl": "Tryb cichy !{{jest|nie jest}} [[mode]]",
+          "ko": "저소음 모드가 [[mode]]!{{임|아님}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Aus",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
+                }
+              },
+              {
+                "id": "mode1",
+                "title": {
+                  "en": "Mode 1",
+                  "nl": "Mode 1",
+                  "de": "Mode 1",
+                  "fr": "Mode 1",
+                  "it": "Mode 1",
+                  "sv": "Mode 1",
+                  "no": "Mode 1",
+                  "es": "Modo 1",
+                  "da": "Mode 1",
+                  "pl": "Mode 1",
+                  "ko": "Mode 1"
+                }
+              },
+              {
+                "id": "mode2",
+                "title": {
+                  "en": "Mode 2",
+                  "nl": "Mode 2",
+                  "de": "Mode 2",
+                  "fr": "Mode 2",
+                  "it": "Mode 2",
+                  "sv": "Mode 2",
+                  "no": "Mode 2",
+                  "es": "Modo 2",
+                  "da": "Mode 2",
+                  "pl": "Mode 2",
+                  "ko": "Mode 2"
+                }
+              },
+              {
+                "id": "mode3",
+                "title": {
+                  "en": "Mode 3",
+                  "nl": "Mode 3",
+                  "de": "Mode 3",
+                  "fr": "Mode 3",
+                  "it": "Mode 3",
+                  "sv": "Mode 3",
+                  "no": "Mode 3",
+                  "es": "Modo 3",
+                  "da": "Mode 3",
+                  "pl": "Mode 3",
+                  "ko": "Mode 3"
                 }
               }
             ]
@@ -1043,7 +1575,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
           },
           {
             "name": "mode",
@@ -1086,38 +1618,38 @@
         ]
       },
       {
-        "id": "lights_is",
+        "id": "sleep_mode_is",
         "title": {
-          "en": "Lights !{{are|aren't}} ...",
-          "nl": "Lichten !{{zijn|zijn niet}} ...",
-          "de": "Licht !{{ist|ist nicht}} ...",
-          "fr": "Les lumières !{{sont|ne sont pas}} ...",
-          "it": "Le luci !{{sono|non sono}} ...",
-          "sv": "Belysning !{{är|är inte}} ...",
-          "no": "Lys !{{er|er ikke}} ...",
-          "es": "Luces !{{están|no están}} ...",
-          "da": "Lys !{{er|er ikke}} ...",
-          "pl": "Światła !{{są|nie są}} ...",
-          "ko": "조명이 ...!{{임|아님}}"
+          "en": "Sleep mode !{{is|isn't}} ...",
+          "nl": "Slaapmodus !{{is|is niet}} ...",
+          "de": "Schlafmodus !{{ist|ist nicht}} ...",
+          "fr": "Mode sommeil !{{est|n'est pas}} ...",
+          "it": "La modalità notte !{{è|non è}} ...",
+          "sv": "Viloläge !{{är|är inte}} ...",
+          "no": "Sovemodus !{{er|er ikke}} ...",
+          "es": "Modo de reposo !{{es|no es}} ...",
+          "da": "Dvaletilstand !{{er|er ikke}} ...",
+          "pl": "Tryb uśpienia !{{jest|nie jest}} ...",
+          "ko": "취침 모드가 ...!{{임|아님}}"
         },
         "titleFormatted": {
-          "en": "Lights !{{are|aren't}} [[mode]]",
-          "nl": "Lichten !{{zijn|zijn niet}} [[mode]]",
-          "de": "Licht !{{ist|ist nicht}} [[mode]]",
-          "fr": "Les lumières !{{sont|ne sont pas}} [[mode]]",
-          "it": "Le luci !{{sono|non sono}} [[mode]]",
-          "sv": "Belysning !{{är|är inte}} [[mode]]",
-          "no": "Lys !{{er|er ikke}} [[mode]]",
-          "es": "Luces !{{están|no están}} [[mode]]",
-          "da": "Lys !{{er|er ikke}} [[mode]]",
-          "pl": "Światła !{{są|nie są}} [[mode]]",
-          "ko": "조명이 [[mode]]!{{임|아님}}"
+          "en": "Sleep mode !{{is|isn't}} [[mode]]",
+          "nl": "Slaapmodus !{{is|is niet}} [[mode]]",
+          "de": "Schlafmodus !{{ist|ist nicht}} [[mode]]",
+          "fr": "Mode sommeil !{{est|n'est pas}} [[mode]]",
+          "it": "La modalità notte !{{è|non è}} [[mode]]",
+          "sv": "Viloläge !{{är|är inte}} [[mode]]",
+          "no": "Sovemodus !{{er|er ikke}} [[mode]]",
+          "es": "Modo de reposo !{{es|no es}} [[mode]]",
+          "da": "Dvaletilstand !{{er|er ikke}} [[mode]]",
+          "pl": "Tryb uśpienia !{{jest|nie jest}} [[mode]]",
+          "ko": "취침 모드가 [[mode]]!{{임|아님}}"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
           },
           {
             "name": "mode",
@@ -1160,38 +1692,38 @@
         ]
       },
       {
-        "id": "xfan_mode_is",
+        "id": "turbo_mode_is",
         "title": {
-          "en": "X-Fan mode !{{is|isn't}} ...",
-          "nl": "X-Fan modus !{{is|is niet}} ...",
-          "de": "X-Fan-Modus !{{ist|ist nicht}} ...",
-          "fr": "Mode X-Fan !{{est|n'est pas}} ...",
-          "it": "La modalità X-Fan !{{è|non è}} ...",
-          "sv": "X-Fan-läge !{{är|är inte}} ...",
-          "no": "X-Fan-modus !{{er|er ikke}} ...",
-          "es": "Modo X-Fan !{{es|no es}} ...",
-          "da": "X-Fan-tilstand !{{er|er ikke}} ...",
-          "pl": "Tryb X-Fan !{{jest|nie jest}} ...",
-          "ko": "X-Fan 모드가 ...!{{임|아님}}"
+          "en": "Turbo mode !{{is|isn't}} ...",
+          "nl": "Turbo modus !{{is|is niet}} ...",
+          "de": "Turbo-Modus !{{ist|ist nicht}} ...",
+          "fr": "Mode turbo !{{est|n'est pas}} ...",
+          "it": "La modalità turbo !{{è|non è}} ...",
+          "sv": "Turboläge !{{är|är inte}} ...",
+          "no": "Turbomodus !{{er|er ikke}} ...",
+          "es": "Modo turbo !{{es|no es}} ...",
+          "da": "Turbotilstand !{{er|er ikke}} ...",
+          "pl": "Tryb turbo !{{jest|nie jest}} ...",
+          "ko": "터보 모드가 ...!{{임|아님}}"
         },
         "titleFormatted": {
-          "en": "X-Fan mode !{{is|isn't}} [[mode]]",
-          "nl": "X-Fan modus !{{is|is niet}} [[mode]]",
-          "de": "X-Fan-Modus !{{ist|ist nicht}} [[mode]]",
-          "fr": "Mode X-Fan !{{est|n'est pas}} [[mode]]",
-          "it": "La modalità X-Fan !{{è|non è}} [[mode]]",
-          "sv": "X-Fan-läge !{{är|är inte}} [[mode]]",
-          "no": "X-Fan-modus !{{er|er ikke}} [[mode]]",
-          "es": "Modo X-Fan !{{es|no es}} [[mode]]",
-          "da": "X-Fan-tilstand !{{er|er ikke}} [[mode]]",
-          "pl": "Tryb X-Fan !{{jest|nie jest}} [[mode]]",
-          "ko": "X-Fan 모드가 [[mode]]!{{임|아님}}"
+          "en": "Turbo mode !{{is|isn't}} [[mode]]",
+          "nl": "Turbo modus !{{is|is niet}} [[mode]]",
+          "de": "Turbo-Modus !{{ist|ist nicht}} [[mode]]",
+          "fr": "Mode turbo !{{est|n'est pas}} [[mode]]",
+          "it": "La modalità turbo !{{è|non è}} [[mode]]",
+          "sv": "Turboläge !{{är|är inte}} [[mode]]",
+          "no": "Turbomodus !{{er|er ikke}} [[mode]]",
+          "es": "Modo turbo !{{es|no es}} [[mode]]",
+          "da": "Turbotilstand !{{er|er ikke}} [[mode]]",
+          "pl": "Tryb turbo !{{jest|nie jest}} [[mode]]",
+          "ko": "터보 모드가 [[mode]]!{{임|아님}}"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
           },
           {
             "name": "mode",
@@ -1265,7 +1797,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
           },
           {
             "name": "vertical_swing",
@@ -1436,38 +1968,432 @@
         ]
       },
       {
-        "id": "horizontal_swing_is",
+        "id": "xfan_mode_is",
         "title": {
-          "en": "Horizontal swing !{{is|isn't}} ...",
-          "nl": "Horizontale swing !{{is|is niet}} ...",
-          "de": "Horizontale Schwenkung !{{ist|ist nicht}} ...",
-          "fr": "Balayage horizontal !{{est|n'est pas}} ...",
-          "it": "L'oscillazione orizzontale !{{è|non è}} ...",
-          "sv": "Horisontell svängning !{{är|är inte}} ...",
-          "no": "Horisontal svinging !{{er|er ikke}} ...",
-          "es": "Oscilación horizontal !{{es|no es}} ...",
-          "da": "Vandret svingning !{{er|er ikke}} ...",
-          "pl": "Wahanie poziome !{{jest|nie jest}} ...",
-          "ko": "수평 스윙이 ...!{{임|아님}}"
+          "en": "X-Fan mode !{{is|isn't}} ...",
+          "nl": "X-Fan modus !{{is|is niet}} ...",
+          "de": "X-Fan-Modus !{{ist|ist nicht}} ...",
+          "fr": "Mode X-Fan !{{est|n'est pas}} ...",
+          "it": "La modalità X-Fan !{{è|non è}} ...",
+          "sv": "X-Fan-läge !{{är|är inte}} ...",
+          "no": "X-Fan-modus !{{er|er ikke}} ...",
+          "es": "Modo X-Fan !{{es|no es}} ...",
+          "da": "X-Fan-tilstand !{{er|er ikke}} ...",
+          "pl": "Tryb X-Fan !{{jest|nie jest}} ...",
+          "ko": "X-Fan 모드가 ...!{{임|아님}}"
         },
         "titleFormatted": {
-          "en": "Horizontal swing !{{is|isn't}} [[horizontal_swing]]",
-          "nl": "Horizontale swing !{{is|is niet}} [[horizontal_swing]]",
-          "de": "Horizontale Schwenkung !{{ist|ist nicht}} [[horizontal_swing]]",
-          "fr": "Balayage horizontal !{{est|n'est pas}} [[horizontal_swing]]",
-          "it": "L'oscillazione orizzontale !{{è|non è}} [[horizontal_swing]]",
-          "sv": "Horisontell svängning !{{är|är inte}} [[horizontal_swing]]",
-          "no": "Horisontal svinging !{{er|er ikke}} [[horizontal_swing]]",
-          "es": "Oscilación horizontal !{{es|no es}} [[horizontal_swing]]",
-          "da": "Vandret svingning !{{er|er ikke}} [[horizontal_swing]]",
-          "pl": "Wahanie poziome !{{jest|nie jest}} [[horizontal_swing]]",
-          "ko": "수평 스윙이 [[horizontal_swing]]!{{임|아님}}"
+          "en": "X-Fan mode !{{is|isn't}} [[mode]]",
+          "nl": "X-Fan modus !{{is|is niet}} [[mode]]",
+          "de": "X-Fan-Modus !{{ist|ist nicht}} [[mode]]",
+          "fr": "Mode X-Fan !{{est|n'est pas}} [[mode]]",
+          "it": "La modalità X-Fan !{{è|non è}} [[mode]]",
+          "sv": "X-Fan-läge !{{är|är inte}} [[mode]]",
+          "no": "X-Fan-modus !{{er|er ikke}} [[mode]]",
+          "es": "Modo X-Fan !{{es|no es}} [[mode]]",
+          "da": "X-Fan-tilstand !{{er|er ikke}} [[mode]]",
+          "pl": "Tryb X-Fan !{{jest|nie jest}} [[mode]]",
+          "ko": "X-Fan 모드가 [[mode]]!{{임|아님}}"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan",
+                  "de": "Einschalten",
+                  "fr": "Marche",
+                  "it": "Acceso",
+                  "sv": "På",
+                  "no": "På",
+                  "es": "Encendido",
+                  "da": "Til",
+                  "pl": "Wł.",
+                  "ko": "켜기"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Ausschalten",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "set_fan_speed",
+        "title": {
+          "en": "Set fan speed",
+          "nl": "Ventilatorsnelheid instellen",
+          "de": "Gebläsedrehzahl einstellen",
+          "fr": "Régler la vitesse du ventilateur",
+          "it": "Imposta la velocità della ventola",
+          "sv": "Ställ in fläkthastighet",
+          "no": "Still inn viftehastighet",
+          "es": "Establecer velocidad del ventilador",
+          "da": "Indstil ventilatorhastighed",
+          "pl": "Ustaw prędkość wentylatora",
+          "ko": "팬 속도 설정"
+        },
+        "titleFormatted": {
+          "en": "Set fan speed to [[speed]]",
+          "nl": "Ventilatorsnelheid instellen op [[speed]]",
+          "de": "Gebläsedrehzahl auf [[speed]] einstellen",
+          "fr": "Régler la vitesse du ventilateur sur [[speed]]",
+          "it": "Imposta la velocità della ventola su [[speed]]",
+          "sv": "Ställ in fläkthastighet till [[speed]]",
+          "no": "Still inn viftehastighet til [[speed]]",
+          "es": "Establecer velocidad del ventilador en [[speed]]",
+          "da": "Indstil ventilatorhastighed til [[speed]]",
+          "pl": "Ustaw prędkość wentylatora na [[speed]]",
+          "ko": "팬 속도를 [[speed]](으)로 설정"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+          },
+          {
+            "name": "speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "label": {
+                  "en": "Auto",
+                  "nl": "Automatisch",
+                  "de": "Automatisch",
+                  "fr": "Automatique",
+                  "it": "Automatico",
+                  "sv": "Automatiskt",
+                  "no": "Automatisk",
+                  "es": "Automático",
+                  "da": "Automatisk",
+                  "pl": "Automatyczny",
+                  "ko": "자동"
+                }
+              },
+              {
+                "id": "low",
+                "label": {
+                  "en": "Low",
+                  "nl": "Laag",
+                  "de": "Niedrig",
+                  "fr": "Faible",
+                  "it": "Bassa",
+                  "sv": "Låg",
+                  "no": "Lav",
+                  "es": "Bajo",
+                  "da": "Lav",
+                  "pl": "Niska",
+                  "ko": "낮음"
+                }
+              },
+              {
+                "id": "mediumLow",
+                "label": {
+                  "en": "Medium Low",
+                  "nl": "Gemiddeld Laag",
+                  "de": "Mittel Niedrig",
+                  "fr": "Moyen faible",
+                  "it": "Medio-bassa",
+                  "sv": "Medellåg",
+                  "no": "Middels lav",
+                  "es": "Medio bajo",
+                  "da": "Mellem lav",
+                  "pl": "Średnio niska",
+                  "ko": "중간 낮음"
+                }
+              },
+              {
+                "id": "medium",
+                "label": {
+                  "en": "Medium",
+                  "nl": "Gemiddeld",
+                  "de": "Mittel",
+                  "fr": "Moyen",
+                  "it": "Media",
+                  "sv": "Medel",
+                  "no": "Middels",
+                  "es": "Medio",
+                  "da": "Mellem",
+                  "pl": "Średnia",
+                  "ko": "중간"
+                }
+              },
+              {
+                "id": "mediumHigh",
+                "label": {
+                  "en": "Medium High",
+                  "nl": "Gemiddeld hoog",
+                  "de": "Mittel hoch",
+                  "fr": "Moyen élevé",
+                  "it": "Medio-alta",
+                  "sv": "Medelhög",
+                  "no": "Middels høy",
+                  "es": "Medio alto",
+                  "da": "Mellem høj",
+                  "pl": "Średnio wysoka",
+                  "ko": "중간 높음"
+                }
+              },
+              {
+                "id": "high",
+                "label": {
+                  "en": "High",
+                  "nl": "Hoog",
+                  "de": "Hoch",
+                  "fr": "Élevé",
+                  "it": "Alta",
+                  "sv": "Hög",
+                  "no": "Høy",
+                  "es": "Alto",
+                  "da": "Høj",
+                  "pl": "Wysoka",
+                  "ko": "높음"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_fresh_air_mode",
+        "title": {
+          "en": "Set fresh air mode",
+          "nl": "Stel de verse lucht modus in",
+          "de": "Frischluftmodus einstellen",
+          "fr": "Régler le mode air frais",
+          "it": "Imposta la modalità aria fresca",
+          "sv": "Ställ in friskluftsläge",
+          "no": "Still inn friskluftmodus",
+          "es": "Establecer modo de aire fresco",
+          "da": "Indstil friskluftstilstand",
+          "pl": "Ustaw tryb świeżego powietrza",
+          "ko": "환기 모드 설정"
+        },
+        "titleFormatted": {
+          "en": "Set fresh air mode to [[mode]]",
+          "nl": "Stel de verse lucht modus in op [[mode]]",
+          "de": "Frischluftmodus auf [[mode]] einstellen",
+          "fr": "Régler le mode air frais sur [[mode]]",
+          "it": "Imposta la modalità aria fresca su [[mode]]",
+          "sv": "Ställ in friskluftsläge till [[mode]]",
+          "no": "Still inn friskluftmodus til [[mode]]",
+          "es": "Establecer modo de aire fresco en [[mode]]",
+          "da": "Indstil friskluftstilstand til [[mode]]",
+          "pl": "Ustaw tryb świeżego powietrza na [[mode]]",
+          "ko": "환기 모드를 [[mode]](으)로 설정"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Aus",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
+                }
+              },
+              {
+                "id": "inside",
+                "title": {
+                  "en": "Inside",
+                  "nl": "Binnen",
+                  "de": "Innen",
+                  "fr": "Intérieur",
+                  "it": "Interno",
+                  "sv": "Inne",
+                  "no": "Inne",
+                  "es": "Interior",
+                  "da": "Indendørs",
+                  "pl": "Wewnątrz",
+                  "ko": "내부"
+                }
+              },
+              {
+                "id": "outside",
+                "title": {
+                  "en": "Outside",
+                  "nl": "Buiten",
+                  "de": "Außen",
+                  "fr": "Extérieur",
+                  "it": "Esterno",
+                  "sv": "Ute",
+                  "no": "Ute",
+                  "es": "Exterior",
+                  "da": "Udendørs",
+                  "pl": "Na zewnątrz",
+                  "ko": "외부"
+                }
+              },
+              {
+                "id": "mode3",
+                "title": {
+                  "en": "Mode 3",
+                  "nl": "Mode 3",
+                  "de": "Mode 3",
+                  "fr": "Mode 3",
+                  "it": "Mode 3",
+                  "sv": "Mode 3",
+                  "no": "Mode 3",
+                  "es": "Modo 3",
+                  "da": "Mode 3",
+                  "pl": "Mode 3",
+                  "ko": "Mode 3"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_health_mode",
+        "title": {
+          "en": "Set health mode",
+          "nl": "Stel de gezondheidsmodus in",
+          "de": "Gesundheitsmodus einstellen",
+          "fr": "Régler le mode santé",
+          "it": "Imposta la modalità salute",
+          "sv": "Ställ in hälsoläge",
+          "no": "Still inn helsemodus",
+          "es": "Establecer modo salud",
+          "da": "Indstil sundhedstilstand",
+          "pl": "Ustaw tryb zdrowotny",
+          "ko": "건강 모드 설정"
+        },
+        "titleFormatted": {
+          "en": "Set health mode to [[mode]]",
+          "nl": "Stel de gezondheidsmodus in op [[mode]]",
+          "de": "Gesundheitsmodus auf [[mode]] einstellen",
+          "fr": "Régler le mode santé sur [[mode]]",
+          "it": "Imposta la modalità salute su [[mode]]",
+          "sv": "Ställ in hälsoläge till [[mode]]",
+          "no": "Still inn helsemodus til [[mode]]",
+          "es": "Establecer modo salud en [[mode]]",
+          "da": "Indstil sundhedstilstand til [[mode]]",
+          "pl": "Ustaw tryb zdrowotny na [[mode]]",
+          "ko": "건강 모드를 [[mode]](으)로 설정"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan",
+                  "de": "Einschalten",
+                  "fr": "Marche",
+                  "it": "Acceso",
+                  "sv": "På",
+                  "no": "På",
+                  "es": "Encendido",
+                  "da": "Til",
+                  "pl": "Wł.",
+                  "ko": "켜기"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Ausschalten",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_horizontal_swing",
+        "title": {
+          "en": "Set horizontal swing",
+          "nl": "Horizontale swing instellen",
+          "de": "Horizontale Schwenkung einstellen",
+          "fr": "Régler le balayage horizontal",
+          "it": "Imposta l'oscillazione orizzontale",
+          "sv": "Ställ in horisontell svängning",
+          "no": "Still inn horisontal svinging",
+          "es": "Establecer oscilación horizontal",
+          "da": "Indstil vandret svingning",
+          "pl": "Ustaw wahanie poziome",
+          "ko": "수평 스윙 설정"
+        },
+        "titleFormatted": {
+          "en": "Set horizontal swing to [[horizontal_swing]]",
+          "nl": "Horizontale swing instellen op [[horizontal_swing]]",
+          "de": "Horizontale Schwenkung auf [[horizontal_swing]] einstellen",
+          "fr": "Régler le balayage horizontal sur [[horizontal_swing]]",
+          "it": "Imposta l'oscillazione orizzontale su [[horizontal_swing]]",
+          "sv": "Ställ in horisontell svängning till [[horizontal_swing]]",
+          "no": "Still inn horisontal svinging til [[horizontal_swing]]",
+          "es": "Establecer oscilación horizontal en [[horizontal_swing]]",
+          "da": "Indstil vandret svingning til [[horizontal_swing]]",
+          "pl": "Ustaw wahanie poziome na [[horizontal_swing]]",
+          "ko": "수평 스윙을 [[horizontal_swing]](으)로 설정"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
           },
           {
             "name": "horizontal_swing",
@@ -1605,442 +2531,6 @@
           }
         ]
       },
-      {
-        "id": "quiet_mode_is",
-        "title": {
-          "en": "Quiet mode !{{is|isn't}} ...",
-          "nl": "Stilte modus !{{is|is niet}} ...",
-          "de": "Ruhig-Modus !{{ist|ist nicht}} ...",
-          "fr": "Mode silencieux !{{est|n'est pas}} ...",
-          "it": "La modalità silenziosa !{{è|non è}} ...",
-          "sv": "Tyst läge !{{är|är inte}} ...",
-          "no": "Stillemodus !{{er|er ikke}} ...",
-          "es": "Modo silencioso !{{es|no es}} ...",
-          "da": "Stille tilstand !{{er|er ikke}} ...",
-          "pl": "Tryb cichy !{{jest|nie jest}} ...",
-          "ko": "저소음 모드가 ...!{{임|아님}}"
-        },
-        "titleFormatted": {
-          "en": "Quiet mode !{{is|isn't}} [[mode]]",
-          "nl": "Stilte modus !{{is|is niet}} [[mode]]",
-          "de": "Ruhig-Modus !{{ist|ist nicht}} [[mode]]",
-          "fr": "Mode silencieux !{{est|n'est pas}} [[mode]]",
-          "it": "La modalità silenziosa !{{è|non è}} [[mode]]",
-          "sv": "Tyst läge !{{är|är inte}} [[mode]]",
-          "no": "Stillemodus !{{er|er ikke}} [[mode]]",
-          "es": "Modo silencioso !{{es|no es}} [[mode]]",
-          "da": "Stille tilstand !{{er|er ikke}} [[mode]]",
-          "pl": "Tryb cichy !{{jest|nie jest}} [[mode]]",
-          "ko": "저소음 모드가 [[mode]]!{{임|아님}}"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
-          },
-          {
-            "name": "mode",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "off",
-                "title": {
-                  "en": "Off",
-                  "nl": "Uit",
-                  "de": "Aus",
-                  "fr": "Arrêt",
-                  "it": "Spento",
-                  "sv": "Av",
-                  "no": "Av",
-                  "es": "Apagado",
-                  "da": "Fra",
-                  "pl": "Wył.",
-                  "ko": "끄기"
-                }
-              },
-              {
-                "id": "mode1",
-                "title": {
-                  "en": "Mode 1",
-                  "nl": "Mode 1",
-                  "de": "Mode 1",
-                  "fr": "Mode 1",
-                  "it": "Mode 1",
-                  "sv": "Mode 1",
-                  "no": "Mode 1",
-                  "es": "Modo 1",
-                  "da": "Mode 1",
-                  "pl": "Mode 1",
-                  "ko": "Mode 1"
-                }
-              },
-              {
-                "id": "mode2",
-                "title": {
-                  "en": "Mode 2",
-                  "nl": "Mode 2",
-                  "de": "Mode 2",
-                  "fr": "Mode 2",
-                  "it": "Mode 2",
-                  "sv": "Mode 2",
-                  "no": "Mode 2",
-                  "es": "Modo 2",
-                  "da": "Mode 2",
-                  "pl": "Mode 2",
-                  "ko": "Mode 2"
-                }
-              },
-              {
-                "id": "mode3",
-                "title": {
-                  "en": "Mode 3",
-                  "nl": "Mode 3",
-                  "de": "Mode 3",
-                  "fr": "Mode 3",
-                  "it": "Mode 3",
-                  "sv": "Mode 3",
-                  "no": "Mode 3",
-                  "es": "Modo 3",
-                  "da": "Mode 3",
-                  "pl": "Mode 3",
-                  "ko": "Mode 3"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "health_mode_is",
-        "title": {
-          "en": "Health mode !{{is|isn't}} ...",
-          "nl": "Gezondheidsmodus !{{is|is niet}} ...",
-          "de": "Gesundheitsmodus !{{ist|ist nicht}} ...",
-          "fr": "Mode santé !{{est|n'est pas}} ...",
-          "it": "La modalità salute !{{è|non è}} ...",
-          "sv": "Hälsoläge !{{är|är inte}} ...",
-          "no": "Helsemodus !{{er|er ikke}} ...",
-          "es": "Modo salud !{{es|no es}} ...",
-          "da": "Sundhedstilstand !{{er|er ikke}} ...",
-          "pl": "Tryb zdrowotny !{{jest|nie jest}} ...",
-          "ko": "건강 모드가 ...!{{임|아님}}"
-        },
-        "titleFormatted": {
-          "en": "Health mode !{{is|isn't}} [[mode]]",
-          "nl": "Gezondheidsmodus !{{is|is niet}} [[mode]]",
-          "de": "Gesundheitsmodus !{{ist|ist nicht}} [[mode]]",
-          "fr": "Mode santé !{{est|n'est pas}} [[mode]]",
-          "it": "La modalità salute !{{è|non è}} [[mode]]",
-          "sv": "Hälsoläge !{{är|är inte}} [[mode]]",
-          "no": "Helsemodus !{{er|er ikke}} [[mode]]",
-          "es": "Modo salud !{{es|no es}} [[mode]]",
-          "da": "Sundhedstilstand !{{er|er ikke}} [[mode]]",
-          "pl": "Tryb zdrowotny !{{jest|nie jest}} [[mode]]",
-          "ko": "건강 모드가 [[mode]]!{{임|아님}}"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
-          },
-          {
-            "name": "mode",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "on",
-                "label": {
-                  "en": "On",
-                  "nl": "Aan",
-                  "de": "Einschalten",
-                  "fr": "Marche",
-                  "it": "Acceso",
-                  "sv": "På",
-                  "no": "På",
-                  "es": "Encendido",
-                  "da": "Til",
-                  "pl": "Wł.",
-                  "ko": "켜기"
-                }
-              },
-              {
-                "id": "off",
-                "label": {
-                  "en": "Off",
-                  "nl": "Uit",
-                  "de": "Ausschalten",
-                  "fr": "Arrêt",
-                  "it": "Spento",
-                  "sv": "Av",
-                  "no": "Av",
-                  "es": "Apagado",
-                  "da": "Fra",
-                  "pl": "Wył.",
-                  "ko": "끄기"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "power_save_mode_is",
-        "title": {
-          "en": "Power save mode !{{is|isn't}} ...",
-          "nl": "Energiebesparende modus !{{is|is niet}} ...",
-          "de": "Energiesparmodus !{{ist|ist nicht}} ...",
-          "fr": "Mode économie d'énergie !{{est|n'est pas}} ...",
-          "it": "La modalità risparmio energetico !{{è|non è}} ...",
-          "sv": "Energisparläge !{{är|är inte}} ...",
-          "no": "Strømsparemodus !{{er|er ikke}} ...",
-          "es": "Modo de ahorro de energía !{{es|no es}} ...",
-          "da": "Strømsparetilstand !{{er|er ikke}} ...",
-          "pl": "Tryb oszczędzania energii !{{jest|nie jest}} ...",
-          "ko": "절전 모드가 ...!{{임|아님}}"
-        },
-        "titleFormatted": {
-          "en": "Power save mode !{{is|isn't}} [[mode]]",
-          "nl": "Energiebesparende modus !{{is|is niet}} [[mode]]",
-          "de": "Energiesparmodus !{{ist|ist nicht}} [[mode]]",
-          "fr": "Mode économie d'énergie !{{est|n'est pas}} [[mode]]",
-          "it": "La modalità risparmio energetico !{{è|non è}} [[mode]]",
-          "sv": "Energisparläge !{{är|är inte}} [[mode]]",
-          "no": "Strømsparemodus !{{er|er ikke}} [[mode]]",
-          "es": "Modo de ahorro de energía !{{es|no es}} [[mode]]",
-          "da": "Strømsparetilstand !{{er|er ikke}} [[mode]]",
-          "pl": "Tryb oszczędzania energii !{{jest|nie jest}} [[mode]]",
-          "ko": "절전 모드가 [[mode]]!{{임|아님}}"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
-          },
-          {
-            "name": "mode",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "on",
-                "label": {
-                  "en": "On",
-                  "nl": "Aan",
-                  "de": "Einschalten",
-                  "fr": "Marche",
-                  "it": "Acceso",
-                  "sv": "På",
-                  "no": "På",
-                  "es": "Encendido",
-                  "da": "Til",
-                  "pl": "Wł.",
-                  "ko": "켜기"
-                }
-              },
-              {
-                "id": "off",
-                "label": {
-                  "en": "Off",
-                  "nl": "Uit",
-                  "de": "Ausschalten",
-                  "fr": "Arrêt",
-                  "it": "Spento",
-                  "sv": "Av",
-                  "no": "Av",
-                  "es": "Apagado",
-                  "da": "Fra",
-                  "pl": "Wył.",
-                  "ko": "끄기"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "sleep_mode_is",
-        "title": {
-          "en": "Sleep mode !{{is|isn't}} ...",
-          "nl": "Slaapmodus !{{is|is niet}} ...",
-          "de": "Schlafmodus !{{ist|ist nicht}} ...",
-          "fr": "Mode sommeil !{{est|n'est pas}} ...",
-          "it": "La modalità notte !{{è|non è}} ...",
-          "sv": "Viloläge !{{är|är inte}} ...",
-          "no": "Sovemodus !{{er|er ikke}} ...",
-          "es": "Modo de reposo !{{es|no es}} ...",
-          "da": "Dvaletilstand !{{er|er ikke}} ...",
-          "pl": "Tryb uśpienia !{{jest|nie jest}} ...",
-          "ko": "취침 모드가 ...!{{임|아님}}"
-        },
-        "titleFormatted": {
-          "en": "Sleep mode !{{is|isn't}} [[mode]]",
-          "nl": "Slaapmodus !{{is|is niet}} [[mode]]",
-          "de": "Schlafmodus !{{ist|ist nicht}} [[mode]]",
-          "fr": "Mode sommeil !{{est|n'est pas}} [[mode]]",
-          "it": "La modalità notte !{{è|non è}} [[mode]]",
-          "sv": "Viloläge !{{är|är inte}} [[mode]]",
-          "no": "Sovemodus !{{er|er ikke}} [[mode]]",
-          "es": "Modo de reposo !{{es|no es}} [[mode]]",
-          "da": "Dvaletilstand !{{er|er ikke}} [[mode]]",
-          "pl": "Tryb uśpienia !{{jest|nie jest}} [[mode]]",
-          "ko": "취침 모드가 [[mode]]!{{임|아님}}"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
-          },
-          {
-            "name": "mode",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "on",
-                "label": {
-                  "en": "On",
-                  "nl": "Aan",
-                  "de": "Einschalten",
-                  "fr": "Marche",
-                  "it": "Acceso",
-                  "sv": "På",
-                  "no": "På",
-                  "es": "Encendido",
-                  "da": "Til",
-                  "pl": "Wł.",
-                  "ko": "켜기"
-                }
-              },
-              {
-                "id": "off",
-                "label": {
-                  "en": "Off",
-                  "nl": "Uit",
-                  "de": "Ausschalten",
-                  "fr": "Arrêt",
-                  "it": "Spento",
-                  "sv": "Av",
-                  "no": "Av",
-                  "es": "Apagado",
-                  "da": "Fra",
-                  "pl": "Wył.",
-                  "ko": "끄기"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "fresh_air_mode_is",
-        "title": {
-          "en": "Fresh air mode !{{is|isn't}} ...",
-          "nl": "Verse lucht modus !{{is|is niet}} ...",
-          "de": "Frischluftmodus !{{ist|ist nicht}} ...",
-          "fr": "Mode air frais !{{est|n'est pas}} ...",
-          "it": "La modalità aria fresca !{{è|non è}} ...",
-          "sv": "Friskluftsläge !{{är|är inte}} ...",
-          "no": "Friskluftmodus !{{er|er ikke}} ...",
-          "es": "Modo de aire fresco !{{es|no es}} ...",
-          "da": "Friskluftstilstand !{{er|er ikke}} ...",
-          "pl": "Tryb świeżego powietrza !{{jest|nie jest}} ...",
-          "ko": "환기 모드가 ...!{{임|아님}}"
-        },
-        "titleFormatted": {
-          "en": "Fresh air mode !{{is|isn't}} [[mode]]",
-          "nl": "Verse lucht modus !{{is|is niet}} [[mode]]",
-          "de": "Frischluftmodus !{{ist|ist nicht}} [[mode]]",
-          "fr": "Mode air frais !{{est|n'est pas}} [[mode]]",
-          "it": "La modalità aria fresca !{{è|non è}} [[mode]]",
-          "sv": "Friskluftsläge !{{är|är inte}} [[mode]]",
-          "no": "Friskluftmodus !{{er|er ikke}} [[mode]]",
-          "es": "Modo de aire fresco !{{es|no es}} [[mode]]",
-          "da": "Friskluftstilstand !{{er|er ikke}} [[mode]]",
-          "pl": "Tryb świeżego powietrza !{{jest|nie jest}} [[mode]]",
-          "ko": "환기 모드가 [[mode]]!{{임|아님}}"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
-          },
-          {
-            "name": "mode",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "off",
-                "title": {
-                  "en": "Off",
-                  "nl": "Uit",
-                  "de": "Aus",
-                  "fr": "Arrêt",
-                  "it": "Spento",
-                  "sv": "Av",
-                  "no": "Av",
-                  "es": "Apagado",
-                  "da": "Fra",
-                  "pl": "Wył.",
-                  "ko": "끄기"
-                }
-              },
-              {
-                "id": "inside",
-                "title": {
-                  "en": "Inside",
-                  "nl": "Binnen",
-                  "de": "Innen",
-                  "fr": "Intérieur",
-                  "it": "Interno",
-                  "sv": "Inne",
-                  "no": "Inne",
-                  "es": "Interior",
-                  "da": "Indendørs",
-                  "pl": "Wewnątrz",
-                  "ko": "내부"
-                }
-              },
-              {
-                "id": "outside",
-                "title": {
-                  "en": "Outside",
-                  "nl": "Buiten",
-                  "de": "Außen",
-                  "fr": "Extérieur",
-                  "it": "Esterno",
-                  "sv": "Ute",
-                  "no": "Ute",
-                  "es": "Exterior",
-                  "da": "Udendørs",
-                  "pl": "Na zewnątrz",
-                  "ko": "외부"
-                }
-              },
-              {
-                "id": "mode3",
-                "title": {
-                  "en": "Mode 3",
-                  "nl": "Mode 3",
-                  "de": "Mode 3",
-                  "fr": "Mode 3",
-                  "it": "Mode 3",
-                  "sv": "Mode 3",
-                  "no": "Mode 3",
-                  "es": "Modo 3",
-                  "da": "Mode 3",
-                  "pl": "Mode 3",
-                  "ko": "Mode 3"
-                }
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "actions": [
       {
         "id": "set_hvac_mode",
         "deprecated": true,
@@ -2181,176 +2671,38 @@
         ]
       },
       {
-        "id": "set_fan_speed",
+        "id": "set_lights",
         "title": {
-          "en": "Set fan speed",
-          "nl": "Ventilatorsnelheid instellen",
-          "de": "Gebläsedrehzahl einstellen",
-          "fr": "Régler la vitesse du ventilateur",
-          "it": "Imposta la velocità della ventola",
-          "sv": "Ställ in fläkthastighet",
-          "no": "Still inn viftehastighet",
-          "es": "Establecer velocidad del ventilador",
-          "da": "Indstil ventilatorhastighed",
-          "pl": "Ustaw prędkość wentylatora",
-          "ko": "팬 속도 설정"
+          "en": "Set lights",
+          "nl": "Lichten instellen",
+          "de": "Lichter einstellen",
+          "fr": "Régler l'éclairage",
+          "it": "Imposta le luci",
+          "sv": "Ställ in belysning",
+          "no": "Still inn lys",
+          "es": "Establecer luces",
+          "da": "Indstil lys",
+          "pl": "Ustaw światła",
+          "ko": "조명 설정"
         },
         "titleFormatted": {
-          "en": "Set fan speed to [[speed]]",
-          "nl": "Ventilatorsnelheid instellen op [[speed]]",
-          "de": "Gebläsedrehzahl auf [[speed]] einstellen",
-          "fr": "Régler la vitesse du ventilateur sur [[speed]]",
-          "it": "Imposta la velocità della ventola su [[speed]]",
-          "sv": "Ställ in fläkthastighet till [[speed]]",
-          "no": "Still inn viftehastighet til [[speed]]",
-          "es": "Establecer velocidad del ventilador en [[speed]]",
-          "da": "Indstil ventilatorhastighed til [[speed]]",
-          "pl": "Ustaw prędkość wentylatora na [[speed]]",
-          "ko": "팬 속도를 [[speed]](으)로 설정"
+          "en": "Set lights to [[mode]]",
+          "nl": "Lichten instellen op [[mode]]",
+          "de": "Lichter auf [[mode]] einstellen",
+          "fr": "Régler l'éclairage sur [[mode]]",
+          "it": "Imposta le luci su [[mode]]",
+          "sv": "Ställ in belysning till [[mode]]",
+          "no": "Still inn lys til [[mode]]",
+          "es": "Establecer luces en [[mode]]",
+          "da": "Indstil lys til [[mode]]",
+          "pl": "Ustaw światła na [[mode]]",
+          "ko": "조명을 [[mode]](으)로 설정"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
-          },
-          {
-            "name": "speed",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "auto",
-                "label": {
-                  "en": "Auto",
-                  "nl": "Automatisch",
-                  "de": "Automatisch",
-                  "fr": "Automatique",
-                  "it": "Automatico",
-                  "sv": "Automatiskt",
-                  "no": "Automatisk",
-                  "es": "Automático",
-                  "da": "Automatisk",
-                  "pl": "Automatyczny",
-                  "ko": "자동"
-                }
-              },
-              {
-                "id": "low",
-                "label": {
-                  "en": "Low",
-                  "nl": "Laag",
-                  "de": "Niedrig",
-                  "fr": "Faible",
-                  "it": "Bassa",
-                  "sv": "Låg",
-                  "no": "Lav",
-                  "es": "Bajo",
-                  "da": "Lav",
-                  "pl": "Niska",
-                  "ko": "낮음"
-                }
-              },
-              {
-                "id": "mediumLow",
-                "label": {
-                  "en": "Medium Low",
-                  "nl": "Gemiddeld Laag",
-                  "de": "Mittel Niedrig",
-                  "fr": "Moyen faible",
-                  "it": "Medio-bassa",
-                  "sv": "Medellåg",
-                  "no": "Middels lav",
-                  "es": "Medio bajo",
-                  "da": "Mellem lav",
-                  "pl": "Średnio niska",
-                  "ko": "중간 낮음"
-                }
-              },
-              {
-                "id": "medium",
-                "label": {
-                  "en": "Medium",
-                  "nl": "Gemiddeld",
-                  "de": "Mittel",
-                  "fr": "Moyen",
-                  "it": "Media",
-                  "sv": "Medel",
-                  "no": "Middels",
-                  "es": "Medio",
-                  "da": "Mellem",
-                  "pl": "Średnia",
-                  "ko": "중간"
-                }
-              },
-              {
-                "id": "mediumHigh",
-                "label": {
-                  "en": "Medium High",
-                  "nl": "Gemiddeld hoog",
-                  "de": "Mittel hoch",
-                  "fr": "Moyen élevé",
-                  "it": "Medio-alta",
-                  "sv": "Medelhög",
-                  "no": "Middels høy",
-                  "es": "Medio alto",
-                  "da": "Mellem høj",
-                  "pl": "Średnio wysoka",
-                  "ko": "중간 높음"
-                }
-              },
-              {
-                "id": "high",
-                "label": {
-                  "en": "High",
-                  "nl": "Hoog",
-                  "de": "Hoch",
-                  "fr": "Élevé",
-                  "it": "Alta",
-                  "sv": "Hög",
-                  "no": "Høy",
-                  "es": "Alto",
-                  "da": "Høj",
-                  "pl": "Wysoka",
-                  "ko": "높음"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "set_turbo_mode",
-        "title": {
-          "en": "Set turbo mode",
-          "nl": "Stel de turbomodus in",
-          "de": "Turbo-Modus einstellen",
-          "fr": "Régler le mode turbo",
-          "it": "Imposta la modalità turbo",
-          "sv": "Ställ in turboläge",
-          "no": "Still inn turbomodus",
-          "es": "Establecer modo turbo",
-          "da": "Indstil turbotilstand",
-          "pl": "Ustaw tryb turbo",
-          "ko": "터보 모드 설정"
-        },
-        "titleFormatted": {
-          "en": "Set turbo mode to [[mode]]",
-          "nl": "Stel de turbomodus in op [[mode]]",
-          "de": "Turbo-Modus auf [[mode]] einstellen",
-          "fr": "Régler le mode turbo sur [[mode]]",
-          "it": "Imposta la modalità turbo su [[mode]]",
-          "sv": "Ställ in turboläge till [[mode]]",
-          "no": "Still inn turbomodus til [[mode]]",
-          "es": "Establecer modo turbo en [[mode]]",
-          "da": "Indstil turbotilstand til [[mode]]",
-          "pl": "Ustaw tryb turbo na [[mode]]",
-          "ko": "터보 모드를 [[mode]](으)로 설정"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
           },
           {
             "name": "mode",
@@ -2386,6 +2738,186 @@
                   "da": "Fra",
                   "pl": "Wył.",
                   "ko": "끄기"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_power_save_mode",
+        "title": {
+          "en": "Set power save mode",
+          "nl": "Stel de energiebesparende modus in",
+          "de": "Energiesparmodus einstellen",
+          "fr": "Régler le mode économie d'énergie",
+          "it": "Imposta la modalità risparmio energetico",
+          "sv": "Ställ in energisparläge",
+          "no": "Still inn strømsparemodus",
+          "es": "Establecer modo de ahorro de energía",
+          "da": "Indstil strømsparetilstand",
+          "pl": "Ustaw tryb oszczędzania energii",
+          "ko": "절전 모드 설정"
+        },
+        "titleFormatted": {
+          "en": "Set power save mode to [[mode]]",
+          "nl": "Stel de energiebesparende modus in op [[mode]]",
+          "de": "Energiesparmodus auf [[mode]] einstellen",
+          "fr": "Régler le mode économie d'énergie sur [[mode]]",
+          "it": "Imposta la modalità risparmio energetico su [[mode]]",
+          "sv": "Ställ in energisparläge till [[mode]]",
+          "no": "Still inn strømsparemodus til [[mode]]",
+          "es": "Establecer modo de ahorro de energía en [[mode]]",
+          "da": "Indstil strømsparetilstand til [[mode]]",
+          "pl": "Ustaw tryb oszczędzania energii na [[mode]]",
+          "ko": "절전 모드를 [[mode]](으)로 설정"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan",
+                  "de": "Einschalten",
+                  "fr": "Marche",
+                  "it": "Acceso",
+                  "sv": "På",
+                  "no": "På",
+                  "es": "Encendido",
+                  "da": "Til",
+                  "pl": "Wł.",
+                  "ko": "켜기"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Ausschalten",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_quiet_mode",
+        "title": {
+          "en": "Set quiet mode",
+          "nl": "Stel de quiet-modus in",
+          "de": "Ruhig-Modus einstellen",
+          "fr": "Régler le mode silencieux",
+          "it": "Imposta la modalità silenziosa",
+          "sv": "Ställ in tyst läge",
+          "no": "Still inn stillemodus",
+          "es": "Establecer modo silencioso",
+          "da": "Indstil stille tilstand",
+          "pl": "Ustaw tryb cichy",
+          "ko": "저소음 모드 설정"
+        },
+        "titleFormatted": {
+          "en": "Set quiet mode to [[mode]]",
+          "nl": "Stel de quiet-modus in op [[mode]]",
+          "de": "Ruhig-Modus auf [[mode]] einstellen",
+          "fr": "Régler le mode silencieux sur [[mode]]",
+          "it": "Imposta la modalità silenziosa su [[mode]]",
+          "sv": "Ställ in tyst läge till [[mode]]",
+          "no": "Still inn stillemodus til [[mode]]",
+          "es": "Establecer modo silencioso en [[mode]]",
+          "da": "Indstil stille tilstand til [[mode]]",
+          "pl": "Ustaw tryb cichy na [[mode]]",
+          "ko": "저소음 모드를 [[mode]](으)로 설정"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Aus",
+                  "fr": "Arrêt",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Fra",
+                  "pl": "Wył.",
+                  "ko": "끄기"
+                }
+              },
+              {
+                "id": "mode1",
+                "title": {
+                  "en": "Mode 1",
+                  "nl": "Mode 1",
+                  "de": "Mode 1",
+                  "fr": "Mode 1",
+                  "it": "Mode 1",
+                  "sv": "Mode 1",
+                  "no": "Mode 1",
+                  "es": "Modo 1",
+                  "da": "Mode 1",
+                  "pl": "Mode 1",
+                  "ko": "Mode 1"
+                }
+              },
+              {
+                "id": "mode2",
+                "title": {
+                  "en": "Mode 2",
+                  "nl": "Mode 2",
+                  "de": "Mode 2",
+                  "fr": "Mode 2",
+                  "it": "Mode 2",
+                  "sv": "Mode 2",
+                  "no": "Mode 2",
+                  "es": "Modo 2",
+                  "da": "Mode 2",
+                  "pl": "Mode 2",
+                  "ko": "Mode 2"
+                }
+              },
+              {
+                "id": "mode3",
+                "title": {
+                  "en": "Mode 3",
+                  "nl": "Mode 3",
+                  "de": "Mode 3",
+                  "fr": "Mode 3",
+                  "it": "Mode 3",
+                  "sv": "Mode 3",
+                  "no": "Mode 3",
+                  "es": "Modo 3",
+                  "da": "Mode 3",
+                  "pl": "Mode 3",
+                  "ko": "Mode 3"
                 }
               }
             ]
@@ -2424,7 +2956,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
           },
           {
             "name": "mode",
@@ -2467,38 +2999,38 @@
         ]
       },
       {
-        "id": "set_lights",
+        "id": "set_sleep_mode",
         "title": {
-          "en": "Set lights",
-          "nl": "Lichten instellen",
-          "de": "Lichter einstellen",
-          "fr": "Régler l'éclairage",
-          "it": "Imposta le luci",
-          "sv": "Ställ in belysning",
-          "no": "Still inn lys",
-          "es": "Establecer luces",
-          "da": "Indstil lys",
-          "pl": "Ustaw światła",
-          "ko": "조명 설정"
+          "en": "Set sleep mode",
+          "nl": "Stel de slaapmodus in",
+          "de": "Schlafmodus einstellen",
+          "fr": "Régler le mode sommeil",
+          "it": "Imposta la modalità notte",
+          "sv": "Ställ in viloläge",
+          "no": "Still inn sovemodus",
+          "es": "Establecer modo de reposo",
+          "da": "Indstil dvaletilstand",
+          "pl": "Ustaw tryb uśpienia",
+          "ko": "취침 모드 설정"
         },
         "titleFormatted": {
-          "en": "Set lights to [[mode]]",
-          "nl": "Lichten instellen op [[mode]]",
-          "de": "Lichter auf [[mode]] einstellen",
-          "fr": "Régler l'éclairage sur [[mode]]",
-          "it": "Imposta le luci su [[mode]]",
-          "sv": "Ställ in belysning till [[mode]]",
-          "no": "Still inn lys til [[mode]]",
-          "es": "Establecer luces en [[mode]]",
-          "da": "Indstil lys til [[mode]]",
-          "pl": "Ustaw światła na [[mode]]",
-          "ko": "조명을 [[mode]](으)로 설정"
+          "en": "Set sleep mode to [[mode]]",
+          "nl": "Stel de slaapmodus in op [[mode]]",
+          "de": "Schlafmodus auf [[mode]] einstellen",
+          "fr": "Régler le mode sommeil sur [[mode]]",
+          "it": "Imposta la modalità notte su [[mode]]",
+          "sv": "Ställ in viloläge till [[mode]]",
+          "no": "Still inn sovemodus til [[mode]]",
+          "es": "Establecer modo de reposo en [[mode]]",
+          "da": "Indstil dvaletilstand til [[mode]]",
+          "pl": "Ustaw tryb uśpienia na [[mode]]",
+          "ko": "취침 모드를 [[mode]](으)로 설정"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
           },
           {
             "name": "mode",
@@ -2541,38 +3073,38 @@
         ]
       },
       {
-        "id": "set_xfan_mode",
+        "id": "set_turbo_mode",
         "title": {
-          "en": "Set X-Fan mode",
-          "nl": "Stel de X-Fan modus in",
-          "de": "X-Fan-Modus einstellen",
-          "fr": "Régler le mode X-Fan",
-          "it": "Imposta la modalità X-Fan",
-          "sv": "Ställ in X-Fan-läge",
-          "no": "Still inn X-Fan-modus",
-          "es": "Establecer modo X-Fan",
-          "da": "Indstil X-Fan-tilstand",
-          "pl": "Ustaw tryb X-Fan",
-          "ko": "X-Fan 모드 설정"
+          "en": "Set turbo mode",
+          "nl": "Stel de turbomodus in",
+          "de": "Turbo-Modus einstellen",
+          "fr": "Régler le mode turbo",
+          "it": "Imposta la modalità turbo",
+          "sv": "Ställ in turboläge",
+          "no": "Still inn turbomodus",
+          "es": "Establecer modo turbo",
+          "da": "Indstil turbotilstand",
+          "pl": "Ustaw tryb turbo",
+          "ko": "터보 모드 설정"
         },
         "titleFormatted": {
-          "en": "Set X-Fan mode to [[mode]]",
-          "nl": "Stel de X-Fan modus in op [[mode]]",
-          "de": "X-Fan-Modus auf [[mode]] einstellen",
-          "fr": "Régler le mode X-Fan sur [[mode]]",
-          "it": "Imposta la modalità X-Fan su [[mode]]",
-          "sv": "Ställ in X-Fan-läge till [[mode]]",
-          "no": "Still inn X-Fan-modus til [[mode]]",
-          "es": "Establecer modo X-Fan en [[mode]]",
-          "da": "Indstil X-Fan-tilstand til [[mode]]",
-          "pl": "Ustaw tryb X-Fan na [[mode]]",
-          "ko": "X-Fan 모드를 [[mode]](으)로 설정"
+          "en": "Set turbo mode to [[mode]]",
+          "nl": "Stel de turbomodus in op [[mode]]",
+          "de": "Turbo-Modus auf [[mode]] einstellen",
+          "fr": "Régler le mode turbo sur [[mode]]",
+          "it": "Imposta la modalità turbo su [[mode]]",
+          "sv": "Ställ in turboläge till [[mode]]",
+          "no": "Still inn turbomodus til [[mode]]",
+          "es": "Establecer modo turbo en [[mode]]",
+          "da": "Indstil turbotilstand til [[mode]]",
+          "pl": "Ustaw tryb turbo na [[mode]]",
+          "ko": "터보 모드를 [[mode]](으)로 설정"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
           },
           {
             "name": "mode",
@@ -2646,7 +3178,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
           },
           {
             "name": "vertical_swing",
@@ -2817,568 +3349,38 @@
         ]
       },
       {
-        "id": "set_horizontal_swing",
+        "id": "set_xfan_mode",
         "title": {
-          "en": "Set horizontal swing",
-          "nl": "Horizontale swing instellen",
-          "de": "Horizontale Schwenkung einstellen",
-          "fr": "Régler le balayage horizontal",
-          "it": "Imposta l'oscillazione orizzontale",
-          "sv": "Ställ in horisontell svängning",
-          "no": "Still inn horisontal svinging",
-          "es": "Establecer oscilación horizontal",
-          "da": "Indstil vandret svingning",
-          "pl": "Ustaw wahanie poziome",
-          "ko": "수평 스윙 설정"
+          "en": "Set X-Fan mode",
+          "nl": "Stel de X-Fan modus in",
+          "de": "X-Fan-Modus einstellen",
+          "fr": "Régler le mode X-Fan",
+          "it": "Imposta la modalità X-Fan",
+          "sv": "Ställ in X-Fan-läge",
+          "no": "Still inn X-Fan-modus",
+          "es": "Establecer modo X-Fan",
+          "da": "Indstil X-Fan-tilstand",
+          "pl": "Ustaw tryb X-Fan",
+          "ko": "X-Fan 모드 설정"
         },
         "titleFormatted": {
-          "en": "Set horizontal swing to [[horizontal_swing]]",
-          "nl": "Horizontale swing instellen op [[horizontal_swing]]",
-          "de": "Horizontale Schwenkung auf [[horizontal_swing]] einstellen",
-          "fr": "Régler le balayage horizontal sur [[horizontal_swing]]",
-          "it": "Imposta l'oscillazione orizzontale su [[horizontal_swing]]",
-          "sv": "Ställ in horisontell svängning till [[horizontal_swing]]",
-          "no": "Still inn horisontal svinging til [[horizontal_swing]]",
-          "es": "Establecer oscilación horizontal en [[horizontal_swing]]",
-          "da": "Indstil vandret svingning til [[horizontal_swing]]",
-          "pl": "Ustaw wahanie poziome na [[horizontal_swing]]",
-          "ko": "수평 스윙을 [[horizontal_swing]](으)로 설정"
+          "en": "Set X-Fan mode to [[mode]]",
+          "nl": "Stel de X-Fan modus in op [[mode]]",
+          "de": "X-Fan-Modus auf [[mode]] einstellen",
+          "fr": "Régler le mode X-Fan sur [[mode]]",
+          "it": "Imposta la modalità X-Fan su [[mode]]",
+          "sv": "Ställ in X-Fan-läge till [[mode]]",
+          "no": "Still inn X-Fan-modus til [[mode]]",
+          "es": "Establecer modo X-Fan en [[mode]]",
+          "da": "Indstil X-Fan-tilstand til [[mode]]",
+          "pl": "Ustaw tryb X-Fan na [[mode]]",
+          "ko": "X-Fan 모드를 [[mode]](으)로 설정"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
-          },
-          {
-            "name": "horizontal_swing",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "default",
-                "title": {
-                  "en": "Disabled",
-                  "nl": "Uitgeschakeld",
-                  "de": "Deaktiviert",
-                  "fr": "Désactivé",
-                  "it": "Disabilitato",
-                  "sv": "Inaktiverad",
-                  "no": "Deaktivert",
-                  "es": "Desactivado",
-                  "da": "Deaktiveret",
-                  "pl": "Wyłączone",
-                  "ko": "비활성화"
-                }
-              },
-              {
-                "id": "full",
-                "title": {
-                  "en": "Full range",
-                  "nl": "Volledig bereik",
-                  "de": "Voller Bereich",
-                  "fr": "Plage complète",
-                  "it": "Gamma completa",
-                  "sv": "Fullt omfång",
-                  "no": "Fullt område",
-                  "es": "Rango completo",
-                  "da": "Fuldt område",
-                  "pl": "Pełny zakres",
-                  "ko": "전체 범위"
-                }
-              },
-              {
-                "id": "fixedLeft",
-                "title": {
-                  "en": "Fixed left",
-                  "nl": "Fixed links",
-                  "de": "Links fixiert",
-                  "fr": "Fixe à gauche",
-                  "it": "Fisso a sinistra",
-                  "sv": "Fast vänster",
-                  "no": "Fast venstre",
-                  "es": "Fijo izquierda",
-                  "da": "Fast venstre",
-                  "pl": "Stałe po lewej",
-                  "ko": "왼쪽 고정"
-                }
-              },
-              {
-                "id": "fixedMidLeft",
-                "title": {
-                  "en": "Fixed top left",
-                  "nl": "Fixed midden links",
-                  "de": "Oben-Links fixiert",
-                  "fr": "Fixe en haut à gauche",
-                  "it": "Fisso in alto a sinistra",
-                  "sv": "Fast överst vänster",
-                  "no": "Fast øverst venstre",
-                  "es": "Fijo arriba izquierda",
-                  "da": "Fast øverst venstre",
-                  "pl": "Stałe na górze po lewej",
-                  "ko": "상단 왼쪽 고정"
-                }
-              },
-              {
-                "id": "fixedMid",
-                "title": {
-                  "en": "Fixed middle",
-                  "nl": "Fixed midden",
-                  "de": "Mitte fixiert",
-                  "fr": "Fixe au milieu",
-                  "it": "Fisso al centro",
-                  "sv": "Fast mitten",
-                  "no": "Fast midten",
-                  "es": "Fijo centro",
-                  "da": "Fast midt",
-                  "pl": "Stałe na środku",
-                  "ko": "중앙 고정"
-                }
-              },
-              {
-                "id": "fixedMidRight",
-                "title": {
-                  "en": "Fixed middle right",
-                  "nl": "Fixed midden rechts",
-                  "de": "Mitte-Rechts fixiert",
-                  "fr": "Fixe au milieu à droite",
-                  "it": "Fisso al centro a destra",
-                  "sv": "Fast mitten höger",
-                  "no": "Fast midten høyre",
-                  "es": "Fijo centro derecha",
-                  "da": "Fast midt højre",
-                  "pl": "Stałe na środku prawym",
-                  "ko": "중앙 오른쪽 고정"
-                }
-              },
-              {
-                "id": "fixedRight",
-                "title": {
-                  "en": "Fixed right",
-                  "nl": "Fixed rechts",
-                  "de": "Rechts fixiert",
-                  "fr": "Fixe à droite",
-                  "it": "Fisso a destra",
-                  "sv": "Fast höger",
-                  "no": "Fast høyre",
-                  "es": "Fijo derecha",
-                  "da": "Fast højre",
-                  "pl": "Stałe po prawej",
-                  "ko": "오른쪽 고정"
-                }
-              },
-              {
-                "id": "fullAlt",
-                "title": {
-                  "en": "Full range",
-                  "nl": "Volledig bereik",
-                  "de": "Voller Bereich",
-                  "fr": "Plage complète",
-                  "it": "Gamma completa",
-                  "sv": "Fullt omfång",
-                  "no": "Fullt område",
-                  "es": "Rango completo",
-                  "da": "Fuldt område",
-                  "pl": "Pełny zakres",
-                  "ko": "전체 범위"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "set_quiet_mode",
-        "title": {
-          "en": "Set quiet mode",
-          "nl": "Stel de quiet-modus in",
-          "de": "Ruhig-Modus einstellen",
-          "fr": "Régler le mode silencieux",
-          "it": "Imposta la modalità silenziosa",
-          "sv": "Ställ in tyst läge",
-          "no": "Still inn stillemodus",
-          "es": "Establecer modo silencioso",
-          "da": "Indstil stille tilstand",
-          "pl": "Ustaw tryb cichy",
-          "ko": "저소음 모드 설정"
-        },
-        "titleFormatted": {
-          "en": "Set quiet mode to [[mode]]",
-          "nl": "Stel de quiet-modus in op [[mode]]",
-          "de": "Ruhig-Modus auf [[mode]] einstellen",
-          "fr": "Régler le mode silencieux sur [[mode]]",
-          "it": "Imposta la modalità silenziosa su [[mode]]",
-          "sv": "Ställ in tyst läge till [[mode]]",
-          "no": "Still inn stillemodus til [[mode]]",
-          "es": "Establecer modo silencioso en [[mode]]",
-          "da": "Indstil stille tilstand til [[mode]]",
-          "pl": "Ustaw tryb cichy na [[mode]]",
-          "ko": "저소음 모드를 [[mode]](으)로 설정"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
-          },
-          {
-            "name": "mode",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "off",
-                "title": {
-                  "en": "Off",
-                  "nl": "Uit",
-                  "de": "Aus",
-                  "fr": "Arrêt",
-                  "it": "Spento",
-                  "sv": "Av",
-                  "no": "Av",
-                  "es": "Apagado",
-                  "da": "Fra",
-                  "pl": "Wył.",
-                  "ko": "끄기"
-                }
-              },
-              {
-                "id": "mode1",
-                "title": {
-                  "en": "Mode 1",
-                  "nl": "Mode 1",
-                  "de": "Mode 1",
-                  "fr": "Mode 1",
-                  "it": "Mode 1",
-                  "sv": "Mode 1",
-                  "no": "Mode 1",
-                  "es": "Modo 1",
-                  "da": "Mode 1",
-                  "pl": "Mode 1",
-                  "ko": "Mode 1"
-                }
-              },
-              {
-                "id": "mode2",
-                "title": {
-                  "en": "Mode 2",
-                  "nl": "Mode 2",
-                  "de": "Mode 2",
-                  "fr": "Mode 2",
-                  "it": "Mode 2",
-                  "sv": "Mode 2",
-                  "no": "Mode 2",
-                  "es": "Modo 2",
-                  "da": "Mode 2",
-                  "pl": "Mode 2",
-                  "ko": "Mode 2"
-                }
-              },
-              {
-                "id": "mode3",
-                "title": {
-                  "en": "Mode 3",
-                  "nl": "Mode 3",
-                  "de": "Mode 3",
-                  "fr": "Mode 3",
-                  "it": "Mode 3",
-                  "sv": "Mode 3",
-                  "no": "Mode 3",
-                  "es": "Modo 3",
-                  "da": "Mode 3",
-                  "pl": "Mode 3",
-                  "ko": "Mode 3"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "set_power_save_mode",
-        "title": {
-          "en": "Set power save mode",
-          "nl": "Stel de energiebesparende modus in",
-          "de": "Energiesparmodus einstellen",
-          "fr": "Régler le mode économie d'énergie",
-          "it": "Imposta la modalità risparmio energetico",
-          "sv": "Ställ in energisparläge",
-          "no": "Still inn strømsparemodus",
-          "es": "Establecer modo de ahorro de energía",
-          "da": "Indstil strømsparetilstand",
-          "pl": "Ustaw tryb oszczędzania energii",
-          "ko": "절전 모드 설정"
-        },
-        "titleFormatted": {
-          "en": "Set power save mode to [[mode]]",
-          "nl": "Stel de energiebesparende modus in op [[mode]]",
-          "de": "Energiesparmodus auf [[mode]] einstellen",
-          "fr": "Régler le mode économie d'énergie sur [[mode]]",
-          "it": "Imposta la modalità risparmio energetico su [[mode]]",
-          "sv": "Ställ in energisparläge till [[mode]]",
-          "no": "Still inn strømsparemodus til [[mode]]",
-          "es": "Establecer modo de ahorro de energía en [[mode]]",
-          "da": "Indstil strømsparetilstand til [[mode]]",
-          "pl": "Ustaw tryb oszczędzania energii na [[mode]]",
-          "ko": "절전 모드를 [[mode]](으)로 설정"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
-          },
-          {
-            "name": "mode",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "on",
-                "label": {
-                  "en": "On",
-                  "nl": "Aan",
-                  "de": "Einschalten",
-                  "fr": "Marche",
-                  "it": "Acceso",
-                  "sv": "På",
-                  "no": "På",
-                  "es": "Encendido",
-                  "da": "Til",
-                  "pl": "Wł.",
-                  "ko": "켜기"
-                }
-              },
-              {
-                "id": "off",
-                "label": {
-                  "en": "Off",
-                  "nl": "Uit",
-                  "de": "Ausschalten",
-                  "fr": "Arrêt",
-                  "it": "Spento",
-                  "sv": "Av",
-                  "no": "Av",
-                  "es": "Apagado",
-                  "da": "Fra",
-                  "pl": "Wył.",
-                  "ko": "끄기"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "set_sleep_mode",
-        "title": {
-          "en": "Set sleep mode",
-          "nl": "Stel de slaapmodus in",
-          "de": "Schlafmodus einstellen",
-          "fr": "Régler le mode sommeil",
-          "it": "Imposta la modalità notte",
-          "sv": "Ställ in viloläge",
-          "no": "Still inn sovemodus",
-          "es": "Establecer modo de reposo",
-          "da": "Indstil dvaletilstand",
-          "pl": "Ustaw tryb uśpienia",
-          "ko": "취침 모드 설정"
-        },
-        "titleFormatted": {
-          "en": "Set sleep mode to [[mode]]",
-          "nl": "Stel de slaapmodus in op [[mode]]",
-          "de": "Schlafmodus auf [[mode]] einstellen",
-          "fr": "Régler le mode sommeil sur [[mode]]",
-          "it": "Imposta la modalità notte su [[mode]]",
-          "sv": "Ställ in viloläge till [[mode]]",
-          "no": "Still inn sovemodus til [[mode]]",
-          "es": "Establecer modo de reposo en [[mode]]",
-          "da": "Indstil dvaletilstand til [[mode]]",
-          "pl": "Ustaw tryb uśpienia na [[mode]]",
-          "ko": "취침 모드를 [[mode]](으)로 설정"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
-          },
-          {
-            "name": "mode",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "on",
-                "label": {
-                  "en": "On",
-                  "nl": "Aan",
-                  "de": "Einschalten",
-                  "fr": "Marche",
-                  "it": "Acceso",
-                  "sv": "På",
-                  "no": "På",
-                  "es": "Encendido",
-                  "da": "Til",
-                  "pl": "Wł.",
-                  "ko": "켜기"
-                }
-              },
-              {
-                "id": "off",
-                "label": {
-                  "en": "Off",
-                  "nl": "Uit",
-                  "de": "Ausschalten",
-                  "fr": "Arrêt",
-                  "it": "Spento",
-                  "sv": "Av",
-                  "no": "Av",
-                  "es": "Apagado",
-                  "da": "Fra",
-                  "pl": "Wył.",
-                  "ko": "끄기"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "set_fresh_air_mode",
-        "title": {
-          "en": "Set fresh air mode",
-          "nl": "Stel de verse lucht modus in",
-          "de": "Frischluftmodus einstellen",
-          "fr": "Régler le mode air frais",
-          "it": "Imposta la modalità aria fresca",
-          "sv": "Ställ in friskluftsläge",
-          "no": "Still inn friskluftmodus",
-          "es": "Establecer modo de aire fresco",
-          "da": "Indstil friskluftstilstand",
-          "pl": "Ustaw tryb świeżego powietrza",
-          "ko": "환기 모드 설정"
-        },
-        "titleFormatted": {
-          "en": "Set fresh air mode to [[mode]]",
-          "nl": "Stel de verse lucht modus in op [[mode]]",
-          "de": "Frischluftmodus auf [[mode]] einstellen",
-          "fr": "Régler le mode air frais sur [[mode]]",
-          "it": "Imposta la modalità aria fresca su [[mode]]",
-          "sv": "Ställ in friskluftsläge till [[mode]]",
-          "no": "Still inn friskluftmodus til [[mode]]",
-          "es": "Establecer modo de aire fresco en [[mode]]",
-          "da": "Indstil friskluftstilstand til [[mode]]",
-          "pl": "Ustaw tryb świeżego powietrza na [[mode]]",
-          "ko": "환기 모드를 [[mode]](으)로 설정"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
-          },
-          {
-            "name": "mode",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "off",
-                "title": {
-                  "en": "Off",
-                  "nl": "Uit",
-                  "de": "Aus",
-                  "fr": "Arrêt",
-                  "it": "Spento",
-                  "sv": "Av",
-                  "no": "Av",
-                  "es": "Apagado",
-                  "da": "Fra",
-                  "pl": "Wył.",
-                  "ko": "끄기"
-                }
-              },
-              {
-                "id": "inside",
-                "title": {
-                  "en": "Inside",
-                  "nl": "Binnen",
-                  "de": "Innen",
-                  "fr": "Intérieur",
-                  "it": "Interno",
-                  "sv": "Inne",
-                  "no": "Inne",
-                  "es": "Interior",
-                  "da": "Indendørs",
-                  "pl": "Wewnątrz",
-                  "ko": "내부"
-                }
-              },
-              {
-                "id": "outside",
-                "title": {
-                  "en": "Outside",
-                  "nl": "Buiten",
-                  "de": "Außen",
-                  "fr": "Extérieur",
-                  "it": "Esterno",
-                  "sv": "Ute",
-                  "no": "Ute",
-                  "es": "Exterior",
-                  "da": "Udendørs",
-                  "pl": "Na zewnątrz",
-                  "ko": "외부"
-                }
-              },
-              {
-                "id": "mode3",
-                "title": {
-                  "en": "Mode 3",
-                  "nl": "Mode 3",
-                  "de": "Mode 3",
-                  "fr": "Mode 3",
-                  "it": "Mode 3",
-                  "sv": "Mode 3",
-                  "no": "Mode 3",
-                  "es": "Modo 3",
-                  "da": "Mode 3",
-                  "pl": "Mode 3",
-                  "ko": "Mode 3"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "set_health_mode",
-        "title": {
-          "en": "Set health mode",
-          "nl": "Stel de gezondheidsmodus in",
-          "de": "Gesundheitsmodus einstellen",
-          "fr": "Régler le mode santé",
-          "it": "Imposta la modalità salute",
-          "sv": "Ställ in hälsoläge",
-          "no": "Still inn helsemodus",
-          "es": "Establecer modo salud",
-          "da": "Indstil sundhedstilstand",
-          "pl": "Ustaw tryb zdrowotny",
-          "ko": "건강 모드 설정"
-        },
-        "titleFormatted": {
-          "en": "Set health mode to [[mode]]",
-          "nl": "Stel de gezondheidsmodus in op [[mode]]",
-          "de": "Gesundheitsmodus auf [[mode]] einstellen",
-          "fr": "Régler le mode santé sur [[mode]]",
-          "it": "Imposta la modalità salute su [[mode]]",
-          "sv": "Ställ in hälsoläge till [[mode]]",
-          "no": "Still inn helsemodus til [[mode]]",
-          "es": "Establecer modo salud en [[mode]]",
-          "da": "Indstil sundhedstilstand til [[mode]]",
-          "pl": "Ustaw tryb zdrowotny na [[mode]]",
-          "ko": "건강 모드를 [[mode]](으)로 설정"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=gree_cooper_hunter_hvac"
+            "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
           },
           {
             "name": "mode",
@@ -3423,6 +3425,491 @@
     ]
   },
   "drivers": [
+    {
+      "name": {
+        "en": "Gree Cloud HVACs",
+        "nl": "Gree Cloud airco's",
+        "de": "Gree Cloud Klimaanlagen",
+        "fr": "Climatiseurs Gree Cloud",
+        "it": "Condizionatori Gree Cloud",
+        "sv": "Gree Cloud-luftkonditioneringar",
+        "no": "Gree Cloud klimaanlegg",
+        "es": "Aires acondicionados Gree Cloud",
+        "da": "Gree Cloud HVAC'er",
+        "pl": "Klimatyzatory Gree Cloud",
+        "ko": "Gree Cloud 에어컨"
+      },
+      "class": "airconditioning",
+      "capabilities": [
+        "onoff",
+        "measure_temperature",
+        "target_temperature",
+        "thermostat_mode",
+        "fan_speed",
+        "turbo_mode",
+        "safety_heating",
+        "lights",
+        "xfan_mode",
+        "vertical_swing",
+        "horizontal_swing",
+        "quiet_mode",
+        "health_mode",
+        "power_save_mode",
+        "sleep_mode",
+        "fresh_air_mode"
+      ],
+      "capabilitiesOptions": {
+        "target_temperature": {
+          "min": 16,
+          "max": 30,
+          "step": 1
+        },
+        "thermostat_mode": {
+          "values": [
+            {
+              "id": "auto",
+              "title": {
+                "en": "Auto",
+                "nl": "Automatisch",
+                "de": "Automatisch",
+                "fr": "Automatique",
+                "it": "Automatico",
+                "sv": "Automatiskt",
+                "no": "Automatisk",
+                "es": "Automático",
+                "da": "Automatisk",
+                "pl": "Automatyczny",
+                "ko": "자동"
+              }
+            },
+            {
+              "id": "cool",
+              "title": {
+                "en": "Cool",
+                "nl": "Koelen",
+                "de": "Kühlen",
+                "fr": "Refroidissement",
+                "it": "Raffreddamento",
+                "sv": "Kyla",
+                "no": "Kjøling",
+                "es": "Enfriar",
+                "da": "Køl",
+                "pl": "Chłodzenie",
+                "ko": "냉방"
+              }
+            },
+            {
+              "id": "heat",
+              "title": {
+                "en": "Heat",
+                "nl": "Verwarmen",
+                "de": "Heizen",
+                "fr": "Chauffage",
+                "it": "Riscaldamento",
+                "sv": "Värme",
+                "no": "Oppvarming",
+                "es": "Calentar",
+                "da": "Varme",
+                "pl": "Ogrzewanie",
+                "ko": "난방"
+              }
+            },
+            {
+              "id": "dry",
+              "title": {
+                "en": "Dry",
+                "nl": "Ontvochtigen",
+                "de": "Trocken",
+                "fr": "Déshumidification",
+                "it": "Deumidificazione",
+                "sv": "Avfuktning",
+                "no": "Avfukting",
+                "es": "Deshumidificar",
+                "da": "Affugtning",
+                "pl": "Osuszanie",
+                "ko": "제습"
+              }
+            },
+            {
+              "id": "fan_only",
+              "title": {
+                "en": "Fan Only",
+                "nl": "Alleen ventileren",
+                "de": "Nur Lüften",
+                "fr": "Ventilation seule",
+                "it": "Solo ventilazione",
+                "sv": "Endast fläkt",
+                "no": "Kun vifte",
+                "es": "Solo ventilador",
+                "da": "Kun ventilator",
+                "pl": "Tylko wentylator",
+                "ko": "송풍"
+              }
+            },
+            {
+              "id": "off",
+              "title": {
+                "en": "Off",
+                "nl": "Uit",
+                "de": "Aus",
+                "fr": "Arrêt",
+                "it": "Spento",
+                "sv": "Av",
+                "no": "Av",
+                "es": "Apagado",
+                "da": "Fra",
+                "pl": "Wył.",
+                "ko": "끄기"
+              }
+            }
+          ]
+        }
+      },
+      "connectivity": [
+        "cloud"
+      ],
+      "pair": [
+        {
+          "id": "account_warning",
+          "navigation": {
+            "next": "login"
+          }
+        },
+        {
+          "id": "login",
+          "navigation": {
+            "next": "list_devices"
+          }
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_my_devices"
+          }
+        },
+        {
+          "id": "add_my_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "relogin"
+        }
+      ],
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Gree account",
+            "nl": "Gree-account",
+            "de": "Gree-Konto",
+            "fr": "Compte Gree",
+            "it": "Account Gree",
+            "sv": "Gree-konto",
+            "no": "Gree-konto",
+            "es": "Cuenta Gree",
+            "da": "Gree-konto",
+            "pl": "Konto Gree",
+            "ko": "Gree 계정"
+          },
+          "children": [
+            {
+              "id": "account_email",
+              "type": "label",
+              "label": {
+                "en": "E-mail address",
+                "nl": "E-mailadres",
+                "de": "E-Mail-Adresse",
+                "fr": "Adresse e-mail",
+                "it": "Indirizzo e-mail",
+                "sv": "E-postadress",
+                "no": "E-postadresse",
+                "es": "Dirección de correo electrónico",
+                "da": "E-mailadresse",
+                "pl": "Adres e-mail",
+                "ko": "이메일 주소"
+              },
+              "hint": {
+                "en": "The Gree account this air conditioner is controlled through. Use Repair to sign in with a different account.",
+                "nl": "Het Gree-account waarmee deze airco wordt bediend. Gebruik Repareren om met een ander account in te loggen.",
+                "de": "Das Gree-Konto, über das diese Klimaanlage gesteuert wird. Verwende Reparieren, um dich mit einem anderen Konto anzumelden.",
+                "fr": "Le compte Gree utilisé pour contrôler ce climatiseur. Utilisez Réparer pour vous connecter avec un autre compte.",
+                "it": "L'account Gree con cui viene controllato questo condizionatore. Usa Ripara per accedere con un altro account.",
+                "sv": "Gree-kontot som den här luftkonditioneringen styrs via. Använd Reparera för att logga in med ett annat konto.",
+                "no": "Gree-kontoen dette klimaanlegget styres gjennom. Bruk Reparer for å logge inn med en annen konto.",
+                "es": "La cuenta Gree con la que se controla este aire acondicionado. Usa Reparar para iniciar sesión con otra cuenta.",
+                "da": "Den Gree-konto, som denne HVAC styres gennem. Brug Reparer for at logge ind med en anden konto.",
+                "pl": "Konto Gree, za pomocą którego sterowany jest ten klimatyzator. Użyj funkcji Napraw, aby zalogować się na inne konto.",
+                "ko": "이 에어컨을 제어하는 Gree 계정입니다. 다른 계정으로 로그인하려면 복구를 사용하세요."
+              },
+              "value": ""
+            },
+            {
+              "id": "account_region",
+              "type": "label",
+              "label": {
+                "en": "Region",
+                "nl": "Regio",
+                "de": "Region",
+                "fr": "Région",
+                "it": "Regione",
+                "sv": "Region",
+                "no": "Region",
+                "es": "Región",
+                "da": "Region",
+                "pl": "Region",
+                "ko": "지역"
+              },
+              "value": ""
+            },
+            {
+              "id": "device_mac",
+              "type": "label",
+              "label": {
+                "en": "Device ID",
+                "nl": "Apparaat-ID",
+                "de": "Geräte-ID",
+                "fr": "Identifiant de l'appareil",
+                "it": "ID dispositivo",
+                "sv": "Enhets-ID",
+                "no": "Enhets-ID",
+                "es": "ID del dispositivo",
+                "da": "Enheds-ID",
+                "pl": "Identyfikator urządzenia",
+                "ko": "기기 ID"
+              },
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Temperature",
+            "nl": "Temperatuur",
+            "de": "Temperatur",
+            "fr": "Température",
+            "it": "Temperatura",
+            "sv": "Temperatur",
+            "no": "Temperatur",
+            "es": "Temperatura",
+            "da": "Temperatur",
+            "pl": "Temperatura",
+            "ko": "온도"
+          },
+          "children": [
+            {
+              "id": "min_target_temperature",
+              "type": "number",
+              "label": {
+                "en": "Minimum target temperature",
+                "nl": "Minimale doeltemperatuur",
+                "de": "Minimale Zieltemperatur",
+                "fr": "Température cible minimale",
+                "it": "Temperatura target minima",
+                "sv": "Lägsta måltemperatur",
+                "no": "Laveste måltemperatur",
+                "es": "Temperatura objetivo mínima",
+                "da": "Laveste måltemperatur",
+                "pl": "Minimalna temperatura docelowa",
+                "ko": "최저 목표 온도"
+              },
+              "hint": {
+                "en": "The lowest temperature you can set for this device. Some heat pumps support down to 8 °C.",
+                "nl": "De laagste temperatuur die je voor dit apparaat kunt instellen. Sommige warmtepompen ondersteunen tot 8 °C.",
+                "de": "Die niedrigste Temperatur, die du für dieses Gerät einstellen kannst. Einige Wärmepumpen unterstützen bis zu 8 °C.",
+                "fr": "La température la plus basse que vous pouvez définir pour cet appareil. Certaines pompes à chaleur descendent jusqu'à 8 °C.",
+                "it": "La temperatura più bassa impostabile per questo dispositivo. Alcune pompe di calore arrivano fino a 8 °C.",
+                "sv": "Den lägsta temperaturen du kan ställa in för den här enheten. Vissa värmepumpar stöder ned till 8 °C.",
+                "no": "Den laveste temperaturen du kan angi for denne enheten. Noen varmepumper støtter ned til 8 °C.",
+                "es": "La temperatura más baja que puedes configurar para este dispositivo. Algunas bombas de calor admiten hasta 8 °C.",
+                "da": "Den laveste temperatur, du kan indstille for denne enhed. Nogle varmepumper understøtter ned til 8 °C.",
+                "pl": "Najniższa temperatura, jaką możesz ustawić dla tego urządzenia. Niektóre pompy ciepła obsługują nawet 8 °C.",
+                "ko": "이 기기에 설정할 수 있는 최저 온도입니다. 일부 히트펌프는 8 °C까지 지원합니다."
+              },
+              "value": 16,
+              "min": 8,
+              "max": 30,
+              "step": 1,
+              "units": {
+                "en": "°C"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Connection (advanced)",
+            "nl": "Verbinding (geavanceerd)",
+            "de": "Verbindung (erweitert)",
+            "fr": "Connexion (avancé)",
+            "it": "Connessione (avanzato)",
+            "sv": "Anslutning (avancerat)",
+            "no": "Tilkobling (avansert)",
+            "es": "Conexión (avanzado)",
+            "da": "Forbindelse (avanceret)",
+            "pl": "Połączenie (zaawansowane)",
+            "ko": "연결 (고급)"
+          },
+          "children": [
+            {
+              "id": "polling_interval",
+              "type": "number",
+              "label": {
+                "en": "Polling interval",
+                "nl": "Pollinginterval",
+                "de": "Abfrageintervall",
+                "fr": "Intervalle d'interrogation",
+                "it": "Intervallo di polling",
+                "sv": "Pollningsintervall",
+                "no": "Pollingintervall",
+                "es": "Intervalo de sondeo",
+                "da": "Pollinginterval",
+                "pl": "Interwał odpytywania",
+                "ko": "폴링 간격"
+              },
+              "hint": {
+                "en": "How often the app asks the Gree cloud for the current status. The cloud is much slower than a local connection and may start refusing frequent requests. Default: 60000 ms.",
+                "nl": "Hoe vaak de app de huidige status opvraagt bij de Gree-cloud. De cloud is veel langzamer dan een lokale verbinding en kan frequente verzoeken gaan weigeren. Standaard: 60000 ms.",
+                "de": "Wie oft die App den aktuellen Status bei der Gree-Cloud abfragt. Die Cloud ist deutlich langsamer als eine lokale Verbindung und kann häufige Anfragen ablehnen. Standard: 60000 ms.",
+                "fr": "Fréquence à laquelle l'application interroge le cloud Gree sur l'état actuel. Le cloud est bien plus lent qu'une connexion locale et peut refuser des requêtes trop fréquentes. Par défaut : 60000 ms.",
+                "it": "Con quale frequenza l'app richiede lo stato attuale al cloud Gree. Il cloud è molto più lento di una connessione locale e può iniziare a rifiutare richieste frequenti. Predefinito: 60000 ms.",
+                "sv": "Hur ofta appen frågar Gree-molnet om aktuell status. Molnet är mycket långsammare än en lokal anslutning och kan börja neka frekventa förfrågningar. Standard: 60000 ms.",
+                "no": "Hvor ofte appen spør Gree-skyen om gjeldende status. Skyen er mye langsommere enn en lokal tilkobling og kan begynne å avvise hyppige forespørsler. Standard: 60000 ms.",
+                "es": "Con qué frecuencia la app solicita el estado actual a la nube de Gree. La nube es mucho más lenta que una conexión local y puede empezar a rechazar solicitudes frecuentes. Predeterminado: 60000 ms.",
+                "da": "Hvor ofte appen beder Gree-skyen om den aktuelle status. Skyen er meget langsommere end en lokal forbindelse og kan begynde at afvise hyppige forespørgsler. Standard: 60000 ms.",
+                "pl": "Jak często aplikacja odpytuje chmurę Gree o bieżący stan. Chmura jest znacznie wolniejsza niż połączenie lokalne i może zacząć odrzucać częste żądania. Domyślnie: 60000 ms.",
+                "ko": "앱이 Gree 클라우드에 현재 상태를 요청하는 빈도입니다. 클라우드는 로컬 연결보다 훨씬 느리며 잦은 요청을 거부할 수 있습니다. 기본값: 60000 ms."
+              },
+              "value": 60000,
+              "min": 30000,
+              "step": 5000,
+              "units": {
+                "en": "ms"
+              },
+              "max": 900000
+            },
+            {
+              "id": "command_timeout",
+              "type": "number",
+              "label": {
+                "en": "Command timeout",
+                "nl": "Opdrachttime-out",
+                "de": "Befehls-Timeout",
+                "fr": "Délai d'attente des commandes",
+                "it": "Timeout dei comandi",
+                "sv": "Kommandotimeout",
+                "no": "Kommandotidsavbrudd",
+                "es": "Tiempo de espera de comandos",
+                "da": "Kommandotimeout",
+                "pl": "Limit czasu polecenia",
+                "ko": "명령 시간 초과"
+              },
+              "hint": {
+                "en": "How long to wait for the Gree cloud to confirm a command before it is treated as failed. Default: 10000 ms.",
+                "nl": "Hoe lang wordt gewacht tot de Gree-cloud een opdracht bevestigt voordat deze als mislukt wordt beschouwd. Standaard: 10000 ms.",
+                "de": "Wie lange auf die Bestätigung eines Befehls durch die Gree-Cloud gewartet wird, bevor er als fehlgeschlagen gilt. Standard: 10000 ms.",
+                "fr": "Durée d'attente de la confirmation d'une commande par le cloud Gree avant de la considérer comme échouée. Par défaut : 10000 ms.",
+                "it": "Per quanto tempo attendere che il cloud Gree confermi un comando prima di considerarlo fallito. Predefinito: 10000 ms.",
+                "sv": "Hur länge appen väntar på att Gree-molnet bekräftar ett kommando innan det räknas som misslyckat. Standard: 10000 ms.",
+                "no": "Hvor lenge appen venter på at Gree-skyen bekrefter en kommando før den regnes som mislykket. Standard: 10000 ms.",
+                "es": "Cuánto tiempo se espera a que la nube de Gree confirme un comando antes de considerarlo fallido. Predeterminado: 10000 ms.",
+                "da": "Hvor længe der ventes på, at Gree-skyen bekræfter en kommando, før den betragtes som mislykket. Standard: 10000 ms.",
+                "pl": "Jak długo czekać na potwierdzenie polecenia przez chmurę Gree, zanim zostanie uznane za nieudane. Domyślnie: 10000 ms.",
+                "ko": "명령이 실패로 처리되기 전에 Gree 클라우드의 확인을 기다리는 시간입니다. 기본값: 10000 ms."
+              },
+              "value": 10000,
+              "min": 2000,
+              "max": 60000,
+              "step": 1000,
+              "units": {
+                "en": "ms"
+              }
+            },
+            {
+              "id": "connect_timeout",
+              "type": "number",
+              "label": {
+                "en": "Connection timeout",
+                "nl": "Verbindingstime-out",
+                "de": "Verbindungs-Timeout",
+                "fr": "Délai de connexion",
+                "it": "Timeout di connessione",
+                "sv": "Anslutningstimeout",
+                "no": "Tilkoblingstidsavbrudd",
+                "es": "Tiempo de espera de conexión",
+                "da": "Forbindelsestimeout",
+                "pl": "Limit czasu połączenia",
+                "ko": "연결 시간 초과"
+              },
+              "hint": {
+                "en": "How long to wait when connecting to the Gree cloud before retrying. Default: 30000 ms.",
+                "nl": "Hoe lang wordt gewacht bij het verbinden met de Gree-cloud voordat opnieuw wordt geprobeerd. Standaard: 30000 ms.",
+                "de": "Wie lange beim Verbinden mit der Gree-Cloud gewartet wird, bevor ein neuer Versuch erfolgt. Standard: 30000 ms.",
+                "fr": "Durée d'attente lors de la connexion au cloud Gree avant de réessayer. Par défaut : 30000 ms.",
+                "it": "Per quanto tempo attendere durante la connessione al cloud Gree prima di riprovare. Predefinito: 30000 ms.",
+                "sv": "Hur länge appen väntar vid anslutning till Gree-molnet innan den försöker igen. Standard: 30000 ms.",
+                "no": "Hvor lenge appen venter ved tilkobling til Gree-skyen før den prøver igjen. Standard: 30000 ms.",
+                "es": "Cuánto tiempo se espera al conectar con la nube de Gree antes de reintentar. Predeterminado: 30000 ms.",
+                "da": "Hvor længe der ventes ved forbindelse til Gree-skyen, før der forsøges igen. Standard: 30000 ms.",
+                "pl": "Jak długo czekać podczas łączenia z chmurą Gree przed ponowną próbą. Domyślnie: 30000 ms.",
+                "ko": "Gree 클라우드에 연결할 때 다시 시도하기 전에 기다리는 시간입니다. 기본값: 30000 ms."
+              },
+              "value": 30000,
+              "min": 5000,
+              "step": 1000,
+              "units": {
+                "en": "ms"
+              }
+            },
+            {
+              "id": "no_response_reconnect_timeout",
+              "type": "number",
+              "label": {
+                "en": "Reconnect after no response",
+                "nl": "Opnieuw verbinden na geen reactie",
+                "de": "Erneut verbinden nach keiner Antwort",
+                "fr": "Reconnexion après absence de réponse",
+                "it": "Riconnessione dopo nessuna risposta",
+                "sv": "Återanslut efter uteblivet svar",
+                "no": "Koble til på nytt etter manglende svar",
+                "es": "Reconectar tras falta de respuesta",
+                "da": "Genopret forbindelse efter manglende svar",
+                "pl": "Ponowne łączenie po braku odpowiedzi",
+                "ko": "응답 없을 때 재연결"
+              },
+              "hint": {
+                "en": "How long the Gree cloud may stay silent before the app drops the connection and signs in again. Default: 180000 ms.",
+                "nl": "Hoe lang de Gree-cloud stil mag blijven voordat de app de verbinding verbreekt en opnieuw inlogt. Standaard: 180000 ms.",
+                "de": "Wie lange die Gree-Cloud schweigen darf, bevor die App die Verbindung trennt und sich neu anmeldet. Standard: 180000 ms.",
+                "fr": "Durée pendant laquelle le cloud Gree peut rester silencieux avant que l'application ne coupe la connexion et se reconnecte. Par défaut : 180000 ms.",
+                "it": "Per quanto tempo il cloud Gree può restare silenzioso prima che l'app interrompa la connessione e acceda di nuovo. Predefinito: 180000 ms.",
+                "sv": "Hur länge Gree-molnet får vara tyst innan appen bryter anslutningen och loggar in igen. Standard: 180000 ms.",
+                "no": "Hvor lenge Gree-skyen kan være stille før appen bryter tilkoblingen og logger inn på nytt. Standard: 180000 ms.",
+                "es": "Cuánto tiempo puede permanecer en silencio la nube de Gree antes de que la app corte la conexión y vuelva a iniciar sesión. Predeterminado: 180000 ms.",
+                "da": "Hvor længe Gree-skyen må være tavs, før appen afbryder forbindelsen og logger ind igen. Standard: 180000 ms.",
+                "pl": "Jak długo chmura Gree może milczeć, zanim aplikacja rozłączy połączenie i zaloguje się ponownie. Domyślnie: 180000 ms.",
+                "ko": "앱이 연결을 끊고 다시 로그인하기 전에 Gree 클라우드가 응답하지 않을 수 있는 시간입니다. 기본값: 180000 ms."
+              },
+              "value": 180000,
+              "min": 60000,
+              "step": 10000,
+              "units": {
+                "en": "ms"
+              }
+            }
+          ]
+        }
+      ],
+      "images": {
+        "large": "/drivers/gree_cloud_hvac/assets/images/large.png",
+        "small": "/drivers/gree_cloud_hvac/assets/images/small.png"
+      },
+      "id": "gree_cloud_hvac"
+    },
     {
       "name": {
         "en": "EWPE Smart HVACs",

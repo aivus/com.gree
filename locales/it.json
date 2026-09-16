@@ -12,13 +12,51 @@
             "name_label": "Nome del dispositivo (opzionale)",
             "button": "Trova dispositivo",
             "error_no_response": "Nessuna risposta dal dispositivo. Controlla l'indirizzo IP e assicurati che il dispositivo sia raggiungibile."
+        },
+        "cloud": {
+            "warning": {
+                "title": "Importante: usa un account Gree separato",
+                "p1": "Il cloud Gree consente un solo accesso attivo per account. Quando Homey accede, l'app Gree+ / EWPE Smart sul telefono viene disconnessa e può avvisarti che qualcun altro conosce la tua password. È normale e non significa che l'account sia stato compromesso.",
+                "p2": "Per continuare a usare l'app sul telefono, crea un secondo account Gree (per esempio <i>tu+homey@example.com</i>), invitalo come familiare nella tua casa dall'app Gree+ e accedi qui con quel secondo account.",
+                "p3": "Il tuo indirizzo e-mail e la password sono salvati sul tuo Homey e vengono usati solo per comunicare con i server di Gree.",
+                "button": "Ho capito, continua"
+            },
+            "login": {
+                "description": "Accedi con il tuo account Gree. La regione deve corrispondere a quella in cui l'account è stato creato: con la regione sbagliata l'accesso non riesce mai.",
+                "region_label": "Regione",
+                "email_label": "Indirizzo e-mail",
+                "password_label": "Password",
+                "button": "Accedi"
+            },
+            "regions": {
+                "australia": "Australia",
+                "china": "Cina continentale",
+                "east_south_asia": "Asia sud-orientale",
+                "europe": "Europa",
+                "india": "India",
+                "latin_america": "America Latina",
+                "middle_east": "Medio Oriente",
+                "north_america": "America del Nord",
+                "russia": "Russia",
+                "south_america": "America del Sud"
+            }
         }
     },
     "error": {
         "offline": "Il tuo condizionatore è andato offline. Tentativo di riconnessione in corso...",
         "not_connected": "Il condizionatore non è connesso. La modifica non è stata applicata.",
         "invalid_static_ip": "Indirizzo IP non valido. Inserisci un indirizzo IPv4 valido o lascia vuoto il campo per usare il rilevamento automatico.",
-        "polling_timeout_too_high": "Il timeout di polling deve essere inferiore all'intervallo di polling."
+        "polling_timeout_too_high": "Il timeout di polling deve essere inferiore all'intervallo di polling.",
+        "cloud": {
+            "invalid_credentials": "Indirizzo e-mail o password errati.",
+            "wrong_region": "Accesso non riuscito. Verifica che la regione selezionata corrisponda a quella del tuo account Gree.",
+            "network": "Non è stato possibile raggiungere il cloud Gree. Controlla la connessione a Internet e riprova.",
+            "rate_limited": "Il cloud Gree sta rifiutando temporaneamente le richieste. Attendi qualche minuto e riprova.",
+            "cloud": "Il cloud Gree ha restituito una risposta inattesa. Riprova più tardi.",
+            "no_devices": "Nessun condizionatore trovato in questo account Gree. Assicurati che l'account faccia parte della casa che contiene i dispositivi.",
+            "session_expired": "Il cloud Gree ha disconnesso questa app. Ripara questo dispositivo per accedere di nuovo.",
+            "missing_key": "Il cloud Gree non ha fornito una chiave di crittografia per questo dispositivo. Rimuovilo e aggiungilo di nuovo."
+        }
     },
     "deprecated": {
         "notification": "Stai usando una scheda di flusso Gree obsoleta (__card__). Verrà rimossa in un futuro aggiornamento — passa alle schede di flusso della modalità termostato integrate in Homey.",
@@ -26,6 +64,13 @@
             "hvac_mode_changed": "Modalità HVAC cambiata",
             "hvac_mode_is": "La modalità HVAC è …",
             "set_hvac_mode": "Imposta la modalità HVAC"
+        }
+    },
+    "repair": {
+        "cloud": {
+            "description": "Accedi di nuovo al tuo account Gree per ripristinare la connessione a questo condizionatore.",
+            "button": "Accedi",
+            "device_not_found": "Questo condizionatore non è più presente nell'account Gree con cui hai effettuato l'accesso."
         }
     }
 }

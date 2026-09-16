@@ -12,13 +12,51 @@
             "name_label": "Device name (optional)",
             "button": "Find Device",
             "error_no_response": "No response from device. Check the IP address and ensure the device is reachable."
+        },
+        "cloud": {
+            "warning": {
+                "title": "Important: use a separate Gree account",
+                "p1": "The Gree cloud allows only one active sign-in per account. When Homey signs in, the Gree+ / EWPE Smart app on your phone is signed out and may warn you that your password is known by someone else. That is expected and does not mean your account was compromised.",
+                "p2": "To keep using the phone app, create a second Gree account (for example <i>you+homey@example.com</i>), invite it as a family member to your home in the Gree+ app, and sign in here with that second account.",
+                "p3": "Your e-mail address and password are stored on your Homey and are only used to talk to Gree's servers.",
+                "button": "I understand, continue"
+            },
+            "login": {
+                "description": "Sign in with your Gree account. The region must match the one the account was created in — the wrong region always fails to sign in.",
+                "region_label": "Region",
+                "email_label": "E-mail address",
+                "password_label": "Password",
+                "button": "Sign in"
+            },
+            "regions": {
+                "australia": "Australia",
+                "china": "China Mainland",
+                "east_south_asia": "East South Asia",
+                "europe": "Europe",
+                "india": "India",
+                "latin_america": "Latin America",
+                "middle_east": "Middle East",
+                "north_america": "North America",
+                "russia": "Russia",
+                "south_america": "South America"
+            }
         }
     },
     "error": {
         "offline": "Your HVAC went offline. Trying to reconnect...",
         "not_connected": "The HVAC is not connected. The change could not be applied.",
         "invalid_static_ip": "Invalid IP address. Enter a valid IPv4 address or leave the field empty to use auto-discovery.",
-        "polling_timeout_too_high": "Polling timeout must be lower than the polling interval."
+        "polling_timeout_too_high": "Polling timeout must be lower than the polling interval.",
+        "cloud": {
+            "invalid_credentials": "Wrong e-mail address or password.",
+            "wrong_region": "Sign-in failed. Check that the selected region matches the region of your Gree account.",
+            "network": "Could not reach the Gree cloud. Check your internet connection and try again.",
+            "rate_limited": "The Gree cloud is temporarily refusing requests. Wait a few minutes and try again.",
+            "cloud": "The Gree cloud returned an unexpected response. Try again later.",
+            "no_devices": "No air conditioners were found in this Gree account. Make sure the account is a member of the home that contains the devices.",
+            "session_expired": "The Gree cloud signed this app out. Repair this device to sign in again.",
+            "missing_key": "The Gree cloud did not provide an encryption key for this device. Remove it and add it again."
+        }
     },
     "deprecated": {
         "notification": "You are using a deprecated Gree flow card (__card__). It will be removed in a future update — please switch to Homey's built-in thermostat mode flow cards.",
@@ -26,6 +64,13 @@
             "hvac_mode_changed": "HVAC mode changed",
             "hvac_mode_is": "HVAC mode is …",
             "set_hvac_mode": "Set HVAC mode"
+        }
+    },
+    "repair": {
+        "cloud": {
+            "description": "Sign in to your Gree account again to restore the connection to this air conditioner.",
+            "button": "Sign in",
+            "device_not_found": "This air conditioner is no longer in the Gree account you signed in to."
         }
     }
 }

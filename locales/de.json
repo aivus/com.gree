@@ -12,13 +12,51 @@
             "name_label": "Gerätename (optional)",
             "button": "Gerät suchen",
             "error_no_response": "Keine Antwort vom Gerät. Überprüfe die IP-Adresse und stelle sicher, dass das Gerät erreichbar ist."
+        },
+        "cloud": {
+            "warning": {
+                "title": "Wichtig: ein separates Gree-Konto verwenden",
+                "p1": "Die Gree-Cloud erlaubt nur eine aktive Anmeldung pro Konto. Wenn sich Homey anmeldet, wird die Gree+ / EWPE Smart-App auf deinem Telefon abgemeldet und warnt möglicherweise, dass jemand anderes dein Passwort kennt. Das ist zu erwarten und bedeutet nicht, dass dein Konto kompromittiert wurde.",
+                "p2": "Um die Telefon-App weiter zu nutzen, erstelle ein zweites Gree-Konto (zum Beispiel <i>du+homey@example.com</i>), lade es in der Gree+-App als Familienmitglied zu deinem Zuhause ein und melde dich hier mit diesem zweiten Konto an.",
+                "p3": "Deine E-Mail-Adresse und dein Passwort werden auf deinem Homey gespeichert und nur für die Kommunikation mit den Servern von Gree verwendet.",
+                "button": "Verstanden, weiter"
+            },
+            "login": {
+                "description": "Melde dich mit deinem Gree-Konto an. Die Region muss der Region entsprechen, in der das Konto erstellt wurde — mit der falschen Region schlägt die Anmeldung immer fehl.",
+                "region_label": "Region",
+                "email_label": "E-Mail-Adresse",
+                "password_label": "Passwort",
+                "button": "Anmelden"
+            },
+            "regions": {
+                "australia": "Australien",
+                "china": "Festlandchina",
+                "east_south_asia": "Südostasien",
+                "europe": "Europa",
+                "india": "Indien",
+                "latin_america": "Lateinamerika",
+                "middle_east": "Nahost",
+                "north_america": "Nordamerika",
+                "russia": "Russland",
+                "south_america": "Südamerika"
+            }
         }
     },
     "error": {
         "offline": "Deine Klimaanlage ist offline gegangen. Es wird versucht, die Verbindung wiederherzustellen...",
         "not_connected": "Die Klimaanlage ist nicht verbunden. Die Änderung konnte nicht angewendet werden.",
         "invalid_static_ip": "Ungültige IP-Adresse. Gib eine gültige IPv4-Adresse ein oder lass das Feld leer, um die automatische Erkennung zu verwenden.",
-        "polling_timeout_too_high": "Das Abfrage-Timeout muss kleiner als das Abfrageintervall sein."
+        "polling_timeout_too_high": "Das Abfrage-Timeout muss kleiner als das Abfrageintervall sein.",
+        "cloud": {
+            "invalid_credentials": "Falsche E-Mail-Adresse oder falsches Passwort.",
+            "wrong_region": "Anmeldung fehlgeschlagen. Prüfe, ob die gewählte Region mit der Region deines Gree-Kontos übereinstimmt.",
+            "network": "Die Gree-Cloud war nicht erreichbar. Prüfe deine Internetverbindung und versuche es erneut.",
+            "rate_limited": "Die Gree-Cloud weist Anfragen vorübergehend ab. Warte einige Minuten und versuche es erneut.",
+            "cloud": "Die Gree-Cloud hat unerwartet geantwortet. Versuche es später erneut.",
+            "no_devices": "In diesem Gree-Konto wurden keine Klimaanlagen gefunden. Stelle sicher, dass das Konto Mitglied des Zuhauses ist, in dem die Geräte stehen.",
+            "session_expired": "Die Gree-Cloud hat diese App abgemeldet. Repariere dieses Gerät, um sich neu anzumelden.",
+            "missing_key": "Die Gree-Cloud hat keinen Schlüssel für dieses Gerät geliefert. Entferne es und füge es erneut hinzu."
+        }
     },
     "deprecated": {
         "notification": "Sie verwenden eine veraltete Gree-Flow-Karte (__card__). Sie wird in einem zukünftigen Update entfernt – bitte wechseln Sie zu den integrierten Thermostatmodus-Flow-Karten von Homey.",
@@ -26,6 +64,13 @@
             "hvac_mode_changed": "HVAC-Modus geändert",
             "hvac_mode_is": "HVAC-Modus ist …",
             "set_hvac_mode": "HVAC-Modus einstellen"
+        }
+    },
+    "repair": {
+        "cloud": {
+            "description": "Melde dich erneut bei deinem Gree-Konto an, um die Verbindung zu dieser Klimaanlage wiederherzustellen.",
+            "button": "Anmelden",
+            "device_not_found": "Diese Klimaanlage ist nicht mehr im angemeldeten Gree-Konto vorhanden."
         }
     }
 }

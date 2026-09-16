@@ -1,0 +1,74 @@
+{
+  "id": "power_save_mode_is",
+  "title": {
+    "en": "Power save mode !{{is|isn't}} ...",
+    "nl": "Energiebesparende modus !{{is|is niet}} ...",
+    "de": "Energiesparmodus !{{ist|ist nicht}} ...",
+    "fr": "Mode économie d'énergie !{{est|n'est pas}} ...",
+    "it": "La modalità risparmio energetico !{{è|non è}} ...",
+    "sv": "Energisparläge !{{är|är inte}} ...",
+    "no": "Strømsparemodus !{{er|er ikke}} ...",
+    "es": "Modo de ahorro de energía !{{es|no es}} ...",
+    "da": "Strømsparetilstand !{{er|er ikke}} ...",
+    "pl": "Tryb oszczędzania energii !{{jest|nie jest}} ...",
+    "ko": "절전 모드가 ...!{{임|아님}}"
+  },
+  "titleFormatted": {
+    "en": "Power save mode !{{is|isn't}} [[mode]]",
+    "nl": "Energiebesparende modus !{{is|is niet}} [[mode]]",
+    "de": "Energiesparmodus !{{ist|ist nicht}} [[mode]]",
+    "fr": "Mode économie d'énergie !{{est|n'est pas}} [[mode]]",
+    "it": "La modalità risparmio energetico !{{è|non è}} [[mode]]",
+    "sv": "Energisparläge !{{är|är inte}} [[mode]]",
+    "no": "Strømsparemodus !{{er|er ikke}} [[mode]]",
+    "es": "Modo de ahorro de energía !{{es|no es}} [[mode]]",
+    "da": "Strømsparetilstand !{{er|er ikke}} [[mode]]",
+    "pl": "Tryb oszczędzania energii !{{jest|nie jest}} [[mode]]",
+    "ko": "절전 모드가 [[mode]]!{{임|아님}}"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+    },
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "on",
+          "label": {
+            "en": "On",
+            "nl": "Aan",
+            "de": "Einschalten",
+            "fr": "Marche",
+            "it": "Acceso",
+            "sv": "På",
+            "no": "På",
+            "es": "Encendido",
+            "da": "Til",
+            "pl": "Wł.",
+            "ko": "켜기"
+          }
+        },
+        {
+          "id": "off",
+          "label": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Ausschalten",
+            "fr": "Arrêt",
+            "it": "Spento",
+            "sv": "Av",
+            "no": "Av",
+            "es": "Apagado",
+            "da": "Fra",
+            "pl": "Wył.",
+            "ko": "끄기"
+          }
+        }
+      ]
+    }
+  ]
+}

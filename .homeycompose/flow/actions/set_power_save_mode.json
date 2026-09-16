@@ -1,0 +1,74 @@
+{
+  "id": "set_power_save_mode",
+  "title": {
+    "en": "Set power save mode",
+    "nl": "Stel de energiebesparende modus in",
+    "de": "Energiesparmodus einstellen",
+    "fr": "Régler le mode économie d'énergie",
+    "it": "Imposta la modalità risparmio energetico",
+    "sv": "Ställ in energisparläge",
+    "no": "Still inn strømsparemodus",
+    "es": "Establecer modo de ahorro de energía",
+    "da": "Indstil strømsparetilstand",
+    "pl": "Ustaw tryb oszczędzania energii",
+    "ko": "절전 모드 설정"
+  },
+  "titleFormatted": {
+    "en": "Set power save mode to [[mode]]",
+    "nl": "Stel de energiebesparende modus in op [[mode]]",
+    "de": "Energiesparmodus auf [[mode]] einstellen",
+    "fr": "Régler le mode économie d'énergie sur [[mode]]",
+    "it": "Imposta la modalità risparmio energetico su [[mode]]",
+    "sv": "Ställ in energisparläge till [[mode]]",
+    "no": "Still inn strømsparemodus til [[mode]]",
+    "es": "Establecer modo de ahorro de energía en [[mode]]",
+    "da": "Indstil strømsparetilstand til [[mode]]",
+    "pl": "Ustaw tryb oszczędzania energii na [[mode]]",
+    "ko": "절전 모드를 [[mode]](으)로 설정"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+    },
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "on",
+          "label": {
+            "en": "On",
+            "nl": "Aan",
+            "de": "Einschalten",
+            "fr": "Marche",
+            "it": "Acceso",
+            "sv": "På",
+            "no": "På",
+            "es": "Encendido",
+            "da": "Til",
+            "pl": "Wł.",
+            "ko": "켜기"
+          }
+        },
+        {
+          "id": "off",
+          "label": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Ausschalten",
+            "fr": "Arrêt",
+            "it": "Spento",
+            "sv": "Av",
+            "no": "Av",
+            "es": "Apagado",
+            "da": "Fra",
+            "pl": "Wył.",
+            "ko": "끄기"
+          }
+        }
+      ]
+    }
+  ]
+}

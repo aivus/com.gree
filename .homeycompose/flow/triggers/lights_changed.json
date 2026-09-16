@@ -1,0 +1,43 @@
+{
+  "id": "lights_changed",
+  "title": {
+    "en": "Lights changed",
+    "nl": "Lichten modus veranderd",
+    "de": "Lichtmodus geändert",
+    "fr": "Mode éclairage modifié",
+    "it": "Luci cambiate",
+    "sv": "Belysning ändrad",
+    "no": "Lys endret",
+    "es": "Luces cambiadas",
+    "da": "Lystilstand ændret",
+    "pl": "Zmieniono światła",
+    "ko": "조명 변경됨"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "lights",
+      "type": "boolean",
+      "title": {
+        "en": "Lights mode",
+        "nl": "Lichten modus",
+        "de": "Lichtmodus",
+        "fr": "Mode éclairage",
+        "it": "Modalità luci",
+        "sv": "Belysningsläge",
+        "no": "Lysmodus",
+        "es": "Modo de luces",
+        "da": "Lystilstand",
+        "pl": "Tryb świateł",
+        "ko": "조명 모드"
+      },
+      "example": "true"
+    }
+  ]
+}

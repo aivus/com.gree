@@ -12,13 +12,51 @@
             "name_label": "Apparaatnaam (optioneel)",
             "button": "Apparaat zoeken",
             "error_no_response": "Geen reactie van het apparaat. Controleer het IP-adres en zorg dat het apparaat bereikbaar is."
+        },
+        "cloud": {
+            "warning": {
+                "title": "Belangrijk: gebruik een apart Gree-account",
+                "p1": "De Gree-cloud staat maar één actieve aanmelding per account toe. Wanneer Homey inlogt, wordt de Gree+ / EWPE Smart-app op je telefoon uitgelogd en kan die waarschuwen dat iemand anders je wachtwoord kent. Dat is normaal en betekent niet dat je account is misbruikt.",
+                "p2": "Wil je de telefoonapp blijven gebruiken, maak dan een tweede Gree-account aan (bijvoorbeeld <i>jij+homey@example.com</i>), nodig het in de Gree+-app als gezinslid uit voor je woning, en log hier in met dat tweede account.",
+                "p3": "Je e-mailadres en wachtwoord worden op je Homey opgeslagen en alleen gebruikt om met de servers van Gree te communiceren.",
+                "button": "Ik begrijp het, doorgaan"
+            },
+            "login": {
+                "description": "Log in met je Gree-account. De regio moet overeenkomen met de regio waarin het account is aangemaakt — met de verkeerde regio lukt inloggen nooit.",
+                "region_label": "Regio",
+                "email_label": "E-mailadres",
+                "password_label": "Wachtwoord",
+                "button": "Inloggen"
+            },
+            "regions": {
+                "australia": "Australië",
+                "china": "China (vasteland)",
+                "east_south_asia": "Zuidoost-Azië",
+                "europe": "Europa",
+                "india": "India",
+                "latin_america": "Latijns-Amerika",
+                "middle_east": "Midden-Oosten",
+                "north_america": "Noord-Amerika",
+                "russia": "Rusland",
+                "south_america": "Zuid-Amerika"
+            }
         }
     },
     "error": {
         "offline": "Je Airco is offline gegaan. Aan het proberen opnieuw te verbinden...",
         "not_connected": "De airco is niet verbonden. De wijziging kon niet worden toegepast.",
         "invalid_static_ip": "Ongeldig IP-adres. Voer een geldig IPv4-adres in of laat het veld leeg om automatische detectie te gebruiken.",
-        "polling_timeout_too_high": "De pollingtime-out moet lager zijn dan het pollinginterval."
+        "polling_timeout_too_high": "De pollingtime-out moet lager zijn dan het pollinginterval.",
+        "cloud": {
+            "invalid_credentials": "Verkeerd e-mailadres of wachtwoord.",
+            "wrong_region": "Inloggen mislukt. Controleer of de gekozen regio overeenkomt met de regio van je Gree-account.",
+            "network": "Kon de Gree-cloud niet bereiken. Controleer je internetverbinding en probeer het opnieuw.",
+            "rate_limited": "De Gree-cloud weigert tijdelijk verzoeken. Wacht een paar minuten en probeer het opnieuw.",
+            "cloud": "De Gree-cloud gaf een onverwacht antwoord. Probeer het later opnieuw.",
+            "no_devices": "Er zijn geen airco's gevonden in dit Gree-account. Controleer of het account lid is van de woning waarin de apparaten staan.",
+            "session_expired": "De Gree-cloud heeft deze app uitgelogd. Repareer dit apparaat om opnieuw in te loggen.",
+            "missing_key": "De Gree-cloud heeft geen versleutelingssleutel voor dit apparaat gegeven. Verwijder het en voeg het opnieuw toe."
+        }
     },
     "deprecated": {
         "notification": "Je gebruikt een verouderde Gree-flowkaart (__card__). Deze wordt in een toekomstige update verwijderd — schakel over naar de ingebouwde thermostaatmodus-flowkaarten van Homey.",
@@ -26,6 +64,13 @@
             "hvac_mode_changed": "HVAC modus veranderd",
             "hvac_mode_is": "HVAC modus is …",
             "set_hvac_mode": "Stel de HVAC-modus in"
+        }
+    },
+    "repair": {
+        "cloud": {
+            "description": "Log opnieuw in op je Gree-account om de verbinding met deze airco te herstellen.",
+            "button": "Inloggen",
+            "device_not_found": "Deze airco zit niet meer in het Gree-account waarmee je bent ingelogd."
         }
     }
 }

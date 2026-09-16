@@ -12,13 +12,51 @@
             "name_label": "Enhetsnamn (valfritt)",
             "button": "Hitta enhet",
             "error_no_response": "Inget svar från enheten. Kontrollera IP-adressen och se till att enheten är nåbar."
+        },
+        "cloud": {
+            "warning": {
+                "title": "Viktigt: använd ett separat Gree-konto",
+                "p1": "Gree-molnet tillåter bara en aktiv inloggning per konto. När Homey loggar in loggas Gree+ / EWPE Smart-appen på din telefon ut och kan varna för att någon annan känner till ditt lösenord. Det är förväntat och betyder inte att ditt konto har komprometterats.",
+                "p2": "Vill du fortsätta använda mobilappen skapar du ett andra Gree-konto (till exempel <i>du+homey@example.com</i>), bjuder in det som familjemedlem till ditt hem i Gree+-appen och loggar in här med det andra kontot.",
+                "p3": "Din e-postadress och ditt lösenord lagras på din Homey och används bara för att kommunicera med Grees servrar.",
+                "button": "Jag förstår, fortsätt"
+            },
+            "login": {
+                "description": "Logga in med ditt Gree-konto. Regionen måste vara densamma som kontot skapades i — med fel region misslyckas inloggningen alltid.",
+                "region_label": "Region",
+                "email_label": "E-postadress",
+                "password_label": "Lösenord",
+                "button": "Logga in"
+            },
+            "regions": {
+                "australia": "Australien",
+                "china": "Fastlandskina",
+                "east_south_asia": "Sydostasien",
+                "europe": "Europa",
+                "india": "Indien",
+                "latin_america": "Latinamerika",
+                "middle_east": "Mellanöstern",
+                "north_america": "Nordamerika",
+                "russia": "Ryssland",
+                "south_america": "Sydamerika"
+            }
         }
     },
     "error": {
         "offline": "Din HVAC har kopplats från. Försöker återansluta...",
         "not_connected": "HVAC är inte ansluten. Ändringen kunde inte tillämpas.",
         "invalid_static_ip": "Ogiltig IP-adress. Ange en giltig IPv4-adress eller lämna fältet tomt för att använda automatisk identifiering.",
-        "polling_timeout_too_high": "Pollningstimeout måste vara lägre än pollningsintervallet."
+        "polling_timeout_too_high": "Pollningstimeout måste vara lägre än pollningsintervallet.",
+        "cloud": {
+            "invalid_credentials": "Fel e-postadress eller lösenord.",
+            "wrong_region": "Inloggningen misslyckades. Kontrollera att den valda regionen stämmer med regionen för ditt Gree-konto.",
+            "network": "Kunde inte nå Gree-molnet. Kontrollera din internetanslutning och försök igen.",
+            "rate_limited": "Gree-molnet nekar tillfälligt förfrågningar. Vänta några minuter och försök igen.",
+            "cloud": "Gree-molnet svarade oväntat. Försök igen senare.",
+            "no_devices": "Inga luftkonditioneringar hittades i det här Gree-kontot. Kontrollera att kontot är medlem i hemmet som innehåller enheterna.",
+            "session_expired": "Gree-molnet loggade ut den här appen. Reparera enheten för att logga in igen.",
+            "missing_key": "Gree-molnet gav ingen krypteringsnyckel för den här enheten. Ta bort den och lägg till den igen."
+        }
     },
     "deprecated": {
         "notification": "Du använder ett föråldrat Gree-flödeskort (__card__). Det kommer att tas bort i en framtida uppdatering — byt till Homeys inbyggda flödeskort för termostatläge.",
@@ -26,6 +64,13 @@
             "hvac_mode_changed": "HVAC-läge ändrat",
             "hvac_mode_is": "HVAC-läge är …",
             "set_hvac_mode": "Ställ in HVAC-läge"
+        }
+    },
+    "repair": {
+        "cloud": {
+            "description": "Logga in på ditt Gree-konto igen för att återställa anslutningen till den här luftkonditioneringen.",
+            "button": "Logga in",
+            "device_not_found": "Den här luftkonditioneringen finns inte längre i det Gree-konto du loggade in på."
         }
     }
 }
