@@ -395,35 +395,35 @@ class GreeHVACDevice extends Homey.Device {
             }
             this.log('[fan speed change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             await this._setClientProperty(HVAC.PROPERTY.fanSpeed, rawValue);
-            this._flowTriggerHvacFanSpeedChanged.trigger(this, { fan_speed: value });
+            await this._setCapabilityValueAndTrigger('fan_speed', value, this._flowTriggerHvacFanSpeedChanged);
         });
 
         this.registerCapabilityListener('turbo_mode', async (value) => {
             const rawValue = value ? HVAC.VALUE.turbo.on : HVAC.VALUE.turbo.off;
             this.log('[turbo mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             await this._setClientProperty(HVAC.PROPERTY.turbo, rawValue);
-            this._flowTriggerTurboModeChanged.trigger(this, { turbo_mode: value });
+            await this._setCapabilityValueAndTrigger('turbo_mode', value, this._flowTriggerTurboModeChanged);
         });
 
         this.registerCapabilityListener('safety_heating', async (value) => {
             const rawValue = value ? HVAC.VALUE.safetyHeating.on : HVAC.VALUE.safetyHeating.off;
             this.log('[safety heating change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             await this._setClientProperty(HVAC.PROPERTY.safetyHeating, rawValue);
-            this._flowTriggerSafetyHeatingChanged.trigger(this, { safety_heating: value });
+            await this._setCapabilityValueAndTrigger('safety_heating', value, this._flowTriggerSafetyHeatingChanged);
         });
 
         this.registerCapabilityListener('lights', async (value) => {
             const rawValue = value ? HVAC.VALUE.lights.on : HVAC.VALUE.lights.off;
             this.log('[lights change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             await this._setClientProperty(HVAC.PROPERTY.lights, rawValue);
-            this._flowTriggerHvacLightsChanged.trigger(this, { lights: value });
+            await this._setCapabilityValueAndTrigger('lights', value, this._flowTriggerHvacLightsChanged);
         });
 
         this.registerCapabilityListener('xfan_mode', async (value) => {
             const rawValue = value ? HVAC.VALUE.blow.on : HVAC.VALUE.blow.off;
             this.log('[xfan mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             await this._setClientProperty(HVAC.PROPERTY.blow, rawValue);
-            this._flowTriggerXFanModeChanged.trigger(this, { xfan_mode: value });
+            await this._setCapabilityValueAndTrigger('xfan_mode', value, this._flowTriggerXFanModeChanged);
         });
 
         this.registerCapabilityListener('vertical_swing', async (value) => {
@@ -433,7 +433,7 @@ class GreeHVACDevice extends Homey.Device {
             }
             this.log('[vertical swing change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             await this._setClientProperty(HVAC.PROPERTY.swingVert, rawValue);
-            this._flowTriggerVerticalSwingChanged.trigger(this, { vertical_swing: value });
+            await this._setCapabilityValueAndTrigger('vertical_swing', value, this._flowTriggerVerticalSwingChanged);
         });
 
         this.registerCapabilityListener('horizontal_swing', async (value) => {
@@ -443,7 +443,7 @@ class GreeHVACDevice extends Homey.Device {
             }
             this.log('[horizontal swing change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             await this._setClientProperty(HVAC.PROPERTY.swingHor, rawValue);
-            this._flowTriggerHorizontalSwingChanged.trigger(this, { horizontal_swing: value });
+            await this._setCapabilityValueAndTrigger('horizontal_swing', value, this._flowTriggerHorizontalSwingChanged);
         });
 
         this.registerCapabilityListener('quiet_mode', async (value) => {
@@ -453,28 +453,28 @@ class GreeHVACDevice extends Homey.Device {
             }
             this.log('[quiet mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             await this._setClientProperty(HVAC.PROPERTY.quiet, rawValue);
-            this._flowTriggerQuietModeChanged.trigger(this, { quiet_mode: value });
+            await this._setCapabilityValueAndTrigger('quiet_mode', value, this._flowTriggerQuietModeChanged);
         });
 
         this.registerCapabilityListener('health_mode', async (value) => {
             const rawValue = value ? HVAC.VALUE.health.on : HVAC.VALUE.health.off;
             this.log('[health mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             await this._setClientProperty(HVAC.PROPERTY.health, rawValue);
-            this._flowTriggerHealthModeChanged.trigger(this, { health_mode: value });
+            await this._setCapabilityValueAndTrigger('health_mode', value, this._flowTriggerHealthModeChanged);
         });
 
         this.registerCapabilityListener('power_save_mode', async (value) => {
             const rawValue = value ? HVAC.VALUE.powerSave.on : HVAC.VALUE.powerSave.off;
             this.log('[power save mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             await this._setClientProperty(HVAC.PROPERTY.powerSave, rawValue);
-            this._flowTriggerPowerSaveModeChanged.trigger(this, { power_save_mode: value });
+            await this._setCapabilityValueAndTrigger('power_save_mode', value, this._flowTriggerPowerSaveModeChanged);
         });
 
         this.registerCapabilityListener('sleep_mode', async (value) => {
             const rawValue = value ? HVAC.VALUE.sleep.on : HVAC.VALUE.sleep.off;
             this.log('[sleep mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             await this._setClientProperty(HVAC.PROPERTY.sleep, rawValue);
-            this._flowTriggerSleepModeChanged.trigger(this, { sleep_mode: value });
+            await this._setCapabilityValueAndTrigger('sleep_mode', value, this._flowTriggerSleepModeChanged);
         });
 
         this.registerCapabilityListener('fresh_air_mode', async (value) => {
@@ -484,7 +484,7 @@ class GreeHVACDevice extends Homey.Device {
             }
             this.log('[fresh air mode change]', `Value: ${value}`, `Raw value: ${rawValue}`);
             await this._setClientProperty(HVAC.PROPERTY.air, rawValue);
-            this._flowTriggerFreshAirModeChanged.trigger(this, { fresh_air_mode: value });
+            await this._setCapabilityValueAndTrigger('fresh_air_mode', value, this._flowTriggerFreshAirModeChanged);
         });
     }
 
@@ -1107,6 +1107,25 @@ class GreeHVACDevice extends Homey.Device {
             this.log('[set property]', `Failed to set "${property}":`, err.message);
             throw new Error(this.homey.__('error.not_connected'));
         }
+    }
+
+    /**
+     * Store the new capability value and only then fire its "changed" flow
+     * trigger.
+     *
+     * Homey stores the value only after the capability listener resolves (and
+     * not at all for triggerCapabilityListener() from our action cards), so a
+     * trigger fired from inside the listener would start flows whose
+     * conditions still read the previous value (#305).
+     *
+     * @param {string} capabilityId Capability id, also used as the token name
+     * @param {*} value New capability value
+     * @param {object} flowTrigger Device trigger card
+     * @private
+     */
+    async _setCapabilityValueAndTrigger(capabilityId, value, flowTrigger) {
+        await this.setCapabilityValue(capabilityId, value);
+        flowTrigger.trigger(this, { [capabilityId]: value }).catch(this.error);
     }
 
     reconnect() {

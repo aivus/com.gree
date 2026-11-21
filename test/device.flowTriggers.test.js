@@ -34,9 +34,10 @@ describe('GreeHVACDevice flow triggers from capability listeners', () => {
             capabilityListeners[capability] = listener;
         });
         device.log = jest.fn();
+        device.setCapabilityValue = jest.fn().mockResolvedValue();
         device.homey = { __: jest.fn((key) => key) };
-        device._flowTriggerHvacFanSpeedChanged = { trigger: jest.fn() };
-        device._flowTriggerTurboModeChanged = { trigger: jest.fn() };
+        device._flowTriggerHvacFanSpeedChanged = { trigger: jest.fn().mockResolvedValue() };
+        device._flowTriggerTurboModeChanged = { trigger: jest.fn().mockResolvedValue() };
 
         device._registerCapabilityListeners();
     });
@@ -49,6 +50,30 @@ describe('GreeHVACDevice flow triggers from capability listeners', () => {
         expect(device._client.setProperty).toHaveBeenCalledWith('fanSpeed', 'low');
         expect(device._flowTriggerHvacFanSpeedChanged.trigger)
             .toHaveBeenCalledWith(device, { fan_speed: 'low' });
+    });
+
+    test('stores the new capability value before firing the trigger (#305)', async () => {
+        device._client = { setProperty: jest.fn().mockResolvedValue() };
+
+        await capabilityListeners.turbo_mode(true);
+
+        expect(device.setCapabilityValue).toHaveBeenCalledWith('turbo_mode', true);
+        expect(device._flowTriggerTurboModeChanged.trigger)
+            .toHaveBeenCalledWith(device, { turbo_mode: true });
+        expect(device.setCapabilityValue.mock.invocationCallOrder[0])
+            .toBeLessThan(device._flowTriggerTurboModeChanged.trigger.mock.invocationCallOrder[0]);
+    });
+
+    test('does not fail the listener when the flow trigger rejects', async () => {
+        device._client = { setProperty: jest.fn().mockResolvedValue() };
+        device.error = jest.fn();
+        const error = new Error('trigger failed');
+        device._flowTriggerHvacFanSpeedChanged.trigger.mockRejectedValue(error);
+
+        await expect(capabilityListeners.fan_speed('low')).resolves.toBeUndefined();
+        await new Promise(setImmediate);
+
+        expect(device.error).toHaveBeenCalledWith(error);
     });
 
     test('rejects and does not fire the trigger when the client is not connected', async () => {

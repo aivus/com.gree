@@ -330,6 +330,29 @@ describe('GreeCloudHVACDevice capability writes', () => {
         expect(device.setUnavailable).toHaveBeenCalledWith('error.cloud.session_expired');
     });
 
+    it('stores the new capability value before firing the trigger (#305)', async () => {
+        const { device, capabilityListeners, triggers } = build();
+        await device.onInit();
+
+        await capabilityListeners.turbo_mode(true);
+
+        // Homey only stores the value once the listener resolves, so a trigger
+        // fired before that starts flows whose conditions read the old value.
+        expect(device.setCapabilityValue).toHaveBeenCalledWith('turbo_mode', true);
+        expect(triggers.turbo_mode_changed.trigger)
+            .toHaveBeenCalledWith(device, { turbo_mode: true });
+        expect(device.setCapabilityValue.mock.invocationCallOrder.at(-1))
+            .toBeLessThan(triggers.turbo_mode_changed.trigger.mock.invocationCallOrder.at(-1));
+    });
+
+    it('does not fail the listener when the flow trigger rejects', async () => {
+        const { device, capabilityListeners, triggers } = build();
+        await device.onInit();
+        triggers.fan_speed_changed.trigger.mockRejectedValue(new Error('trigger failed'));
+
+        await expect(capabilityListeners.fan_speed('low')).resolves.toBeUndefined();
+    });
+
     it('runs writes strictly one at a time', async () => {
         const { device, connection, capabilityListeners } = build();
         await device.onInit();
