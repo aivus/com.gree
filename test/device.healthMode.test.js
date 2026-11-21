@@ -37,9 +37,10 @@ describe('GreeHVACDevice health_mode listener', () => {
         });
         device._setClientProperty = jest.fn();
         device._flowTriggerHealthModeChanged = {
-            trigger: jest.fn(),
+            trigger: jest.fn().mockResolvedValue(),
         };
         device.log = jest.fn();
+        device.setCapabilityValue = jest.fn().mockResolvedValue();
     });
 
     test('turns health mode on', async () => {

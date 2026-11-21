@@ -39,9 +39,10 @@ describe('GreeHVACDevice quiet_mode listener', () => {
         });
         device._setClientProperty = jest.fn();
         device._flowTriggerQuietModeChanged = {
-            trigger: jest.fn(),
+            trigger: jest.fn().mockResolvedValue(),
         };
         device.log = jest.fn();
+        device.setCapabilityValue = jest.fn().mockResolvedValue();
     });
 
     test('rejects null quiet mode values', async () => {
