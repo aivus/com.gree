@@ -37,9 +37,10 @@ describe('GreeHVACDevice power_save_mode listener', () => {
         });
         device._setClientProperty = jest.fn().mockReturnValue(true);
         device._flowTriggerPowerSaveModeChanged = {
-            trigger: jest.fn(),
+            trigger: jest.fn().mockResolvedValue(),
         };
         device.log = jest.fn();
+        device.setCapabilityValue = jest.fn().mockResolvedValue();
     });
 
     test('turns power save mode on', async () => {

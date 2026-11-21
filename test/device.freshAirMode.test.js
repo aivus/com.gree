@@ -39,9 +39,10 @@ describe('GreeHVACDevice fresh_air_mode listener', () => {
         });
         device._setClientProperty = jest.fn().mockReturnValue(true);
         device._flowTriggerFreshAirModeChanged = {
-            trigger: jest.fn(),
+            trigger: jest.fn().mockResolvedValue(),
         };
         device.log = jest.fn();
+        device.setCapabilityValue = jest.fn().mockResolvedValue();
     });
 
     test('sets fresh air mode to outside', async () => {

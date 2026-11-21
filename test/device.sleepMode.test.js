@@ -37,9 +37,10 @@ describe('GreeHVACDevice sleep_mode listener', () => {
         });
         device._setClientProperty = jest.fn().mockReturnValue(true);
         device._flowTriggerSleepModeChanged = {
-            trigger: jest.fn(),
+            trigger: jest.fn().mockResolvedValue(),
         };
         device.log = jest.fn();
+        device.setCapabilityValue = jest.fn().mockResolvedValue();
     });
 
     test('turns sleep mode on', async () => {
