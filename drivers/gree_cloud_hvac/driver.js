@@ -279,6 +279,20 @@ class GreeCloudHVACDriver extends Homey.Driver {
      * @private
      */
     _validateCredentials({ region, email, password }) {
+        // The cloud transport relies on the global fetch (Node.js 18+). Homey Pro
+        // (2016–2019) runs Node.js 16 below Homey 12.9.0, which the app's
+        // `compatibility` still admits, so refuse there with a clear message
+        // instead of failing with a ReferenceError.
+        if (typeof globalThis.fetch !== 'function') {
+            try {
+                this.homey.app._reportUnsupportedCloudRuntime();
+            } catch (err) {
+                this.error('Failed to report unsupported cloud runtime', err);
+            }
+
+            throw new Error(this.homey.__('error.cloud.unsupported_firmware'));
+        }
+
         if (!REGION_IDS.includes(region)) {
             throw new Error(this.homey.__('error.cloud.wrong_region'));
         }

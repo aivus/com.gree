@@ -52,6 +52,7 @@
             "invalid_credentials": "Dirección de correo o contraseña incorrectas.",
             "wrong_region": "El inicio de sesión falló. Comprueba que la región seleccionada coincide con la de tu cuenta Gree.",
             "region_disabled": "Esta región no está disponible en esta app. No es posible iniciar sesión con cuentas registradas allí.",
+            "unsupported_firmware": "Gree Cloud requiere Homey 12.9.0 o posterior. Actualiza tu Homey e inténtalo de nuevo.",
             "network": "No se pudo conectar con la nube de Gree. Comprueba tu conexión a internet e inténtalo de nuevo.",
             "rate_limited": "La nube de Gree está rechazando solicitudes temporalmente. Espera unos minutos e inténtalo de nuevo.",
             "cloud": "La nube de Gree devolvió una respuesta inesperada. Inténtalo más tarde.",

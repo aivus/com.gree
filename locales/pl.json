@@ -52,6 +52,7 @@
             "invalid_credentials": "Nieprawidłowy adres e-mail lub hasło.",
             "wrong_region": "Logowanie nie powiodło się. Sprawdź, czy wybrany region odpowiada regionowi Twojego konta Gree.",
             "region_disabled": "Ten region nie jest dostępny w tej aplikacji. Logowanie na konta tam zarejestrowane nie jest możliwe.",
+            "unsupported_firmware": "Gree Cloud wymaga Homey 12.9.0 lub nowszego. Zaktualizuj Homey i spróbuj ponownie.",
             "network": "Nie udało się połączyć z chmurą Gree. Sprawdź połączenie internetowe i spróbuj ponownie.",
             "rate_limited": "Chmura Gree tymczasowo odrzuca żądania. Odczekaj kilka minut i spróbuj ponownie.",
             "cloud": "Chmura Gree zwróciła nieoczekiwaną odpowiedź. Spróbuj ponownie później.",

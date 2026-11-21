@@ -60,6 +60,7 @@ describe('GreeCloudHVACDriver repair', () => {
         driver.log = jest.fn();
         driver.error = jest.fn();
         driver.homey = {
+            app: { _reportUnsupportedCloudRuntime: jest.fn() },
             __: jest.fn((key) => key),
             settings: {
                 get: jest.fn((key) => settings[key]),
@@ -176,5 +177,20 @@ describe('GreeCloudHVACDriver repair', () => {
         await expect(handlers.relogin({ ...credentials, region: 'russia' }))
             .rejects.toThrow('error.cloud.region_disabled');
         expect(mockSession.signIn).not.toHaveBeenCalled();
+    });
+
+    it('refuses on a runtime without the global fetch, without changing anything', async () => {
+        const originalFetch = globalThis.fetch;
+        delete globalThis.fetch;
+        try {
+            await expect(handlers.relogin(credentials))
+                .rejects.toThrow('error.cloud.unsupported_firmware');
+        } finally {
+            globalThis.fetch = originalFetch;
+        }
+        expect(driver.homey.app._reportUnsupportedCloudRuntime).toHaveBeenCalledTimes(1);
+        expect(mockSession.signIn).not.toHaveBeenCalled();
+        expect(deviceStore.key).toBe('oldkey0123456789');
+        expect(device.reconnect).not.toHaveBeenCalled();
     });
 });

@@ -51,6 +51,7 @@ describe('GreeCloudHVACDriver pairing', () => {
         driver.error = jest.fn();
         driver.getDevices = jest.fn(() => pairedDevices);
         driver.homey = {
+            app: { _reportUnsupportedCloudRuntime: jest.fn() },
             __: jest.fn((key) => key),
             settings: {
                 get: jest.fn((key) => settings[key]),
@@ -146,6 +147,35 @@ describe('GreeCloudHVACDriver pairing', () => {
             await expect(handlers.login({ ...credentials, region: 'russia' }))
                 .rejects.toThrow('error.cloud.region_disabled');
             expect(mockSession.signIn).not.toHaveBeenCalled();
+        });
+
+        it('refuses on a runtime without the global fetch, without contacting the cloud', async () => {
+            const originalFetch = globalThis.fetch;
+            delete globalThis.fetch;
+            try {
+                await expect(handlers.login(credentials))
+                    .rejects.toThrow('error.cloud.unsupported_firmware');
+            } finally {
+                globalThis.fetch = originalFetch;
+            }
+            expect(driver.homey.app._reportUnsupportedCloudRuntime).toHaveBeenCalledTimes(1);
+            expect(mockSession.signIn).not.toHaveBeenCalled();
+            expect(settings.cloud_accounts).toBeUndefined();
+        });
+
+        it('still shows the firmware message when reporting it fails', async () => {
+            driver.homey.app._reportUnsupportedCloudRuntime.mockImplementation(() => {
+                throw new Error('boom');
+            });
+            const originalFetch = globalThis.fetch;
+            delete globalThis.fetch;
+            try {
+                await expect(handlers.login(credentials))
+                    .rejects.toThrow('error.cloud.unsupported_firmware');
+            } finally {
+                globalThis.fetch = originalFetch;
+            }
+            expect(driver.error).toHaveBeenCalled();
         });
 
         it('rejects empty credentials without contacting the cloud', async () => {

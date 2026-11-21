@@ -52,6 +52,7 @@
             "invalid_credentials": "Verkeerd e-mailadres of wachtwoord.",
             "wrong_region": "Inloggen mislukt. Controleer of de gekozen regio overeenkomt met de regio van je Gree-account.",
             "region_disabled": "Deze regio is niet beschikbaar in deze app. Inloggen is niet mogelijk voor accounts die daar zijn geregistreerd.",
+            "unsupported_firmware": "Gree Cloud vereist Homey 12.9.0 of nieuwer. Werk je Homey bij en probeer het opnieuw.",
             "network": "Kon de Gree-cloud niet bereiken. Controleer je internetverbinding en probeer het opnieuw.",
             "rate_limited": "De Gree-cloud weigert tijdelijk verzoeken. Wacht een paar minuten en probeer het opnieuw.",
             "cloud": "De Gree-cloud gaf een onverwacht antwoord. Probeer het later opnieuw.",

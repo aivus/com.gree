@@ -52,6 +52,7 @@
             "invalid_credentials": "Falsche E-Mail-Adresse oder falsches Passwort.",
             "wrong_region": "Anmeldung fehlgeschlagen. Prüfe, ob die gewählte Region mit der Region deines Gree-Kontos übereinstimmt.",
             "region_disabled": "Diese Region ist in dieser App nicht verfügbar. Für dort registrierte Konten ist keine Anmeldung möglich.",
+            "unsupported_firmware": "Gree Cloud erfordert Homey 12.9.0 oder neuer. Aktualisiere dein Homey und versuche es erneut.",
             "network": "Die Gree-Cloud war nicht erreichbar. Prüfe deine Internetverbindung und versuche es erneut.",
             "rate_limited": "Die Gree-Cloud weist Anfragen vorübergehend ab. Warte einige Minuten und versuche es erneut.",
             "cloud": "Die Gree-Cloud hat unerwartet geantwortet. Versuche es später erneut.",

@@ -52,6 +52,7 @@
             "invalid_credentials": "Feil e-postadresse eller passord.",
             "wrong_region": "Innloggingen mislyktes. Kontroller at valgt region stemmer med regionen til Gree-kontoen din.",
             "region_disabled": "Denne regionen er ikke tilgjengelig i denne appen. Innlogging er ikke mulig for kontoer som er registrert der.",
+            "unsupported_firmware": "Gree Cloud krever Homey 12.9.0 eller nyere. Oppdater Homey og prøv igjen.",
             "network": "Kunne ikke nå Gree-skyen. Kontroller internettforbindelsen og prøv igjen.",
             "rate_limited": "Gree-skyen avviser forespørsler midlertidig. Vent noen minutter og prøv igjen.",
             "cloud": "Gree-skyen svarte uventet. Prøv igjen senere.",

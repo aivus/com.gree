@@ -14,7 +14,7 @@ A [Homey](https://homey.app) app (SDK 3) that controls Gree and other EWPE Smart
 - `npx jest -t 'sets fresh air mode'` — run tests matching a name.
 - `homey app run` — run the app against a real Homey for manual testing (requires the Homey CLI and a paired Homey). `homey app validate --level publish` mirrors the validation CI job.
 
-Node 22 is used in CI (`engines` requires `>=18`, because the cloud transport uses the global `fetch`).
+Node 22 is used in CI (`engines` requires `>=18`, because the cloud transport uses the global `fetch`). Homey ignores `engines`; only `compatibility` in the manifest gates installs, and `>=12.0.1` still admits Homey Pro (2016–2019) below 12.9.0, which runs Node 16. So the cloud driver's `_validateCredentials()` refuses pairing/repair with `error.cloud.unsupported_firmware` when `fetch` is missing (and reports it to Sentry once per session via `app._reportUnsupportedCloudRuntime()`, with no timeline notification) — keep the app free of other Node 18+ APIs or raise `compatibility`.
 
 ## Build / generated files — important
 
