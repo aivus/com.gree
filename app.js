@@ -19,6 +19,9 @@ class GreeHVAC extends Homey.App {
         // Track which deprecated flow cards we already warned about this session
         this._deprecatedFlowCardsNotified = new Set();
 
+        // Whether the cloud driver's missing-fetch refusal was already reported
+        this._unsupportedCloudRuntimeReported = false;
+
         // Notify users when their flows still use a deprecated flow card. For
         // condition and action cards this happens straight from their run
         // listeners below. The deprecated `hvac_mode_changed` trigger has no
@@ -256,6 +259,25 @@ class GreeHVAC extends Homey.App {
         } catch (err) {
             this.error('Failed to create deprecated flow card notification', err);
         }
+    }
+
+    /**
+     * Report to Sentry that the cloud driver refused to pair or repair because
+     * the runtime has no global fetch (Homey Pro 2016–2019 below Homey 12.9.0,
+     * on Node.js 16). Happens once per app session; tells us whether raising
+     * the manifest's `compatibility` would drop anyone who still tries.
+     */
+    _reportUnsupportedCloudRuntime() {
+        if (this._unsupportedCloudRuntimeReported) {
+            return;
+        }
+        this._unsupportedCloudRuntimeReported = true;
+
+        const message = `Gree Cloud refused: no global fetch (Node.js ${process.version})`;
+        this.log(message);
+
+        this.homeyLog.captureMessage(message)
+            .catch(this.error);
     }
 
 }

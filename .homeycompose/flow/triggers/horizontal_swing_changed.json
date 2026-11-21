@@ -1,0 +1,43 @@
+{
+  "id": "horizontal_swing_changed",
+  "title": {
+    "en": "Horizontal swing changed",
+    "nl": "Horizontale swing veranderd",
+    "de": "Horizontale Schwenkung geändert",
+    "fr": "Balayage horizontal modifié",
+    "it": "Oscillazione orizzontale cambiata",
+    "sv": "Horisontell svängning ändrad",
+    "no": "Horisontal svinging endret",
+    "es": "Oscilación horizontal cambiada",
+    "da": "Vandret svingning ændret",
+    "pl": "Zmieniono wahanie poziome",
+    "ko": "수평 스윙 변경됨"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "horizontal_swing",
+      "type": "string",
+      "title": {
+        "en": "Horizontal swing",
+        "nl": "Horizontale swing",
+        "de": "Horizontale Schwenkung",
+        "fr": "Balayage horizontal",
+        "it": "Oscillazione orizzontale",
+        "sv": "Horisontell svängning",
+        "no": "Horisontal svinging",
+        "es": "Oscilación horizontal",
+        "da": "Vandret svingning",
+        "pl": "Wahanie poziome",
+        "ko": "수평 스윙"
+      },
+      "example": "full"
+    }
+  ]
+}

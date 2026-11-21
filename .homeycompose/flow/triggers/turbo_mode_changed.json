@@ -1,0 +1,43 @@
+{
+  "id": "turbo_mode_changed",
+  "title": {
+    "en": "Turbo mode changed",
+    "nl": "Turbo modus veranderd",
+    "de": "Turbo-Modus geändert",
+    "fr": "Mode turbo modifié",
+    "it": "Modalità turbo cambiata",
+    "sv": "Turboläge ändrat",
+    "no": "Turbomodus endret",
+    "es": "Modo turbo cambiado",
+    "da": "Turbotilstand ændret",
+    "pl": "Zmieniono tryb turbo",
+    "ko": "터보 모드 변경됨"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "turbo_mode",
+      "type": "boolean",
+      "title": {
+        "en": "Turbo mode",
+        "nl": "Turbo modus",
+        "de": "Turbo-Modus",
+        "fr": "Mode turbo",
+        "it": "Modalità turbo",
+        "sv": "Turboläge",
+        "no": "Turbomodus",
+        "es": "Modo turbo",
+        "da": "Turbotilstand",
+        "pl": "Tryb turbo",
+        "ko": "터보 모드"
+      },
+      "example": "true"
+    }
+  ]
+}

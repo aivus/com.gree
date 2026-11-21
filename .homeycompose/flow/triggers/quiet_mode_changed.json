@@ -1,0 +1,43 @@
+{
+  "id": "quiet_mode_changed",
+  "title": {
+    "en": "Quiet mode changed",
+    "nl": "Stilte modus veranderd",
+    "de": "Ruhig-Modus geändert",
+    "fr": "Mode silencieux modifié",
+    "it": "Modalità silenziosa cambiata",
+    "sv": "Tyst läge ändrat",
+    "no": "Stillemodus endret",
+    "es": "Modo silencioso cambiado",
+    "da": "Stille tilstand ændret",
+    "pl": "Zmieniono tryb cichy",
+    "ko": "저소음 모드 변경됨"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "quiet_mode",
+      "type": "string",
+      "title": {
+        "en": "Quiet mode",
+        "nl": "Stilte modus",
+        "de": "Ruhig-Modus",
+        "fr": "Mode silencieux",
+        "it": "Modalità silenziosa",
+        "sv": "Tyst läge",
+        "no": "Stillemodus",
+        "es": "Modo silencioso",
+        "da": "Stille tilstand",
+        "pl": "Tryb cichy",
+        "ko": "저소음 모드"
+      },
+      "example": "off"
+    }
+  ]
+}

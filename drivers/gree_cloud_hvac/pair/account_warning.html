@@ -1,0 +1,21 @@
+<div style="max-width: 400px; margin: 0 auto; padding: 16px;">
+  <h3 data-i18n="pair.cloud.warning.title"></h3>
+
+  <p data-i18n="pair.cloud.warning.p1"></p>
+
+  <div style="border: 1px solid #ff732e; border-radius: 6px; padding: 12px; margin: 12px 0;">
+    <p style="margin: 0;">
+      <strong>&#9888;</strong> <span data-i18n="pair.cloud.warning.p2"></span>
+    </p>
+  </div>
+
+  <p data-i18n="pair.cloud.warning.p3"></p>
+
+  <button type="button" id="continue" style="width: 100%; padding: 8px;" data-i18n="pair.cloud.warning.button"></button>
+</div>
+
+<script>
+  document.getElementById('continue').addEventListener('click', function () {
+    Homey.showView('login');
+  });
+</script>

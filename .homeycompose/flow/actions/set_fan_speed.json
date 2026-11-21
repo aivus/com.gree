@@ -1,0 +1,138 @@
+{
+  "id": "set_fan_speed",
+  "title": {
+    "en": "Set fan speed",
+    "nl": "Ventilatorsnelheid instellen",
+    "de": "Gebläsedrehzahl einstellen",
+    "fr": "Régler la vitesse du ventilateur",
+    "it": "Imposta la velocità della ventola",
+    "sv": "Ställ in fläkthastighet",
+    "no": "Still inn viftehastighet",
+    "es": "Establecer velocidad del ventilador",
+    "da": "Indstil ventilatorhastighed",
+    "pl": "Ustaw prędkość wentylatora",
+    "ko": "팬 속도 설정"
+  },
+  "titleFormatted": {
+    "en": "Set fan speed to [[speed]]",
+    "nl": "Ventilatorsnelheid instellen op [[speed]]",
+    "de": "Gebläsedrehzahl auf [[speed]] einstellen",
+    "fr": "Régler la vitesse du ventilateur sur [[speed]]",
+    "it": "Imposta la velocità della ventola su [[speed]]",
+    "sv": "Ställ in fläkthastighet till [[speed]]",
+    "no": "Still inn viftehastighet til [[speed]]",
+    "es": "Establecer velocidad del ventilador en [[speed]]",
+    "da": "Indstil ventilatorhastighed til [[speed]]",
+    "pl": "Ustaw prędkość wentylatora na [[speed]]",
+    "ko": "팬 속도를 [[speed]](으)로 설정"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+    },
+    {
+      "name": "speed",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "auto",
+          "label": {
+            "en": "Auto",
+            "nl": "Automatisch",
+            "de": "Automatisch",
+            "fr": "Automatique",
+            "it": "Automatico",
+            "sv": "Automatiskt",
+            "no": "Automatisk",
+            "es": "Automático",
+            "da": "Automatisk",
+            "pl": "Automatyczny",
+            "ko": "자동"
+          }
+        },
+        {
+          "id": "low",
+          "label": {
+            "en": "Low",
+            "nl": "Laag",
+            "de": "Niedrig",
+            "fr": "Faible",
+            "it": "Bassa",
+            "sv": "Låg",
+            "no": "Lav",
+            "es": "Bajo",
+            "da": "Lav",
+            "pl": "Niska",
+            "ko": "낮음"
+          }
+        },
+        {
+          "id": "mediumLow",
+          "label": {
+            "en": "Medium Low",
+            "nl": "Gemiddeld Laag",
+            "de": "Mittel Niedrig",
+            "fr": "Moyen faible",
+            "it": "Medio-bassa",
+            "sv": "Medellåg",
+            "no": "Middels lav",
+            "es": "Medio bajo",
+            "da": "Mellem lav",
+            "pl": "Średnio niska",
+            "ko": "중간 낮음"
+          }
+        },
+        {
+          "id": "medium",
+          "label": {
+            "en": "Medium",
+            "nl": "Gemiddeld",
+            "de": "Mittel",
+            "fr": "Moyen",
+            "it": "Media",
+            "sv": "Medel",
+            "no": "Middels",
+            "es": "Medio",
+            "da": "Mellem",
+            "pl": "Średnia",
+            "ko": "중간"
+          }
+        },
+        {
+          "id": "mediumHigh",
+          "label": {
+            "en": "Medium High",
+            "nl": "Gemiddeld hoog",
+            "de": "Mittel hoch",
+            "fr": "Moyen élevé",
+            "it": "Medio-alta",
+            "sv": "Medelhög",
+            "no": "Middels høy",
+            "es": "Medio alto",
+            "da": "Mellem høj",
+            "pl": "Średnio wysoka",
+            "ko": "중간 높음"
+          }
+        },
+        {
+          "id": "high",
+          "label": {
+            "en": "High",
+            "nl": "Hoog",
+            "de": "Hoch",
+            "fr": "Élevé",
+            "it": "Alta",
+            "sv": "Hög",
+            "no": "Høy",
+            "es": "Alto",
+            "da": "Høj",
+            "pl": "Wysoka",
+            "ko": "높음"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "health_mode_changed",
+  "title": {
+    "en": "Health mode changed",
+    "nl": "Gezondheidsmodus veranderd",
+    "de": "Gesundheitsmodus geändert",
+    "fr": "Mode santé modifié",
+    "it": "Modalità salute cambiata",
+    "sv": "Hälsoläge ändrat",
+    "no": "Helsemodus endret",
+    "es": "Modo salud cambiado",
+    "da": "Sundhedstilstand ændret",
+    "pl": "Zmieniono tryb zdrowotny",
+    "ko": "건강 모드 변경됨"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "health_mode",
+      "type": "boolean",
+      "title": {
+        "en": "Health mode",
+        "nl": "Gezondheidsmodus",
+        "de": "Gesundheitsmodus",
+        "fr": "Mode santé",
+        "it": "Modalità salute",
+        "sv": "Hälsoläge",
+        "no": "Helsemodus",
+        "es": "Modo salud",
+        "da": "Sundhedstilstand",
+        "pl": "Tryb zdrowotny",
+        "ko": "건강 모드"
+      },
+      "example": "true"
+    }
+  ]
+}

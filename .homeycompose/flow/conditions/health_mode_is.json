@@ -1,0 +1,74 @@
+{
+  "id": "health_mode_is",
+  "title": {
+    "en": "Health mode !{{is|isn't}} ...",
+    "nl": "Gezondheidsmodus !{{is|is niet}} ...",
+    "de": "Gesundheitsmodus !{{ist|ist nicht}} ...",
+    "fr": "Mode santé !{{est|n'est pas}} ...",
+    "it": "La modalità salute !{{è|non è}} ...",
+    "sv": "Hälsoläge !{{är|är inte}} ...",
+    "no": "Helsemodus !{{er|er ikke}} ...",
+    "es": "Modo salud !{{es|no es}} ...",
+    "da": "Sundhedstilstand !{{er|er ikke}} ...",
+    "pl": "Tryb zdrowotny !{{jest|nie jest}} ...",
+    "ko": "건강 모드가 ...!{{임|아님}}"
+  },
+  "titleFormatted": {
+    "en": "Health mode !{{is|isn't}} [[mode]]",
+    "nl": "Gezondheidsmodus !{{is|is niet}} [[mode]]",
+    "de": "Gesundheitsmodus !{{ist|ist nicht}} [[mode]]",
+    "fr": "Mode santé !{{est|n'est pas}} [[mode]]",
+    "it": "La modalità salute !{{è|non è}} [[mode]]",
+    "sv": "Hälsoläge !{{är|är inte}} [[mode]]",
+    "no": "Helsemodus !{{er|er ikke}} [[mode]]",
+    "es": "Modo salud !{{es|no es}} [[mode]]",
+    "da": "Sundhedstilstand !{{er|er ikke}} [[mode]]",
+    "pl": "Tryb zdrowotny !{{jest|nie jest}} [[mode]]",
+    "ko": "건강 모드가 [[mode]]!{{임|아님}}"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac|gree_cloud_hvac"
+    },
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "on",
+          "label": {
+            "en": "On",
+            "nl": "Aan",
+            "de": "Einschalten",
+            "fr": "Marche",
+            "it": "Acceso",
+            "sv": "På",
+            "no": "På",
+            "es": "Encendido",
+            "da": "Til",
+            "pl": "Wł.",
+            "ko": "켜기"
+          }
+        },
+        {
+          "id": "off",
+          "label": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Ausschalten",
+            "fr": "Arrêt",
+            "it": "Spento",
+            "sv": "Av",
+            "no": "Av",
+            "es": "Apagado",
+            "da": "Fra",
+            "pl": "Wył.",
+            "ko": "끄기"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "hvac_mode_changed",
+  "deprecated": true,
+  "title": {
+    "en": "HVAC mode changed",
+    "nl": "HVAC modus veranderd",
+    "de": "HVAC-Modus geändert",
+    "fr": "Mode HVAC modifié",
+    "it": "Modalità HVAC cambiata",
+    "sv": "HVAC-läge ändrat",
+    "no": "HVAC-modus endret",
+    "es": "Modo HVAC cambiado",
+    "da": "HVAC-tilstand ændret",
+    "pl": "Zmieniono tryb HVAC",
+    "ko": "HVAC 모드 변경됨"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=gree_cooper_hunter_hvac"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "hvac_mode",
+      "type": "string",
+      "title": {
+        "en": "HVAC mode",
+        "nl": "HVAC modus",
+        "de": "HVAC-Modus",
+        "fr": "Mode HVAC",
+        "it": "Modalità HVAC",
+        "sv": "HVAC-läge",
+        "no": "HVAC-modus",
+        "es": "Modo HVAC",
+        "da": "HVAC-tilstand",
+        "pl": "Tryb HVAC",
+        "ko": "HVAC 모드"
+      },
+      "example": "cool"
+    }
+  ]
+}
