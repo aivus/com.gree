@@ -24,6 +24,7 @@
             "login": {
                 "description": "Accedi con il tuo account Gree. La regione deve corrispondere a quella in cui l'account è stato creato: con la regione sbagliata l'accesso non riesce mai.",
                 "region_label": "Regione",
+                "region_disabled": "(disattivata)",
                 "email_label": "Indirizzo e-mail",
                 "password_label": "Password",
                 "button": "Accedi"
@@ -50,6 +51,7 @@
         "cloud": {
             "invalid_credentials": "Indirizzo e-mail o password errati.",
             "wrong_region": "Accesso non riuscito. Verifica che la regione selezionata corrisponda a quella del tuo account Gree.",
+            "region_disabled": "Questa regione non è disponibile in questa app. L'accesso non è possibile per gli account registrati lì.",
             "network": "Non è stato possibile raggiungere il cloud Gree. Controlla la connessione a Internet e riprova.",
             "rate_limited": "Il cloud Gree sta rifiutando temporaneamente le richieste. Attendi qualche minuto e riprova.",
             "cloud": "Il cloud Gree ha restituito una risposta inattesa. Riprova più tardi.",

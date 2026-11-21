@@ -55,6 +55,22 @@ describe('drivers in the generated app.json', () => {
     it('declares the cloud driver as cloud-connected', () => {
         expect(driver(CLOUD_DRIVER).connectivity).toEqual(['cloud']);
     });
+
+    // The cloud protocol is reverse-engineered and unverified against most
+    // hardware, so the driver name says so in every language.
+    it('marks the cloud driver as experimental in every locale', () => {
+        const names = driver(CLOUD_DRIVER).name;
+        const localDriverLocales = Object.keys(driver(LOCAL_DRIVER).name).sort();
+
+        expect(Object.keys(names).sort()).toEqual(localDriverLocales);
+
+        const unmarked = Object.entries(names)
+            .filter(([, name]) => !/\(.+\)$/.test(name.trim()))
+            .map(([locale]) => locale);
+
+        expect(unmarked).toEqual([]);
+        expect(names.en).toBe('Gree Cloud HVACs (experimental)');
+    });
 });
 
 describe('driver assets and views', () => {

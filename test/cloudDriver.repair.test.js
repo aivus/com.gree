@@ -171,4 +171,10 @@ describe('GreeCloudHVACDriver repair', () => {
         await expect(handlers.relogin({ ...credentials, region: 'atlantis' }))
             .rejects.toThrow('error.cloud.wrong_region');
     });
+
+    it('refuses a disabled region', async () => {
+        await expect(handlers.relogin({ ...credentials, region: 'russia' }))
+            .rejects.toThrow('error.cloud.region_disabled');
+        expect(mockSession.signIn).not.toHaveBeenCalled();
+    });
 });

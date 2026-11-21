@@ -24,6 +24,7 @@
             "login": {
                 "description": "Logga in med ditt Gree-konto. Regionen måste vara densamma som kontot skapades i — med fel region misslyckas inloggningen alltid.",
                 "region_label": "Region",
+                "region_disabled": "(inaktiverad)",
                 "email_label": "E-postadress",
                 "password_label": "Lösenord",
                 "button": "Logga in"
@@ -50,6 +51,7 @@
         "cloud": {
             "invalid_credentials": "Fel e-postadress eller lösenord.",
             "wrong_region": "Inloggningen misslyckades. Kontrollera att den valda regionen stämmer med regionen för ditt Gree-konto.",
+            "region_disabled": "Den här regionen är inte tillgänglig i appen. Inloggning är inte möjlig för konton som är registrerade där.",
             "network": "Kunde inte nå Gree-molnet. Kontrollera din internetanslutning och försök igen.",
             "rate_limited": "Gree-molnet nekar tillfälligt förfrågningar. Vänta några minuter och försök igen.",
             "cloud": "Gree-molnet svarade oväntat. Försök igen senare.",

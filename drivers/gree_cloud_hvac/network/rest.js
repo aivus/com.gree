@@ -43,6 +43,13 @@ const REGIONS = {
 const REGION_IDS = Object.keys(REGIONS);
 
 /**
+ * Regions this app deliberately does not connect to. They stay in REGIONS and
+ * are still shown while pairing, marked as disabled, so a user whose account
+ * lives there is told why rather than left guessing at a failed sign-in.
+ */
+const DISABLED_REGION_IDS = ['russia'];
+
+/**
  * The API timestamp format: UTC "YYYY-MM-DD HH:MM:SS".
  *
  * @param {Date} date
@@ -85,6 +92,10 @@ class CloudRestClient {
     }) {
         if (!REGIONS[region]) {
             throw new Error(`Unknown Gree cloud region: ${region}`);
+        }
+
+        if (DISABLED_REGION_IDS.includes(region)) {
+            throw new Error(`Gree cloud region is not available: ${region}`);
         }
 
         this._baseUrl = REGIONS[region];
@@ -299,6 +310,7 @@ module.exports = {
     CloudRestClient,
     REGIONS,
     REGION_IDS,
+    DISABLED_REGION_IDS,
     formatTimestamp,
     APP_ID,
     APP_HASH,

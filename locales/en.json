@@ -24,6 +24,7 @@
             "login": {
                 "description": "Sign in with your Gree account. The region must match the one the account was created in — the wrong region always fails to sign in.",
                 "region_label": "Region",
+                "region_disabled": "(disabled)",
                 "email_label": "E-mail address",
                 "password_label": "Password",
                 "button": "Sign in"
@@ -50,6 +51,7 @@
         "cloud": {
             "invalid_credentials": "Wrong e-mail address or password.",
             "wrong_region": "Sign-in failed. Check that the selected region matches the region of your Gree account.",
+            "region_disabled": "This region is not available in this app. Sign-in is not possible for accounts registered there.",
             "network": "Could not reach the Gree cloud. Check your internet connection and try again.",
             "rate_limited": "The Gree cloud is temporarily refusing requests. Wait a few minutes and try again.",
             "cloud": "The Gree cloud returned an unexpected response. Try again later.",

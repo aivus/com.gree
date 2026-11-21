@@ -2,7 +2,7 @@
 
 const Homey = require('homey');
 const session = require('./network/session');
-const { REGION_IDS } = require('./network/rest');
+const { REGION_IDS, DISABLED_REGION_IDS } = require('./network/rest');
 const { CloudError, ERROR } = require('./network/errors');
 
 // Region offered first, and the default selection in the pairing view.
@@ -57,11 +57,21 @@ class GreeCloudHVACDriver extends Homey.Driver {
      * @private
      */
     _regionChoices(selected = DEFAULT_REGION) {
-        return REGION_IDS.map((id) => ({
-            id,
-            label: this.homey.__(`pair.cloud.regions.${id}`),
-            selected: id === selected,
-        }));
+        return REGION_IDS.map((id) => {
+            const disabled = DISABLED_REGION_IDS.includes(id);
+            const name = this.homey.__(`pair.cloud.regions.${id}`);
+
+            return {
+                id,
+                // Disabled regions stay in the list, labelled as such, so a user
+                // whose account lives in one is told rather than left guessing.
+                label: disabled
+                    ? `${name} ${this.homey.__('pair.cloud.login.region_disabled')}`
+                    : name,
+                disabled,
+                selected: id === selected && !disabled,
+            };
+        });
     }
 
     /**
@@ -271,6 +281,10 @@ class GreeCloudHVACDriver extends Homey.Driver {
     _validateCredentials({ region, email, password }) {
         if (!REGION_IDS.includes(region)) {
             throw new Error(this.homey.__('error.cloud.wrong_region'));
+        }
+
+        if (DISABLED_REGION_IDS.includes(region)) {
+            throw new Error(this.homey.__('error.cloud.region_disabled'));
         }
 
         const trimmedEmail = typeof email === 'string' ? email.trim() : '';

@@ -24,6 +24,7 @@
             "login": {
                 "description": "Log ind med din Gree-konto. Regionen skal svare til den, kontoen blev oprettet i — med den forkerte region mislykkes login altid.",
                 "region_label": "Region",
+                "region_disabled": "(deaktiveret)",
                 "email_label": "E-mailadresse",
                 "password_label": "Adgangskode",
                 "button": "Log ind"
@@ -50,6 +51,7 @@
         "cloud": {
             "invalid_credentials": "Forkert e-mailadresse eller adgangskode.",
             "wrong_region": "Login mislykkedes. Kontroller, at den valgte region svarer til regionen for din Gree-konto.",
+            "region_disabled": "Denne region er ikke tilgængelig i denne app. Login er ikke muligt for konti, der er registreret der.",
             "network": "Kunne ikke få forbindelse til Gree-skyen. Kontroller din internetforbindelse og prøv igen.",
             "rate_limited": "Gree-skyen afviser midlertidigt forespørgsler. Vent et par minutter og prøv igen.",
             "cloud": "Gree-skyen svarede uventet. Prøv igen senere.",

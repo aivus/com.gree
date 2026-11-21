@@ -24,6 +24,7 @@
             "login": {
                 "description": "Inicia sesión con tu cuenta Gree. La región debe coincidir con la región en la que se creó la cuenta: con la región equivocada el inicio de sesión siempre falla.",
                 "region_label": "Región",
+                "region_disabled": "(desactivada)",
                 "email_label": "Dirección de correo electrónico",
                 "password_label": "Contraseña",
                 "button": "Iniciar sesión"
@@ -50,6 +51,7 @@
         "cloud": {
             "invalid_credentials": "Dirección de correo o contraseña incorrectas.",
             "wrong_region": "El inicio de sesión falló. Comprueba que la región seleccionada coincide con la de tu cuenta Gree.",
+            "region_disabled": "Esta región no está disponible en esta app. No es posible iniciar sesión con cuentas registradas allí.",
             "network": "No se pudo conectar con la nube de Gree. Comprueba tu conexión a internet e inténtalo de nuevo.",
             "rate_limited": "La nube de Gree está rechazando solicitudes temporalmente. Espera unos minutos e inténtalo de nuevo.",
             "cloud": "La nube de Gree devolvió una respuesta inesperada. Inténtalo más tarde.",

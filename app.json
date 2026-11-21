@@ -3427,17 +3427,17 @@
   "drivers": [
     {
       "name": {
-        "en": "Gree Cloud HVACs",
-        "nl": "Gree Cloud airco's",
-        "de": "Gree Cloud Klimaanlagen",
-        "fr": "Climatiseurs Gree Cloud",
-        "it": "Condizionatori Gree Cloud",
-        "sv": "Gree Cloud-luftkonditioneringar",
-        "no": "Gree Cloud klimaanlegg",
-        "es": "Aires acondicionados Gree Cloud",
-        "da": "Gree Cloud HVAC'er",
-        "pl": "Klimatyzatory Gree Cloud",
-        "ko": "Gree Cloud 에어컨"
+        "en": "Gree Cloud HVACs (experimental)",
+        "nl": "Gree Cloud airco's (experimenteel)",
+        "de": "Gree Cloud Klimaanlagen (experimentell)",
+        "fr": "Climatiseurs Gree Cloud (expérimental)",
+        "it": "Condizionatori Gree Cloud (sperimentale)",
+        "sv": "Gree Cloud-luftkonditioneringar (experimentell)",
+        "no": "Gree Cloud klimaanlegg (eksperimentell)",
+        "es": "Aires acondicionados Gree Cloud (experimental)",
+        "da": "Gree Cloud HVAC'er (eksperimentel)",
+        "pl": "Klimatyzatory Gree Cloud (eksperymentalny)",
+        "ko": "Gree Cloud 에어컨 (실험적)"
       },
       "class": "airconditioning",
       "capabilities": [

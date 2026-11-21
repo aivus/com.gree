@@ -24,6 +24,7 @@
             "login": {
                 "description": "Zaloguj się swoim kontem Gree. Region musi być taki sam jak ten, w którym konto zostało utworzone — przy błędnym regionie logowanie zawsze się nie udaje.",
                 "region_label": "Region",
+                "region_disabled": "(wyłączony)",
                 "email_label": "Adres e-mail",
                 "password_label": "Hasło",
                 "button": "Zaloguj się"
@@ -50,6 +51,7 @@
         "cloud": {
             "invalid_credentials": "Nieprawidłowy adres e-mail lub hasło.",
             "wrong_region": "Logowanie nie powiodło się. Sprawdź, czy wybrany region odpowiada regionowi Twojego konta Gree.",
+            "region_disabled": "Ten region nie jest dostępny w tej aplikacji. Logowanie na konta tam zarejestrowane nie jest możliwe.",
             "network": "Nie udało się połączyć z chmurą Gree. Sprawdź połączenie internetowe i spróbuj ponownie.",
             "rate_limited": "Chmura Gree tymczasowo odrzuca żądania. Odczekaj kilka minut i spróbuj ponownie.",
             "cloud": "Chmura Gree zwróciła nieoczekiwaną odpowiedź. Spróbuj ponownie później.",

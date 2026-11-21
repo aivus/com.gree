@@ -24,6 +24,7 @@
             "login": {
                 "description": "Log in met je Gree-account. De regio moet overeenkomen met de regio waarin het account is aangemaakt — met de verkeerde regio lukt inloggen nooit.",
                 "region_label": "Regio",
+                "region_disabled": "(uitgeschakeld)",
                 "email_label": "E-mailadres",
                 "password_label": "Wachtwoord",
                 "button": "Inloggen"
@@ -50,6 +51,7 @@
         "cloud": {
             "invalid_credentials": "Verkeerd e-mailadres of wachtwoord.",
             "wrong_region": "Inloggen mislukt. Controleer of de gekozen regio overeenkomt met de regio van je Gree-account.",
+            "region_disabled": "Deze regio is niet beschikbaar in deze app. Inloggen is niet mogelijk voor accounts die daar zijn geregistreerd.",
             "network": "Kon de Gree-cloud niet bereiken. Controleer je internetverbinding en probeer het opnieuw.",
             "rate_limited": "De Gree-cloud weigert tijdelijk verzoeken. Wacht een paar minuten en probeer het opnieuw.",
             "cloud": "De Gree-cloud gaf een onverwacht antwoord. Probeer het later opnieuw.",

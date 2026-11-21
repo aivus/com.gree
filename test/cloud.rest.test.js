@@ -2,7 +2,8 @@
 
 const crypto = require('crypto');
 const {
-    CloudRestClient, REGIONS, REGION_IDS, formatTimestamp, APP_ID, APP_HASH,
+    CloudRestClient, REGIONS, REGION_IDS, DISABLED_REGION_IDS, formatTimestamp, APP_ID,
+    APP_HASH,
 } = require('../drivers/gree_cloud_hvac/network/rest');
 const { ERROR } = require('../drivers/gree_cloud_hvac/network/errors');
 const { CloudCipher } = require('../drivers/gree_cloud_hvac/network/crypto');
@@ -234,5 +235,36 @@ describe('CloudRestClient.getMqttAddress()', () => {
 
         await expect(client(fetchImpl).getMqttAddress(account))
             .rejects.toMatchObject({ reason: ERROR.CLOUD });
+    });
+});
+
+describe('CloudRestClient disabled regions', () => {
+    it('refuses to be built for a disabled region', () => {
+        // The endpoint exists, but this app does not connect to it, so no code
+        // path can reach it even if the pairing guard were bypassed.
+        DISABLED_REGION_IDS.forEach((region) => {
+            expect(() => new CloudRestClient({ region }))
+                .toThrow(/Gree cloud region is not available/);
+        });
+    });
+
+    it('keeps the disabled regions in the region list', () => {
+        // They stay listed so pairing can show them as unavailable.
+        DISABLED_REGION_IDS.forEach((region) => {
+            expect(REGION_IDS).toContain(region);
+        });
+    });
+
+    it('disables exactly the regions we intend to', () => {
+        expect(DISABLED_REGION_IDS).toEqual(['russia']);
+    });
+
+    it('still allows every other region', () => {
+        const allowed = REGION_IDS.filter((region) => !DISABLED_REGION_IDS.includes(region));
+
+        expect(allowed).toHaveLength(9);
+        allowed.forEach((region) => {
+            expect(() => new CloudRestClient({ region })).not.toThrow();
+        });
     });
 });

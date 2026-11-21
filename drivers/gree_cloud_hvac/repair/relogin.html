@@ -54,6 +54,9 @@
       var option = document.createElement('option');
       option.value = region.id;
       option.textContent = region.label;
+      if (region.disabled) {
+        option.disabled = true;
+      }
       if (region.selected) {
         option.selected = true;
       }

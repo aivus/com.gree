@@ -39,7 +39,7 @@ This app offers two device types. Add each air conditioner through **one** of th
 ### EWPE Smart HVACs (local network)
 The default. Talks to the HVAC directly over your Wi-Fi network, updates within seconds and needs no account. Use this whenever it works.
 
-### Gree Cloud HVACs (Gree account)
+### Gree Cloud HVACs (experimental, Gree account)
 Controls the HVAC through Gree's servers using your Gree account. Slower (status is polled about once a minute) and depends on Gree's cloud being reachable, but it works when the local protocol does not — for example when the HVAC is on another network or VLAN, when UDP is blocked, or with newer firmware and cloud-only units that never answer local discovery.
 
 **Gree allows only one active sign-in per account.** When Homey signs in, the Gree+ / EWPE Smart app on your phone is signed out and may warn you that someone else knows your password. To keep using the phone app, create a second Gree account, invite it as a family member to your home in the Gree+ app, and sign Homey in with that second account.

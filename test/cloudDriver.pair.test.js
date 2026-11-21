@@ -81,6 +81,25 @@ describe('GreeCloudHVACDriver pairing', () => {
                 .toEqual(['europe']);
             expect(regions[0].label).toBe('pair.cloud.regions.australia');
         });
+
+        it('marks the unavailable region as disabled rather than hiding it', async () => {
+            const regions = await handlers.get_regions();
+            const russia = regions.find((region) => region.id === 'russia');
+
+            // Kept in the list so a user whose account lives there is told why,
+            // instead of being left guessing at a failed sign-in.
+            expect(russia.disabled).toBe(true);
+            expect(russia.label).toBe(
+                'pair.cloud.regions.russia pair.cloud.login.region_disabled',
+            );
+        });
+
+        it('leaves every other region selectable', async () => {
+            const regions = await handlers.get_regions();
+
+            expect(regions.filter((region) => region.disabled).map((region) => region.id))
+                .toEqual(['russia']);
+        });
     });
 
     describe('login', () => {
@@ -120,6 +139,12 @@ describe('GreeCloudHVACDriver pairing', () => {
         it('rejects an unknown region without contacting the cloud', async () => {
             await expect(handlers.login({ ...credentials, region: 'atlantis' }))
                 .rejects.toThrow('error.cloud.wrong_region');
+            expect(mockSession.signIn).not.toHaveBeenCalled();
+        });
+
+        it('refuses a disabled region without contacting the cloud', async () => {
+            await expect(handlers.login({ ...credentials, region: 'russia' }))
+                .rejects.toThrow('error.cloud.region_disabled');
             expect(mockSession.signIn).not.toHaveBeenCalled();
         });
 
